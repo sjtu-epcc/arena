@@ -1,0 +1,1640 @@
+
+------------------------------------------------------------------
+- (1/3) Profiling moe_10B with batch size: 256...
+------------------------------------------------------------------
+[TMP] Existed profiling results in `./jaxpr/prof_log/optimal/moe_10B_256.pkl`, updating/rewriting it...
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 2
+    - Nodes num: 4
+[I] Loading flax model....
+[I] Model 'moe' loads sucessfully. Model Info: 
+
+FlaxMoEForLMModule(
+    # attributes
+    config = <model.moe_model.MoEConfig object at 0x7f7361cc6880>
+    dtype = float16
+    bias_init = zeros
+) 
+
+[I] Manually constructing dummy batch...
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+-------------------- Automatic stage clustering --------------------
+submesh_choices: ((1, 1), (1, 2), (2, 2), (4, 2))
+- Profiling for submesh 3 (4, 2):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(0, 7, 3, 0), 0] = ModuleProfileResult(compute_cost=0.037, peak_memory=16.818 GB, invar_size=16.584 GB, outvar_size=0.041 GB, temp_buffer_size=0.193 GB, available_memory=35.242 GB)
+result[(0, 7, 3, 1), 0] = ModuleProfileResult(compute_cost=0.083, peak_memory=8.568 GB, invar_size=8.292 GB, outvar_size=0.082 GB, temp_buffer_size=0.193 GB, available_memory=35.242 GB)
+result[(0, 7, 3, 2), 0] = ModuleProfileResult(compute_cost=0.150, peak_memory=3.037 GB, invar_size=2.803 GB, outvar_size=0.041 GB, temp_buffer_size=0.193 GB, available_memory=35.242 GB)
+result[(0, 7, 3, 0), 1] = ModuleProfileResult(compute_cost=15.060, peak_memory=57.135 GB, invar_size=38.103 GB, outvar_size=19.031 GB, temp_buffer_size=19.031 GB, available_memory=35.242 GB)
+result[(0, 7, 3, 1), 1] = ModuleProfileResult(compute_cost=6.682, peak_memory=28.630 GB, invar_size=19.114 GB, outvar_size=9.516 GB, temp_buffer_size=9.516 GB, available_memory=35.242 GB)
+result[(0, 7, 3, 2), 1] = ModuleProfileResult(compute_cost=1.193, peak_memory=7.635 GB, invar_size=6.603 GB, outvar_size=3.281 GB, temp_buffer_size=1.031 GB, available_memory=35.242 GB)
+Profiling for submesh 3 (4, 2) takes 88.62 seconds
+--------------------------------------------------
+- Profiling for submesh 2 (2, 2):
+[TMP] Skip profiling of 2 due to legacy error in tensorflow...
+- Profiling for submesh 1 (1, 2):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(1, 2, 1, 1), 0] = ModuleProfileResult(compute_cost=0.086, peak_memory=3.270 GB, invar_size=2.403 GB, outvar_size=0.070 GB, temp_buffer_size=0.797 GB, available_memory=35.242 GB)
+result[(3, 4, 1, 0), 0] = ModuleProfileResult(compute_cost=0.041, peak_memory=5.626 GB, invar_size=4.805 GB, outvar_size=0.047 GB, temp_buffer_size=0.774 GB, available_memory=35.242 GB)
+result[(1, 2, 1, 0), 0] = ModuleProfileResult(compute_cost=0.037, peak_memory=5.555 GB, invar_size=4.735 GB, outvar_size=0.047 GB, temp_buffer_size=0.774 GB, available_memory=35.242 GB)
+result[(3, 4, 1, 1), 0] = ModuleProfileResult(compute_cost=0.104, peak_memory=3.329 GB, invar_size=2.438 GB, outvar_size=0.094 GB, temp_buffer_size=0.797 GB, available_memory=35.242 GB)
+result[(0, 1, 1, 2), 0] = ModuleProfileResult(compute_cost=0.047, peak_memory=3.306 GB, invar_size=2.485 GB, outvar_size=0.047 GB, temp_buffer_size=0.774 GB, available_memory=35.242 GB)
+result[(2, 3, 1, 0), 0] = ModuleProfileResult(compute_cost=0.037, peak_memory=5.555 GB, invar_size=4.735 GB, outvar_size=0.047 GB, temp_buffer_size=0.774 GB, available_memory=35.242 GB)
+result[(2, 3, 1, 1), 0] = ModuleProfileResult(compute_cost=0.086, peak_memory=3.270 GB, invar_size=2.403 GB, outvar_size=0.070 GB, temp_buffer_size=0.797 GB, available_memory=35.242 GB)
+result[(0, 1, 1, 0), 0] = ModuleProfileResult(compute_cost=0.038, peak_memory=5.556 GB, invar_size=4.735 GB, outvar_size=0.047 GB, temp_buffer_size=0.774 GB, available_memory=35.242 GB)
+result[(2, 3, 1, 2), 0] = ModuleProfileResult(compute_cost=0.045, peak_memory=3.305 GB, invar_size=2.485 GB, outvar_size=0.047 GB, temp_buffer_size=0.774 GB, available_memory=35.242 GB)
+result[(1, 2, 1, 2), 0] = ModuleProfileResult(compute_cost=0.045, peak_memory=3.305 GB, invar_size=2.485 GB, outvar_size=0.047 GB, temp_buffer_size=0.774 GB, available_memory=35.242 GB)
+result[(0, 1, 1, 1), 0] = ModuleProfileResult(compute_cost=0.087, peak_memory=3.236 GB, invar_size=2.368 GB, outvar_size=0.070 GB, temp_buffer_size=0.797 GB, available_memory=35.242 GB)
+result[(2, 3, 1, 2), 1] = ModuleProfileResult(compute_cost=0.128, peak_memory=7.760 GB, invar_size=4.993 GB, outvar_size=2.485 GB, temp_buffer_size=2.744 GB, available_memory=35.242 GB)
+result[(1, 2, 1, 2), 1] = ModuleProfileResult(compute_cost=0.128, peak_memory=7.760 GB, invar_size=4.993 GB, outvar_size=2.485 GB, temp_buffer_size=2.744 GB, available_memory=35.242 GB)
+result[(3, 4, 1, 2), 0] = ModuleProfileResult(compute_cost=0.050, peak_memory=3.376 GB, invar_size=2.555 GB, outvar_size=0.047 GB, temp_buffer_size=0.774 GB, available_memory=35.242 GB)
+result[(1, 2, 1, 1), 1] = ModuleProfileResult(compute_cost=0.222, peak_memory=8.244 GB, invar_size=4.852 GB, outvar_size=2.403 GB, temp_buffer_size=3.345 GB, available_memory=35.242 GB)
+result[(3, 4, 1, 0), 1] = ModuleProfileResult(compute_cost=0.164, peak_memory=14.439 GB, invar_size=9.634 GB, outvar_size=4.805 GB, temp_buffer_size=4.782 GB, available_memory=35.242 GB)
+result[(0, 1, 1, 1), 1] = ModuleProfileResult(compute_cost=0.213, peak_memory=8.113 GB, invar_size=4.829 GB, outvar_size=2.368 GB, temp_buffer_size=3.283 GB, available_memory=35.242 GB)
+result[(0, 1, 1, 0), 1] = ModuleProfileResult(compute_cost=0.151, peak_memory=14.253 GB, invar_size=9.518 GB, outvar_size=4.735 GB, temp_buffer_size=4.735 GB, available_memory=35.242 GB)
+result[(2, 3, 1, 1), 1] = ModuleProfileResult(compute_cost=0.222, peak_memory=8.244 GB, invar_size=4.852 GB, outvar_size=2.403 GB, temp_buffer_size=3.345 GB, available_memory=35.242 GB)
+result[(0, 1, 1, 2), 1] = ModuleProfileResult(compute_cost=0.126, peak_memory=7.920 GB, invar_size=5.018 GB, outvar_size=2.485 GB, temp_buffer_size=2.902 GB, available_memory=35.242 GB)
+result[(2, 3, 1, 0), 1] = ModuleProfileResult(compute_cost=0.152, peak_memory=14.228 GB, invar_size=9.493 GB, outvar_size=4.735 GB, temp_buffer_size=4.711 GB, available_memory=35.242 GB)
+result[(1, 2, 1, 0), 1] = ModuleProfileResult(compute_cost=0.152, peak_memory=14.228 GB, invar_size=9.493 GB, outvar_size=4.735 GB, temp_buffer_size=4.711 GB, available_memory=35.242 GB)
+result[(4, 5, 1, 0), 0] = ModuleProfileResult(compute_cost=0.041, peak_memory=5.626 GB, invar_size=4.805 GB, outvar_size=0.047 GB, temp_buffer_size=0.774 GB, available_memory=35.242 GB)
+result[(4, 5, 1, 2), 0] = ModuleProfileResult(compute_cost=0.050, peak_memory=3.376 GB, invar_size=2.555 GB, outvar_size=0.047 GB, temp_buffer_size=0.774 GB, available_memory=35.242 GB)
+result[(4, 5, 1, 1), 0] = ModuleProfileResult(compute_cost=0.104, peak_memory=3.329 GB, invar_size=2.438 GB, outvar_size=0.094 GB, temp_buffer_size=0.797 GB, available_memory=35.242 GB)
+result[(5, 6, 1, 0), 0] = ModuleProfileResult(compute_cost=0.037, peak_memory=5.555 GB, invar_size=4.735 GB, outvar_size=0.047 GB, temp_buffer_size=0.774 GB, available_memory=35.242 GB)
+result[(6, 7, 1, 0), 0] = ModuleProfileResult(compute_cost=0.018, peak_memory=3.176 GB, invar_size=2.379 GB, outvar_size=0.023 GB, temp_buffer_size=0.774 GB, available_memory=35.242 GB)
+result[(6, 7, 1, 1), 0] = ModuleProfileResult(compute_cost=0.046, peak_memory=2.069 GB, invar_size=1.225 GB, outvar_size=0.047 GB, temp_buffer_size=0.797 GB, available_memory=35.242 GB)
+result[(6, 7, 1, 2), 0] = ModuleProfileResult(compute_cost=0.023, peak_memory=2.051 GB, invar_size=1.254 GB, outvar_size=0.023 GB, temp_buffer_size=0.774 GB, available_memory=35.242 GB)
+result[(3, 4, 1, 1), 1] = ModuleProfileResult(compute_cost=0.240, peak_memory=8.505 GB, invar_size=4.922 GB, outvar_size=2.438 GB, temp_buffer_size=3.535 GB, available_memory=35.242 GB)
+result[(5, 6, 1, 1), 0] = ModuleProfileResult(compute_cost=0.093, peak_memory=3.294 GB, invar_size=2.403 GB, outvar_size=0.094 GB, temp_buffer_size=0.797 GB, available_memory=35.242 GB)
+result[(3, 4, 1, 2), 1] = ModuleProfileResult(compute_cost=0.140, peak_memory=8.495 GB, invar_size=5.157 GB, outvar_size=2.555 GB, temp_buffer_size=3.314 GB, available_memory=35.242 GB)
+result[(4, 5, 1, 0), 1] = ModuleProfileResult(compute_cost=0.164, peak_memory=14.439 GB, invar_size=9.634 GB, outvar_size=4.805 GB, temp_buffer_size=4.782 GB, available_memory=35.242 GB)
+result[(5, 6, 1, 2), 0] = ModuleProfileResult(compute_cost=0.045, peak_memory=3.305 GB, invar_size=2.485 GB, outvar_size=0.047 GB, temp_buffer_size=0.774 GB, available_memory=35.242 GB)
+result[(5, 6, 1, 0), 1] = ModuleProfileResult(compute_cost=0.152, peak_memory=14.228 GB, invar_size=9.493 GB, outvar_size=4.735 GB, temp_buffer_size=4.711 GB, available_memory=35.242 GB)
+result[(4, 5, 1, 2), 1] = ModuleProfileResult(compute_cost=0.140, peak_memory=8.471 GB, invar_size=5.134 GB, outvar_size=2.555 GB, temp_buffer_size=3.314 GB, available_memory=35.242 GB)
+result[(4, 5, 1, 1), 1] = ModuleProfileResult(compute_cost=0.240, peak_memory=8.823 GB, invar_size=4.922 GB, outvar_size=2.438 GB, temp_buffer_size=3.853 GB, available_memory=35.242 GB)
+result[(6, 7, 1, 0), 1] = ModuleProfileResult(compute_cost=0.170, peak_memory=14.479 GB, invar_size=9.653 GB, outvar_size=4.826 GB, temp_buffer_size=4.803 GB, available_memory=35.242 GB)
+result[(5, 6, 1, 1), 1] = ModuleProfileResult(compute_cost=0.222, peak_memory=8.386 GB, invar_size=4.852 GB, outvar_size=2.403 GB, temp_buffer_size=3.487 GB, available_memory=35.242 GB)
+result[(6, 7, 1, 1), 1] = ModuleProfileResult(compute_cost=0.246, peak_memory=8.831 GB, invar_size=4.897 GB, outvar_size=2.448 GB, temp_buffer_size=3.887 GB, available_memory=35.242 GB)
+result[(5, 6, 1, 2), 1] = ModuleProfileResult(compute_cost=0.128, peak_memory=7.932 GB, invar_size=4.993 GB, outvar_size=2.485 GB, temp_buffer_size=2.916 GB, available_memory=35.242 GB)
+result[(6, 7, 1, 2), 1] = ModuleProfileResult(compute_cost=0.154, peak_memory=8.782 GB, invar_size=5.061 GB, outvar_size=2.531 GB, temp_buffer_size=3.698 GB, available_memory=35.242 GB)
+Profiling for submesh 1 (1, 2) takes 31.81 seconds
+--------------------------------------------------
+- Profiling for submesh 0 (1, 1):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(3, 3, 0, 1), 0] = ModuleProfileResult(compute_cost=0.036, peak_memory=3.997 GB, invar_size=2.403 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(3, 3, 0, 0), 0] = ModuleProfileResult(compute_cost=0.036, peak_memory=3.997 GB, invar_size=2.403 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(2, 2, 0, 1), 0] = ModuleProfileResult(compute_cost=0.036, peak_memory=3.997 GB, invar_size=2.403 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(1, 1, 0, 1), 0] = ModuleProfileResult(compute_cost=0.036, peak_memory=3.997 GB, invar_size=2.403 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(2, 2, 0, 0), 0] = ModuleProfileResult(compute_cost=0.036, peak_memory=3.997 GB, invar_size=2.403 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(0, 0, 0, 0), 0] = ModuleProfileResult(compute_cost=0.039, peak_memory=3.974 GB, invar_size=2.380 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(0, 0, 0, 1), 0] = ModuleProfileResult(compute_cost=0.039, peak_memory=3.974 GB, invar_size=2.380 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(1, 1, 0, 0), 0] = ModuleProfileResult(compute_cost=0.036, peak_memory=3.997 GB, invar_size=2.403 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(3, 3, 0, 1), 1] = ModuleProfileResult(compute_cost=0.106, peak_memory=10.308 GB, invar_size=4.805 GB, outvar_size=2.403 GB, temp_buffer_size=5.456 GB, available_memory=35.242 GB)
+result[(3, 3, 0, 0), 1] = ModuleProfileResult(compute_cost=0.106, peak_memory=10.308 GB, invar_size=4.805 GB, outvar_size=2.403 GB, temp_buffer_size=5.456 GB, available_memory=35.242 GB)
+result[(1, 1, 0, 1), 1] = ModuleProfileResult(compute_cost=0.106, peak_memory=10.308 GB, invar_size=4.805 GB, outvar_size=2.403 GB, temp_buffer_size=5.456 GB, available_memory=35.242 GB)
+result[(2, 2, 0, 0), 1] = ModuleProfileResult(compute_cost=0.106, peak_memory=10.308 GB, invar_size=4.805 GB, outvar_size=2.403 GB, temp_buffer_size=5.456 GB, available_memory=35.242 GB)
+result[(2, 2, 0, 1), 1] = ModuleProfileResult(compute_cost=0.106, peak_memory=10.308 GB, invar_size=4.805 GB, outvar_size=2.403 GB, temp_buffer_size=5.456 GB, available_memory=35.242 GB)
+result[(0, 0, 0, 0), 1] = ModuleProfileResult(compute_cost=0.104, peak_memory=10.568 GB, invar_size=4.807 GB, outvar_size=2.380 GB, temp_buffer_size=5.761 GB, available_memory=35.242 GB)
+result[(1, 1, 0, 0), 1] = ModuleProfileResult(compute_cost=0.106, peak_memory=10.308 GB, invar_size=4.805 GB, outvar_size=2.403 GB, temp_buffer_size=5.456 GB, available_memory=35.242 GB)
+result[(7, 7, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=0.000 GB, invar_size=0.000 GB, outvar_size=0.000 GB, temp_buffer_size=0.000 GB, available_memory=35.242 GB)
+result[(7, 7, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=0.000 GB, invar_size=0.000 GB, outvar_size=0.000 GB, temp_buffer_size=0.000 GB, available_memory=35.242 GB)
+result[(0, 0, 0, 1), 1] = ModuleProfileResult(compute_cost=0.104, peak_memory=10.568 GB, invar_size=4.807 GB, outvar_size=2.380 GB, temp_buffer_size=5.761 GB, available_memory=35.242 GB)
+result[(4, 4, 0, 0), 0] = ModuleProfileResult(compute_cost=0.045, peak_memory=4.067 GB, invar_size=2.473 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(5, 5, 0, 0), 0] = ModuleProfileResult(compute_cost=0.036, peak_memory=3.997 GB, invar_size=2.403 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(4, 4, 0, 1), 0] = ModuleProfileResult(compute_cost=0.045, peak_memory=4.067 GB, invar_size=2.473 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(5, 5, 0, 1), 0] = ModuleProfileResult(compute_cost=0.036, peak_memory=3.997 GB, invar_size=2.403 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(6, 6, 0, 0), 0] = ModuleProfileResult(compute_cost=0.036, peak_memory=3.997 GB, invar_size=2.403 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(6, 6, 0, 1), 0] = ModuleProfileResult(compute_cost=0.036, peak_memory=3.997 GB, invar_size=2.403 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(4, 4, 0, 0), 1] = ModuleProfileResult(compute_cost=0.128, peak_memory=11.560 GB, invar_size=4.946 GB, outvar_size=2.473 GB, temp_buffer_size=6.567 GB, available_memory=35.242 GB)
+result[(4, 4, 0, 1), 1] = ModuleProfileResult(compute_cost=0.128, peak_memory=11.560 GB, invar_size=4.946 GB, outvar_size=2.473 GB, temp_buffer_size=6.567 GB, available_memory=35.242 GB)
+result[(5, 5, 0, 0), 1] = ModuleProfileResult(compute_cost=0.106, peak_memory=10.730 GB, invar_size=4.805 GB, outvar_size=2.403 GB, temp_buffer_size=5.878 GB, available_memory=35.242 GB)
+result[(5, 5, 0, 1), 1] = ModuleProfileResult(compute_cost=0.106, peak_memory=10.730 GB, invar_size=4.805 GB, outvar_size=2.403 GB, temp_buffer_size=5.878 GB, available_memory=35.242 GB)
+result[(6, 6, 0, 0), 1] = ModuleProfileResult(compute_cost=0.106, peak_memory=10.636 GB, invar_size=4.805 GB, outvar_size=2.403 GB, temp_buffer_size=5.784 GB, available_memory=35.242 GB)
+result[(6, 6, 0, 1), 1] = ModuleProfileResult(compute_cost=0.106, peak_memory=10.636 GB, invar_size=4.805 GB, outvar_size=2.403 GB, temp_buffer_size=5.784 GB, available_memory=35.242 GB)
+result[(7, 7, 0, 1), 1] = ModuleProfileResult(compute_cost=0.141, peak_memory=12.337 GB, invar_size=4.941 GB, outvar_size=2.494 GB, temp_buffer_size=7.349 GB, available_memory=35.242 GB)
+result[(7, 7, 0, 0), 1] = ModuleProfileResult(compute_cost=0.141, peak_memory=12.337 GB, invar_size=4.941 GB, outvar_size=2.494 GB, temp_buffer_size=7.349 GB, available_memory=35.242 GB)
+Profiling for submesh 0 (1, 1) takes 17.93 seconds
+--------------------------------------------------
+----------------------------------------------------------------------
+[TMP] Stage (0, 3, 2, 0) has been pruned...
+[TMP] Stage (0, 3, 2, 1) has been pruned...
+[TMP] Stage (0, 3, 2, 2) has been pruned...
+[TMP] Stage (1, 4, 2, 0) has been pruned...
+[TMP] Stage (1, 4, 2, 1) has been pruned...
+[TMP] Stage (1, 4, 2, 2) has been pruned...
+[TMP] Stage (2, 5, 2, 0) has been pruned...
+[TMP] Stage (2, 5, 2, 1) has been pruned...
+[TMP] Stage (2, 5, 2, 2) has been pruned...
+[TMP] Stage (3, 6, 2, 0) has been pruned...
+[TMP] Stage (3, 6, 2, 1) has been pruned...
+[TMP] Stage (3, 6, 2, 2) has been pruned...
+[TMP] Stage (4, 7, 2, 0) has been pruned...
+[TMP] Stage (4, 7, 2, 1) has been pruned...
+[TMP] Stage (4, 7, 2, 2) has been pruned...
+Result forward_stage_layer_ids: [[0, 1], [2, 3], [4], [5, 6], [7]]
+Result mesh_shapes: [(1, 2), (1, 2), (1, 1), (1, 2), (1, 1)]
+Result logical_mesh_shapes: [(2, 1), (2, 1), (1, 1), (2, 1), (1, 1)]
+Result autosharding_option_dicts: [{}, {}, {}, {}, {'force_batch_dim_to_mesh_dim': 0}]
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.25<0>
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.25<0>
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO Channel 00 : 0[31000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [1] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.16<0>
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [1] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=4096784)[0m 
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [1] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [1] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.16<0>
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [1] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=4096784)[0m NCCL version 2.8.4+cuda11.2
+[2m[36m(MeshHostWorker pid=4096784)[0m 
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [0] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=4096784)[0m 
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [0] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [0] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [0] NCCL INFO Channel 00 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [0] NCCL INFO Channel 01 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [0] NCCL INFO Channel 00 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [0] NCCL INFO Channel 01 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [0] NCCL INFO comm 0x46ea650 rank 0 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO Channel 01 : 0[31000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO Channel 00 : 1[31000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO Channel 01 : 1[31000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO comm 0x447b9d0 rank 1 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [1] NCCL INFO Channel 00 : 0[98000] -> 1[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [1] NCCL INFO Channel 01 : 0[98000] -> 1[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [1] NCCL INFO Channel 00 : 1[98000] -> 0[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [1] NCCL INFO Channel 01 : 1[98000] -> 0[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [1] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [1] NCCL INFO comm 0x64cacf0 rank 1 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=4096784)[0m 
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [1] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [1] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [1] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [1] NCCL INFO Channel 00 : 1[98000] -> 0[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [1] NCCL INFO Channel 01 : 1[98000] -> 0[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [1] NCCL INFO Channel 00 : 0[98000] -> 1[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [1] NCCL INFO Channel 01 : 0[98000] -> 1[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [1] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [1] NCCL INFO comm 0x6acb8e0 rank 0 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.32<0>
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.32<0>
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m NCCL version 2.8.4+cuda11.2
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Channel 00 : 0[31000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Channel 01 : 0[31000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Channel 00 : 1[31000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Channel 01 : 1[31000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO comm 0x512cc10 rank 1 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO Channel 00 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO Channel 01 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO Channel 00 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO Channel 01 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO comm 0xa7cda20 rank 0 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [1] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [1] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [1] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Channel 00 : 0[98000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Channel 01 : 0[98000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Channel 00 : 1[31000] -> 0[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Channel 01 : 1[31000] -> 0[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO comm 0xa8516d0 rank 1 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m NCCL version 2.8.4+cuda11.2
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [1] NCCL INFO Channel 00 : 1[31000] -> 0[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [1] NCCL INFO Channel 01 : 1[31000] -> 0[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [1] NCCL INFO Channel 00 : 0[98000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [1] NCCL INFO Channel 01 : 0[98000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [1] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [1] NCCL INFO comm 0xa7d4c20 rank 0 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.17<0>
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.17<0>
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO Channel 00 : 0[31000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO Channel 01 : 0[31000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO Channel 00 : 1[31000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Channel 00 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Channel 01 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Channel 00 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Channel 01 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO comm 0x73314d0 rank 0 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO Channel 01 : 1[31000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO comm 0x49584e0 rank 1 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [1] NCCL INFO Channel 00 : 0[31000] -> 1[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [1] NCCL INFO Channel 01 : 0[31000] -> 1[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [1] NCCL INFO Channel 00 : 1[98000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [1] NCCL INFO Channel 01 : 1[98000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [1] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [1] NCCL INFO comm 0x699fe20 rank 1 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Channel 00 : 1[98000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Channel 01 : 1[98000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Channel 00 : 0[31000] -> 1[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Channel 01 : 0[31000] -> 1[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO comm 0x7d957a0 rank 0 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m NCCL version 2.8.4+cuda11.2
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.32<0>
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.32<0>
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] NCCL INFO Setting affinity for GPU 0 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] NCCL INFO Channel 00 : 0[31000] -> 1[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] NCCL INFO Channel 01 : 0[31000] -> 1[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] NCCL INFO Channel 00 : 1[98000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] NCCL INFO Channel 01 : 1[98000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] NCCL INFO comm 0x53094b0 rank 1 nranks 2 cudaDev 0 busId 98000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO Channel 00 : 1[98000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO Channel 01 : 1[98000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO Channel 00 : 0[31000] -> 1[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO Channel 01 : 0[31000] -> 1[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO comm 0xa72d2b0 rank 0 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [1] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [1] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [1] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] NCCL INFO Setting affinity for GPU 0 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] NCCL INFO Channel 00 : 0[98000] -> 1[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] NCCL INFO Channel 01 : 0[98000] -> 1[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] NCCL INFO Channel 00 : 1[98000] -> 0[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] NCCL INFO Channel 01 : 1[98000] -> 0[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=2183100, ip=192.168.0.33)[0m gpu18:2183100:2183100 [0] NCCL INFO comm 0xa85eeb0 rank 1 nranks 2 cudaDev 0 busId 98000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [1] NCCL INFO Channel 00 : 1[98000] -> 0[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [1] NCCL INFO Channel 01 : 1[98000] -> 0[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [1] NCCL INFO Channel 00 : 0[98000] -> 1[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [1] NCCL INFO Channel 01 : 0[98000] -> 1[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [1] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [1] NCCL INFO comm 0xa98a660 rank 0 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+ - Compile (driver): 181.05 s
+compilation time breakdown: {'stage-construction': '141.92', 'stage-construction-dp': '1.40', 'stage-construction-compilation': '73.24', 'stage-construction-profiling': '36.30'}
+ - Compile (worker): 9.03 s
+[I] Training process warmup (2 rounds) with dummy input batch...
+    - Warmup iteration: 1/2
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096938 [0] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.16<0>
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096938 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=4096784)[0m 
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096938 [0] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096938 [0] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.16<0>
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096938 [0] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=4096784)[0m NCCL version 2.8.4+cuda11.2
+[2m[36m(MeshHostWorker pid=4096784)[0m 
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096938 [0] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=4096784)[0m 
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096938 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=4096784)[0m 
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096940 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=4096784)[0m 
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096940 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=4096784)[0m 
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096938 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096940 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] -1/-1/-1->1->0
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096938 [0] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096940 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096938 [0] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096938 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096938 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096940 [1] NCCL INFO Channel 00 : 1[98000] -> 0[31000] via direct shared memory
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096940 [1] NCCL INFO Channel 01 : 1[98000] -> 0[31000] via direct shared memory
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096938 [0] NCCL INFO Channel 00 : 0[31000] -> 1[98000] via direct shared memory
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096938 [0] NCCL INFO Channel 01 : 0[31000] -> 1[98000] via direct shared memory
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096938 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096938 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096940 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096940 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096940 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096940 [1] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096938 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096938 [0] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096938 [0] NCCL INFO comm 0x7f0ec3a10ba0 rank 0 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096940 [1] NCCL INFO comm 0x7f0ed363ea60 rank 1 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096938 [0] NCCL INFO Launch mode Group/CGMD
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [0] NCCL INFO Launch mode Parallel
+[2m[36m(MeshHostWorker pid=4096784)[0m gpu2:4096784:4096784 [1] NCCL INFO Launch mode Parallel
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435743 [1] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.25<0>
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435743 [1] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435743 [1] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435743 [1] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.25<0>
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435743 [1] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m NCCL version 2.8.4+cuda11.2
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435741 [0] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435741 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435741 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435743 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435743 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435741 [0] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435741 [0] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435741 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435741 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435743 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] -1/-1/-1->1->0
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435743 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435741 [0] NCCL INFO Channel 00 : 0[31000] -> 1[98000] via direct shared memory
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435741 [0] NCCL INFO Channel 01 : 0[31000] -> 1[98000] via direct shared memory
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435743 [1] NCCL INFO Channel 00 : 1[98000] -> 0[31000] via direct shared memory
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435743 [1] NCCL INFO Channel 01 : 1[98000] -> 0[31000] via direct shared memory
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435741 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435741 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435743 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435743 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435743 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435743 [1] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435741 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435741 [0] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435743 [1] NCCL INFO comm 0x7f299541f5e0 rank 1 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435741 [0] NCCL INFO comm 0x7f299e8af860 rank 0 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435741 [0] NCCL INFO Launch mode Group/CGMD
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [0] NCCL INFO Launch mode Parallel
+[2m[36m(MeshHostWorker pid=435595, ip=192.168.0.26)[0m gpu11:435595:435595 [1] NCCL INFO Launch mode Parallel
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Launch mode Parallel
+[2m[36m(MeshHostWorker pid=2183099, ip=192.168.0.33)[0m gpu18:2183099:2183099 [0] NCCL INFO Launch mode Parallel
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545102 [0] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.17<0>
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545102 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545102 [0] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545102 [0] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.17<0>
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545102 [0] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m NCCL version 2.8.4+cuda11.2
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545104 [1] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545104 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545102 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545104 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545102 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545104 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] -1/-1/-1->1->0
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545104 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545102 [0] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545102 [0] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545102 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545102 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545104 [1] NCCL INFO Channel 00 : 1[98000] -> 0[31000] via direct shared memory
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545104 [1] NCCL INFO Channel 01 : 1[98000] -> 0[31000] via direct shared memory
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545102 [0] NCCL INFO Channel 00 : 0[31000] -> 1[98000] via direct shared memory
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545102 [0] NCCL INFO Channel 01 : 0[31000] -> 1[98000] via direct shared memory
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545102 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545102 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545104 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545104 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545104 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545104 [1] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545102 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545102 [0] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545102 [0] NCCL INFO comm 0x7f212e398870 rank 0 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545104 [1] NCCL INFO comm 0x7f213a923da0 rank 1 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545102 [0] NCCL INFO Launch mode Group/CGMD
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [0] NCCL INFO Launch mode Parallel
+[2m[36m(MeshHostWorker pid=1545028, ip=192.168.0.18)[0m gpu3:1545028:1545028 [1] NCCL INFO Launch mode Parallel
+    - Warmup iteration: 2/2
+[I] Ready to perform training process.
+[I] Benchmark the training process with entire dataset and profile with driver overhead...
+    - Iteration 1 / 5 is performed...
+    - Iteration 2 / 5 is performed...
+    - Iteration 3 / 5 is performed...
+    - Iteration 4 / 5 is performed...
+ - Benchmark: 115.77 s
+
+[56.223997592926025, 8.450682401657104, 8.474881410598755, 8.481742143630981, 8.50855016708374, 8.456504106521606, 8.471437931060791]
+
+
+[I] Performance metrics:
+ - Iteration count: 5.
+ - Total e2e training time : 43.617 s.
+ - Average e2e iteration time: 8.723000526428223 s.
+ - Total local training time: 42.393001556396484 s.
+ - Average local iteration time: 8.479000091552734 s.
+ - Max allocated memory among devices: 17.284 GB.
+ - Compilation times:  {'stage-construction': 141.9229929447174, 'stage-construction-dp': 1.40462064743042, 'stage-construction-compilation': 73.24152994155884, 'stage-construction-profiling': 36.29784417152405}
+ - Metadata:  []
+ - Is need save result:  True
+
+[TMP] Current profiling results of key `4_a40_4_n_2_d`: 8.478623390197754
+[TMP] Updated profiling results stored in `./jaxpr/prof_log/optimal/moe_10B_256.pkl`...
+
+------------------------------------------------------------------
+- (2/3) Profiling moe_10B with batch size: 512...
+------------------------------------------------------------------
+[TMP] Existed profiling results in `./jaxpr/prof_log/optimal/moe_10B_512.pkl`, updating/rewriting it...
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 2
+    - Nodes num: 4
+[I] Loading flax model....
+[I] Model 'moe' loads sucessfully. Model Info: 
+
+FlaxMoEForLMModule(
+    # attributes
+    config = <model.moe_model.MoEConfig object at 0x7fdfd6922e20>
+    dtype = float16
+    bias_init = zeros
+) 
+
+[I] Manually constructing dummy batch...
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+-------------------- Automatic stage clustering --------------------
+submesh_choices: ((1, 1), (1, 2), (2, 2), (4, 2))
+- Profiling for submesh 3 (4, 2):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(0, 7, 3, 1), 0] = ModuleProfileResult(compute_cost=0.142, peak_memory=8.814 GB, invar_size=8.293 GB, outvar_size=0.117 GB, temp_buffer_size=0.404 GB, available_memory=35.242 GB)
+result[(0, 7, 3, 0), 0] = ModuleProfileResult(compute_cost=0.071, peak_memory=17.053 GB, invar_size=16.584 GB, outvar_size=0.082 GB, temp_buffer_size=0.387 GB, available_memory=35.242 GB)
+result[(0, 7, 3, 2), 0] = ModuleProfileResult(compute_cost=0.298, peak_memory=3.272 GB, invar_size=2.803 GB, outvar_size=0.082 GB, temp_buffer_size=0.387 GB, available_memory=35.242 GB)
+result[(0, 7, 3, 0), 1] = ModuleProfileResult(compute_cost=15.176, peak_memory=57.176 GB, invar_size=38.144 GB, outvar_size=19.031 GB, temp_buffer_size=19.031 GB, available_memory=35.242 GB)
+result[(0, 7, 3, 1), 1] = ModuleProfileResult(compute_cost=6.912, peak_memory=28.666 GB, invar_size=19.149 GB, outvar_size=9.516 GB, temp_buffer_size=9.516 GB, available_memory=35.242 GB)
+result[(0, 7, 3, 2), 1] = ModuleProfileResult(compute_cost=1.570, peak_memory=8.493 GB, invar_size=6.644 GB, outvar_size=3.281 GB, temp_buffer_size=1.849 GB, available_memory=35.242 GB)
+Profiling for submesh 3 (4, 2) takes 89.83 seconds
+--------------------------------------------------
+- Profiling for submesh 2 (2, 2):
+[TMP] Skip profiling of 2 due to legacy error in tensorflow...
+- Profiling for submesh 1 (1, 2):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(3, 4, 1, 0), 0] = ModuleProfileResult(compute_cost=0.081, peak_memory=6.470 GB, invar_size=4.829 GB, outvar_size=0.094 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(3, 4, 1, 1), 0] = ModuleProfileResult(compute_cost=0.206, peak_memory=4.267 GB, invar_size=2.485 GB, outvar_size=0.188 GB, temp_buffer_size=1.595 GB, available_memory=35.242 GB)
+result[(0, 1, 1, 2), 0] = ModuleProfileResult(compute_cost=0.093, peak_memory=4.127 GB, invar_size=2.486 GB, outvar_size=0.094 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(2, 3, 1, 0), 0] = ModuleProfileResult(compute_cost=0.072, peak_memory=6.399 GB, invar_size=4.758 GB, outvar_size=0.094 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(1, 2, 1, 1), 0] = ModuleProfileResult(compute_cost=0.169, peak_memory=4.185 GB, invar_size=2.450 GB, outvar_size=0.141 GB, temp_buffer_size=1.595 GB, available_memory=35.242 GB)
+result[(1, 2, 1, 0), 0] = ModuleProfileResult(compute_cost=0.072, peak_memory=6.399 GB, invar_size=4.758 GB, outvar_size=0.094 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(0, 1, 1, 1), 0] = ModuleProfileResult(compute_cost=0.172, peak_memory=4.104 GB, invar_size=2.368 GB, outvar_size=0.141 GB, temp_buffer_size=1.595 GB, available_memory=35.242 GB)
+result[(2, 3, 1, 1), 0] = ModuleProfileResult(compute_cost=0.169, peak_memory=4.185 GB, invar_size=2.450 GB, outvar_size=0.141 GB, temp_buffer_size=1.595 GB, available_memory=35.242 GB)
+result[(2, 3, 1, 2), 0] = ModuleProfileResult(compute_cost=0.089, peak_memory=4.149 GB, invar_size=2.508 GB, outvar_size=0.094 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(1, 2, 1, 2), 0] = ModuleProfileResult(compute_cost=0.089, peak_memory=4.149 GB, invar_size=2.508 GB, outvar_size=0.094 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(0, 1, 1, 0), 0] = ModuleProfileResult(compute_cost=0.075, peak_memory=6.377 GB, invar_size=4.736 GB, outvar_size=0.094 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(3, 4, 1, 0), 1] = ModuleProfileResult(compute_cost=0.279, peak_memory=16.332 GB, invar_size=9.704 GB, outvar_size=4.828 GB, temp_buffer_size=6.581 GB, available_memory=35.242 GB)
+result[(1, 2, 1, 1), 1] = ModuleProfileResult(compute_cost=0.438, peak_memory=11.774 GB, invar_size=4.993 GB, outvar_size=2.449 GB, temp_buffer_size=6.687 GB, available_memory=35.242 GB)
+result[(0, 1, 1, 0), 1] = ModuleProfileResult(compute_cost=0.254, peak_memory=15.370 GB, invar_size=9.565 GB, outvar_size=4.735 GB, temp_buffer_size=5.805 GB, available_memory=35.242 GB)
+result[(0, 1, 1, 1), 1] = ModuleProfileResult(compute_cost=0.421, peak_memory=11.489 GB, invar_size=4.923 GB, outvar_size=2.368 GB, temp_buffer_size=6.565 GB, available_memory=35.242 GB)
+result[(2, 3, 1, 2), 1] = ModuleProfileResult(compute_cost=0.250, peak_memory=10.598 GB, invar_size=5.063 GB, outvar_size=2.508 GB, temp_buffer_size=5.488 GB, available_memory=35.242 GB)
+result[(2, 3, 1, 1), 1] = ModuleProfileResult(compute_cost=0.438, peak_memory=11.774 GB, invar_size=4.993 GB, outvar_size=2.449 GB, temp_buffer_size=6.687 GB, available_memory=35.242 GB)
+result[(1, 2, 1, 2), 1] = ModuleProfileResult(compute_cost=0.250, peak_memory=10.598 GB, invar_size=5.063 GB, outvar_size=2.508 GB, temp_buffer_size=5.488 GB, available_memory=35.242 GB)
+result[(2, 3, 1, 0), 1] = ModuleProfileResult(compute_cost=0.257, peak_memory=15.113 GB, invar_size=9.563 GB, outvar_size=4.758 GB, temp_buffer_size=5.503 GB, available_memory=35.242 GB)
+result[(1, 2, 1, 0), 1] = ModuleProfileResult(compute_cost=0.257, peak_memory=15.113 GB, invar_size=9.563 GB, outvar_size=4.758 GB, temp_buffer_size=5.503 GB, available_memory=35.242 GB)
+result[(0, 1, 1, 2), 1] = ModuleProfileResult(compute_cost=0.247, peak_memory=10.870 GB, invar_size=5.065 GB, outvar_size=2.485 GB, temp_buffer_size=5.805 GB, available_memory=35.242 GB)
+result[(4, 5, 1, 0), 0] = ModuleProfileResult(compute_cost=0.081, peak_memory=6.470 GB, invar_size=4.829 GB, outvar_size=0.094 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(3, 4, 1, 2), 0] = ModuleProfileResult(compute_cost=0.098, peak_memory=4.220 GB, invar_size=2.579 GB, outvar_size=0.094 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(4, 5, 1, 2), 0] = ModuleProfileResult(compute_cost=0.098, peak_memory=4.220 GB, invar_size=2.579 GB, outvar_size=0.094 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(5, 6, 1, 0), 0] = ModuleProfileResult(compute_cost=0.072, peak_memory=6.399 GB, invar_size=4.758 GB, outvar_size=0.094 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(4, 5, 1, 1), 0] = ModuleProfileResult(compute_cost=0.206, peak_memory=4.267 GB, invar_size=2.485 GB, outvar_size=0.188 GB, temp_buffer_size=1.595 GB, available_memory=35.242 GB)
+result[(6, 7, 1, 0), 0] = ModuleProfileResult(compute_cost=0.036, peak_memory=3.997 GB, invar_size=2.403 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(6, 7, 1, 1), 0] = ModuleProfileResult(compute_cost=0.092, peak_memory=2.960 GB, invar_size=1.272 GB, outvar_size=0.094 GB, temp_buffer_size=1.595 GB, available_memory=35.242 GB)
+result[(5, 6, 1, 1), 0] = ModuleProfileResult(compute_cost=0.183, peak_memory=4.232 GB, invar_size=2.450 GB, outvar_size=0.188 GB, temp_buffer_size=1.595 GB, available_memory=35.242 GB)
+result[(6, 7, 1, 2), 0] = ModuleProfileResult(compute_cost=0.045, peak_memory=2.872 GB, invar_size=1.278 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(5, 6, 1, 2), 0] = ModuleProfileResult(compute_cost=0.089, peak_memory=4.149 GB, invar_size=2.508 GB, outvar_size=0.094 GB, temp_buffer_size=1.547 GB, available_memory=35.242 GB)
+result[(3, 4, 1, 1), 1] = ModuleProfileResult(compute_cost=0.474, peak_memory=12.226 GB, invar_size=5.063 GB, outvar_size=2.485 GB, temp_buffer_size=7.069 GB, available_memory=35.242 GB)
+result[(4, 5, 1, 0), 1] = ModuleProfileResult(compute_cost=0.279, peak_memory=16.379 GB, invar_size=9.704 GB, outvar_size=4.828 GB, temp_buffer_size=6.628 GB, available_memory=35.242 GB)
+result[(4, 5, 1, 2), 1] = ModuleProfileResult(compute_cost=0.272, peak_memory=11.879 GB, invar_size=5.204 GB, outvar_size=2.578 GB, temp_buffer_size=6.628 GB, available_memory=35.242 GB)
+result[(3, 4, 1, 2), 1] = ModuleProfileResult(compute_cost=0.272, peak_memory=11.926 GB, invar_size=5.251 GB, outvar_size=2.578 GB, temp_buffer_size=6.628 GB, available_memory=35.242 GB)
+result[(5, 6, 1, 0), 1] = ModuleProfileResult(compute_cost=0.257, peak_memory=15.442 GB, invar_size=9.563 GB, outvar_size=4.758 GB, temp_buffer_size=5.831 GB, available_memory=35.242 GB)
+result[(4, 5, 1, 1), 1] = ModuleProfileResult(compute_cost=0.474, peak_memory=12.861 GB, invar_size=5.063 GB, outvar_size=2.485 GB, temp_buffer_size=7.704 GB, available_memory=35.242 GB)
+result[(5, 6, 1, 1), 1] = ModuleProfileResult(compute_cost=0.438, peak_memory=12.056 GB, invar_size=4.993 GB, outvar_size=2.449 GB, temp_buffer_size=6.970 GB, available_memory=35.242 GB)
+result[(6, 7, 1, 0), 1] = ModuleProfileResult(compute_cost=0.292, peak_memory=17.095 GB, invar_size=9.700 GB, outvar_size=4.850 GB, temp_buffer_size=7.349 GB, available_memory=35.242 GB)
+result[(6, 7, 1, 1), 1] = ModuleProfileResult(compute_cost=0.487, peak_memory=12.859 GB, invar_size=4.991 GB, outvar_size=2.495 GB, temp_buffer_size=7.774 GB, available_memory=35.242 GB)
+result[(5, 6, 1, 2), 1] = ModuleProfileResult(compute_cost=0.250, peak_memory=10.942 GB, invar_size=5.063 GB, outvar_size=2.508 GB, temp_buffer_size=5.831 GB, available_memory=35.242 GB)
+result[(6, 7, 1, 2), 1] = ModuleProfileResult(compute_cost=0.285, peak_memory=12.595 GB, invar_size=5.200 GB, outvar_size=2.600 GB, temp_buffer_size=7.349 GB, available_memory=35.242 GB)
+Profiling for submesh 1 (1, 2) takes 32.36 seconds
+--------------------------------------------------
+- Profiling for submesh 0 (1, 1):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(3, 3, 0, 1), 0] = ModuleProfileResult(compute_cost=0.071, peak_memory=5.638 GB, invar_size=2.450 GB, outvar_size=0.094 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(3, 3, 0, 0), 0] = ModuleProfileResult(compute_cost=0.071, peak_memory=5.638 GB, invar_size=2.450 GB, outvar_size=0.094 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(2, 2, 0, 1), 0] = ModuleProfileResult(compute_cost=0.071, peak_memory=5.638 GB, invar_size=2.450 GB, outvar_size=0.094 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(2, 2, 0, 0), 0] = ModuleProfileResult(compute_cost=0.071, peak_memory=5.638 GB, invar_size=2.450 GB, outvar_size=0.094 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(1, 1, 0, 0), 0] = ModuleProfileResult(compute_cost=0.071, peak_memory=5.638 GB, invar_size=2.450 GB, outvar_size=0.094 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(1, 1, 0, 1), 0] = ModuleProfileResult(compute_cost=0.071, peak_memory=5.638 GB, invar_size=2.450 GB, outvar_size=0.094 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(0, 0, 0, 1), 0] = ModuleProfileResult(compute_cost=0.077, peak_memory=5.569 GB, invar_size=2.380 GB, outvar_size=0.094 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(0, 0, 0, 0), 0] = ModuleProfileResult(compute_cost=0.077, peak_memory=5.569 GB, invar_size=2.380 GB, outvar_size=0.094 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(3, 3, 0, 0), 1] = ModuleProfileResult(compute_cost=0.211, peak_memory=15.905 GB, invar_size=4.899 GB, outvar_size=2.449 GB, temp_buffer_size=10.913 GB, available_memory=35.242 GB)
+result[(3, 3, 0, 1), 1] = ModuleProfileResult(compute_cost=0.211, peak_memory=15.905 GB, invar_size=4.899 GB, outvar_size=2.449 GB, temp_buffer_size=10.913 GB, available_memory=35.242 GB)
+result[(0, 0, 0, 1), 1] = ModuleProfileResult(compute_cost=0.205, peak_memory=16.376 GB, invar_size=4.854 GB, outvar_size=2.380 GB, temp_buffer_size=11.522 GB, available_memory=35.242 GB)
+result[(2, 2, 0, 0), 1] = ModuleProfileResult(compute_cost=0.211, peak_memory=15.905 GB, invar_size=4.899 GB, outvar_size=2.449 GB, temp_buffer_size=10.913 GB, available_memory=35.242 GB)
+result[(1, 1, 0, 0), 1] = ModuleProfileResult(compute_cost=0.211, peak_memory=15.905 GB, invar_size=4.899 GB, outvar_size=2.449 GB, temp_buffer_size=10.913 GB, available_memory=35.242 GB)
+result[(1, 1, 0, 1), 1] = ModuleProfileResult(compute_cost=0.211, peak_memory=15.905 GB, invar_size=4.899 GB, outvar_size=2.449 GB, temp_buffer_size=10.913 GB, available_memory=35.242 GB)
+result[(7, 7, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=0.000 GB, invar_size=0.000 GB, outvar_size=0.000 GB, temp_buffer_size=0.000 GB, available_memory=35.242 GB)
+result[(2, 2, 0, 1), 1] = ModuleProfileResult(compute_cost=0.211, peak_memory=15.905 GB, invar_size=4.899 GB, outvar_size=2.449 GB, temp_buffer_size=10.913 GB, available_memory=35.242 GB)
+result[(7, 7, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=0.000 GB, invar_size=0.000 GB, outvar_size=0.000 GB, temp_buffer_size=0.000 GB, available_memory=35.242 GB)
+result[(0, 0, 0, 0), 1] = ModuleProfileResult(compute_cost=0.205, peak_memory=16.376 GB, invar_size=4.854 GB, outvar_size=2.380 GB, temp_buffer_size=11.522 GB, available_memory=35.242 GB)
+result[(4, 4, 0, 0), 0] = ModuleProfileResult(compute_cost=0.089, peak_memory=5.708 GB, invar_size=2.520 GB, outvar_size=0.094 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(5, 5, 0, 0), 0] = ModuleProfileResult(compute_cost=0.071, peak_memory=5.638 GB, invar_size=2.450 GB, outvar_size=0.094 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(4, 4, 0, 1), 0] = ModuleProfileResult(compute_cost=0.089, peak_memory=5.708 GB, invar_size=2.520 GB, outvar_size=0.094 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(5, 5, 0, 1), 0] = ModuleProfileResult(compute_cost=0.071, peak_memory=5.638 GB, invar_size=2.450 GB, outvar_size=0.094 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(6, 6, 0, 0), 0] = ModuleProfileResult(compute_cost=0.071, peak_memory=5.638 GB, invar_size=2.450 GB, outvar_size=0.094 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(4, 4, 0, 0), 1] = ModuleProfileResult(compute_cost=0.255, peak_memory=18.268 GB, invar_size=5.040 GB, outvar_size=2.520 GB, temp_buffer_size=13.135 GB, available_memory=35.242 GB)
+result[(6, 6, 0, 1), 0] = ModuleProfileResult(compute_cost=0.071, peak_memory=5.638 GB, invar_size=2.450 GB, outvar_size=0.094 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(5, 5, 0, 0), 1] = ModuleProfileResult(compute_cost=0.211, peak_memory=16.749 GB, invar_size=4.899 GB, outvar_size=2.449 GB, temp_buffer_size=11.756 GB, available_memory=35.242 GB)
+result[(4, 4, 0, 1), 1] = ModuleProfileResult(compute_cost=0.255, peak_memory=18.268 GB, invar_size=5.040 GB, outvar_size=2.520 GB, temp_buffer_size=13.135 GB, available_memory=35.242 GB)
+result[(5, 5, 0, 1), 1] = ModuleProfileResult(compute_cost=0.211, peak_memory=16.749 GB, invar_size=4.899 GB, outvar_size=2.449 GB, temp_buffer_size=11.756 GB, available_memory=35.242 GB)
+result[(6, 6, 0, 0), 1] = ModuleProfileResult(compute_cost=0.211, peak_memory=16.561 GB, invar_size=4.899 GB, outvar_size=2.449 GB, temp_buffer_size=11.569 GB, available_memory=35.242 GB)
+result[(7, 7, 0, 0), 1] = ModuleProfileResult(compute_cost=0.280, peak_memory=19.780 GB, invar_size=4.988 GB, outvar_size=2.541 GB, temp_buffer_size=14.698 GB, available_memory=35.242 GB)
+result[(6, 6, 0, 1), 1] = ModuleProfileResult(compute_cost=0.211, peak_memory=16.561 GB, invar_size=4.899 GB, outvar_size=2.449 GB, temp_buffer_size=11.569 GB, available_memory=35.242 GB)
+result[(7, 7, 0, 1), 1] = ModuleProfileResult(compute_cost=0.280, peak_memory=19.780 GB, invar_size=4.988 GB, outvar_size=2.541 GB, temp_buffer_size=14.698 GB, available_memory=35.242 GB)
+Profiling for submesh 0 (1, 1) takes 18.08 seconds
+--------------------------------------------------
+----------------------------------------------------------------------
+[TMP] Stage (0, 3, 2, 0) has been pruned...
+[TMP] Stage (0, 3, 2, 1) has been pruned...
+[TMP] Stage (0, 3, 2, 2) has been pruned...
+[TMP] Stage (1, 4, 2, 0) has been pruned...
+[TMP] Stage (1, 4, 2, 1) has been pruned...
+[TMP] Stage (1, 4, 2, 2) has been pruned...
+[TMP] Stage (2, 5, 2, 0) has been pruned...
+[TMP] Stage (2, 5, 2, 1) has been pruned...
+[TMP] Stage (2, 5, 2, 2) has been pruned...
+[TMP] Stage (3, 6, 2, 0) has been pruned...
+[TMP] Stage (3, 6, 2, 1) has been pruned...
+[TMP] Stage (3, 6, 2, 2) has been pruned...
+[TMP] Stage (4, 7, 2, 0) has been pruned...
+[TMP] Stage (4, 7, 2, 1) has been pruned...
+[TMP] Stage (4, 7, 2, 2) has been pruned...
+Result forward_stage_layer_ids: [[0, 1], [2, 3], [4, 5], [6, 7]]
+Result mesh_shapes: [(1, 2), (1, 2), (1, 2), (1, 2)]
+Result logical_mesh_shapes: [(2, 1), (2, 1), (2, 1), (2, 1)]
+Result autosharding_option_dicts: [{}, {'force_batch_dim_to_mesh_dim': 0}, {'force_batch_dim_to_mesh_dim': 0}, {'force_batch_dim_to_mesh_dim': 0}]
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [1] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.25<0>
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [1] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [1] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [1] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.25<0>
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [1] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m NCCL version 2.8.4+cuda11.2
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.16<0>
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=4106733)[0m 
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.16<0>
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=4106733)[0m 
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=4106733)[0m 
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [0] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [0] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [0] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [0] NCCL INFO Channel 00 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [0] NCCL INFO Channel 01 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [0] NCCL INFO Channel 00 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [0] NCCL INFO Channel 01 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [0] NCCL INFO comm 0x3d8aa20 rank 0 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO Channel 00 : 0[31000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO Channel 01 : 0[31000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO Channel 00 : 1[31000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO Channel 01 : 1[31000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO comm 0x46a5f00 rank 1 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=4106733)[0m 
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [1] NCCL INFO Channel 00 : 0[98000] -> 1[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [1] NCCL INFO Channel 01 : 0[98000] -> 1[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [1] NCCL INFO Channel 00 : 1[98000] -> 0[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [1] NCCL INFO Channel 01 : 1[98000] -> 0[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [1] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [1] NCCL INFO comm 0x704fd60 rank 1 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [1] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [1] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [1] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [1] NCCL INFO Channel 00 : 1[98000] -> 0[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [1] NCCL INFO Channel 01 : 1[98000] -> 0[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [1] NCCL INFO Channel 00 : 0[98000] -> 1[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [1] NCCL INFO Channel 01 : 0[98000] -> 1[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [1] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [1] NCCL INFO comm 0x5dd2630 rank 0 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=4106733)[0m NCCL version 2.8.4+cuda11.2
+[2m[36m(MeshHostWorker pid=4106733)[0m 
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.17<0>
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.17<0>
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO Channel 00 : 0[31000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO Channel 01 : 0[31000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO Channel 00 : 1[31000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO Channel 01 : 1[31000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO comm 0x4f5ac30 rank 1 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO Channel 00 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO Channel 01 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO Channel 00 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO Channel 01 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO comm 0xa52f430 rank 0 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [1] NCCL INFO Channel 00 : 0[98000] -> 1[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [1] NCCL INFO Channel 01 : 0[98000] -> 1[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [1] NCCL INFO Channel 00 : 1[98000] -> 0[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [1] NCCL INFO Channel 01 : 1[98000] -> 0[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [1] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [1] NCCL INFO comm 0x7267230 rank 1 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=4106733)[0m 
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [1] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [1] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [1] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [1] NCCL INFO Channel 00 : 1[98000] -> 0[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [1] NCCL INFO Channel 01 : 1[98000] -> 0[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [1] NCCL INFO Channel 00 : 0[98000] -> 1[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [1] NCCL INFO Channel 01 : 0[98000] -> 1[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [1] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [1] NCCL INFO comm 0xa654b40 rank 0 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m NCCL version 2.8.4+cuda11.2
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [0] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.32<0>
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [0] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [0] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.32<0>
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [0] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [0] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [0] NCCL INFO Channel 00 : 0[31000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [0] NCCL INFO Channel 01 : 0[31000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [0] NCCL INFO Channel 00 : 1[31000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [0] NCCL INFO Channel 01 : 1[31000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [0] NCCL INFO comm 0x3d10e70 rank 1 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO Channel 00 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO Channel 01 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO Channel 00 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO Channel 01 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO comm 0xc651440 rank 0 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [1] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [1] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [1] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [1] NCCL INFO Channel 00 : 1[98000] -> 0[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [1] NCCL INFO Channel 01 : 1[98000] -> 0[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [1] NCCL INFO Channel 00 : 0[98000] -> 1[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [1] NCCL INFO Channel 01 : 0[98000] -> 1[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [1] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [1] NCCL INFO comm 0xc65c370 rank 0 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [1] NCCL INFO Channel 00 : 0[98000] -> 1[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [1] NCCL INFO Channel 01 : 0[98000] -> 1[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [1] NCCL INFO Channel 00 : 1[98000] -> 0[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [1] NCCL INFO Channel 01 : 1[98000] -> 0[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [1] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189469 [1] NCCL INFO comm 0x5d48790 rank 1 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+ - Compile (driver): 182.58 s
+compilation time breakdown: {'stage-construction': '143.86', 'stage-construction-dp': '1.39', 'stage-construction-compilation': '75.35', 'stage-construction-profiling': '35.87'}
+ - Compile (worker): 9.31 s
+[I] Training process warmup (2 rounds) with dummy input batch...
+    - Warmup iteration: 1/2
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440460 [0] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.25<0>
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440460 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440460 [0] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440460 [0] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.25<0>
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440460 [0] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m NCCL version 2.8.4+cuda11.2
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440460 [0] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440460 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440460 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440462 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440462 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440460 [0] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440460 [0] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440462 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] -1/-1/-1->1->0
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440460 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440462 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440460 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440460 [0] NCCL INFO Channel 00 : 0[31000] -> 1[98000] via direct shared memory
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440460 [0] NCCL INFO Channel 01 : 0[31000] -> 1[98000] via direct shared memory
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440462 [1] NCCL INFO Channel 00 : 1[98000] -> 0[31000] via direct shared memory
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440462 [1] NCCL INFO Channel 01 : 1[98000] -> 0[31000] via direct shared memory
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440462 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440462 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440462 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440462 [1] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440460 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440460 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440460 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440460 [0] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440462 [1] NCCL INFO comm 0x7f221d69f700 rank 1 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440460 [0] NCCL INFO comm 0x7f221a2bb070 rank 0 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440460 [0] NCCL INFO Launch mode Group/CGMD
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [0] NCCL INFO Launch mode Parallel
+[2m[36m(MeshHostWorker pid=440302, ip=192.168.0.26)[0m gpu11:440302:440302 [1] NCCL INFO Launch mode Parallel
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [0] NCCL INFO Launch mode Parallel
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106733 [1] NCCL INFO Launch mode Parallel
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [0] NCCL INFO Launch mode Parallel
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547162 [1] NCCL INFO Launch mode Parallel
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189533 [1] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.32<0>
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189533 [1] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189533 [1] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189533 [1] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.32<0>
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189533 [1] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m NCCL version 2.8.4+cuda11.2
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189533 [1] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189531 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189533 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189531 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189533 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189531 [0] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189531 [0] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189533 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] -1/-1/-1->1->0
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189531 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189533 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189531 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189533 [1] NCCL INFO Channel 00 : 1[98000] -> 0[31000] via direct shared memory
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189531 [0] NCCL INFO Channel 00 : 0[31000] -> 1[98000] via direct shared memory
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189533 [1] NCCL INFO Channel 01 : 1[98000] -> 0[31000] via direct shared memory
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189531 [0] NCCL INFO Channel 01 : 0[31000] -> 1[98000] via direct shared memory
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189533 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189533 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189531 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189531 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189533 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189533 [1] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189531 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189531 [0] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189533 [1] NCCL INFO comm 0x7f764f8399f0 rank 1 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189531 [0] NCCL INFO comm 0x7f7640a5ec50 rank 0 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=2189469, ip=192.168.0.33)[0m gpu18:2189469:2189531 [0] NCCL INFO Launch mode Group/CGMD
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547226 [1] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.17<0>
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547226 [1] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547226 [1] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547226 [1] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.17<0>
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547226 [1] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m NCCL version 2.8.4+cuda11.2
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547226 [1] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547226 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547224 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547226 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547224 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547226 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] -1/-1/-1->1->0
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547224 [0] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547224 [0] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547226 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547224 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547224 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547226 [1] NCCL INFO Channel 00 : 1[98000] -> 0[31000] via direct shared memory
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547226 [1] NCCL INFO Channel 01 : 1[98000] -> 0[31000] via direct shared memory
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547224 [0] NCCL INFO Channel 00 : 0[31000] -> 1[98000] via direct shared memory
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547224 [0] NCCL INFO Channel 01 : 0[31000] -> 1[98000] via direct shared memory
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547224 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547224 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547226 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547226 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547226 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547226 [1] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547224 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547224 [0] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547226 [1] NCCL INFO comm 0x7f2cbd19f030 rank 1 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547224 [0] NCCL INFO comm 0x7f2cca1c72b0 rank 0 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106887 [1] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.16<0>
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106887 [1] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=4106733)[0m 
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106887 [1] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106887 [1] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.16<0>
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106887 [1] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=4106733)[0m NCCL version 2.8.4+cuda11.2
+[2m[36m(MeshHostWorker pid=4106733)[0m 
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106887 [1] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=4106733)[0m 
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106887 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=4106733)[0m 
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106885 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=4106733)[0m 
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106887 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=4106733)[0m 
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106885 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106885 [0] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106885 [0] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106887 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] -1/-1/-1->1->0
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106885 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106887 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106885 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106885 [0] NCCL INFO Channel 00 : 0[31000] -> 1[98000] via direct shared memory
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106885 [0] NCCL INFO Channel 01 : 0[31000] -> 1[98000] via direct shared memory
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106887 [1] NCCL INFO Channel 00 : 1[98000] -> 0[31000] via direct shared memory
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106887 [1] NCCL INFO Channel 01 : 1[98000] -> 0[31000] via direct shared memory
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106887 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106887 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106885 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106885 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106887 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106887 [1] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106885 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106885 [0] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106885 [0] NCCL INFO comm 0x7f25a803a4e0 rank 0 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106887 [1] NCCL INFO comm 0x7f25bfcb9190 rank 1 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=1547162, ip=192.168.0.18)[0m gpu3:1547162:1547224 [0] NCCL INFO Launch mode Group/CGMD
+[2m[36m(MeshHostWorker pid=4106733)[0m gpu2:4106733:4106885 [0] NCCL INFO Launch mode Group/CGMD
+    - Warmup iteration: 2/2
+[I] Ready to perform training process.
+[I] Benchmark the training process with entire dataset and profile with driver overhead...
+    - Iteration 1 / 5 is performed...
+    - Iteration 2 / 5 is performed...
+    - Iteration 3 / 5 is performed...
+    - Iteration 4 / 5 is performed...
+ - Benchmark: 180.33 s
+
+[78.9354977607727, 14.403301477432251, 14.422889709472656, 14.470815896987915, 14.47189450263977, 14.47467589378357, 14.477266311645508]
+
+
+[I] Performance metrics:
+ - Iteration count: 5.
+ - Total e2e training time : 74.056 s.
+ - Average e2e iteration time: 14.81100082397461 s.
+ - Total local training time: 72.31800079345703 s.
+ - Average local iteration time: 14.464000701904297 s.
+ - Max allocated memory among devices: 23.314 GB.
+ - Compilation times:  {'stage-construction': 143.86359667778015, 'stage-construction-dp': 1.393620252609253, 'stage-construction-compilation': 75.35319137573242, 'stage-construction-profiling': 35.87026786804199}
+ - Metadata:  []
+ - Is need save result:  True
+
+[TMP] Current profiling results of key `4_a40_4_n_2_d`: 14.463508605957031
+[TMP] Updated profiling results stored in `./jaxpr/prof_log/optimal/moe_10B_512.pkl`...
+
+------------------------------------------------------------------
+- (3/3) Profiling moe_10B with batch size: 1024...
+------------------------------------------------------------------
+[TMP] Existed profiling results in `./jaxpr/prof_log/optimal/moe_10B_1024.pkl`, updating/rewriting it...
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 2
+    - Nodes num: 4
+[I] Loading flax model....
+[I] Model 'moe' loads sucessfully. Model Info: 
+
+FlaxMoEForLMModule(
+    # attributes
+    config = <model.moe_model.MoEConfig object at 0x7fc1d2a0c340>
+    dtype = float16
+    bias_init = zeros
+) 
+
+[I] Manually constructing dummy batch...
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+-------------------- Automatic stage clustering --------------------
+submesh_choices: ((1, 1), (1, 2), (2, 2), (4, 2))
+- Profiling for submesh 3 (4, 2):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(0, 7, 3, 1), 0] = ModuleProfileResult(compute_cost=0.206, peak_memory=9.910 GB, invar_size=8.293 GB, outvar_size=0.164 GB, temp_buffer_size=1.453 GB, available_memory=35.242 GB)
+result[(0, 7, 3, 0), 0] = ModuleProfileResult(compute_cost=0.134, peak_memory=17.522 GB, invar_size=16.584 GB, outvar_size=0.164 GB, temp_buffer_size=0.774 GB, available_memory=35.242 GB)
+result[(0, 7, 3, 2), 0] = ModuleProfileResult(compute_cost=0.583, peak_memory=3.741 GB, invar_size=2.803 GB, outvar_size=0.164 GB, temp_buffer_size=0.774 GB, available_memory=35.242 GB)
+result[(0, 7, 3, 0), 1] = ModuleProfileResult(compute_cost=15.392, peak_memory=57.258 GB, invar_size=38.226 GB, outvar_size=19.031 GB, temp_buffer_size=19.031 GB, available_memory=35.242 GB)
+result[(0, 7, 3, 1), 1] = ModuleProfileResult(compute_cost=7.333, peak_memory=28.713 GB, invar_size=19.197 GB, outvar_size=9.516 GB, temp_buffer_size=9.516 GB, available_memory=35.242 GB)
+result[(0, 7, 3, 2), 1] = ModuleProfileResult(compute_cost=2.293, peak_memory=10.425 GB, invar_size=6.727 GB, outvar_size=3.281 GB, temp_buffer_size=3.698 GB, available_memory=35.242 GB)
+Profiling for submesh 3 (4, 2) takes 89.17 seconds
+--------------------------------------------------
+- Profiling for submesh 2 (2, 2):
+[TMP] Skip profiling of 2 due to legacy error in tensorflow...
+- Profiling for submesh 1 (1, 2):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(2, 3, 1, 0), 0] = ModuleProfileResult(compute_cost=0.142, peak_memory=8.087 GB, invar_size=4.805 GB, outvar_size=0.188 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(2, 3, 1, 2), 0] = ModuleProfileResult(compute_cost=0.178, peak_memory=5.837 GB, invar_size=2.555 GB, outvar_size=0.188 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(1, 2, 1, 2), 0] = ModuleProfileResult(compute_cost=0.178, peak_memory=5.837 GB, invar_size=2.555 GB, outvar_size=0.188 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(0, 1, 1, 2), 0] = ModuleProfileResult(compute_cost=0.184, peak_memory=5.768 GB, invar_size=2.486 GB, outvar_size=0.188 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(2, 3, 1, 1), 0] = ModuleProfileResult(compute_cost=0.335, peak_memory=6.014 GB, invar_size=2.543 GB, outvar_size=0.281 GB, temp_buffer_size=3.190 GB, available_memory=35.242 GB)
+result[(3, 4, 1, 0), 0] = ModuleProfileResult(compute_cost=0.160, peak_memory=8.158 GB, invar_size=4.875 GB, outvar_size=0.188 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(0, 1, 1, 0), 0] = ModuleProfileResult(compute_cost=0.149, peak_memory=8.018 GB, invar_size=4.736 GB, outvar_size=0.188 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(0, 1, 1, 1), 0] = ModuleProfileResult(compute_cost=0.342, peak_memory=5.839 GB, invar_size=2.368 GB, outvar_size=0.281 GB, temp_buffer_size=3.190 GB, available_memory=35.242 GB)
+result[(1, 2, 1, 1), 0] = ModuleProfileResult(compute_cost=0.335, peak_memory=6.014 GB, invar_size=2.543 GB, outvar_size=0.281 GB, temp_buffer_size=3.190 GB, available_memory=35.242 GB)
+result[(3, 4, 1, 1), 0] = ModuleProfileResult(compute_cost=0.409, peak_memory=6.143 GB, invar_size=2.579 GB, outvar_size=0.375 GB, temp_buffer_size=3.190 GB, available_memory=35.242 GB)
+result[(1, 2, 1, 0), 0] = ModuleProfileResult(compute_cost=0.142, peak_memory=8.087 GB, invar_size=4.805 GB, outvar_size=0.188 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(1, 2, 1, 2), 1] = ModuleProfileResult(compute_cost=0.493, peak_memory=16.273 GB, invar_size=5.204 GB, outvar_size=2.555 GB, temp_buffer_size=10.976 GB, available_memory=35.242 GB)
+result[(0, 1, 1, 0), 1] = ModuleProfileResult(compute_cost=0.460, peak_memory=21.268 GB, invar_size=9.659 GB, outvar_size=4.735 GB, temp_buffer_size=11.609 GB, available_memory=35.242 GB)
+result[(2, 3, 1, 1), 1] = ModuleProfileResult(compute_cost=0.872, peak_memory=18.831 GB, invar_size=5.274 GB, outvar_size=2.543 GB, temp_buffer_size=13.369 GB, available_memory=35.242 GB)
+result[(1, 2, 1, 1), 1] = ModuleProfileResult(compute_cost=0.872, peak_memory=18.831 GB, invar_size=5.274 GB, outvar_size=2.543 GB, temp_buffer_size=13.369 GB, available_memory=35.242 GB)
+result[(0, 1, 1, 1), 1] = ModuleProfileResult(compute_cost=0.838, peak_memory=18.240 GB, invar_size=5.111 GB, outvar_size=2.368 GB, temp_buffer_size=13.129 GB, available_memory=35.242 GB)
+result[(2, 3, 1, 2), 1] = ModuleProfileResult(compute_cost=0.493, peak_memory=16.273 GB, invar_size=5.204 GB, outvar_size=2.555 GB, temp_buffer_size=10.976 GB, available_memory=35.242 GB)
+result[(4, 5, 1, 0), 0] = ModuleProfileResult(compute_cost=0.160, peak_memory=8.158 GB, invar_size=4.875 GB, outvar_size=0.188 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(3, 4, 1, 2), 0] = ModuleProfileResult(compute_cost=0.195, peak_memory=5.908 GB, invar_size=2.625 GB, outvar_size=0.188 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(1, 2, 1, 0), 1] = ModuleProfileResult(compute_cost=0.466, peak_memory=20.773 GB, invar_size=9.704 GB, outvar_size=4.805 GB, temp_buffer_size=10.976 GB, available_memory=35.242 GB)
+result[(2, 3, 1, 0), 1] = ModuleProfileResult(compute_cost=0.466, peak_memory=20.773 GB, invar_size=9.704 GB, outvar_size=4.805 GB, temp_buffer_size=10.976 GB, available_memory=35.242 GB)
+result[(0, 1, 1, 2), 1] = ModuleProfileResult(compute_cost=0.488, peak_memory=16.768 GB, invar_size=5.159 GB, outvar_size=2.485 GB, temp_buffer_size=11.609 GB, available_memory=35.242 GB)
+result[(3, 4, 1, 0), 1] = ModuleProfileResult(compute_cost=0.510, peak_memory=23.101 GB, invar_size=9.845 GB, outvar_size=4.875 GB, temp_buffer_size=13.163 GB, available_memory=35.242 GB)
+result[(4, 5, 1, 2), 0] = ModuleProfileResult(compute_cost=0.195, peak_memory=5.908 GB, invar_size=2.625 GB, outvar_size=0.188 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(4, 5, 1, 1), 0] = ModuleProfileResult(compute_cost=0.409, peak_memory=6.143 GB, invar_size=2.579 GB, outvar_size=0.375 GB, temp_buffer_size=3.190 GB, available_memory=35.242 GB)
+result[(5, 6, 1, 0), 0] = ModuleProfileResult(compute_cost=0.142, peak_memory=8.087 GB, invar_size=4.805 GB, outvar_size=0.188 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(6, 7, 1, 0), 0] = ModuleProfileResult(compute_cost=0.071, peak_memory=5.638 GB, invar_size=2.450 GB, outvar_size=0.094 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(5, 6, 1, 1), 0] = ModuleProfileResult(compute_cost=0.363, peak_memory=6.108 GB, invar_size=2.543 GB, outvar_size=0.375 GB, temp_buffer_size=3.190 GB, available_memory=35.242 GB)
+result[(6, 7, 1, 1), 0] = ModuleProfileResult(compute_cost=0.182, peak_memory=4.743 GB, invar_size=1.366 GB, outvar_size=0.188 GB, temp_buffer_size=3.189 GB, available_memory=35.242 GB)
+result[(6, 7, 1, 2), 0] = ModuleProfileResult(compute_cost=0.089, peak_memory=4.513 GB, invar_size=1.325 GB, outvar_size=0.094 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(3, 4, 1, 1), 1] = ModuleProfileResult(compute_cost=0.944, peak_memory=19.668 GB, invar_size=5.344 GB, outvar_size=2.578 GB, temp_buffer_size=14.136 GB, available_memory=35.242 GB)
+result[(3, 4, 1, 2), 1] = ModuleProfileResult(compute_cost=0.538, peak_memory=18.789 GB, invar_size=5.438 GB, outvar_size=2.625 GB, temp_buffer_size=13.256 GB, available_memory=35.242 GB)
+result[(5, 6, 1, 2), 0] = ModuleProfileResult(compute_cost=0.178, peak_memory=5.837 GB, invar_size=2.555 GB, outvar_size=0.188 GB, temp_buffer_size=3.095 GB, available_memory=35.242 GB)
+result[(4, 5, 1, 0), 1] = ModuleProfileResult(compute_cost=0.510, peak_memory=23.195 GB, invar_size=9.845 GB, outvar_size=4.875 GB, temp_buffer_size=13.257 GB, available_memory=35.242 GB)
+result[(5, 6, 1, 0), 1] = ModuleProfileResult(compute_cost=0.466, peak_memory=21.460 GB, invar_size=9.704 GB, outvar_size=4.805 GB, temp_buffer_size=11.663 GB, available_memory=35.242 GB)
+result[(4, 5, 1, 2), 1] = ModuleProfileResult(compute_cost=0.538, peak_memory=18.695 GB, invar_size=5.345 GB, outvar_size=2.625 GB, temp_buffer_size=13.257 GB, available_memory=35.242 GB)
+result[(4, 5, 1, 1), 1] = ModuleProfileResult(compute_cost=0.944, peak_memory=20.935 GB, invar_size=5.344 GB, outvar_size=2.578 GB, temp_buffer_size=15.403 GB, available_memory=35.242 GB)
+result[(5, 6, 1, 1), 1] = ModuleProfileResult(compute_cost=0.872, peak_memory=19.396 GB, invar_size=5.274 GB, outvar_size=2.543 GB, temp_buffer_size=13.934 GB, available_memory=35.242 GB)
+result[(6, 7, 1, 1), 1] = ModuleProfileResult(compute_cost=0.969, peak_memory=20.913 GB, invar_size=5.178 GB, outvar_size=2.589 GB, temp_buffer_size=15.547 GB, available_memory=35.242 GB)
+result[(6, 7, 1, 0), 1] = ModuleProfileResult(compute_cost=0.536, peak_memory=24.585 GB, invar_size=9.793 GB, outvar_size=4.897 GB, temp_buffer_size=14.698 GB, available_memory=35.242 GB)
+result[(5, 6, 1, 2), 1] = ModuleProfileResult(compute_cost=0.493, peak_memory=16.960 GB, invar_size=5.204 GB, outvar_size=2.555 GB, temp_buffer_size=11.663 GB, available_memory=35.242 GB)
+result[(6, 7, 1, 2), 1] = ModuleProfileResult(compute_cost=0.563, peak_memory=20.085 GB, invar_size=5.293 GB, outvar_size=2.647 GB, temp_buffer_size=14.698 GB, available_memory=35.242 GB)
+Profiling for submesh 1 (1, 2) takes 31.67 seconds
+--------------------------------------------------
+- Profiling for submesh 0 (1, 1):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(1, 1, 0, 1), 0] = ModuleProfileResult(compute_cost=0.142, peak_memory=8.920 GB, invar_size=2.543 GB, outvar_size=0.188 GB, temp_buffer_size=6.189 GB, available_memory=35.242 GB)
+result[(3, 3, 0, 1), 0] = ModuleProfileResult(compute_cost=0.142, peak_memory=8.920 GB, invar_size=2.543 GB, outvar_size=0.188 GB, temp_buffer_size=6.189 GB, available_memory=35.242 GB)
+result[(3, 3, 0, 0), 0] = ModuleProfileResult(compute_cost=0.142, peak_memory=8.920 GB, invar_size=2.543 GB, outvar_size=0.188 GB, temp_buffer_size=6.189 GB, available_memory=35.242 GB)
+result[(1, 1, 0, 0), 0] = ModuleProfileResult(compute_cost=0.142, peak_memory=8.920 GB, invar_size=2.543 GB, outvar_size=0.188 GB, temp_buffer_size=6.189 GB, available_memory=35.242 GB)
+result[(2, 2, 0, 0), 0] = ModuleProfileResult(compute_cost=0.142, peak_memory=8.920 GB, invar_size=2.543 GB, outvar_size=0.188 GB, temp_buffer_size=6.189 GB, available_memory=35.242 GB)
+result[(2, 2, 0, 1), 0] = ModuleProfileResult(compute_cost=0.142, peak_memory=8.920 GB, invar_size=2.543 GB, outvar_size=0.188 GB, temp_buffer_size=6.189 GB, available_memory=35.242 GB)
+result[(0, 0, 0, 1), 0] = ModuleProfileResult(compute_cost=0.154, peak_memory=8.757 GB, invar_size=2.381 GB, outvar_size=0.188 GB, temp_buffer_size=6.189 GB, available_memory=35.242 GB)
+result[(0, 0, 0, 0), 0] = ModuleProfileResult(compute_cost=0.154, peak_memory=8.757 GB, invar_size=2.381 GB, outvar_size=0.188 GB, temp_buffer_size=6.189 GB, available_memory=35.242 GB)
+result[(3, 3, 0, 1), 1] = ModuleProfileResult(compute_cost=0.420, peak_memory=27.099 GB, invar_size=5.087 GB, outvar_size=2.543 GB, temp_buffer_size=21.825 GB, available_memory=35.242 GB)
+result[(3, 3, 0, 0), 1] = ModuleProfileResult(compute_cost=0.420, peak_memory=27.099 GB, invar_size=5.087 GB, outvar_size=2.543 GB, temp_buffer_size=21.825 GB, available_memory=35.242 GB)
+result[(1, 1, 0, 1), 1] = ModuleProfileResult(compute_cost=0.420, peak_memory=27.099 GB, invar_size=5.087 GB, outvar_size=2.543 GB, temp_buffer_size=21.825 GB, available_memory=35.242 GB)
+result[(1, 1, 0, 0), 1] = ModuleProfileResult(compute_cost=0.420, peak_memory=27.099 GB, invar_size=5.087 GB, outvar_size=2.543 GB, temp_buffer_size=21.825 GB, available_memory=35.242 GB)
+result[(2, 2, 0, 1), 1] = ModuleProfileResult(compute_cost=0.420, peak_memory=27.099 GB, invar_size=5.087 GB, outvar_size=2.543 GB, temp_buffer_size=21.825 GB, available_memory=35.242 GB)
+result[(2, 2, 0, 0), 1] = ModuleProfileResult(compute_cost=0.420, peak_memory=27.099 GB, invar_size=5.087 GB, outvar_size=2.543 GB, temp_buffer_size=21.825 GB, available_memory=35.242 GB)
+result[(7, 7, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=0.000 GB, invar_size=0.000 GB, outvar_size=0.000 GB, temp_buffer_size=0.000 GB, available_memory=35.242 GB)
+result[(7, 7, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=0.000 GB, invar_size=0.000 GB, outvar_size=0.000 GB, temp_buffer_size=0.000 GB, available_memory=35.242 GB)
+result[(4, 4, 0, 0), 0] = ModuleProfileResult(compute_cost=0.177, peak_memory=8.991 GB, invar_size=2.614 GB, outvar_size=0.188 GB, temp_buffer_size=6.189 GB, available_memory=35.242 GB)
+result[(0, 0, 0, 0), 1] = ModuleProfileResult(compute_cost=0.409, peak_memory=27.992 GB, invar_size=4.948 GB, outvar_size=2.380 GB, temp_buffer_size=23.044 GB, available_memory=35.242 GB)
+result[(0, 0, 0, 1), 1] = ModuleProfileResult(compute_cost=0.409, peak_memory=27.992 GB, invar_size=4.948 GB, outvar_size=2.380 GB, temp_buffer_size=23.044 GB, available_memory=35.242 GB)
+result[(4, 4, 0, 1), 0] = ModuleProfileResult(compute_cost=0.177, peak_memory=8.991 GB, invar_size=2.614 GB, outvar_size=0.188 GB, temp_buffer_size=6.189 GB, available_memory=35.242 GB)
+result[(5, 5, 0, 0), 0] = ModuleProfileResult(compute_cost=0.142, peak_memory=8.920 GB, invar_size=2.543 GB, outvar_size=0.188 GB, temp_buffer_size=6.189 GB, available_memory=35.242 GB)
+result[(5, 5, 0, 1), 0] = ModuleProfileResult(compute_cost=0.142, peak_memory=8.920 GB, invar_size=2.543 GB, outvar_size=0.188 GB, temp_buffer_size=6.189 GB, available_memory=35.242 GB)
+result[(6, 6, 0, 0), 0] = ModuleProfileResult(compute_cost=0.142, peak_memory=8.920 GB, invar_size=2.543 GB, outvar_size=0.188 GB, temp_buffer_size=6.189 GB, available_memory=35.242 GB)
+result[(4, 4, 0, 0), 1] = ModuleProfileResult(compute_cost=0.508, peak_memory=31.684 GB, invar_size=5.227 GB, outvar_size=2.613 GB, temp_buffer_size=26.270 GB, available_memory=35.242 GB)
+result[(6, 6, 0, 1), 0] = ModuleProfileResult(compute_cost=0.142, peak_memory=8.920 GB, invar_size=2.543 GB, outvar_size=0.188 GB, temp_buffer_size=6.189 GB, available_memory=35.242 GB)
+result[(4, 4, 0, 1), 1] = ModuleProfileResult(compute_cost=0.508, peak_memory=31.684 GB, invar_size=5.227 GB, outvar_size=2.613 GB, temp_buffer_size=26.270 GB, available_memory=35.242 GB)
+result[(5, 5, 0, 0), 1] = ModuleProfileResult(compute_cost=0.420, peak_memory=28.787 GB, invar_size=5.087 GB, outvar_size=2.543 GB, temp_buffer_size=23.513 GB, available_memory=35.242 GB)
+result[(5, 5, 0, 1), 1] = ModuleProfileResult(compute_cost=0.420, peak_memory=28.787 GB, invar_size=5.087 GB, outvar_size=2.543 GB, temp_buffer_size=23.513 GB, available_memory=35.242 GB)
+result[(6, 6, 0, 0), 1] = ModuleProfileResult(compute_cost=0.420, peak_memory=28.411 GB, invar_size=5.087 GB, outvar_size=2.543 GB, temp_buffer_size=23.137 GB, available_memory=35.242 GB)
+result[(6, 6, 0, 1), 1] = ModuleProfileResult(compute_cost=0.420, peak_memory=28.411 GB, invar_size=5.087 GB, outvar_size=2.543 GB, temp_buffer_size=23.137 GB, available_memory=35.242 GB)
+result[(7, 7, 0, 0), 1] = ModuleProfileResult(compute_cost=0.558, peak_memory=34.665 GB, invar_size=5.082 GB, outvar_size=2.635 GB, temp_buffer_size=29.395 GB, available_memory=35.242 GB)
+result[(7, 7, 0, 1), 1] = ModuleProfileResult(compute_cost=0.558, peak_memory=34.665 GB, invar_size=5.082 GB, outvar_size=2.635 GB, temp_buffer_size=29.395 GB, available_memory=35.242 GB)
+Profiling for submesh 0 (1, 1) takes 17.42 seconds
+--------------------------------------------------
+----------------------------------------------------------------------
+[TMP] Stage (0, 3, 2, 0) has been pruned...
+[TMP] Stage (0, 3, 2, 1) has been pruned...
+[TMP] Stage (0, 3, 2, 2) has been pruned...
+[TMP] Stage (1, 4, 2, 0) has been pruned...
+[TMP] Stage (1, 4, 2, 1) has been pruned...
+[TMP] Stage (1, 4, 2, 2) has been pruned...
+[TMP] Stage (2, 5, 2, 0) has been pruned...
+[TMP] Stage (2, 5, 2, 1) has been pruned...
+[TMP] Stage (2, 5, 2, 2) has been pruned...
+[TMP] Stage (3, 6, 2, 0) has been pruned...
+[TMP] Stage (3, 6, 2, 1) has been pruned...
+[TMP] Stage (3, 6, 2, 2) has been pruned...
+[TMP] Stage (4, 7, 2, 0) has been pruned...
+[TMP] Stage (4, 7, 2, 1) has been pruned...
+[TMP] Stage (4, 7, 2, 2) has been pruned...
+Result forward_stage_layer_ids: [[0, 1], [2, 3], [4, 5], [6, 7]]
+Result mesh_shapes: [(1, 2), (1, 2), (1, 2), (1, 2)]
+Result logical_mesh_shapes: [(2, 1), (2, 1), (2, 1), (2, 1)]
+Result autosharding_option_dicts: [{}, {}, {}, {'force_batch_dim_to_mesh_dim': 0}]
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.16<0>
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=4117432)[0m 
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.16<0>
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [1] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.25<0>
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [1] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [1] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [1] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.25<0>
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [1] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m NCCL version 2.8.4+cuda11.2
+[2m[36m(MeshHostWorker pid=4117432)[0m 
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=4117432)[0m 
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO Channel 00 : 0[31000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO Channel 01 : 0[31000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO Channel 00 : 1[31000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO Channel 01 : 1[31000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO comm 0x43488c0 rank 1 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [0] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [0] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [0] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [0] NCCL INFO Channel 00 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [0] NCCL INFO Channel 01 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [0] NCCL INFO Channel 00 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [0] NCCL INFO Channel 01 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [0] NCCL INFO comm 0x4e80e90 rank 0 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [1] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [1] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [1] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [1] NCCL INFO Channel 00 : 1[98000] -> 0[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [1] NCCL INFO Channel 01 : 1[98000] -> 0[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [1] NCCL INFO Channel 00 : 0[98000] -> 1[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [1] NCCL INFO Channel 01 : 0[98000] -> 1[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [1] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [1] NCCL INFO comm 0x6ec96e0 rank 0 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=4117432)[0m 
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [1] NCCL INFO Channel 00 : 0[98000] -> 1[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [1] NCCL INFO Channel 01 : 0[98000] -> 1[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [1] NCCL INFO Channel 00 : 1[98000] -> 0[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [1] NCCL INFO Channel 01 : 1[98000] -> 0[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [1] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [1] NCCL INFO comm 0x6735250 rank 1 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.32<0>
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.32<0>
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=4117432)[0m NCCL version 2.8.4+cuda11.2
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO Channel 00 : 0[31000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO Channel 01 : 0[31000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO Channel 00 : 1[31000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO Channel 01 : 1[31000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO comm 0x452f280 rank 1 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=4117432)[0m 
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO Channel 00 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO Channel 01 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO Channel 00 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO Channel 01 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO comm 0xbb91d60 rank 0 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=4117432)[0m 
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [1] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [1] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [1] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [1] NCCL INFO Channel 00 : 1[98000] -> 0[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [1] NCCL INFO Channel 01 : 1[98000] -> 0[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [1] NCCL INFO Channel 00 : 0[98000] -> 1[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [1] NCCL INFO Channel 01 : 0[98000] -> 1[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [1] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [1] NCCL INFO comm 0xbcb8e10 rank 0 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [1] NCCL INFO Channel 00 : 0[98000] -> 1[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [1] NCCL INFO Channel 01 : 0[98000] -> 1[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [1] NCCL INFO Channel 00 : 1[98000] -> 0[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [1] NCCL INFO Channel 01 : 1[98000] -> 0[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [1] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [1] NCCL INFO comm 0x672df60 rank 1 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m NCCL version 2.8.4+cuda11.2
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [0] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.17<0>
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [0] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [0] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.17<0>
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [0] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [0] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [0] NCCL INFO Channel 00 : 0[31000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [0] NCCL INFO Channel 01 : 0[31000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO Channel 00 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO Channel 01 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [0] NCCL INFO Channel 00 : 1[31000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO Channel 00 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [0] NCCL INFO Channel 01 : 1[31000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [0] NCCL INFO comm 0x3bcda90 rank 1 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO Channel 01 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO comm 0xa5782f0 rank 0 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [1] NCCL INFO Channel 00 : 0[98000] -> 1[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [1] NCCL INFO Channel 01 : 0[98000] -> 1[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [1] NCCL INFO Channel 00 : 1[98000] -> 0[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [1] NCCL INFO Channel 01 : 1[98000] -> 0[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [1] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549367 [1] NCCL INFO comm 0x8fcb4c0 rank 1 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [1] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [1] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [1] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [1] NCCL INFO Channel 00 : 1[98000] -> 0[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [1] NCCL INFO Channel 01 : 1[98000] -> 0[98000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [1] NCCL INFO Channel 00 : 0[98000] -> 1[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [1] NCCL INFO Channel 01 : 0[98000] -> 1[98000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [1] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [1] NCCL INFO comm 0xa50f1b0 rank 0 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+ - Compile (driver): 179.82 s
+compilation time breakdown: {'stage-construction': '141.84', 'stage-construction-dp': '1.36', 'stage-construction-compilation': '72.38', 'stage-construction-profiling': '37.42'}
+ - Compile (worker): 9.38 s
+[I] Training process warmup (2 rounds) with dummy input batch...
+    - Warmup iteration: 1/2
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445095 [0] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.25<0>
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445095 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445095 [0] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445095 [0] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.25<0>
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445095 [0] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m NCCL version 2.8.4+cuda11.2
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445097 [1] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445097 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445095 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445097 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m 
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445095 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445095 [0] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445095 [0] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445097 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] -1/-1/-1->1->0
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445095 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445097 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445095 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445095 [0] NCCL INFO Channel 00 : 0[31000] -> 1[98000] via direct shared memory
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445095 [0] NCCL INFO Channel 01 : 0[31000] -> 1[98000] via direct shared memory
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445097 [1] NCCL INFO Channel 00 : 1[98000] -> 0[31000] via direct shared memory
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445097 [1] NCCL INFO Channel 01 : 1[98000] -> 0[31000] via direct shared memory
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445097 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445097 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445095 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445095 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445097 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445097 [1] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445095 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445095 [0] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445097 [1] NCCL INFO comm 0x7f2034a8d550 rank 1 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445095 [0] NCCL INFO comm 0x7f2025d7c200 rank 0 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:445095 [0] NCCL INFO Launch mode Group/CGMD
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [0] NCCL INFO Launch mode Parallel
+[2m[36m(MeshHostWorker pid=444991, ip=192.168.0.26)[0m gpu11:444991:444991 [1] NCCL INFO Launch mode Parallel
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117557 [1] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.16<0>
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117557 [1] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=4117432)[0m 
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117557 [1] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117557 [1] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.16<0>
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117557 [1] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=4117432)[0m NCCL version 2.8.4+cuda11.2
+[2m[36m(MeshHostWorker pid=4117432)[0m 
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117555 [0] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=4117432)[0m 
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117555 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=4117432)[0m 
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117555 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=4117432)[0m 
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117557 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=4117432)[0m 
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117557 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117555 [0] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117555 [0] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117557 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] -1/-1/-1->1->0
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117555 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117557 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117555 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117555 [0] NCCL INFO Channel 00 : 0[31000] -> 1[98000] via direct shared memory
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117555 [0] NCCL INFO Channel 01 : 0[31000] -> 1[98000] via direct shared memory
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117557 [1] NCCL INFO Channel 00 : 1[98000] -> 0[31000] via direct shared memory
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117557 [1] NCCL INFO Channel 01 : 1[98000] -> 0[31000] via direct shared memory
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117555 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117555 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117557 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117557 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117557 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117557 [1] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117555 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117555 [0] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117557 [1] NCCL INFO comm 0x7f72ac6e3880 rank 1 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117555 [0] NCCL INFO comm 0x7f72b97f6480 rank 0 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117555 [0] NCCL INFO Launch mode Group/CGMD
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [0] NCCL INFO Launch mode Parallel
+[2m[36m(MeshHostWorker pid=4117432)[0m gpu2:4117432:4117432 [1] NCCL INFO Launch mode Parallel
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195562 [0] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.32<0>
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195562 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195562 [0] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195562 [0] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.32<0>
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195562 [0] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m NCCL version 2.8.4+cuda11.2
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195564 [1] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195564 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195564 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195562 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m 
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195562 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195564 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] -1/-1/-1->1->0
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195564 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195562 [0] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195562 [0] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195562 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195562 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195564 [1] NCCL INFO Channel 00 : 1[98000] -> 0[31000] via direct shared memory
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195564 [1] NCCL INFO Channel 01 : 1[98000] -> 0[31000] via direct shared memory
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195562 [0] NCCL INFO Channel 00 : 0[31000] -> 1[98000] via direct shared memory
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195562 [0] NCCL INFO Channel 01 : 0[31000] -> 1[98000] via direct shared memory
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195564 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195564 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195562 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195562 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195564 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195564 [1] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195562 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195562 [0] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195564 [1] NCCL INFO comm 0x7f16b9a2bd10 rank 1 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195562 [0] NCCL INFO comm 0x7f16aff624c0 rank 0 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195562 [0] NCCL INFO Launch mode Group/CGMD
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [0] NCCL INFO Launch mode Parallel
+[2m[36m(MeshHostWorker pid=2195458, ip=192.168.0.33)[0m gpu18:2195458:2195458 [1] NCCL INFO Launch mode Parallel
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549485 [1] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.17<0>
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549485 [1] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549485 [1] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549485 [1] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.17<0>
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549485 [1] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m NCCL version 2.8.4+cuda11.2
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549483 [0] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549483 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549483 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549485 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549485 [1] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549483 [0] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549485 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] -1/-1/-1->1->0
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549483 [0] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549485 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ff000000
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549483 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549483 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549485 [1] NCCL INFO Channel 00 : 1[98000] -> 0[31000] via direct shared memory
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549485 [1] NCCL INFO Channel 01 : 1[98000] -> 0[31000] via direct shared memory
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549483 [0] NCCL INFO Channel 00 : 0[31000] -> 1[98000] via direct shared memory
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549483 [0] NCCL INFO Channel 01 : 0[31000] -> 1[98000] via direct shared memory
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549483 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549483 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549485 [1] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549485 [1] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549485 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549485 [1] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549483 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549483 [0] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549483 [0] NCCL INFO comm 0x7f828786c1e0 rank 0 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549485 [1] NCCL INFO comm 0x7f9863d6f820 rank 1 nranks 2 cudaDev 1 busId 98000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=1549367, ip=192.168.0.18)[0m gpu3:1549367:1549483 [0] NCCL INFO Launch mode Group/CGMD
+    - Warmup iteration: 2/2
+[I] Ready to perform training process.
+[I] Benchmark the training process with entire dataset and profile with driver overhead...
+    - Iteration 1 / 5 is performed...
+    - Iteration 2 / 5 is performed...
+    - Iteration 3 / 5 is performed...
+    - Iteration 4 / 5 is performed...
+ - Benchmark: 250.69 s
+
+[79.67811346054077, 27.067491054534912, 27.038570404052734, 26.96381378173828, 27.056452751159668, 27.009283542633057, 27.093348264694214]
+
+
+[I] Performance metrics:
+ - Iteration count: 5.
+ - Total e2e training time : 137.852 s.
+ - Average e2e iteration time: 27.57000160217285 s.
+ - Total local training time: 135.1610107421875 s.
+ - Average local iteration time: 27.032001495361328 s.
+ - Max allocated memory among devices: 32.211 GB.
+ - Compilation times:  {'stage-construction': 141.83521032333374, 'stage-construction-dp': 1.3641788959503174, 'stage-construction-compilation': 72.38264274597168, 'stage-construction-profiling': 37.41546702384949}
+ - Metadata:  []
+ - Is need save result:  True
+
+[TMP] Current profiling results of key `4_a40_4_n_2_d`: 27.03229331970215
+[TMP] Updated profiling results stored in `./jaxpr/prof_log/optimal/moe_10B_1024.pkl`...

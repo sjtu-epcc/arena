@@ -1,0 +1,452 @@
+
+------------------------------------------------------------------
+- (1/3) Profiling moe_2.4B with batch size: 256...
+------------------------------------------------------------------
+[TMP] Existed profiling results in `./jaxpr/prof_log/optimal/moe_2.4B_256.pkl`, updating/rewriting it...
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 1
+    - Nodes num: 2
+[I] Loading flax model....
+[I] Model 'moe' loads sucessfully. Model Info: 
+
+FlaxMoEForLMModule(
+    # attributes
+    config = <model.moe_model.MoEConfig object at 0x7f1f43f15820>
+    dtype = float16
+    bias_init = zeros
+) 
+
+[I] Manually constructing dummy batch...
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+-------------------- Automatic stage clustering --------------------
+submesh_choices: ((1, 1), (2, 1))
+- Profiling for submesh 1 (2, 1):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(0, 7, 1, 0), 0] = ModuleProfileResult(compute_cost=0.069, peak_memory=4.517 GB, invar_size=3.892 GB, outvar_size=0.109 GB, temp_buffer_size=0.516 GB, available_memory=35.242 GB)
+result[(0, 7, 1, 1), 0] = ModuleProfileResult(compute_cost=0.091, peak_memory=2.767 GB, invar_size=2.142 GB, outvar_size=0.109 GB, temp_buffer_size=0.516 GB, available_memory=35.242 GB)
+result[(0, 7, 1, 0), 1] = ModuleProfileResult(compute_cost=0.281, peak_memory=13.609 GB, invar_size=9.109 GB, outvar_size=4.500 GB, temp_buffer_size=4.500 GB, available_memory=35.242 GB)
+result[(0, 7, 1, 1), 1] = ModuleProfileResult(compute_cost=0.292, peak_memory=8.275 GB, invar_size=5.109 GB, outvar_size=2.500 GB, temp_buffer_size=3.166 GB, available_memory=35.242 GB)
+Profiling for submesh 1 (2, 1) takes 57.51 seconds
+--------------------------------------------------
+- Profiling for submesh 0 (1, 1):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(1, 4, 0, 0), 0] = ModuleProfileResult(compute_cost=0.073, peak_memory=3.407 GB, invar_size=2.250 GB, outvar_size=0.125 GB, temp_buffer_size=1.032 GB, available_memory=35.446 GB)
+result[(2, 5, 0, 0), 0] = ModuleProfileResult(compute_cost=0.073, peak_memory=3.407 GB, invar_size=2.250 GB, outvar_size=0.125 GB, temp_buffer_size=1.032 GB, available_memory=35.446 GB)
+result[(0, 3, 0, 0), 0] = ModuleProfileResult(compute_cost=0.073, peak_memory=3.376 GB, invar_size=2.220 GB, outvar_size=0.125 GB, temp_buffer_size=1.032 GB, available_memory=35.446 GB)
+result[(1, 4, 0, 1), 0] = ModuleProfileResult(compute_cost=0.073, peak_memory=3.407 GB, invar_size=2.250 GB, outvar_size=0.125 GB, temp_buffer_size=1.032 GB, available_memory=35.446 GB)
+result[(0, 3, 0, 1), 0] = ModuleProfileResult(compute_cost=0.073, peak_memory=3.376 GB, invar_size=2.220 GB, outvar_size=0.125 GB, temp_buffer_size=1.032 GB, available_memory=35.446 GB)
+result[(1, 5, 0, 1), 0] = ModuleProfileResult(compute_cost=0.091, peak_memory=3.985 GB, invar_size=2.797 GB, outvar_size=0.156 GB, temp_buffer_size=1.032 GB, available_memory=35.446 GB)
+result[(1, 5, 0, 0), 0] = ModuleProfileResult(compute_cost=0.091, peak_memory=3.985 GB, invar_size=2.797 GB, outvar_size=0.156 GB, temp_buffer_size=1.032 GB, available_memory=35.446 GB)
+result[(1, 4, 0, 0), 1] = ModuleProfileResult(compute_cost=0.214, peak_memory=10.820 GB, invar_size=4.594 GB, outvar_size=2.250 GB, temp_buffer_size=6.195 GB, available_memory=35.446 GB)
+result[(1, 4, 0, 1), 1] = ModuleProfileResult(compute_cost=0.214, peak_memory=10.820 GB, invar_size=4.594 GB, outvar_size=2.250 GB, temp_buffer_size=6.195 GB, available_memory=35.446 GB)
+result[(0, 3, 0, 1), 1] = ModuleProfileResult(compute_cost=0.207, peak_memory=10.256 GB, invar_size=4.564 GB, outvar_size=2.220 GB, temp_buffer_size=5.691 GB, available_memory=35.446 GB)
+result[(0, 3, 0, 0), 1] = ModuleProfileResult(compute_cost=0.207, peak_memory=10.256 GB, invar_size=4.564 GB, outvar_size=2.220 GB, temp_buffer_size=5.691 GB, available_memory=35.446 GB)
+result[(2, 5, 0, 1), 0] = ModuleProfileResult(compute_cost=0.073, peak_memory=3.407 GB, invar_size=2.250 GB, outvar_size=0.125 GB, temp_buffer_size=1.032 GB, available_memory=35.446 GB)
+result[(2, 5, 0, 0), 1] = ModuleProfileResult(compute_cost=0.214, peak_memory=10.729 GB, invar_size=4.594 GB, outvar_size=2.250 GB, temp_buffer_size=6.103 GB, available_memory=35.446 GB)
+result[(2, 6, 0, 0), 0] = ModuleProfileResult(compute_cost=0.091, peak_memory=3.985 GB, invar_size=2.797 GB, outvar_size=0.156 GB, temp_buffer_size=1.032 GB, available_memory=35.446 GB)
+result[(3, 6, 0, 0), 0] = ModuleProfileResult(compute_cost=0.073, peak_memory=3.407 GB, invar_size=2.250 GB, outvar_size=0.125 GB, temp_buffer_size=1.032 GB, available_memory=35.446 GB)
+result[(1, 5, 0, 0), 1] = ModuleProfileResult(compute_cost=0.264, peak_memory=12.355 GB, invar_size=5.720 GB, outvar_size=2.797 GB, temp_buffer_size=6.604 GB, available_memory=35.446 GB)
+result[(2, 6, 0, 1), 0] = ModuleProfileResult(compute_cost=0.091, peak_memory=3.985 GB, invar_size=2.797 GB, outvar_size=0.156 GB, temp_buffer_size=1.032 GB, available_memory=35.446 GB)
+result[(1, 5, 0, 1), 1] = ModuleProfileResult(compute_cost=0.264, peak_memory=12.355 GB, invar_size=5.720 GB, outvar_size=2.797 GB, temp_buffer_size=6.604 GB, available_memory=35.446 GB)
+result[(4, 7, 0, 0), 0] = ModuleProfileResult(compute_cost=0.056, peak_memory=2.829 GB, invar_size=1.703 GB, outvar_size=0.094 GB, temp_buffer_size=1.032 GB, available_memory=35.446 GB)
+result[(4, 7, 0, 1), 0] = ModuleProfileResult(compute_cost=0.056, peak_memory=2.829 GB, invar_size=1.703 GB, outvar_size=0.094 GB, temp_buffer_size=1.032 GB, available_memory=35.446 GB)
+result[(3, 6, 0, 1), 0] = ModuleProfileResult(compute_cost=0.073, peak_memory=3.407 GB, invar_size=2.250 GB, outvar_size=0.125 GB, temp_buffer_size=1.032 GB, available_memory=35.446 GB)
+result[(2, 5, 0, 1), 1] = ModuleProfileResult(compute_cost=0.214, peak_memory=10.729 GB, invar_size=4.594 GB, outvar_size=2.250 GB, temp_buffer_size=6.103 GB, available_memory=35.446 GB)
+result[(2, 6, 0, 0), 1] = ModuleProfileResult(compute_cost=0.264, peak_memory=12.509 GB, invar_size=5.720 GB, outvar_size=2.797 GB, temp_buffer_size=6.758 GB, available_memory=35.446 GB)
+result[(2, 6, 0, 1), 1] = ModuleProfileResult(compute_cost=0.264, peak_memory=12.509 GB, invar_size=5.720 GB, outvar_size=2.797 GB, temp_buffer_size=6.758 GB, available_memory=35.446 GB)
+result[(3, 6, 0, 0), 1] = ModuleProfileResult(compute_cost=0.214, peak_memory=11.010 GB, invar_size=4.594 GB, outvar_size=2.250 GB, temp_buffer_size=6.384 GB, available_memory=35.446 GB)
+result[(3, 6, 0, 1), 1] = ModuleProfileResult(compute_cost=0.214, peak_memory=11.010 GB, invar_size=4.594 GB, outvar_size=2.250 GB, temp_buffer_size=6.384 GB, available_memory=35.446 GB)
+result[(4, 7, 0, 0), 1] = ModuleProfileResult(compute_cost=0.237, peak_memory=11.327 GB, invar_size=4.685 GB, outvar_size=2.311 GB, temp_buffer_size=6.610 GB, available_memory=35.446 GB)
+result[(4, 7, 0, 1), 1] = ModuleProfileResult(compute_cost=0.237, peak_memory=11.327 GB, invar_size=4.685 GB, outvar_size=2.311 GB, temp_buffer_size=6.610 GB, available_memory=35.446 GB)
+Profiling for submesh 0 (1, 1) takes 49.20 seconds
+--------------------------------------------------
+----------------------------------------------------------------------
+Result forward_stage_layer_ids: [[0, 1, 2, 3], [4, 5, 6, 7]]
+Result mesh_shapes: [(1, 1), (1, 1)]
+Result logical_mesh_shapes: [(1, 1), (1, 1)]
+Result autosharding_option_dicts: [{'force_batch_dim_to_mesh_dim': 0}, {}]
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m gpu3:2390861:2390861 [0] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.17<0>
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m gpu3:2390861:2390861 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m gpu3:2390861:2390861 [0] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m gpu3:2390861:2390861 [0] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.17<0>
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m gpu3:2390861:2390861 [0] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m NCCL version 2.8.4+cuda11.2
+[2m[36m(MeshHostWorker pid=1084616)[0m gpu2:1084616:1084616 [0] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.16<0>
+[2m[36m(MeshHostWorker pid=1084616)[0m gpu2:1084616:1084616 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=1084616)[0m 
+[2m[36m(MeshHostWorker pid=1084616)[0m gpu2:1084616:1084616 [0] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=1084616)[0m gpu2:1084616:1084616 [0] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.16<0>
+[2m[36m(MeshHostWorker pid=1084616)[0m gpu2:1084616:1084616 [0] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m gpu3:2390861:2390861 [0] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m gpu3:2390861:2390861 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m gpu3:2390861:2390861 [0] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m gpu3:2390861:2390861 [0] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m gpu3:2390861:2390861 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m gpu3:2390861:2390861 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m gpu3:2390861:2390861 [0] NCCL INFO Channel 00 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m gpu3:2390861:2390861 [0] NCCL INFO NCCL_NSOCKS_PERTHREAD set by environment to 8.
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m gpu3:2390861:2390861 [0] NCCL INFO NCCL_SOCKET_NTHREADS set by environment to 8.
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m gpu3:2390861:2390861 [0] NCCL INFO NET/Socket: Using 8 threads and 8 sockets per thread
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m gpu3:2390861:2390861 [0] NCCL INFO Channel 01 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m gpu3:2390861:2390861 [0] NCCL INFO NET/Socket: Using 8 threads and 8 sockets per thread
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m gpu3:2390861:2390861 [0] NCCL INFO Channel 00 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m gpu3:2390861:2390861 [0] NCCL INFO Channel 01 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1084616)[0m 
+[2m[36m(MeshHostWorker pid=1084616)[0m gpu2:1084616:1084616 [0] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=1084616)[0m 
+[2m[36m(MeshHostWorker pid=1084616)[0m gpu2:1084616:1084616 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=1084616)[0m gpu2:1084616:1084616 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+[2m[36m(MeshHostWorker pid=1084616)[0m gpu2:1084616:1084616 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=1084616)[0m gpu2:1084616:1084616 [0] NCCL INFO Channel 00 : 0[31000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1084616)[0m gpu2:1084616:1084616 [0] NCCL INFO NCCL_NSOCKS_PERTHREAD set by environment to 8.
+[2m[36m(MeshHostWorker pid=1084616)[0m gpu2:1084616:1084616 [0] NCCL INFO NCCL_SOCKET_NTHREADS set by environment to 8.
+[2m[36m(MeshHostWorker pid=1084616)[0m gpu2:1084616:1084616 [0] NCCL INFO NET/Socket: Using 8 threads and 8 sockets per thread
+[2m[36m(MeshHostWorker pid=1084616)[0m gpu2:1084616:1084616 [0] NCCL INFO Channel 01 : 0[31000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1084616)[0m gpu2:1084616:1084616 [0] NCCL INFO NET/Socket: Using 8 threads and 8 sockets per thread
+[2m[36m(MeshHostWorker pid=1084616)[0m gpu2:1084616:1084616 [0] NCCL INFO Channel 00 : 1[31000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1084616)[0m gpu2:1084616:1084616 [0] NCCL INFO Channel 01 : 1[31000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1084616)[0m gpu2:1084616:1084616 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=1084616)[0m gpu2:1084616:1084616 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=1084616)[0m gpu2:1084616:1084616 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=1084616)[0m gpu2:1084616:1084616 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=1084616)[0m gpu2:1084616:1084616 [0] NCCL INFO comm 0x3e1ec20 rank 1 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m gpu3:2390861:2390861 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m gpu3:2390861:2390861 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m gpu3:2390861:2390861 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m gpu3:2390861:2390861 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m gpu3:2390861:2390861 [0] NCCL INFO comm 0x3a56bc0 rank 0 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+ - Compile (driver): 144.19 s
+compilation time breakdown: {'stage-construction': '110.59', 'stage-construction-dp': '1.28', 'stage-construction-compilation': '35.89', 'stage-construction-profiling': '36.03'}
+ - Compile (worker): 14.87 s
+[I] Training process warmup (2 rounds) with dummy input batch...
+    - Warmup iteration: 1/2
+[2m[36m(MeshHostWorker pid=2390861, ip=192.168.0.18)[0m gpu3:2390861:2390861 [0] NCCL INFO Launch mode Parallel
+    - Warmup iteration: 2/2
+[I] Ready to perform training process.
+[I] Benchmark the training process with entire dataset and profile with driver overhead...
+    - Iteration 1 / 5 is performed...
+    - Iteration 2 / 5 is performed...
+    - Iteration 3 / 5 is performed...
+    - Iteration 4 / 5 is performed...
+ - Benchmark: 90.84 s
+
+[14.555884599685669, 11.865845918655396, 11.858827114105225, 11.856873035430908, 11.873679637908936, 11.874815940856934, 11.887601137161255]
+
+
+[I] Performance metrics:
+ - Iteration count: 5.
+ - Total e2e training time : 61.4 s.
+ - Average e2e iteration time: 12.280000686645508 s.
+ - Total local training time: 59.35200119018555 s.
+ - Average local iteration time: 11.870000839233398 s.
+ - Max allocated memory among devices: 17.77 GB.
+ - Compilation times:  {'stage-construction': 110.59266185760498, 'stage-construction-dp': 1.2785758972167969, 'stage-construction-compilation': 35.888317823410034, 'stage-construction-profiling': 36.03200697898865}
+ - Metadata:  []
+ - Is need save result:  True
+
+[TMP] Current profiling results of key `2_a40_2_n_1_d`: 11.870360374450684
+[TMP] Updated profiling results stored in `./jaxpr/prof_log/optimal/moe_2.4B_256.pkl`...
+
+------------------------------------------------------------------
+- (2/3) Profiling moe_2.4B with batch size: 512...
+------------------------------------------------------------------
+[TMP] Existed profiling results in `./jaxpr/prof_log/optimal/moe_2.4B_512.pkl`, updating/rewriting it...
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 1
+    - Nodes num: 2
+[I] Loading flax model....
+[I] Model 'moe' loads sucessfully. Model Info: 
+
+FlaxMoEForLMModule(
+    # attributes
+    config = <model.moe_model.MoEConfig object at 0x7f43265f26d0>
+    dtype = float16
+    bias_init = zeros
+) 
+
+[I] Manually constructing dummy batch...
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+-------------------- Automatic stage clustering --------------------
+submesh_choices: ((1, 1), (2, 1))
+- Profiling for submesh 1 (2, 1):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(0, 7, 1, 0), 0] = ModuleProfileResult(compute_cost=0.129, peak_memory=5.142 GB, invar_size=3.892 GB, outvar_size=0.219 GB, temp_buffer_size=1.032 GB, available_memory=35.242 GB)
+result[(0, 7, 1, 1), 0] = ModuleProfileResult(compute_cost=0.170, peak_memory=3.392 GB, invar_size=2.142 GB, outvar_size=0.219 GB, temp_buffer_size=1.032 GB, available_memory=35.242 GB)
+result[(0, 7, 1, 0), 1] = ModuleProfileResult(compute_cost=0.486, peak_memory=15.551 GB, invar_size=9.218 GB, outvar_size=4.500 GB, temp_buffer_size=6.333 GB, available_memory=35.242 GB)
+result[(0, 7, 1, 1), 1] = ModuleProfileResult(compute_cost=0.543, peak_memory=11.551 GB, invar_size=5.218 GB, outvar_size=2.500 GB, temp_buffer_size=6.333 GB, available_memory=35.242 GB)
+Profiling for submesh 1 (2, 1) takes 57.51 seconds
+--------------------------------------------------
+- Profiling for submesh 0 (1, 1):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(2, 5, 0, 0), 0] = ModuleProfileResult(compute_cost=0.143, peak_memory=4.595 GB, invar_size=2.282 GB, outvar_size=0.250 GB, temp_buffer_size=2.064 GB, available_memory=35.446 GB)
+result[(0, 3, 0, 1), 0] = ModuleProfileResult(compute_cost=0.144, peak_memory=4.533 GB, invar_size=2.220 GB, outvar_size=0.250 GB, temp_buffer_size=2.064 GB, available_memory=35.446 GB)
+result[(1, 4, 0, 0), 0] = ModuleProfileResult(compute_cost=0.143, peak_memory=4.595 GB, invar_size=2.282 GB, outvar_size=0.250 GB, temp_buffer_size=2.064 GB, available_memory=35.446 GB)
+result[(0, 3, 0, 0), 0] = ModuleProfileResult(compute_cost=0.144, peak_memory=4.533 GB, invar_size=2.220 GB, outvar_size=0.250 GB, temp_buffer_size=2.064 GB, available_memory=35.446 GB)
+result[(1, 4, 0, 1), 0] = ModuleProfileResult(compute_cost=0.143, peak_memory=4.595 GB, invar_size=2.282 GB, outvar_size=0.250 GB, temp_buffer_size=2.064 GB, available_memory=35.446 GB)
+result[(1, 5, 0, 1), 0] = ModuleProfileResult(compute_cost=0.177, peak_memory=5.205 GB, invar_size=2.829 GB, outvar_size=0.312 GB, temp_buffer_size=2.064 GB, available_memory=35.446 GB)
+result[(1, 5, 0, 0), 0] = ModuleProfileResult(compute_cost=0.177, peak_memory=5.205 GB, invar_size=2.829 GB, outvar_size=0.312 GB, temp_buffer_size=2.064 GB, available_memory=35.446 GB)
+result[(2, 5, 0, 1), 0] = ModuleProfileResult(compute_cost=0.143, peak_memory=4.595 GB, invar_size=2.282 GB, outvar_size=0.250 GB, temp_buffer_size=2.064 GB, available_memory=35.446 GB)
+result[(0, 3, 0, 1), 1] = ModuleProfileResult(compute_cost=0.407, peak_memory=16.070 GB, invar_size=4.689 GB, outvar_size=2.220 GB, temp_buffer_size=11.381 GB, available_memory=35.446 GB)
+result[(0, 3, 0, 0), 1] = ModuleProfileResult(compute_cost=0.407, peak_memory=16.070 GB, invar_size=4.689 GB, outvar_size=2.220 GB, temp_buffer_size=11.381 GB, available_memory=35.446 GB)
+result[(1, 4, 0, 0), 1] = ModuleProfileResult(compute_cost=0.418, peak_memory=17.201 GB, invar_size=4.751 GB, outvar_size=2.282 GB, temp_buffer_size=12.388 GB, available_memory=35.446 GB)
+result[(1, 4, 0, 1), 1] = ModuleProfileResult(compute_cost=0.418, peak_memory=17.201 GB, invar_size=4.751 GB, outvar_size=2.282 GB, temp_buffer_size=12.388 GB, available_memory=35.446 GB)
+result[(2, 5, 0, 0), 1] = ModuleProfileResult(compute_cost=0.418, peak_memory=17.016 GB, invar_size=4.751 GB, outvar_size=2.282 GB, temp_buffer_size=12.203 GB, available_memory=35.446 GB)
+result[(2, 6, 0, 0), 0] = ModuleProfileResult(compute_cost=0.177, peak_memory=5.205 GB, invar_size=2.829 GB, outvar_size=0.312 GB, temp_buffer_size=2.064 GB, available_memory=35.446 GB)
+result[(3, 6, 0, 0), 0] = ModuleProfileResult(compute_cost=0.143, peak_memory=4.595 GB, invar_size=2.282 GB, outvar_size=0.250 GB, temp_buffer_size=2.064 GB, available_memory=35.446 GB)
+result[(2, 6, 0, 1), 0] = ModuleProfileResult(compute_cost=0.177, peak_memory=5.205 GB, invar_size=2.829 GB, outvar_size=0.312 GB, temp_buffer_size=2.064 GB, available_memory=35.446 GB)
+result[(1, 5, 0, 1), 1] = ModuleProfileResult(compute_cost=0.518, peak_memory=19.174 GB, invar_size=5.907 GB, outvar_size=2.829 GB, temp_buffer_size=13.204 GB, available_memory=35.446 GB)
+result[(1, 5, 0, 0), 1] = ModuleProfileResult(compute_cost=0.518, peak_memory=19.174 GB, invar_size=5.907 GB, outvar_size=2.829 GB, temp_buffer_size=13.204 GB, available_memory=35.446 GB)
+result[(4, 7, 0, 0), 0] = ModuleProfileResult(compute_cost=0.109, peak_memory=3.986 GB, invar_size=1.735 GB, outvar_size=0.188 GB, temp_buffer_size=2.064 GB, available_memory=35.446 GB)
+result[(4, 7, 0, 1), 0] = ModuleProfileResult(compute_cost=0.109, peak_memory=3.986 GB, invar_size=1.735 GB, outvar_size=0.188 GB, temp_buffer_size=2.064 GB, available_memory=35.446 GB)
+result[(3, 6, 0, 1), 0] = ModuleProfileResult(compute_cost=0.143, peak_memory=4.595 GB, invar_size=2.282 GB, outvar_size=0.250 GB, temp_buffer_size=2.064 GB, available_memory=35.446 GB)
+result[(2, 5, 0, 1), 1] = ModuleProfileResult(compute_cost=0.418, peak_memory=17.016 GB, invar_size=4.751 GB, outvar_size=2.282 GB, temp_buffer_size=12.203 GB, available_memory=35.446 GB)
+result[(2, 6, 0, 0), 1] = ModuleProfileResult(compute_cost=0.518, peak_memory=19.484 GB, invar_size=5.907 GB, outvar_size=2.829 GB, temp_buffer_size=13.515 GB, available_memory=35.446 GB)
+result[(2, 6, 0, 1), 1] = ModuleProfileResult(compute_cost=0.518, peak_memory=19.484 GB, invar_size=5.907 GB, outvar_size=2.829 GB, temp_buffer_size=13.515 GB, available_memory=35.446 GB)
+result[(3, 6, 0, 0), 1] = ModuleProfileResult(compute_cost=0.418, peak_memory=17.579 GB, invar_size=4.751 GB, outvar_size=2.282 GB, temp_buffer_size=12.766 GB, available_memory=35.446 GB)
+result[(4, 7, 0, 0), 1] = ModuleProfileResult(compute_cost=0.464, peak_memory=18.093 GB, invar_size=4.811 GB, outvar_size=2.343 GB, temp_buffer_size=13.220 GB, available_memory=35.446 GB)
+result[(3, 6, 0, 1), 1] = ModuleProfileResult(compute_cost=0.418, peak_memory=17.579 GB, invar_size=4.751 GB, outvar_size=2.282 GB, temp_buffer_size=12.766 GB, available_memory=35.446 GB)
+result[(4, 7, 0, 1), 1] = ModuleProfileResult(compute_cost=0.464, peak_memory=18.093 GB, invar_size=4.811 GB, outvar_size=2.343 GB, temp_buffer_size=13.220 GB, available_memory=35.446 GB)
+Profiling for submesh 0 (1, 1) takes 49.46 seconds
+--------------------------------------------------
+----------------------------------------------------------------------
+Result forward_stage_layer_ids: [[0, 1, 2, 3], [4, 5, 6, 7]]
+Result mesh_shapes: [(1, 1), (1, 1)]
+Result logical_mesh_shapes: [(1, 1), (1, 1)]
+Result autosharding_option_dicts: [{}, {}]
+[2m[36m(MeshHostWorker pid=1090534)[0m gpu2:1090534:1090534 [0] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.16<0>
+[2m[36m(MeshHostWorker pid=1090534)[0m gpu2:1090534:1090534 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=1090534)[0m 
+[2m[36m(MeshHostWorker pid=1090534)[0m gpu2:1090534:1090534 [0] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=1090534)[0m gpu2:1090534:1090534 [0] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.16<0>
+[2m[36m(MeshHostWorker pid=1090534)[0m gpu2:1090534:1090534 [0] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=1090534)[0m NCCL version 2.8.4+cuda11.2
+[2m[36m(MeshHostWorker pid=2394053, ip=192.168.0.18)[0m gpu3:2394053:2394053 [0] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.17<0>
+[2m[36m(MeshHostWorker pid=2394053, ip=192.168.0.18)[0m gpu3:2394053:2394053 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=2394053, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=2394053, ip=192.168.0.18)[0m gpu3:2394053:2394053 [0] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=2394053, ip=192.168.0.18)[0m gpu3:2394053:2394053 [0] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.17<0>
+[2m[36m(MeshHostWorker pid=2394053, ip=192.168.0.18)[0m gpu3:2394053:2394053 [0] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=2394053, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=2394053, ip=192.168.0.18)[0m gpu3:2394053:2394053 [0] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=2394053, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=2394053, ip=192.168.0.18)[0m gpu3:2394053:2394053 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=2394053, ip=192.168.0.18)[0m gpu3:2394053:2394053 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+[2m[36m(MeshHostWorker pid=2394053, ip=192.168.0.18)[0m gpu3:2394053:2394053 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=2394053, ip=192.168.0.18)[0m gpu3:2394053:2394053 [0] NCCL INFO Channel 00 : 0[31000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2394053, ip=192.168.0.18)[0m gpu3:2394053:2394053 [0] NCCL INFO NCCL_NSOCKS_PERTHREAD set by environment to 8.
+[2m[36m(MeshHostWorker pid=2394053, ip=192.168.0.18)[0m gpu3:2394053:2394053 [0] NCCL INFO NCCL_SOCKET_NTHREADS set by environment to 8.
+[2m[36m(MeshHostWorker pid=2394053, ip=192.168.0.18)[0m gpu3:2394053:2394053 [0] NCCL INFO NET/Socket: Using 8 threads and 8 sockets per thread
+[2m[36m(MeshHostWorker pid=2394053, ip=192.168.0.18)[0m gpu3:2394053:2394053 [0] NCCL INFO Channel 01 : 0[31000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2394053, ip=192.168.0.18)[0m gpu3:2394053:2394053 [0] NCCL INFO NET/Socket: Using 8 threads and 8 sockets per thread
+[2m[36m(MeshHostWorker pid=1090534)[0m 
+[2m[36m(MeshHostWorker pid=1090534)[0m gpu2:1090534:1090534 [0] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=1090534)[0m 
+[2m[36m(MeshHostWorker pid=1090534)[0m gpu2:1090534:1090534 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=1090534)[0m gpu2:1090534:1090534 [0] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=1090534)[0m gpu2:1090534:1090534 [0] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=1090534)[0m gpu2:1090534:1090534 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+[2m[36m(MeshHostWorker pid=1090534)[0m gpu2:1090534:1090534 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=1090534)[0m gpu2:1090534:1090534 [0] NCCL INFO Channel 00 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1090534)[0m gpu2:1090534:1090534 [0] NCCL INFO NCCL_NSOCKS_PERTHREAD set by environment to 8.
+[2m[36m(MeshHostWorker pid=1090534)[0m gpu2:1090534:1090534 [0] NCCL INFO NCCL_SOCKET_NTHREADS set by environment to 8.
+[2m[36m(MeshHostWorker pid=1090534)[0m gpu2:1090534:1090534 [0] NCCL INFO NET/Socket: Using 8 threads and 8 sockets per thread
+[2m[36m(MeshHostWorker pid=1090534)[0m gpu2:1090534:1090534 [0] NCCL INFO Channel 01 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1090534)[0m gpu2:1090534:1090534 [0] NCCL INFO NET/Socket: Using 8 threads and 8 sockets per thread
+[2m[36m(MeshHostWorker pid=1090534)[0m gpu2:1090534:1090534 [0] NCCL INFO Channel 00 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1090534)[0m gpu2:1090534:1090534 [0] NCCL INFO Channel 01 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2394053, ip=192.168.0.18)[0m gpu3:2394053:2394053 [0] NCCL INFO Channel 00 : 1[31000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2394053, ip=192.168.0.18)[0m gpu3:2394053:2394053 [0] NCCL INFO Channel 01 : 1[31000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2394053, ip=192.168.0.18)[0m gpu3:2394053:2394053 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=2394053, ip=192.168.0.18)[0m gpu3:2394053:2394053 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=2394053, ip=192.168.0.18)[0m gpu3:2394053:2394053 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=2394053, ip=192.168.0.18)[0m gpu3:2394053:2394053 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=2394053, ip=192.168.0.18)[0m gpu3:2394053:2394053 [0] NCCL INFO comm 0x525c390 rank 1 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=1090534)[0m gpu2:1090534:1090534 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=1090534)[0m gpu2:1090534:1090534 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=1090534)[0m gpu2:1090534:1090534 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=1090534)[0m gpu2:1090534:1090534 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=1090534)[0m gpu2:1090534:1090534 [0] NCCL INFO comm 0x3f1def0 rank 0 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+ - Compile (driver): 143.13 s
+compilation time breakdown: {'stage-construction': '110.66', 'stage-construction-dp': '1.36', 'stage-construction-compilation': '35.58', 'stage-construction-profiling': '36.95'}
+ - Compile (worker): 15.42 s
+[I] Training process warmup (2 rounds) with dummy input batch...
+    - Warmup iteration: 1/2
+[2m[36m(MeshHostWorker pid=1090534)[0m gpu2:1090534:1090534 [0] NCCL INFO Launch mode Parallel
+    - Warmup iteration: 2/2
+[I] Ready to perform training process.
+[I] Benchmark the training process with entire dataset and profile with driver overhead...
+    - Iteration 1 / 5 is performed...
+    - Iteration 2 / 5 is performed...
+    - Iteration 3 / 5 is performed...
+    - Iteration 4 / 5 is performed...
+ - Benchmark: 173.08 s
+
+[25.372700929641724, 23.316224336624146, 23.413320064544678, 23.31210231781006, 23.324942111968994, 23.277231693267822, 23.306533813476562]
+
+
+[I] Performance metrics:
+ - Iteration count: 5.
+ - Total e2e training time : 120.123 s.
+ - Average e2e iteration time: 24.025001525878906 s.
+ - Total local training time: 116.63400268554688 s.
+ - Average local iteration time: 23.327001571655273 s.
+ - Max allocated memory among devices: 26.412 GB.
+ - Compilation times:  {'stage-construction': 110.65725231170654, 'stage-construction-dp': 1.3574848175048828, 'stage-construction-compilation': 35.57683205604553, 'stage-construction-profiling': 36.950275897979736}
+ - Metadata:  []
+ - Is need save result:  True
+
+[TMP] Current profiling results of key `2_a40_2_n_1_d`: 23.326826095581055
+[TMP] Updated profiling results stored in `./jaxpr/prof_log/optimal/moe_2.4B_512.pkl`...
+
+------------------------------------------------------------------
+- (3/3) Profiling moe_2.4B with batch size: 1024...
+------------------------------------------------------------------
+[TMP] Existed profiling results in `./jaxpr/prof_log/optimal/moe_2.4B_1024.pkl`, updating/rewriting it...
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 1
+    - Nodes num: 2
+[I] Loading flax model....
+[I] Model 'moe' loads sucessfully. Model Info: 
+
+FlaxMoEForLMModule(
+    # attributes
+    config = <model.moe_model.MoEConfig object at 0x7fa3343347f0>
+    dtype = float16
+    bias_init = zeros
+) 
+
+[I] Manually constructing dummy batch...
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+-------------------- Automatic stage clustering --------------------
+submesh_choices: ((1, 1), (2, 1))
+- Profiling for submesh 1 (2, 1):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(0, 7, 1, 0), 0] = ModuleProfileResult(compute_cost=0.253, peak_memory=6.393 GB, invar_size=3.892 GB, outvar_size=0.438 GB, temp_buffer_size=2.064 GB, available_memory=35.242 GB)
+result[(0, 7, 1, 1), 0] = ModuleProfileResult(compute_cost=0.335, peak_memory=4.643 GB, invar_size=2.142 GB, outvar_size=0.438 GB, temp_buffer_size=2.064 GB, available_memory=35.242 GB)
+result[(0, 7, 1, 0), 1] = ModuleProfileResult(compute_cost=0.913, peak_memory=22.103 GB, invar_size=9.437 GB, outvar_size=4.500 GB, temp_buffer_size=12.665 GB, available_memory=35.242 GB)
+result[(0, 7, 1, 1), 1] = ModuleProfileResult(compute_cost=1.063, peak_memory=18.103 GB, invar_size=5.437 GB, outvar_size=2.500 GB, temp_buffer_size=12.665 GB, available_memory=35.242 GB)
+Profiling for submesh 1 (2, 1) takes 56.70 seconds
+--------------------------------------------------
+- Profiling for submesh 0 (1, 1):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(1, 4, 0, 1), 0] = ModuleProfileResult(compute_cost=0.285, peak_memory=6.971 GB, invar_size=2.344 GB, outvar_size=0.500 GB, temp_buffer_size=4.127 GB, available_memory=35.446 GB)
+result[(1, 4, 0, 0), 0] = ModuleProfileResult(compute_cost=0.285, peak_memory=6.971 GB, invar_size=2.344 GB, outvar_size=0.500 GB, temp_buffer_size=4.127 GB, available_memory=35.446 GB)
+result[(2, 5, 0, 0), 0] = ModuleProfileResult(compute_cost=0.285, peak_memory=6.971 GB, invar_size=2.344 GB, outvar_size=0.500 GB, temp_buffer_size=4.127 GB, available_memory=35.446 GB)
+result[(0, 3, 0, 0), 0] = ModuleProfileResult(compute_cost=0.285, peak_memory=6.847 GB, invar_size=2.220 GB, outvar_size=0.500 GB, temp_buffer_size=4.127 GB, available_memory=35.446 GB)
+result[(0, 3, 0, 1), 0] = ModuleProfileResult(compute_cost=0.285, peak_memory=6.847 GB, invar_size=2.220 GB, outvar_size=0.500 GB, temp_buffer_size=4.127 GB, available_memory=35.446 GB)
+result[(1, 5, 0, 1), 0] = ModuleProfileResult(compute_cost=0.352, peak_memory=7.643 GB, invar_size=2.891 GB, outvar_size=0.625 GB, temp_buffer_size=4.127 GB, available_memory=35.446 GB)
+result[(1, 5, 0, 0), 0] = ModuleProfileResult(compute_cost=0.352, peak_memory=7.643 GB, invar_size=2.891 GB, outvar_size=0.625 GB, temp_buffer_size=4.127 GB, available_memory=35.446 GB)
+result[(2, 5, 0, 1), 0] = ModuleProfileResult(compute_cost=0.285, peak_memory=6.971 GB, invar_size=2.344 GB, outvar_size=0.500 GB, temp_buffer_size=4.127 GB, available_memory=35.446 GB)
+result[(0, 3, 0, 1), 1] = ModuleProfileResult(compute_cost=0.808, peak_memory=27.698 GB, invar_size=4.940 GB, outvar_size=2.220 GB, temp_buffer_size=22.758 GB, available_memory=35.446 GB)
+result[(0, 3, 0, 0), 1] = ModuleProfileResult(compute_cost=0.808, peak_memory=27.698 GB, invar_size=4.940 GB, outvar_size=2.220 GB, temp_buffer_size=22.758 GB, available_memory=35.446 GB)
+result[(1, 4, 0, 0), 1] = ModuleProfileResult(compute_cost=0.831, peak_memory=29.962 GB, invar_size=5.063 GB, outvar_size=2.344 GB, temp_buffer_size=24.774 GB, available_memory=35.446 GB)
+result[(1, 4, 0, 1), 1] = ModuleProfileResult(compute_cost=0.831, peak_memory=29.962 GB, invar_size=5.063 GB, outvar_size=2.344 GB, temp_buffer_size=24.774 GB, available_memory=35.446 GB)
+result[(2, 5, 0, 0), 1] = ModuleProfileResult(compute_cost=0.831, peak_memory=29.591 GB, invar_size=5.063 GB, outvar_size=2.344 GB, temp_buffer_size=24.402 GB, available_memory=35.446 GB)
+result[(2, 6, 0, 1), 0] = ModuleProfileResult(compute_cost=0.352, peak_memory=7.643 GB, invar_size=2.891 GB, outvar_size=0.625 GB, temp_buffer_size=4.127 GB, available_memory=35.446 GB)
+result[(3, 6, 0, 0), 0] = ModuleProfileResult(compute_cost=0.285, peak_memory=6.971 GB, invar_size=2.344 GB, outvar_size=0.500 GB, temp_buffer_size=4.127 GB, available_memory=35.446 GB)
+result[(2, 6, 0, 0), 0] = ModuleProfileResult(compute_cost=0.352, peak_memory=7.643 GB, invar_size=2.891 GB, outvar_size=0.625 GB, temp_buffer_size=4.127 GB, available_memory=35.446 GB)
+result[(1, 5, 0, 1), 1] = ModuleProfileResult(compute_cost=1.029, peak_memory=32.811 GB, invar_size=6.282 GB, outvar_size=2.891 GB, temp_buffer_size=26.404 GB, available_memory=35.446 GB)
+result[(1, 5, 0, 0), 1] = ModuleProfileResult(compute_cost=1.029, peak_memory=32.811 GB, invar_size=6.282 GB, outvar_size=2.891 GB, temp_buffer_size=26.404 GB, available_memory=35.446 GB)
+result[(4, 7, 0, 0), 0] = ModuleProfileResult(compute_cost=0.218, peak_memory=6.299 GB, invar_size=1.797 GB, outvar_size=0.375 GB, temp_buffer_size=4.127 GB, available_memory=35.446 GB)
+result[(4, 7, 0, 1), 0] = ModuleProfileResult(compute_cost=0.218, peak_memory=6.299 GB, invar_size=1.797 GB, outvar_size=0.375 GB, temp_buffer_size=4.127 GB, available_memory=35.446 GB)
+result[(2, 5, 0, 1), 1] = ModuleProfileResult(compute_cost=0.831, peak_memory=29.591 GB, invar_size=5.063 GB, outvar_size=2.344 GB, temp_buffer_size=24.402 GB, available_memory=35.446 GB)
+result[(3, 6, 0, 1), 0] = ModuleProfileResult(compute_cost=0.285, peak_memory=6.971 GB, invar_size=2.344 GB, outvar_size=0.500 GB, temp_buffer_size=4.127 GB, available_memory=35.446 GB)
+result[(2, 6, 0, 0), 1] = ModuleProfileResult(compute_cost=1.029, peak_memory=33.434 GB, invar_size=6.282 GB, outvar_size=2.891 GB, temp_buffer_size=27.026 GB, available_memory=35.446 GB)
+result[(2, 6, 0, 1), 1] = ModuleProfileResult(compute_cost=1.029, peak_memory=33.434 GB, invar_size=6.282 GB, outvar_size=2.891 GB, temp_buffer_size=27.026 GB, available_memory=35.446 GB)
+result[(3, 6, 0, 0), 1] = ModuleProfileResult(compute_cost=0.831, peak_memory=30.716 GB, invar_size=5.063 GB, outvar_size=2.344 GB, temp_buffer_size=25.528 GB, available_memory=35.446 GB)
+result[(3, 6, 0, 1), 1] = ModuleProfileResult(compute_cost=0.831, peak_memory=30.716 GB, invar_size=5.063 GB, outvar_size=2.344 GB, temp_buffer_size=25.528 GB, available_memory=35.446 GB)
+result[(4, 7, 0, 0), 1] = ModuleProfileResult(compute_cost=0.923, peak_memory=31.624 GB, invar_size=5.061 GB, outvar_size=2.405 GB, temp_buffer_size=26.439 GB, available_memory=35.446 GB)
+result[(4, 7, 0, 1), 1] = ModuleProfileResult(compute_cost=0.923, peak_memory=31.624 GB, invar_size=5.061 GB, outvar_size=2.405 GB, temp_buffer_size=26.439 GB, available_memory=35.446 GB)
+Profiling for submesh 0 (1, 1) takes 50.13 seconds
+--------------------------------------------------
+----------------------------------------------------------------------
+Result forward_stage_layer_ids: [[0, 1, 2, 3, 4, 5, 6, 7]]
+Result mesh_shapes: [(2, 1)]
+Result logical_mesh_shapes: [(2, 1)]
+Result autosharding_option_dicts: [{'force_batch_dim_to_mesh_dim': 0}]
+ - Compile (driver): 156.40 s
+compilation time breakdown: {'stage-construction': '110.55', 'stage-construction-dp': '1.38', 'stage-construction-compilation': '35.19', 'stage-construction-profiling': '36.33'}
+ - Compile (worker): 30.29 s
+[I] Training process warmup (2 rounds) with dummy input batch...
+    - Warmup iteration: 1/2
+[2m[36m(MeshHostWorker pid=1096858)[0m gpu2:1096858:1096858 [0] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.16<0>
+[2m[36m(MeshHostWorker pid=1096858)[0m gpu2:1096858:1096858 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=1096858)[0m 
+[2m[36m(MeshHostWorker pid=1096858)[0m gpu2:1096858:1096858 [0] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=1096858)[0m gpu2:1096858:1096858 [0] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.16<0>
+[2m[36m(MeshHostWorker pid=1096858)[0m gpu2:1096858:1096858 [0] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=1096858)[0m NCCL version 2.8.4+cuda11.2
+[2m[36m(MeshHostWorker pid=1096858)[0m 
+[2m[36m(MeshHostWorker pid=1096858)[0m gpu2:1096858:1096858 [0] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=1096858)[0m 
+[2m[36m(MeshHostWorker pid=1096858)[0m gpu2:1096858:1096858 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=1096858)[0m gpu2:1096858:1096858 [0] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=1096858)[0m gpu2:1096858:1096858 [0] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=1096858)[0m gpu2:1096858:1096858 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+[2m[36m(MeshHostWorker pid=1096858)[0m gpu2:1096858:1096858 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=1096858)[0m gpu2:1096858:1096858 [0] NCCL INFO Channel 00 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1096858)[0m gpu2:1096858:1096858 [0] NCCL INFO NCCL_NSOCKS_PERTHREAD set by environment to 8.
+[2m[36m(MeshHostWorker pid=1096858)[0m gpu2:1096858:1096858 [0] NCCL INFO NCCL_SOCKET_NTHREADS set by environment to 8.
+[2m[36m(MeshHostWorker pid=1096858)[0m gpu2:1096858:1096858 [0] NCCL INFO NET/Socket: Using 8 threads and 8 sockets per thread
+[2m[36m(MeshHostWorker pid=1096858)[0m gpu2:1096858:1096858 [0] NCCL INFO Channel 01 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1096858)[0m gpu2:1096858:1096858 [0] NCCL INFO NET/Socket: Using 8 threads and 8 sockets per thread
+[2m[36m(MeshHostWorker pid=1096858)[0m gpu2:1096858:1096858 [0] NCCL INFO Channel 00 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1096858)[0m gpu2:1096858:1096858 [0] NCCL INFO Channel 01 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1096858)[0m gpu2:1096858:1096858 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=1096858)[0m gpu2:1096858:1096858 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=1096858)[0m gpu2:1096858:1096858 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=1096858)[0m gpu2:1096858:1096858 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=1096858)[0m gpu2:1096858:1096858 [0] NCCL INFO comm 0x3d377710 rank 0 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=1096858)[0m gpu2:1096858:1096858 [0] NCCL INFO Launch mode Parallel
+    - Warmup iteration: 2/2
+[I] Ready to perform training process.
+[I] Benchmark the training process with entire dataset and profile with driver overhead...
+    - Iteration 1 / 5 is performed...
+    - Iteration 2 / 5 is performed...
+    - Iteration 3 / 5 is performed...
+    - Iteration 4 / 5 is performed...
+ - Benchmark: 303.71 s
+
+[43.640714168548584, 42.155115365982056, 41.96013855934143, 41.978736877441406, 41.93746900558472, 41.96793007850647, 41.94971823692322]
+
+
+[I] Performance metrics:
+ - Iteration count: 5.
+ - Total e2e training time : 212.557 s.
+ - Average e2e iteration time: 42.51100158691406 s.
+ - Total local training time: 209.79400634765625 s.
+ - Average local iteration time: 41.95900344848633 s.
+ - Max allocated memory among devices: 33.183 GB.
+ - Compilation times:  {'stage-construction': 110.5468397140503, 'stage-construction-dp': 1.3767268657684326, 'stage-construction-compilation': 35.18904948234558, 'stage-construction-profiling': 36.33301615715027}
+ - Metadata:  []
+ - Is need save result:  True
+
+[TMP] Current profiling results of key `2_a40_2_n_1_d`: 41.95880126953125
+[TMP] Updated profiling results stored in `./jaxpr/prof_log/optimal/moe_2.4B_1024.pkl`...

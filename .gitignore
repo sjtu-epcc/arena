@@ -1,0 +1,61 @@
+__pycache__
+job/__pycache__
+macro/__pycache__
+resources/__pycache__
+_deprecated
+
+.DS_Store
+
+traces/__pycache__
+traces/cluster*
+traces/LICENSE
+traces/raw_traces/*
+traces/elasticflow-traces/*
+traces/helios-traces/*
+traces/alibaba-pai-traces/*
+
+# baselines/__pycache__
+
+# database/__pycache__
+# database/_deprecated/*
+
+# tests/__pycache__
+# output.log
+
+# plot/__pycache__
+# plot/jct/*.npy
+# plot/makespan/*.npy
+# plot/thr/*.npy
+# plot/queuing_time/*.npy
+# plot/tmp/*
+
+# pylint.conf
+
+# figures/tmp/*
+
+# .vscode
+
+# runtime/tmp/*
+# runtime/tmp_res/*
+# runtime/*.log
+# runtime/crius_worker/jax/profile_result/*
+# runtime/crius_worker/jax/tmp/*
+# runtime/crius_worker/jax/tmp_res/*
+# runtime/crius_worker/jax/*.nsys-rep
+# runtime/jaxpr/tmp/*
+# runtime/jaxpr/console_log/*
+# runtime/jaxpr/__pycache__
+# runtime/jaxpr/*.nsys-rep
+# runtime/jaxpr/cpp/build/*
+# runtime/jaxpr/*.so
+# runtime/jaxpr/_deprecated
+# runtime/jaxpr/ref/*
+# runtime/jaxpr/comm_data/_deprecated/*
+# runtime/jaxpr/kernel_metadata/*
+# # runtime/jaxpr/prof_log/optimal/raw_data/*
+# runtime/nsys/db/*
+# runtime/nsys/nsys-rep/*
+# runtime/nsys/prof_database/*
+# runtime/nsys/tmp
+
+# tmp*

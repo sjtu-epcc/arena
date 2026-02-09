@@ -1,0 +1,1071 @@
+(TrainState(step=PlacementSpec(aval=ShapedArray(int32[], weak_type=True), mesh_ids=(1,), sharding_specs=(ShardingSpec((), (Replicated(replicas=1),)),)), apply_fn=<bound method Module.apply of WideResNet(
+    # attributes
+    stage_sizes = [3, 4, 6, 3]
+    block_cls = BottleneckResNetBlock
+    num_classes = 1024
+    num_filters = 224
+    width_factor = 2
+    dtype = float32
+    act = relu
+)>, params=FrozenDict({
+    BottleneckResNetBlock_0: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,224,224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,224,448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,448,896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        conv_proj: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,224,896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        norm_proj: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_1: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,896,224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,224,448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,448,896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_10: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,3584,896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,896,1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,1792,3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_11: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,3584,896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,896,1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,1792,3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_12: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,3584,896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,896,1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,1792,3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_13: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,3584,1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,1792,3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,3584,7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        conv_proj: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,3584,7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        norm_proj: {
+            bias: PlacementSpec(aval=ShapedArray(float32[7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_14: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,7168,1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,1792,3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,3584,7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_15: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,7168,1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,1792,3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,3584,7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_2: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,896,224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,224,448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,448,896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_3: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,896,448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,448,896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,896,1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        conv_proj: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,896,1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        norm_proj: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_4: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,1792,448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,448,896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,896,1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_5: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,1792,448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,448,896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,896,1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_6: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,1792,448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,448,896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,896,1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_7: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,1792,896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,896,1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,1792,3584]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        conv_proj: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,1792,3584]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        norm_proj: {
+            bias: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_8: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,3584,896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,896,1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,1792,3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_9: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,3584,896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,896,1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,1792,3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+    },
+    Dense_0: {
+        bias: PlacementSpec(aval=ShapedArray(float32[1024]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        kernel: PlacementSpec(aval=ShapedArray(float32[7168,1024]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+    },
+    bn_init: {
+        bias: PlacementSpec(aval=ShapedArray(float32[224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        scale: PlacementSpec(aval=ShapedArray(float32[224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+    },
+    conv_init: {
+        kernel: PlacementSpec(aval=ShapedArray(float32[7,7,3,224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+    },
+}), tx=GradientTransformation(init=<function chain.<locals>.init_fn at 0x7f265c3225e0>, update=<function chain.<locals>.update_fn at 0x7f265c322b80>), opt_state=(TraceState(trace=FrozenDict({
+    BottleneckResNetBlock_0: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,224,224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,224,448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,448,896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        conv_proj: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,224,896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        norm_proj: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_1: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,896,224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,224,448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,448,896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_10: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,3584,896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,896,1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,1792,3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_11: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,3584,896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,896,1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,1792,3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_12: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,3584,896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,896,1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,1792,3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_13: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,3584,1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,1792,3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,3584,7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        conv_proj: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,3584,7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        norm_proj: {
+            bias: PlacementSpec(aval=ShapedArray(float32[7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_14: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,7168,1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,1792,3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,3584,7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_15: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,7168,1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,1792,3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,3584,7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_2: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,896,224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,224,448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,448,896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_3: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,896,448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,448,896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,896,1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        conv_proj: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,896,1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        norm_proj: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_4: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,1792,448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,448,896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,896,1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_5: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,1792,448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,448,896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,896,1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_6: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,1792,448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,448,896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,896,1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_7: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,1792,896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,896,1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,1792,3584]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        conv_proj: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,1792,3584]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        norm_proj: {
+            bias: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_8: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,3584,896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,896,1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,1792,3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_9: {
+        BatchNorm_0: {
+            bias: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            bias: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            bias: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            scale: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        Conv_0: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,3584,896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_1: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[3,3,896,1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+        Conv_2: {
+            kernel: PlacementSpec(aval=ShapedArray(float32[1,1,1792,3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+        },
+    },
+    Dense_0: {
+        bias: PlacementSpec(aval=ShapedArray(float32[1024]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        kernel: PlacementSpec(aval=ShapedArray(float32[7168,1024]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+    },
+    bn_init: {
+        bias: PlacementSpec(aval=ShapedArray(float32[224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        scale: PlacementSpec(aval=ShapedArray(float32[224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+    },
+    conv_init: {
+        kernel: PlacementSpec(aval=ShapedArray(float32[7,7,3,224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)),)),
+    },
+})), ScaleByScheduleState(count=PlacementSpec(aval=ShapedArray(int32[]), mesh_ids=(0, 1), sharding_specs=(ShardingSpec((), (Replicated(replicas=1),)), ShardingSpec((), (Replicated(replicas=1),)))))), batch_stats=FrozenDict({
+    BottleneckResNetBlock_0: {
+        BatchNorm_0: {
+            mean: PlacementSpec(aval=ShapedArray(float32[224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            mean: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            mean: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        norm_proj: {
+            mean: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_1: {
+        BatchNorm_0: {
+            mean: PlacementSpec(aval=ShapedArray(float32[224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            mean: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            mean: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_10: {
+        BatchNorm_0: {
+            mean: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            mean: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            mean: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_11: {
+        BatchNorm_0: {
+            mean: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            mean: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            mean: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_12: {
+        BatchNorm_0: {
+            mean: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            mean: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            mean: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_13: {
+        BatchNorm_0: {
+            mean: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            mean: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            mean: PlacementSpec(aval=ShapedArray(float32[7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        norm_proj: {
+            mean: PlacementSpec(aval=ShapedArray(float32[7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_14: {
+        BatchNorm_0: {
+            mean: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            mean: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            mean: PlacementSpec(aval=ShapedArray(float32[7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_15: {
+        BatchNorm_0: {
+            mean: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            mean: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            mean: PlacementSpec(aval=ShapedArray(float32[7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[7168]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_2: {
+        BatchNorm_0: {
+            mean: PlacementSpec(aval=ShapedArray(float32[224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            mean: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            mean: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_3: {
+        BatchNorm_0: {
+            mean: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            mean: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            mean: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        norm_proj: {
+            mean: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_4: {
+        BatchNorm_0: {
+            mean: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            mean: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            mean: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_5: {
+        BatchNorm_0: {
+            mean: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            mean: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            mean: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_6: {
+        BatchNorm_0: {
+            mean: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[448]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            mean: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            mean: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_7: {
+        BatchNorm_0: {
+            mean: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            mean: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            mean: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        norm_proj: {
+            mean: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_8: {
+        BatchNorm_0: {
+            mean: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            mean: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            mean: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+    },
+    BottleneckResNetBlock_9: {
+        BatchNorm_0: {
+            mean: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[896]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_1: {
+            mean: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[1792]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+        BatchNorm_2: {
+            mean: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+            var: PlacementSpec(aval=ShapedArray(float32[3584]), mesh_ids=(1,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        },
+    },
+    bn_init: {
+        mean: PlacementSpec(aval=ShapedArray(float32[224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+        var: PlacementSpec(aval=ShapedArray(float32[224]), mesh_ids=(0,), sharding_specs=(ShardingSpec((NoSharding(),), (Replicated(replicas=1),)),)),
+    },
+}), dynamic_scale=None), {'accuracy': PlacementSpec(aval=ShapedArray(float32[]), mesh_ids=(1,), sharding_specs=(ShardingSpec((), (Replicated(replicas=1),)),)), 'loss': PlacementSpec(aval=ShapedArray(float32[]), mesh_ids=(1,), sharding_specs=(ShardingSpec((), (Replicated(replicas=1),)),)), 'lr': PlacementSpec(aval=ShapedArray(float32[], weak_type=True), mesh_ids=(1,), sharding_specs=(ShardingSpec((), (Replicated(replicas=1),)),))})

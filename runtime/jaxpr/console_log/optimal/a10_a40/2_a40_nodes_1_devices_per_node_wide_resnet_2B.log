@@ -1,0 +1,491 @@
+
+------------------------------------------------------------------
+- (1/3) Profiling wide_resnet_2B with batch size: 256...
+------------------------------------------------------------------
+[TMP] Existed profiling results in `./jaxpr/prof_log/optimal/wide_resnet_2B_256.pkl`, updating/rewriting it...
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 1
+    - Nodes num: 2
+[I] Loading flax model....
+[I] Model 'wide_resnet' loads sucessfully. Model Info: 
+
+WideResNet(
+    # attributes
+    stage_sizes = [3, 4, 6, 3]
+    block_cls = BottleneckResNetBlock
+    num_classes = 1024
+    num_filters = 448
+    width_factor = 2
+    dtype = float32
+    act = relu
+) 
+
+[I] Manually construct dummy batch with the shape of (256, 224, 224, 3).
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+-------------------- Automatic stage clustering --------------------
+submesh_choices: ((1, 1), (2, 1))
+- Profiling for submesh 1 (2, 1):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(0, 15, 1, 0), 0] = ModuleProfileResult(compute_cost=0.003, peak_memory=9.989 GB, invar_size=7.326 GB, outvar_size=1.089 GB, temp_buffer_size=1.574 GB, available_memory=35.242 GB)
+result[(0, 15, 1, 1), 0] = ModuleProfileResult(compute_cost=0.145, peak_memory=6.068 GB, invar_size=4.129 GB, outvar_size=1.089 GB, temp_buffer_size=0.850 GB, available_memory=35.242 GB)
+result[(0, 15, 1, 0), 1] = ModuleProfileResult(compute_cost=0.142, peak_memory=25.234 GB, invar_size=15.733 GB, outvar_size=7.320 GB, temp_buffer_size=9.501 GB, available_memory=35.242 GB)
+result[(0, 15, 1, 1), 1] = ModuleProfileResult(compute_cost=0.267, peak_memory=10.914 GB, invar_size=9.338 GB, outvar_size=4.122 GB, temp_buffer_size=1.576 GB, available_memory=35.242 GB)
+Profiling for submesh 1 (2, 1) takes 28.29 seconds
+--------------------------------------------------
+- Profiling for submesh 0 (1, 1):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(1, 6, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=3.014 GB, invar_size=0.683 GB, outvar_size=1.340 GB, temp_buffer_size=0.991 GB, available_memory=35.446 GB)
+result[(1, 6, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=3.014 GB, invar_size=0.683 GB, outvar_size=1.340 GB, temp_buffer_size=0.991 GB, available_memory=35.446 GB)
+result[(0, 6, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=3.061 GB, invar_size=0.455 GB, outvar_size=1.591 GB, temp_buffer_size=1.015 GB, available_memory=35.446 GB)
+result[(0, 6, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=3.061 GB, invar_size=0.455 GB, outvar_size=1.591 GB, temp_buffer_size=1.015 GB, available_memory=35.446 GB)
+result[(0, 7, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=4.007 GB, invar_size=0.886 GB, outvar_size=1.675 GB, temp_buffer_size=1.446 GB, available_memory=35.446 GB)
+result[(0, 8, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=4.809 GB, invar_size=1.245 GB, outvar_size=1.759 GB, temp_buffer_size=1.805 GB, available_memory=35.446 GB)
+result[(0, 8, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=4.809 GB, invar_size=1.245 GB, outvar_size=1.759 GB, temp_buffer_size=1.805 GB, available_memory=35.446 GB)
+result[(0, 7, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=4.007 GB, invar_size=0.886 GB, outvar_size=1.675 GB, temp_buffer_size=1.446 GB, available_memory=35.446 GB)
+result[(1, 7, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=3.983 GB, invar_size=1.114 GB, outvar_size=1.424 GB, temp_buffer_size=1.446 GB, available_memory=35.446 GB)
+result[(1, 6, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=5.232 GB, invar_size=2.453 GB, outvar_size=0.682 GB, temp_buffer_size=2.528 GB, available_memory=35.446 GB)
+result[(1, 7, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=3.983 GB, invar_size=1.114 GB, outvar_size=1.424 GB, temp_buffer_size=1.446 GB, available_memory=35.446 GB)
+result[(1, 8, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=4.772 GB, invar_size=1.473 GB, outvar_size=1.508 GB, temp_buffer_size=1.791 GB, available_memory=35.446 GB)
+result[(1, 8, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=4.772 GB, invar_size=1.473 GB, outvar_size=1.508 GB, temp_buffer_size=1.791 GB, available_memory=35.446 GB)
+result[(0, 6, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=5.270 GB, invar_size=2.491 GB, outvar_size=0.445 GB, temp_buffer_size=2.779 GB, available_memory=35.446 GB)
+result[(0, 6, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=5.270 GB, invar_size=2.491 GB, outvar_size=0.445 GB, temp_buffer_size=2.779 GB, available_memory=35.446 GB)
+result[(1, 6, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=5.232 GB, invar_size=2.453 GB, outvar_size=0.682 GB, temp_buffer_size=2.528 GB, available_memory=35.446 GB)
+result[(0, 7, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.215 GB, invar_size=3.436 GB, outvar_size=0.876 GB, temp_buffer_size=2.779 GB, available_memory=35.446 GB)
+result[(0, 7, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.215 GB, invar_size=3.436 GB, outvar_size=0.876 GB, temp_buffer_size=2.779 GB, available_memory=35.446 GB)
+result[(0, 8, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.018 GB, invar_size=4.238 GB, outvar_size=1.235 GB, temp_buffer_size=2.780 GB, available_memory=35.446 GB)
+result[(1, 9, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=4.889 GB, invar_size=1.832 GB, outvar_size=1.592 GB, temp_buffer_size=1.466 GB, available_memory=35.446 GB)
+result[(0, 8, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.018 GB, invar_size=4.238 GB, outvar_size=1.235 GB, temp_buffer_size=2.780 GB, available_memory=35.446 GB)
+result[(2, 7, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=3.092 GB, invar_size=1.166 GB, outvar_size=1.089 GB, temp_buffer_size=0.837 GB, available_memory=35.446 GB)
+result[(1, 7, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.178 GB, invar_size=3.398 GB, outvar_size=1.113 GB, temp_buffer_size=2.528 GB, available_memory=35.446 GB)
+result[(1, 9, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=4.889 GB, invar_size=1.832 GB, outvar_size=1.592 GB, temp_buffer_size=1.466 GB, available_memory=35.446 GB)
+result[(2, 7, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=3.092 GB, invar_size=1.166 GB, outvar_size=1.089 GB, temp_buffer_size=0.837 GB, available_memory=35.446 GB)
+result[(1, 7, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.178 GB, invar_size=3.398 GB, outvar_size=1.113 GB, temp_buffer_size=2.528 GB, available_memory=35.446 GB)
+result[(2, 8, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=3.604 GB, invar_size=1.525 GB, outvar_size=1.173 GB, temp_buffer_size=0.906 GB, available_memory=35.446 GB)
+result[(2, 8, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=3.604 GB, invar_size=1.525 GB, outvar_size=1.173 GB, temp_buffer_size=0.906 GB, available_memory=35.446 GB)
+result[(2, 7, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=5.277 GB, invar_size=3.084 GB, outvar_size=1.165 GB, temp_buffer_size=1.858 GB, available_memory=35.446 GB)
+result[(2, 9, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=4.131 GB, invar_size=1.884 GB, outvar_size=1.257 GB, temp_buffer_size=0.990 GB, available_memory=35.446 GB)
+result[(1, 8, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.980 GB, invar_size=4.200 GB, outvar_size=1.472 GB, temp_buffer_size=2.529 GB, available_memory=35.446 GB)
+result[(2, 9, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=4.131 GB, invar_size=1.884 GB, outvar_size=1.257 GB, temp_buffer_size=0.990 GB, available_memory=35.446 GB)
+result[(2, 7, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=5.277 GB, invar_size=3.084 GB, outvar_size=1.165 GB, temp_buffer_size=1.858 GB, available_memory=35.446 GB)
+result[(2, 10, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=4.553 GB, invar_size=2.244 GB, outvar_size=1.341 GB, temp_buffer_size=0.969 GB, available_memory=35.446 GB)
+result[(1, 8, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.980 GB, invar_size=4.200 GB, outvar_size=1.472 GB, temp_buffer_size=2.529 GB, available_memory=35.446 GB)
+result[(2, 10, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=4.553 GB, invar_size=2.244 GB, outvar_size=1.341 GB, temp_buffer_size=0.969 GB, available_memory=35.446 GB)
+result[(3, 9, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=3.773 GB, invar_size=1.862 GB, outvar_size=0.922 GB, temp_buffer_size=0.990 GB, available_memory=35.446 GB)
+result[(2, 8, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.079 GB, invar_size=3.886 GB, outvar_size=1.524 GB, temp_buffer_size=1.858 GB, available_memory=35.446 GB)
+result[(1, 9, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.783 GB, invar_size=5.002 GB, outvar_size=1.831 GB, temp_buffer_size=2.530 GB, available_memory=35.446 GB)
+result[(3, 9, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=3.773 GB, invar_size=1.862 GB, outvar_size=0.922 GB, temp_buffer_size=0.990 GB, available_memory=35.446 GB)
+result[(2, 8, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.079 GB, invar_size=3.886 GB, outvar_size=1.524 GB, temp_buffer_size=1.858 GB, available_memory=35.446 GB)
+result[(1, 9, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.783 GB, invar_size=5.002 GB, outvar_size=1.831 GB, temp_buffer_size=2.530 GB, available_memory=35.446 GB)
+result[(3, 10, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=4.195 GB, invar_size=2.221 GB, outvar_size=1.006 GB, temp_buffer_size=0.969 GB, available_memory=35.446 GB)
+result[(2, 9, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.882 GB, invar_size=4.687 GB, outvar_size=1.883 GB, temp_buffer_size=1.859 GB, available_memory=35.446 GB)
+result[(2, 9, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.882 GB, invar_size=4.687 GB, outvar_size=1.883 GB, temp_buffer_size=1.859 GB, available_memory=35.446 GB)
+result[(3, 10, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=4.195 GB, invar_size=2.221 GB, outvar_size=1.006 GB, temp_buffer_size=0.969 GB, available_memory=35.446 GB)
+result[(3, 11, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=4.638 GB, invar_size=2.580 GB, outvar_size=1.089 GB, temp_buffer_size=0.969 GB, available_memory=35.446 GB)
+result[(2, 10, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.684 GB, invar_size=5.489 GB, outvar_size=2.242 GB, temp_buffer_size=1.860 GB, available_memory=35.446 GB)
+result[(3, 9, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.070 GB, invar_size=4.308 GB, outvar_size=1.861 GB, temp_buffer_size=1.427 GB, available_memory=35.446 GB)
+result[(3, 11, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=4.638 GB, invar_size=2.580 GB, outvar_size=1.089 GB, temp_buffer_size=0.969 GB, available_memory=35.446 GB)
+result[(4, 10, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=3.585 GB, invar_size=1.946 GB, outvar_size=0.838 GB, temp_buffer_size=0.802 GB, available_memory=35.446 GB)
+result[(3, 9, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.070 GB, invar_size=4.308 GB, outvar_size=1.861 GB, temp_buffer_size=1.427 GB, available_memory=35.446 GB)
+result[(4, 10, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=3.585 GB, invar_size=1.946 GB, outvar_size=0.838 GB, temp_buffer_size=0.802 GB, available_memory=35.446 GB)
+result[(2, 10, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.684 GB, invar_size=5.489 GB, outvar_size=2.242 GB, temp_buffer_size=1.860 GB, available_memory=35.446 GB)
+result[(4, 11, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=4.028 GB, invar_size=2.305 GB, outvar_size=0.922 GB, temp_buffer_size=0.802 GB, available_memory=35.446 GB)
+result[(3, 10, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.872 GB, invar_size=5.109 GB, outvar_size=2.220 GB, temp_buffer_size=1.428 GB, available_memory=35.446 GB)
+result[(4, 11, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=4.028 GB, invar_size=2.305 GB, outvar_size=0.922 GB, temp_buffer_size=0.802 GB, available_memory=35.446 GB)
+result[(4, 12, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=4.471 GB, invar_size=2.664 GB, outvar_size=1.006 GB, temp_buffer_size=0.802 GB, available_memory=35.446 GB)
+result[(3, 10, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.872 GB, invar_size=5.109 GB, outvar_size=2.220 GB, temp_buffer_size=1.428 GB, available_memory=35.446 GB)
+result[(4, 12, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=4.471 GB, invar_size=2.664 GB, outvar_size=1.006 GB, temp_buffer_size=0.802 GB, available_memory=35.446 GB)
+result[(4, 10, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=5.770 GB, invar_size=4.559 GB, outvar_size=1.945 GB, temp_buffer_size=1.043 GB, available_memory=35.446 GB)
+result[(4, 10, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=5.770 GB, invar_size=4.559 GB, outvar_size=1.945 GB, temp_buffer_size=1.043 GB, available_memory=35.446 GB)
+result[(5, 11, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=3.456 GB, invar_size=2.215 GB, outvar_size=0.754 GB, temp_buffer_size=0.488 GB, available_memory=35.446 GB)
+result[(3, 11, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.675 GB, invar_size=5.911 GB, outvar_size=2.579 GB, temp_buffer_size=1.429 GB, available_memory=35.446 GB)
+result[(5, 11, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=3.456 GB, invar_size=2.215 GB, outvar_size=0.754 GB, temp_buffer_size=0.488 GB, available_memory=35.446 GB)
+result[(3, 11, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.675 GB, invar_size=5.911 GB, outvar_size=2.579 GB, temp_buffer_size=1.429 GB, available_memory=35.446 GB)
+result[(5, 12, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=3.899 GB, invar_size=2.574 GB, outvar_size=0.838 GB, temp_buffer_size=0.488 GB, available_memory=35.446 GB)
+result[(4, 11, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.572 GB, invar_size=5.361 GB, outvar_size=2.304 GB, temp_buffer_size=1.044 GB, available_memory=35.446 GB)
+result[(5, 12, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=3.899 GB, invar_size=2.574 GB, outvar_size=0.838 GB, temp_buffer_size=0.488 GB, available_memory=35.446 GB)
+result[(4, 11, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.572 GB, invar_size=5.361 GB, outvar_size=2.304 GB, temp_buffer_size=1.044 GB, available_memory=35.446 GB)
+result[(5, 13, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.332 GB, invar_size=4.298 GB, outvar_size=0.880 GB, temp_buffer_size=1.155 GB, available_memory=35.446 GB)
+result[(4, 12, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.375 GB, invar_size=6.162 GB, outvar_size=2.662 GB, temp_buffer_size=1.045 GB, available_memory=35.446 GB)
+result[(5, 11, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.232 GB, invar_size=5.014 GB, outvar_size=2.214 GB, temp_buffer_size=1.051 GB, available_memory=35.446 GB)
+result[(5, 13, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.332 GB, invar_size=4.298 GB, outvar_size=0.880 GB, temp_buffer_size=1.155 GB, available_memory=35.446 GB)
+result[(4, 12, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.375 GB, invar_size=6.162 GB, outvar_size=2.662 GB, temp_buffer_size=1.045 GB, available_memory=35.446 GB)
+result[(5, 14, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.852 GB, invar_size=5.734 GB, outvar_size=0.922 GB, temp_buffer_size=1.197 GB, available_memory=35.446 GB)
+result[(5, 11, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.232 GB, invar_size=5.014 GB, outvar_size=2.214 GB, temp_buffer_size=1.051 GB, available_memory=35.446 GB)
+result[(6, 12, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=3.642 GB, invar_size=2.484 GB, outvar_size=0.671 GB, temp_buffer_size=0.488 GB, available_memory=35.446 GB)
+result[(5, 14, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.852 GB, invar_size=5.734 GB, outvar_size=0.922 GB, temp_buffer_size=1.197 GB, available_memory=35.446 GB)
+result[(5, 12, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.034 GB, invar_size=5.815 GB, outvar_size=2.573 GB, temp_buffer_size=1.052 GB, available_memory=35.446 GB)
+result[(6, 12, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=3.642 GB, invar_size=2.484 GB, outvar_size=0.671 GB, temp_buffer_size=0.488 GB, available_memory=35.446 GB)
+result[(6, 13, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.074 GB, invar_size=4.208 GB, outvar_size=0.713 GB, temp_buffer_size=1.155 GB, available_memory=35.446 GB)
+result[(5, 12, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.034 GB, invar_size=5.815 GB, outvar_size=2.573 GB, temp_buffer_size=1.052 GB, available_memory=35.446 GB)
+result[(6, 13, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.074 GB, invar_size=4.208 GB, outvar_size=0.713 GB, temp_buffer_size=1.155 GB, available_memory=35.446 GB)
+result[(5, 13, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=11.398 GB, invar_size=9.303 GB, outvar_size=4.296 GB, temp_buffer_size=1.927 GB, available_memory=35.446 GB)
+result[(6, 14, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.594 GB, invar_size=5.644 GB, outvar_size=0.755 GB, temp_buffer_size=1.197 GB, available_memory=35.446 GB)
+result[(5, 13, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=11.398 GB, invar_size=9.303 GB, outvar_size=4.296 GB, temp_buffer_size=1.927 GB, available_memory=35.446 GB)
+result[(6, 14, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.594 GB, invar_size=5.644 GB, outvar_size=0.755 GB, temp_buffer_size=1.197 GB, available_memory=35.446 GB)
+result[(6, 12, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.681 GB, invar_size=5.468 GB, outvar_size=2.483 GB, temp_buffer_size=1.045 GB, available_memory=35.446 GB)
+result[(6, 12, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.681 GB, invar_size=5.468 GB, outvar_size=2.483 GB, temp_buffer_size=1.045 GB, available_memory=35.446 GB)
+result[(5, 14, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=14.313 GB, invar_size=12.216 GB, outvar_size=5.731 GB, temp_buffer_size=1.929 GB, available_memory=35.446 GB)
+result[(6, 15, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=9.043 GB, invar_size=7.135 GB, outvar_size=0.755 GB, temp_buffer_size=1.155 GB, available_memory=35.446 GB)
+result[(6, 13, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=11.051 GB, invar_size=8.956 GB, outvar_size=4.206 GB, temp_buffer_size=1.927 GB, available_memory=35.446 GB)
+result[(5, 14, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=14.313 GB, invar_size=12.216 GB, outvar_size=5.731 GB, temp_buffer_size=1.929 GB, available_memory=35.446 GB)
+result[(7, 13, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=5.817 GB, invar_size=4.118 GB, outvar_size=0.545 GB, temp_buffer_size=1.155 GB, available_memory=35.446 GB)
+result[(6, 13, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=11.051 GB, invar_size=8.956 GB, outvar_size=4.206 GB, temp_buffer_size=1.927 GB, available_memory=35.446 GB)
+result[(6, 15, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=9.043 GB, invar_size=7.135 GB, outvar_size=0.755 GB, temp_buffer_size=1.155 GB, available_memory=35.446 GB)
+result[(7, 13, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=5.817 GB, invar_size=4.118 GB, outvar_size=0.545 GB, temp_buffer_size=1.155 GB, available_memory=35.446 GB)
+result[(7, 14, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.337 GB, invar_size=5.554 GB, outvar_size=0.587 GB, temp_buffer_size=1.197 GB, available_memory=35.446 GB)
+result[(6, 14, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=13.966 GB, invar_size=11.869 GB, outvar_size=5.642 GB, temp_buffer_size=1.929 GB, available_memory=35.446 GB)
+result[(6, 14, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=13.966 GB, invar_size=11.869 GB, outvar_size=5.642 GB, temp_buffer_size=1.929 GB, available_memory=35.446 GB)
+result[(7, 14, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.337 GB, invar_size=5.554 GB, outvar_size=0.587 GB, temp_buffer_size=1.197 GB, available_memory=35.446 GB)
+result[(7, 15, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=8.786 GB, invar_size=7.045 GB, outvar_size=0.587 GB, temp_buffer_size=1.155 GB, available_memory=35.446 GB)
+result[(7, 13, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=10.704 GB, invar_size=8.609 GB, outvar_size=4.116 GB, temp_buffer_size=1.927 GB, available_memory=35.446 GB)
+result[(8, 14, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.654 GB, invar_size=5.039 GB, outvar_size=0.503 GB, temp_buffer_size=1.113 GB, available_memory=35.446 GB)
+result[(7, 15, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=8.786 GB, invar_size=7.045 GB, outvar_size=0.587 GB, temp_buffer_size=1.155 GB, available_memory=35.446 GB)
+result[(7, 13, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=10.704 GB, invar_size=8.609 GB, outvar_size=4.116 GB, temp_buffer_size=1.927 GB, available_memory=35.446 GB)
+result[(6, 15, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=16.948 GB, invar_size=14.850 GB, outvar_size=7.132 GB, temp_buffer_size=1.931 GB, available_memory=35.446 GB)
+result[(8, 14, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.654 GB, invar_size=5.039 GB, outvar_size=0.503 GB, temp_buffer_size=1.113 GB, available_memory=35.446 GB)
+result[(8, 15, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=8.103 GB, invar_size=6.530 GB, outvar_size=0.504 GB, temp_buffer_size=1.071 GB, available_memory=35.446 GB)
+result[(7, 14, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=13.619 GB, invar_size=11.522 GB, outvar_size=5.552 GB, temp_buffer_size=1.929 GB, available_memory=35.446 GB)
+result[(6, 15, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=16.948 GB, invar_size=14.850 GB, outvar_size=7.132 GB, temp_buffer_size=1.931 GB, available_memory=35.446 GB)
+result[(8, 15, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=8.103 GB, invar_size=6.530 GB, outvar_size=0.504 GB, temp_buffer_size=1.071 GB, available_memory=35.446 GB)
+result[(7, 14, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=13.619 GB, invar_size=11.522 GB, outvar_size=5.552 GB, temp_buffer_size=1.929 GB, available_memory=35.446 GB)
+result[(9, 15, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.541 GB, invar_size=6.171 GB, outvar_size=0.420 GB, temp_buffer_size=0.951 GB, available_memory=35.446 GB)
+result[(8, 14, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=12.903 GB, invar_size=10.493 GB, outvar_size=5.037 GB, temp_buffer_size=2.326 GB, available_memory=35.446 GB)
+result[(9, 15, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.541 GB, invar_size=6.171 GB, outvar_size=0.420 GB, temp_buffer_size=0.951 GB, available_memory=35.446 GB)
+result[(7, 15, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=16.601 GB, invar_size=14.503 GB, outvar_size=7.042 GB, temp_buffer_size=1.931 GB, available_memory=35.446 GB)
+result[(7, 15, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=16.601 GB, invar_size=14.503 GB, outvar_size=7.042 GB, temp_buffer_size=1.931 GB, available_memory=35.446 GB)
+result[(8, 14, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=12.903 GB, invar_size=10.493 GB, outvar_size=5.037 GB, temp_buffer_size=2.326 GB, available_memory=35.446 GB)
+result[(8, 15, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=16.033 GB, invar_size=13.474 GB, outvar_size=6.528 GB, temp_buffer_size=2.475 GB, available_memory=35.446 GB)
+result[(9, 15, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=14.981 GB, invar_size=12.672 GB, outvar_size=6.169 GB, temp_buffer_size=2.225 GB, available_memory=35.446 GB)
+result[(8, 15, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=16.033 GB, invar_size=13.474 GB, outvar_size=6.528 GB, temp_buffer_size=2.475 GB, available_memory=35.446 GB)
+result[(9, 15, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=14.981 GB, invar_size=12.672 GB, outvar_size=6.169 GB, temp_buffer_size=2.225 GB, available_memory=35.446 GB)
+Profiling for submesh 0 (1, 1) takes 92.92 seconds
+--------------------------------------------------
+----------------------------------------------------------------------
+Result forward_stage_layer_ids: [[0, 1, 2, 3, 4, 5, 6, 7, 8], [9, 10, 11, 12, 13, 14, 15]]
+Result mesh_shapes: [(1, 1), (1, 1)]
+Result logical_mesh_shapes: [(1, 1), (1, 1)]
+Result autosharding_option_dicts: [{'force_batch_dim_to_mesh_dim': 0}, {}]
+[2m[36m(MeshHostWorker pid=1057437)[0m gpu2:1057437:1057437 [0] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.16<0>
+[2m[36m(MeshHostWorker pid=1057437)[0m gpu2:1057437:1057437 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=1057437)[0m 
+[2m[36m(MeshHostWorker pid=1057437)[0m gpu2:1057437:1057437 [0] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=1057437)[0m gpu2:1057437:1057437 [0] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.16<0>
+[2m[36m(MeshHostWorker pid=1057437)[0m gpu2:1057437:1057437 [0] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=1057437)[0m NCCL version 2.8.4+cuda11.2
+[2m[36m(MeshHostWorker pid=2375787, ip=192.168.0.18)[0m gpu3:2375787:2375787 [0] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.17<0>
+[2m[36m(MeshHostWorker pid=2375787, ip=192.168.0.18)[0m gpu3:2375787:2375787 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=2375787, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=2375787, ip=192.168.0.18)[0m gpu3:2375787:2375787 [0] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=2375787, ip=192.168.0.18)[0m gpu3:2375787:2375787 [0] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.17<0>
+[2m[36m(MeshHostWorker pid=2375787, ip=192.168.0.18)[0m gpu3:2375787:2375787 [0] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=1057437)[0m 
+[2m[36m(MeshHostWorker pid=1057437)[0m gpu2:1057437:1057437 [0] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=1057437)[0m 
+[2m[36m(MeshHostWorker pid=1057437)[0m gpu2:1057437:1057437 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=1057437)[0m gpu2:1057437:1057437 [0] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=1057437)[0m gpu2:1057437:1057437 [0] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=1057437)[0m gpu2:1057437:1057437 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+[2m[36m(MeshHostWorker pid=1057437)[0m gpu2:1057437:1057437 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=1057437)[0m gpu2:1057437:1057437 [0] NCCL INFO Channel 00 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1057437)[0m gpu2:1057437:1057437 [0] NCCL INFO NCCL_NSOCKS_PERTHREAD set by environment to 8.
+[2m[36m(MeshHostWorker pid=1057437)[0m gpu2:1057437:1057437 [0] NCCL INFO NCCL_SOCKET_NTHREADS set by environment to 8.
+[2m[36m(MeshHostWorker pid=1057437)[0m gpu2:1057437:1057437 [0] NCCL INFO NET/Socket: Using 8 threads and 8 sockets per thread
+[2m[36m(MeshHostWorker pid=1057437)[0m gpu2:1057437:1057437 [0] NCCL INFO Channel 01 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1057437)[0m gpu2:1057437:1057437 [0] NCCL INFO NET/Socket: Using 8 threads and 8 sockets per thread
+[2m[36m(MeshHostWorker pid=1057437)[0m gpu2:1057437:1057437 [0] NCCL INFO Channel 00 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1057437)[0m gpu2:1057437:1057437 [0] NCCL INFO Channel 01 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2375787, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=2375787, ip=192.168.0.18)[0m gpu3:2375787:2375787 [0] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=2375787, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=2375787, ip=192.168.0.18)[0m gpu3:2375787:2375787 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=2375787, ip=192.168.0.18)[0m gpu3:2375787:2375787 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+[2m[36m(MeshHostWorker pid=2375787, ip=192.168.0.18)[0m gpu3:2375787:2375787 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=2375787, ip=192.168.0.18)[0m gpu3:2375787:2375787 [0] NCCL INFO Channel 00 : 0[31000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2375787, ip=192.168.0.18)[0m gpu3:2375787:2375787 [0] NCCL INFO NCCL_NSOCKS_PERTHREAD set by environment to 8.
+[2m[36m(MeshHostWorker pid=2375787, ip=192.168.0.18)[0m gpu3:2375787:2375787 [0] NCCL INFO NCCL_SOCKET_NTHREADS set by environment to 8.
+[2m[36m(MeshHostWorker pid=2375787, ip=192.168.0.18)[0m gpu3:2375787:2375787 [0] NCCL INFO NET/Socket: Using 8 threads and 8 sockets per thread
+[2m[36m(MeshHostWorker pid=2375787, ip=192.168.0.18)[0m gpu3:2375787:2375787 [0] NCCL INFO Channel 01 : 0[31000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2375787, ip=192.168.0.18)[0m gpu3:2375787:2375787 [0] NCCL INFO NET/Socket: Using 8 threads and 8 sockets per thread
+[2m[36m(MeshHostWorker pid=2375787, ip=192.168.0.18)[0m gpu3:2375787:2375787 [0] NCCL INFO Channel 00 : 1[31000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2375787, ip=192.168.0.18)[0m gpu3:2375787:2375787 [0] NCCL INFO Channel 01 : 1[31000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1057437)[0m gpu2:1057437:1057437 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=1057437)[0m gpu2:1057437:1057437 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=1057437)[0m gpu2:1057437:1057437 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=1057437)[0m gpu2:1057437:1057437 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=1057437)[0m gpu2:1057437:1057437 [0] NCCL INFO comm 0x44ed0b0 rank 0 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=2375787, ip=192.168.0.18)[0m gpu3:2375787:2375787 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=2375787, ip=192.168.0.18)[0m gpu3:2375787:2375787 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=2375787, ip=192.168.0.18)[0m gpu3:2375787:2375787 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=2375787, ip=192.168.0.18)[0m gpu3:2375787:2375787 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=2375787, ip=192.168.0.18)[0m gpu3:2375787:2375787 [0] NCCL INFO comm 0x3aa8080 rank 1 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+ - Compile (driver): 142.88 s
+compilation time breakdown: {'stage-construction': '123.89', 'stage-construction-dp': '1.35', 'stage-construction-compilation': '21.91', 'stage-construction-profiling': '34.82'}
+ - Compile (worker): 7.36 s
+[I] Training process warmup (2 rounds) with dummy input batch...
+    - Warmup iteration: 1/2
+[2m[36m(MeshHostWorker pid=1057437)[0m gpu2:1057437:1057437 [0] NCCL INFO Launch mode Parallel
+    - Warmup iteration: 2/2
+[I] Ready to perform training process.
+[I] Benchmark the training process with entire dataset and profile with driver overhead...
+    - Iteration 1 / 5 is performed...
+    - Iteration 2 / 5 is performed...
+    - Iteration 3 / 5 is performed...
+    - Iteration 4 / 5 is performed...
+ - Benchmark: 294.63 s
+
+[47.20232057571411, 39.88891005516052, 39.6862633228302, 39.616434812545776, 39.624820947647095, 39.63738131523132, 39.644620418548584]
+
+
+[I] Performance metrics:
+ - Iteration count: 5.
+ - Total e2e training time : 205.245 s.
+ - Average e2e iteration time: 41.04900360107422 s.
+ - Total local training time: 198.2100067138672 s.
+ - Average local iteration time: 39.64200210571289 s.
+ - Max allocated memory among devices: 33.595 GB.
+ - Compilation times:  {'stage-construction': 123.88813972473145, 'stage-construction-dp': 1.3474702835083008, 'stage-construction-compilation': 21.91225028038025, 'stage-construction-profiling': 34.821383237838745}
+ - Metadata:  []
+ - Is need save result:  True
+
+[TMP] Current profiling results of key `2_a40_2_n_1_d`: 39.641902923583984
+[TMP] Updated profiling results stored in `./jaxpr/prof_log/optimal/wide_resnet_2B_256.pkl`...
+
+------------------------------------------------------------------
+- (2/3) Profiling wide_resnet_2B with batch size: 512...
+------------------------------------------------------------------
+[TMP] Existed profiling results in `./jaxpr/prof_log/optimal/wide_resnet_2B_512.pkl`, updating/rewriting it...
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 1
+    - Nodes num: 2
+[I] Loading flax model....
+[I] Model 'wide_resnet' loads sucessfully. Model Info: 
+
+WideResNet(
+    # attributes
+    stage_sizes = [3, 4, 6, 3]
+    block_cls = BottleneckResNetBlock
+    num_classes = 1024
+    num_filters = 448
+    width_factor = 2
+    dtype = float32
+    act = relu
+) 
+
+[I] Manually construct dummy batch with the shape of (512, 224, 224, 3).
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+-------------------- Automatic stage clustering --------------------
+submesh_choices: ((1, 1), (2, 1))
+- Profiling for submesh 1 (2, 1):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(0, 15, 1, 0), 0] = ModuleProfileResult(compute_cost=0.003, peak_memory=11.794 GB, invar_size=7.331 GB, outvar_size=2.178 GB, temp_buffer_size=2.286 GB, available_memory=35.242 GB)
+result[(0, 15, 1, 1), 0] = ModuleProfileResult(compute_cost=0.121, peak_memory=9.374 GB, invar_size=5.006 GB, outvar_size=2.262 GB, temp_buffer_size=2.106 GB, available_memory=35.242 GB)
+result[(0, 15, 1, 0), 1] = ModuleProfileResult(compute_cost=0.142, peak_memory=26.588 GB, invar_size=16.826 GB, outvar_size=7.320 GB, temp_buffer_size=9.761 GB, available_memory=35.242 GB)
+result[(0, 15, 1, 1), 1] = ModuleProfileResult(compute_cost=0.187, peak_memory=15.597 GB, invar_size=12.261 GB, outvar_size=4.996 GB, temp_buffer_size=3.336 GB, available_memory=35.242 GB)
+Profiling for submesh 1 (2, 1) takes 30.06 seconds
+--------------------------------------------------
+- Profiling for submesh 0 (1, 1):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(1, 6, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=9.586 GB, invar_size=4.044 GB, outvar_size=0.933 GB, temp_buffer_size=5.039 GB, available_memory=35.446 GB)
+result[(0, 6, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=9.633 GB, invar_size=4.091 GB, outvar_size=0.445 GB, temp_buffer_size=5.542 GB, available_memory=35.446 GB)
+result[(0, 6, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=9.633 GB, invar_size=4.091 GB, outvar_size=0.445 GB, temp_buffer_size=5.542 GB, available_memory=35.446 GB)
+result[(0, 7, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=10.662 GB, invar_size=5.120 GB, outvar_size=0.876 GB, temp_buffer_size=5.542 GB, available_memory=35.446 GB)
+result[(0, 7, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=10.662 GB, invar_size=5.120 GB, outvar_size=0.876 GB, temp_buffer_size=5.542 GB, available_memory=35.446 GB)
+result[(0, 8, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=11.548 GB, invar_size=6.005 GB, outvar_size=1.235 GB, temp_buffer_size=5.543 GB, available_memory=35.446 GB)
+result[(0, 8, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=11.548 GB, invar_size=6.005 GB, outvar_size=1.235 GB, temp_buffer_size=5.543 GB, available_memory=35.446 GB)
+result[(1, 6, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=9.586 GB, invar_size=4.044 GB, outvar_size=0.933 GB, temp_buffer_size=5.039 GB, available_memory=35.446 GB)
+result[(1, 7, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=10.615 GB, invar_size=5.073 GB, outvar_size=1.364 GB, temp_buffer_size=5.040 GB, available_memory=35.446 GB)
+result[(1, 7, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=10.615 GB, invar_size=5.073 GB, outvar_size=1.364 GB, temp_buffer_size=5.040 GB, available_memory=35.446 GB)
+result[(1, 8, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=11.501 GB, invar_size=5.958 GB, outvar_size=1.723 GB, temp_buffer_size=5.040 GB, available_memory=35.446 GB)
+result[(1, 8, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=11.501 GB, invar_size=5.958 GB, outvar_size=1.723 GB, temp_buffer_size=5.040 GB, available_memory=35.446 GB)
+result[(1, 6, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=5.275 GB, invar_size=0.934 GB, outvar_size=2.680 GB, temp_buffer_size=1.661 GB, available_memory=35.446 GB)
+result[(1, 6, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=5.275 GB, invar_size=0.934 GB, outvar_size=2.680 GB, temp_buffer_size=1.661 GB, available_memory=35.446 GB)
+result[(1, 9, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=12.387 GB, invar_size=6.844 GB, outvar_size=2.082 GB, temp_buffer_size=5.040 GB, available_memory=35.446 GB)
+result[(0, 6, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=5.331 GB, invar_size=0.464 GB, outvar_size=3.182 GB, temp_buffer_size=1.685 GB, available_memory=35.446 GB)
+result[(0, 6, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=5.331 GB, invar_size=0.464 GB, outvar_size=3.182 GB, temp_buffer_size=1.685 GB, available_memory=35.446 GB)
+result[(2, 7, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=8.877 GB, invar_size=4.508 GB, outvar_size=1.500 GB, temp_buffer_size=3.699 GB, available_memory=35.446 GB)
+result[(1, 9, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=12.387 GB, invar_size=6.844 GB, outvar_size=2.082 GB, temp_buffer_size=5.040 GB, available_memory=35.446 GB)
+result[(0, 7, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.337 GB, invar_size=0.895 GB, outvar_size=3.350 GB, temp_buffer_size=2.092 GB, available_memory=35.446 GB)
+result[(2, 7, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=8.877 GB, invar_size=4.508 GB, outvar_size=1.500 GB, temp_buffer_size=3.699 GB, available_memory=35.446 GB)
+result[(0, 7, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.337 GB, invar_size=0.895 GB, outvar_size=3.350 GB, temp_buffer_size=2.092 GB, available_memory=35.446 GB)
+result[(1, 7, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.328 GB, invar_size=1.365 GB, outvar_size=2.848 GB, temp_buffer_size=2.116 GB, available_memory=35.446 GB)
+result[(1, 7, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.328 GB, invar_size=1.365 GB, outvar_size=2.848 GB, temp_buffer_size=2.116 GB, available_memory=35.446 GB)
+result[(2, 8, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=9.763 GB, invar_size=5.393 GB, outvar_size=1.859 GB, temp_buffer_size=3.700 GB, available_memory=35.446 GB)
+result[(0, 8, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.246 GB, invar_size=1.254 GB, outvar_size=3.518 GB, temp_buffer_size=2.475 GB, available_memory=35.446 GB)
+result[(2, 8, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=9.763 GB, invar_size=5.393 GB, outvar_size=1.859 GB, temp_buffer_size=3.700 GB, available_memory=35.446 GB)
+result[(0, 8, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.246 GB, invar_size=1.254 GB, outvar_size=3.518 GB, temp_buffer_size=2.475 GB, available_memory=35.446 GB)
+result[(1, 8, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.200 GB, invar_size=1.724 GB, outvar_size=3.015 GB, temp_buffer_size=2.461 GB, available_memory=35.446 GB)
+result[(2, 9, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=10.649 GB, invar_size=6.279 GB, outvar_size=2.218 GB, temp_buffer_size=3.700 GB, available_memory=35.446 GB)
+result[(2, 9, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=10.649 GB, invar_size=6.279 GB, outvar_size=2.218 GB, temp_buffer_size=3.700 GB, available_memory=35.446 GB)
+result[(2, 7, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=5.778 GB, invar_size=1.501 GB, outvar_size=2.178 GB, temp_buffer_size=2.100 GB, available_memory=35.446 GB)
+result[(1, 8, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.200 GB, invar_size=1.724 GB, outvar_size=3.015 GB, temp_buffer_size=2.461 GB, available_memory=35.446 GB)
+result[(2, 7, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=5.778 GB, invar_size=1.501 GB, outvar_size=2.178 GB, temp_buffer_size=2.100 GB, available_memory=35.446 GB)
+result[(2, 10, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=11.535 GB, invar_size=7.164 GB, outvar_size=2.577 GB, temp_buffer_size=3.701 GB, available_memory=35.446 GB)
+result[(3, 9, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=9.005 GB, invar_size=5.564 GB, outvar_size=2.196 GB, temp_buffer_size=2.772 GB, available_memory=35.446 GB)
+result[(2, 10, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=11.535 GB, invar_size=7.164 GB, outvar_size=2.577 GB, temp_buffer_size=3.701 GB, available_memory=35.446 GB)
+result[(3, 9, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=9.005 GB, invar_size=5.564 GB, outvar_size=2.196 GB, temp_buffer_size=2.772 GB, available_memory=35.446 GB)
+result[(1, 9, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.990 GB, invar_size=2.083 GB, outvar_size=3.183 GB, temp_buffer_size=2.725 GB, available_memory=35.446 GB)
+result[(3, 10, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=9.891 GB, invar_size=6.449 GB, outvar_size=2.555 GB, temp_buffer_size=2.772 GB, available_memory=35.446 GB)
+result[(3, 10, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=9.891 GB, invar_size=6.449 GB, outvar_size=2.555 GB, temp_buffer_size=2.772 GB, available_memory=35.446 GB)
+result[(2, 8, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.657 GB, invar_size=1.860 GB, outvar_size=2.345 GB, temp_buffer_size=2.452 GB, available_memory=35.446 GB)
+result[(2, 8, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.657 GB, invar_size=1.860 GB, outvar_size=2.345 GB, temp_buffer_size=2.452 GB, available_memory=35.446 GB)
+result[(1, 9, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.990 GB, invar_size=2.083 GB, outvar_size=3.183 GB, temp_buffer_size=2.725 GB, available_memory=35.446 GB)
+result[(3, 11, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=10.777 GB, invar_size=7.335 GB, outvar_size=2.914 GB, temp_buffer_size=2.772 GB, available_memory=35.446 GB)
+result[(2, 9, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.447 GB, invar_size=2.219 GB, outvar_size=2.513 GB, temp_buffer_size=2.716 GB, available_memory=35.446 GB)
+result[(3, 11, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=10.777 GB, invar_size=7.335 GB, outvar_size=2.914 GB, temp_buffer_size=2.772 GB, available_memory=35.446 GB)
+result[(2, 9, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.447 GB, invar_size=2.219 GB, outvar_size=2.513 GB, temp_buffer_size=2.716 GB, available_memory=35.446 GB)
+result[(4, 10, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.799 GB, invar_size=5.564 GB, outvar_size=2.112 GB, temp_buffer_size=1.900 GB, available_memory=35.446 GB)
+result[(4, 10, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.799 GB, invar_size=5.564 GB, outvar_size=2.112 GB, temp_buffer_size=1.900 GB, available_memory=35.446 GB)
+result[(4, 11, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=8.684 GB, invar_size=6.449 GB, outvar_size=2.471 GB, temp_buffer_size=1.900 GB, available_memory=35.446 GB)
+result[(4, 11, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=8.684 GB, invar_size=6.449 GB, outvar_size=2.471 GB, temp_buffer_size=1.900 GB, available_memory=35.446 GB)
+result[(3, 9, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.031 GB, invar_size=2.197 GB, outvar_size=1.843 GB, temp_buffer_size=1.992 GB, available_memory=35.446 GB)
+result[(3, 9, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.031 GB, invar_size=2.197 GB, outvar_size=1.843 GB, temp_buffer_size=1.992 GB, available_memory=35.446 GB)
+result[(4, 12, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=9.571 GB, invar_size=7.335 GB, outvar_size=2.830 GB, temp_buffer_size=1.901 GB, available_memory=35.446 GB)
+result[(4, 12, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=9.571 GB, invar_size=7.335 GB, outvar_size=2.830 GB, temp_buffer_size=1.901 GB, available_memory=35.446 GB)
+result[(2, 10, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.934 GB, invar_size=2.579 GB, outvar_size=2.680 GB, temp_buffer_size=1.675 GB, available_memory=35.446 GB)
+result[(3, 10, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.241 GB, invar_size=2.556 GB, outvar_size=2.010 GB, temp_buffer_size=1.675 GB, available_memory=35.446 GB)
+result[(2, 10, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.934 GB, invar_size=2.579 GB, outvar_size=2.680 GB, temp_buffer_size=1.675 GB, available_memory=35.446 GB)
+result[(3, 10, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.241 GB, invar_size=2.556 GB, outvar_size=2.010 GB, temp_buffer_size=1.675 GB, available_memory=35.446 GB)
+result[(5, 11, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=8.170 GB, invar_size=5.935 GB, outvar_size=2.381 GB, temp_buffer_size=1.900 GB, available_memory=35.446 GB)
+result[(5, 11, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=8.170 GB, invar_size=5.935 GB, outvar_size=2.381 GB, temp_buffer_size=1.900 GB, available_memory=35.446 GB)
+result[(4, 10, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=5.128 GB, invar_size=2.113 GB, outvar_size=1.675 GB, temp_buffer_size=1.340 GB, available_memory=35.446 GB)
+result[(4, 10, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=5.128 GB, invar_size=2.113 GB, outvar_size=1.675 GB, temp_buffer_size=1.340 GB, available_memory=35.446 GB)
+result[(5, 12, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=9.055 GB, invar_size=6.820 GB, outvar_size=2.740 GB, temp_buffer_size=1.900 GB, available_memory=35.446 GB)
+result[(5, 12, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=9.055 GB, invar_size=6.820 GB, outvar_size=2.740 GB, temp_buffer_size=1.900 GB, available_memory=35.446 GB)
+result[(3, 11, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.768 GB, invar_size=2.915 GB, outvar_size=2.178 GB, temp_buffer_size=1.676 GB, available_memory=35.446 GB)
+result[(5, 13, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=12.917 GB, invar_size=10.350 GB, outvar_size=4.463 GB, temp_buffer_size=2.232 GB, available_memory=35.446 GB)
+result[(3, 11, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.768 GB, invar_size=2.915 GB, outvar_size=2.178 GB, temp_buffer_size=1.676 GB, available_memory=35.446 GB)
+result[(4, 11, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=5.655 GB, invar_size=2.472 GB, outvar_size=1.843 GB, temp_buffer_size=1.341 GB, available_memory=35.446 GB)
+result[(5, 13, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=12.917 GB, invar_size=10.350 GB, outvar_size=4.463 GB, temp_buffer_size=2.232 GB, available_memory=35.446 GB)
+result[(4, 11, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=5.655 GB, invar_size=2.472 GB, outvar_size=1.843 GB, temp_buffer_size=1.341 GB, available_memory=35.446 GB)
+result[(5, 14, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=15.875 GB, invar_size=13.305 GB, outvar_size=5.899 GB, temp_buffer_size=2.235 GB, available_memory=35.446 GB)
+result[(6, 12, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=8.320 GB, invar_size=6.306 GB, outvar_size=2.650 GB, temp_buffer_size=1.679 GB, available_memory=35.446 GB)
+result[(5, 14, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=15.875 GB, invar_size=13.305 GB, outvar_size=5.899 GB, temp_buffer_size=2.235 GB, available_memory=35.446 GB)
+result[(5, 11, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=4.650 GB, invar_size=2.382 GB, outvar_size=1.508 GB, temp_buffer_size=0.760 GB, available_memory=35.446 GB)
+result[(5, 11, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=4.650 GB, invar_size=2.382 GB, outvar_size=1.508 GB, temp_buffer_size=0.760 GB, available_memory=35.446 GB)
+result[(6, 12, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=8.320 GB, invar_size=6.306 GB, outvar_size=2.650 GB, temp_buffer_size=1.679 GB, available_memory=35.446 GB)
+result[(4, 12, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.182 GB, invar_size=2.831 GB, outvar_size=2.011 GB, temp_buffer_size=1.341 GB, available_memory=35.446 GB)
+result[(6, 13, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=12.396 GB, invar_size=9.835 GB, outvar_size=4.373 GB, temp_buffer_size=2.226 GB, available_memory=35.446 GB)
+result[(4, 12, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.182 GB, invar_size=2.831 GB, outvar_size=2.011 GB, temp_buffer_size=1.341 GB, available_memory=35.446 GB)
+result[(6, 13, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=12.396 GB, invar_size=9.835 GB, outvar_size=4.373 GB, temp_buffer_size=2.226 GB, available_memory=35.446 GB)
+result[(6, 14, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=15.354 GB, invar_size=12.790 GB, outvar_size=5.809 GB, temp_buffer_size=2.229 GB, available_memory=35.446 GB)
+result[(5, 12, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=5.177 GB, invar_size=2.742 GB, outvar_size=1.676 GB, temp_buffer_size=0.760 GB, available_memory=35.446 GB)
+result[(6, 14, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=15.354 GB, invar_size=12.790 GB, outvar_size=5.809 GB, temp_buffer_size=2.229 GB, available_memory=35.446 GB)
+result[(5, 12, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=5.177 GB, invar_size=2.742 GB, outvar_size=1.676 GB, temp_buffer_size=0.760 GB, available_memory=35.446 GB)
+result[(6, 15, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=18.338 GB, invar_size=15.771 GB, outvar_size=7.300 GB, temp_buffer_size=2.231 GB, available_memory=35.446 GB)
+result[(6, 12, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=4.752 GB, invar_size=2.652 GB, outvar_size=1.341 GB, temp_buffer_size=0.760 GB, available_memory=35.446 GB)
+result[(6, 12, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=4.752 GB, invar_size=2.652 GB, outvar_size=1.341 GB, temp_buffer_size=0.760 GB, available_memory=35.446 GB)
+result[(6, 15, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=18.338 GB, invar_size=15.771 GB, outvar_size=7.300 GB, temp_buffer_size=2.231 GB, available_memory=35.446 GB)
+result[(5, 13, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.672 GB, invar_size=4.465 GB, outvar_size=1.760 GB, temp_buffer_size=1.448 GB, available_memory=35.446 GB)
+result[(7, 13, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=11.882 GB, invar_size=9.321 GB, outvar_size=4.284 GB, temp_buffer_size=2.226 GB, available_memory=35.446 GB)
+result[(7, 13, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=11.882 GB, invar_size=9.321 GB, outvar_size=4.284 GB, temp_buffer_size=2.226 GB, available_memory=35.446 GB)
+result[(5, 13, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.672 GB, invar_size=4.465 GB, outvar_size=1.760 GB, temp_buffer_size=1.448 GB, available_memory=35.446 GB)
+result[(6, 13, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.247 GB, invar_size=4.375 GB, outvar_size=1.425 GB, temp_buffer_size=1.448 GB, available_memory=35.446 GB)
+result[(7, 14, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=14.840 GB, invar_size=12.276 GB, outvar_size=5.719 GB, temp_buffer_size=2.229 GB, available_memory=35.446 GB)
+result[(6, 13, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.247 GB, invar_size=4.375 GB, outvar_size=1.425 GB, temp_buffer_size=1.448 GB, available_memory=35.446 GB)
+result[(7, 14, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=14.840 GB, invar_size=12.276 GB, outvar_size=5.719 GB, temp_buffer_size=2.229 GB, available_memory=35.446 GB)
+result[(5, 14, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=9.276 GB, invar_size=5.901 GB, outvar_size=1.843 GB, temp_buffer_size=1.532 GB, available_memory=35.446 GB)
+result[(7, 15, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=17.824 GB, invar_size=15.257 GB, outvar_size=7.210 GB, temp_buffer_size=2.232 GB, available_memory=35.446 GB)
+result[(7, 15, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=17.824 GB, invar_size=15.257 GB, outvar_size=7.210 GB, temp_buffer_size=2.232 GB, available_memory=35.446 GB)
+result[(8, 14, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=13.474 GB, invar_size=11.079 GB, outvar_size=5.121 GB, temp_buffer_size=2.227 GB, available_memory=35.446 GB)
+result[(5, 14, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=9.276 GB, invar_size=5.901 GB, outvar_size=1.843 GB, temp_buffer_size=1.532 GB, available_memory=35.446 GB)
+result[(8, 14, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=13.474 GB, invar_size=11.079 GB, outvar_size=5.121 GB, temp_buffer_size=2.227 GB, available_memory=35.446 GB)
+result[(6, 14, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=8.851 GB, invar_size=5.811 GB, outvar_size=1.508 GB, temp_buffer_size=1.532 GB, available_memory=35.446 GB)
+result[(7, 13, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.822 GB, invar_size=4.285 GB, outvar_size=1.090 GB, temp_buffer_size=1.448 GB, available_memory=35.446 GB)
+result[(6, 14, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=8.851 GB, invar_size=5.811 GB, outvar_size=1.508 GB, temp_buffer_size=1.532 GB, available_memory=35.446 GB)
+result[(8, 15, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=16.457 GB, invar_size=14.060 GB, outvar_size=6.611 GB, temp_buffer_size=2.229 GB, available_memory=35.446 GB)
+result[(6, 15, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=10.270 GB, invar_size=7.302 GB, outvar_size=1.509 GB, temp_buffer_size=1.461 GB, available_memory=35.446 GB)
+result[(7, 13, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=6.822 GB, invar_size=4.285 GB, outvar_size=1.090 GB, temp_buffer_size=1.448 GB, available_memory=35.446 GB)
+result[(8, 15, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=16.457 GB, invar_size=14.060 GB, outvar_size=6.611 GB, temp_buffer_size=2.229 GB, available_memory=35.446 GB)
+result[(9, 15, 0, 0), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=15.570 GB, invar_size=13.175 GB, outvar_size=6.253 GB, temp_buffer_size=2.228 GB, available_memory=35.446 GB)
+result[(9, 15, 0, 1), 1] = ModuleProfileResult(compute_cost=0.000, peak_memory=15.570 GB, invar_size=13.175 GB, outvar_size=6.253 GB, temp_buffer_size=2.228 GB, available_memory=35.446 GB)
+result[(6, 15, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=10.270 GB, invar_size=7.302 GB, outvar_size=1.509 GB, temp_buffer_size=1.461 GB, available_memory=35.446 GB)
+result[(7, 14, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=8.426 GB, invar_size=5.722 GB, outvar_size=1.173 GB, temp_buffer_size=1.532 GB, available_memory=35.446 GB)
+result[(7, 14, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=8.426 GB, invar_size=5.722 GB, outvar_size=1.173 GB, temp_buffer_size=1.532 GB, available_memory=35.446 GB)
+result[(8, 14, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.492 GB, invar_size=5.123 GB, outvar_size=1.006 GB, temp_buffer_size=1.365 GB, available_memory=35.446 GB)
+result[(8, 14, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=7.492 GB, invar_size=5.123 GB, outvar_size=1.006 GB, temp_buffer_size=1.365 GB, available_memory=35.446 GB)
+result[(7, 15, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=9.845 GB, invar_size=7.212 GB, outvar_size=1.174 GB, temp_buffer_size=1.461 GB, available_memory=35.446 GB)
+result[(7, 15, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=9.845 GB, invar_size=7.212 GB, outvar_size=1.174 GB, temp_buffer_size=1.461 GB, available_memory=35.446 GB)
+result[(8, 15, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=8.912 GB, invar_size=6.614 GB, outvar_size=1.006 GB, temp_buffer_size=1.293 GB, available_memory=35.446 GB)
+result[(9, 15, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=8.217 GB, invar_size=6.255 GB, outvar_size=0.838 GB, temp_buffer_size=1.125 GB, available_memory=35.446 GB)
+result[(8, 15, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=8.912 GB, invar_size=6.614 GB, outvar_size=1.006 GB, temp_buffer_size=1.293 GB, available_memory=35.446 GB)
+result[(9, 15, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=8.217 GB, invar_size=6.255 GB, outvar_size=0.838 GB, temp_buffer_size=1.125 GB, available_memory=35.446 GB)
+Profiling for submesh 0 (1, 1) takes 139.69 seconds
+--------------------------------------------------
+----------------------------------------------------------------------
+Result forward_stage_layer_ids: [[0, 1, 2, 3, 4, 5, 6, 7, 8], [9, 10, 11, 12, 13, 14, 15]]
+Result mesh_shapes: [(1, 1), (1, 1)]
+Result logical_mesh_shapes: [(1, 1), (1, 1)]
+Result autosharding_option_dicts: [{'force_batch_dim_to_mesh_dim': 0}, {}]
+[2m[36m(MeshHostWorker pid=2380290, ip=192.168.0.18)[0m gpu3:2380290:2380290 [0] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.17<0>
+[2m[36m(MeshHostWorker pid=2380290, ip=192.168.0.18)[0m gpu3:2380290:2380290 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=2380290, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=2380290, ip=192.168.0.18)[0m gpu3:2380290:2380290 [0] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=2380290, ip=192.168.0.18)[0m gpu3:2380290:2380290 [0] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.17<0>
+[2m[36m(MeshHostWorker pid=2380290, ip=192.168.0.18)[0m gpu3:2380290:2380290 [0] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=1066597)[0m gpu2:1066597:1066597 [0] NCCL INFO Bootstrap : Using ib0.8068:192.168.1.16<0>
+[2m[36m(MeshHostWorker pid=1066597)[0m gpu2:1066597:1066597 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+[2m[36m(MeshHostWorker pid=1066597)[0m 
+[2m[36m(MeshHostWorker pid=1066597)[0m gpu2:1066597:1066597 [0] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+[2m[36m(MeshHostWorker pid=1066597)[0m gpu2:1066597:1066597 [0] NCCL INFO NET/Socket : Using [0]ib0.8068:192.168.1.16<0>
+[2m[36m(MeshHostWorker pid=1066597)[0m gpu2:1066597:1066597 [0] NCCL INFO Using network Socket
+[2m[36m(MeshHostWorker pid=1066597)[0m NCCL version 2.8.4+cuda11.2
+[2m[36m(MeshHostWorker pid=1066597)[0m 
+[2m[36m(MeshHostWorker pid=1066597)[0m gpu2:1066597:1066597 [0] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=1066597)[0m 
+[2m[36m(MeshHostWorker pid=1066597)[0m gpu2:1066597:1066597 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=1066597)[0m gpu2:1066597:1066597 [0] NCCL INFO Channel 00/02 :    0   1
+[2m[36m(MeshHostWorker pid=1066597)[0m gpu2:1066597:1066597 [0] NCCL INFO Channel 01/02 :    0   1
+[2m[36m(MeshHostWorker pid=1066597)[0m gpu2:1066597:1066597 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+[2m[36m(MeshHostWorker pid=1066597)[0m gpu2:1066597:1066597 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=1066597)[0m gpu2:1066597:1066597 [0] NCCL INFO Channel 00 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1066597)[0m gpu2:1066597:1066597 [0] NCCL INFO NCCL_NSOCKS_PERTHREAD set by environment to 8.
+[2m[36m(MeshHostWorker pid=1066597)[0m gpu2:1066597:1066597 [0] NCCL INFO NCCL_SOCKET_NTHREADS set by environment to 8.
+[2m[36m(MeshHostWorker pid=1066597)[0m gpu2:1066597:1066597 [0] NCCL INFO NET/Socket: Using 8 threads and 8 sockets per thread
+[2m[36m(MeshHostWorker pid=1066597)[0m gpu2:1066597:1066597 [0] NCCL INFO Channel 01 : 1[31000] -> 0[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1066597)[0m gpu2:1066597:1066597 [0] NCCL INFO NET/Socket: Using 8 threads and 8 sockets per thread
+[2m[36m(MeshHostWorker pid=1066597)[0m gpu2:1066597:1066597 [0] NCCL INFO Channel 00 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1066597)[0m gpu2:1066597:1066597 [0] NCCL INFO Channel 01 : 0[31000] -> 1[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2380290, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=2380290, ip=192.168.0.18)[0m gpu3:2380290:2380290 [0] misc/nvmlwrap.cc:47 NCCL WARN Failed to open libnvidia-ml.so.1
+[2m[36m(MeshHostWorker pid=2380290, ip=192.168.0.18)[0m 
+[2m[36m(MeshHostWorker pid=2380290, ip=192.168.0.18)[0m gpu3:2380290:2380290 [0] graph/xml.cc:595 NCCL WARN No NVML device handle. Skipping nvlink detection.
+[2m[36m(MeshHostWorker pid=2380290, ip=192.168.0.18)[0m gpu3:2380290:2380290 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+[2m[36m(MeshHostWorker pid=2380290, ip=192.168.0.18)[0m gpu3:2380290:2380290 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+[2m[36m(MeshHostWorker pid=2380290, ip=192.168.0.18)[0m gpu3:2380290:2380290 [0] NCCL INFO Channel 00 : 0[31000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2380290, ip=192.168.0.18)[0m gpu3:2380290:2380290 [0] NCCL INFO NCCL_NSOCKS_PERTHREAD set by environment to 8.
+[2m[36m(MeshHostWorker pid=2380290, ip=192.168.0.18)[0m gpu3:2380290:2380290 [0] NCCL INFO NCCL_SOCKET_NTHREADS set by environment to 8.
+[2m[36m(MeshHostWorker pid=2380290, ip=192.168.0.18)[0m gpu3:2380290:2380290 [0] NCCL INFO NET/Socket: Using 8 threads and 8 sockets per thread
+[2m[36m(MeshHostWorker pid=2380290, ip=192.168.0.18)[0m gpu3:2380290:2380290 [0] NCCL INFO Channel 01 : 0[31000] -> 1[31000] [receive] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2380290, ip=192.168.0.18)[0m gpu3:2380290:2380290 [0] NCCL INFO NET/Socket: Using 8 threads and 8 sockets per thread
+[2m[36m(MeshHostWorker pid=2380290, ip=192.168.0.18)[0m gpu3:2380290:2380290 [0] NCCL INFO Channel 00 : 1[31000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=2380290, ip=192.168.0.18)[0m gpu3:2380290:2380290 [0] NCCL INFO Channel 01 : 1[31000] -> 0[31000] [send] via NET/Socket/0
+[2m[36m(MeshHostWorker pid=1066597)[0m gpu2:1066597:1066597 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=1066597)[0m gpu2:1066597:1066597 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=1066597)[0m gpu2:1066597:1066597 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=1066597)[0m gpu2:1066597:1066597 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=1066597)[0m gpu2:1066597:1066597 [0] NCCL INFO comm 0x464cc40 rank 0 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+[2m[36m(MeshHostWorker pid=2380290, ip=192.168.0.18)[0m gpu3:2380290:2380290 [0] NCCL INFO Connected all rings
+[2m[36m(MeshHostWorker pid=2380290, ip=192.168.0.18)[0m gpu3:2380290:2380290 [0] NCCL INFO Connected all trees
+[2m[36m(MeshHostWorker pid=2380290, ip=192.168.0.18)[0m gpu3:2380290:2380290 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 8/8/64
+[2m[36m(MeshHostWorker pid=2380290, ip=192.168.0.18)[0m gpu3:2380290:2380290 [0] NCCL INFO 2 coll channels, 2 p2p channels, 1 p2p channels per peer
+[2m[36m(MeshHostWorker pid=2380290, ip=192.168.0.18)[0m gpu3:2380290:2380290 [0] NCCL INFO comm 0x4164040 rank 1 nranks 2 cudaDev 0 busId 31000 - Init COMPLETE
+ - Compile (driver): 191.45 s
+compilation time breakdown: {'stage-construction': '172.47', 'stage-construction-dp': '1.32', 'stage-construction-compilation': '22.79', 'stage-construction-profiling': '83.20'}
+ - Compile (worker): 19.44 s
+[I] Training process warmup (2 rounds) with dummy input batch...

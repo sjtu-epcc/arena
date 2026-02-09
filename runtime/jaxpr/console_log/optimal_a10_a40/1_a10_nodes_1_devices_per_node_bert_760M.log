@@ -1,0 +1,56 @@
+
+------------------------------------------------------------------
+- (1/3) Profiling bert_760M with batch size: 128...
+------------------------------------------------------------------
+[TMP] Profiling results not found in `./jaxpr/prof_log/optimal/bert_760M_128.pkl`, creating it...
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 1
+    - Nodes num: 1
+[I] Loading flax model....
+[I] Model 'bert' loads sucessfully. Model Info: 
+
+FlaxBertForMaskedLMModule(
+    # attributes
+    config = <model.bert_model.BertConfig object at 0x7f5da8ab0d30>
+    dtype = float16
+) 
+
+[I] Manually constructing dummy batch...
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+-------------------- Automatic stage clustering --------------------
+submesh_choices: ((1, 1),)
+- Profiling for submesh 0 (1, 1):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(0, 5, 0, 0), 0] = ModuleProfileResult(compute_cost=0.134, peak_memory=2.120 GB, invar_size=1.221 GB, outvar_size=0.117 GB, temp_buffer_size=0.781 GB, available_memory=19.578 GB)
+result[(0, 5, 0, 1), 0] = ModuleProfileResult(compute_cost=0.134, peak_memory=2.120 GB, invar_size=1.221 GB, outvar_size=0.117 GB, temp_buffer_size=0.781 GB, available_memory=19.578 GB)
+result[(0, 5, 0, 0), 1] = ModuleProfileResult(compute_cost=0.490, peak_memory=8.954 GB, invar_size=3.248 GB, outvar_size=1.565 GB, temp_buffer_size=5.706 GB, available_memory=19.578 GB)
+result[(0, 5, 0, 1), 1] = ModuleProfileResult(compute_cost=0.490, peak_memory=8.954 GB, invar_size=3.248 GB, outvar_size=1.565 GB, temp_buffer_size=5.706 GB, available_memory=19.578 GB)
+Profiling for submesh 0 (1, 1) takes 24.52 seconds
+--------------------------------------------------
+Profile result saved to: profile-results-2023-11-15-13-52-06.npy
+----------------------------------------------------------------------
+Result forward_stage_layer_ids: [[0, 1, 2, 3, 4, 5]]
+Result mesh_shapes: [(1, 1)]
+Result logical_mesh_shapes: [(1, 1)]
+Result autosharding_option_dicts: [{}]
+ - Compile (driver): 57.64 s
+compilation time breakdown: {'stage-construction': '27.66', 'stage-construction-dp': '1.10', 'stage-construction-compilation': '3.15', 'stage-construction-profiling': '14.76'}
+ - Compile (worker): 15.98 s
+[I] Training process warmup (2 rounds) with dummy input batch...
+    - Warmup iteration: 1/2
+[E] Meet unexpected error in profiling executables...
+
+[E] Unexpected error occurred in compiling or profiling executables...
+[E] Meet unexpected error in compiling and executing model...
+[TMP] Current profiling results of key `1_a10_1_n_1_d`: none
+[TMP] Updated profiling results stored in `./jaxpr/prof_log/optimal/bert_760M_128.pkl`...
+
+------------------------------------------------------------------
+- (2/3) Profiling bert_760M with batch size: 256...
+------------------------------------------------------------------

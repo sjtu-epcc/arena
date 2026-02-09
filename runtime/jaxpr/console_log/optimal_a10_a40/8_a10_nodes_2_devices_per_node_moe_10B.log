@@ -1,0 +1,196 @@
+
+------------------------------------------------------------------
+- (1/3) Profiling moe_10B with batch size: 256...
+------------------------------------------------------------------
+[TMP] Existed profiling results in `./jaxpr/prof_log/optimal/moe_10B_256.pkl`, updating/rewriting it...
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 2
+    - Nodes num: 8
+[I] Loading flax model....
+[I] Model 'moe' loads sucessfully. Model Info: 
+
+FlaxMoEForLMModule(
+    # attributes
+    config = <model.moe_model.MoEConfig object at 0x7feaa4a33850>
+    dtype = float16
+    bias_init = zeros
+) 
+
+[I] Manually constructing dummy batch...
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+-------------------- Automatic stage clustering --------------------
+submesh_choices: ((1, 1), (1, 2), (2, 2), (4, 2))
+- Profiling for submesh 3 (4, 2):
+[TMP] Skip profiling of 4 due to legacy error in tensorflow...
+- Profiling for submesh 2 (2, 2):
+[TMP] Skip profiling of 2 due to legacy error in tensorflow...
+- Profiling for submesh 1 (1, 2):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(5, 6, 1, 0), 0] = ModuleProfileResult(compute_cost=0.027, peak_memory=3.200 GB, invar_size=2.379 GB, outvar_size=0.047 GB, temp_buffer_size=0.774 GB, available_memory=17.580 GB)
+result[(5, 6, 1, 1), 0] = ModuleProfileResult(compute_cost=0.052, peak_memory=2.092 GB, invar_size=1.225 GB, outvar_size=0.070 GB, temp_buffer_size=0.797 GB, available_memory=17.580 GB)
+result[(4, 5, 1, 1), 0] = ModuleProfileResult(compute_cost=0.052, peak_memory=2.092 GB, invar_size=1.225 GB, outvar_size=0.070 GB, temp_buffer_size=0.797 GB, available_memory=17.580 GB)
+result[(4, 5, 1, 2), 0] = ModuleProfileResult(compute_cost=0.030, peak_memory=2.122 GB, invar_size=1.277 GB, outvar_size=0.047 GB, temp_buffer_size=0.797 GB, available_memory=17.580 GB)
+result[(0, 1, 1, 0), 0] = ModuleProfileResult(compute_cost=0.033, peak_memory=3.400 GB, invar_size=2.415 GB, outvar_size=0.234 GB, temp_buffer_size=0.750 GB, available_memory=17.580 GB)
+result[(4, 5, 1, 0), 0] = ModuleProfileResult(compute_cost=0.027, peak_memory=3.176 GB, invar_size=2.379 GB, outvar_size=0.047 GB, temp_buffer_size=0.750 GB, available_memory=17.580 GB)
+result[(3, 4, 1, 0), 0] = ModuleProfileResult(compute_cost=0.027, peak_memory=3.200 GB, invar_size=2.379 GB, outvar_size=0.047 GB, temp_buffer_size=0.774 GB, available_memory=17.580 GB)
+result[(3, 4, 1, 2), 0] = ModuleProfileResult(compute_cost=0.032, peak_memory=2.075 GB, invar_size=1.254 GB, outvar_size=0.047 GB, temp_buffer_size=0.774 GB, available_memory=17.580 GB)
+result[(3, 4, 1, 1), 0] = ModuleProfileResult(compute_cost=0.052, peak_memory=2.092 GB, invar_size=1.225 GB, outvar_size=0.070 GB, temp_buffer_size=0.797 GB, available_memory=17.580 GB)
+result[(2, 3, 1, 2), 0] = ModuleProfileResult(compute_cost=0.039, peak_memory=2.292 GB, invar_size=1.494 GB, outvar_size=0.047 GB, temp_buffer_size=0.750 GB, available_memory=17.580 GB)
+result[(0, 1, 1, 2), 0] = ModuleProfileResult(compute_cost=0.038, peak_memory=2.275 GB, invar_size=1.290 GB, outvar_size=0.234 GB, temp_buffer_size=0.750 GB, available_memory=17.580 GB)
+result[(2, 3, 1, 1), 0] = ModuleProfileResult(compute_cost=0.072, peak_memory=2.259 GB, invar_size=1.439 GB, outvar_size=0.070 GB, temp_buffer_size=0.750 GB, available_memory=17.580 GB)
+result[(0, 1, 1, 1), 0] = ModuleProfileResult(compute_cost=0.056, peak_memory=2.216 GB, invar_size=1.208 GB, outvar_size=0.258 GB, temp_buffer_size=0.750 GB, available_memory=17.580 GB)
+result[(2, 3, 1, 0), 0] = ModuleProfileResult(compute_cost=0.033, peak_memory=3.416 GB, invar_size=2.619 GB, outvar_size=0.047 GB, temp_buffer_size=0.750 GB, available_memory=17.580 GB)
+result[(5, 6, 1, 1), 1] = ModuleProfileResult(compute_cost=0.131, peak_memory=4.344 GB, invar_size=2.496 GB, outvar_size=1.225 GB, temp_buffer_size=1.801 GB, available_memory=17.580 GB)
+result[(5, 6, 1, 0), 1] = ModuleProfileResult(compute_cost=0.103, peak_memory=7.161 GB, invar_size=4.782 GB, outvar_size=2.379 GB, temp_buffer_size=2.356 GB, available_memory=17.580 GB)
+result[(0, 1, 1, 0), 1] = ModuleProfileResult(compute_cost=0.111, peak_memory=7.479 GB, invar_size=5.064 GB, outvar_size=2.415 GB, temp_buffer_size=2.415 GB, available_memory=17.580 GB)
+result[(4, 5, 1, 0), 1] = ModuleProfileResult(compute_cost=0.103, peak_memory=7.161 GB, invar_size=4.782 GB, outvar_size=2.379 GB, temp_buffer_size=2.356 GB, available_memory=17.580 GB)
+result[(3, 4, 1, 2), 1] = ModuleProfileResult(compute_cost=0.091, peak_memory=4.306 GB, invar_size=2.532 GB, outvar_size=1.254 GB, temp_buffer_size=1.751 GB, available_memory=17.580 GB)
+result[(3, 4, 1, 0), 1] = ModuleProfileResult(compute_cost=0.103, peak_memory=7.161 GB, invar_size=4.782 GB, outvar_size=2.379 GB, temp_buffer_size=2.356 GB, available_memory=17.580 GB)
+result[(3, 4, 1, 1), 1] = ModuleProfileResult(compute_cost=0.131, peak_memory=4.391 GB, invar_size=2.496 GB, outvar_size=1.225 GB, temp_buffer_size=1.848 GB, available_memory=17.580 GB)
+result[(4, 5, 1, 1), 1] = ModuleProfileResult(compute_cost=0.124, peak_memory=4.310 GB, invar_size=2.496 GB, outvar_size=1.201 GB, temp_buffer_size=1.790 GB, available_memory=17.580 GB)
+result[(4, 5, 1, 2), 1] = ModuleProfileResult(compute_cost=0.089, peak_memory=4.329 GB, invar_size=2.578 GB, outvar_size=1.254 GB, temp_buffer_size=1.727 GB, available_memory=17.580 GB)
+result[(0, 1, 1, 2), 1] = ModuleProfileResult(compute_cost=0.099, peak_memory=4.878 GB, invar_size=2.814 GB, outvar_size=1.290 GB, temp_buffer_size=2.063 GB, available_memory=17.580 GB)
+result[(5, 6, 1, 2), 0] = ModuleProfileResult(compute_cost=0.032, peak_memory=2.075 GB, invar_size=1.254 GB, outvar_size=0.047 GB, temp_buffer_size=0.774 GB, available_memory=17.580 GB)
+result[(0, 1, 1, 1), 1] = ModuleProfileResult(compute_cost=0.138, peak_memory=4.917 GB, invar_size=2.696 GB, outvar_size=1.207 GB, temp_buffer_size=2.220 GB, available_memory=17.580 GB)
+result[(6, 7, 1, 0), 0] = ModuleProfileResult(compute_cost=0.027, peak_memory=3.176 GB, invar_size=2.379 GB, outvar_size=0.047 GB, temp_buffer_size=0.750 GB, available_memory=17.580 GB)
+result[(2, 3, 1, 1), 1] = ModuleProfileResult(compute_cost=0.163, peak_memory=5.179 GB, invar_size=2.737 GB, outvar_size=1.439 GB, temp_buffer_size=2.208 GB, available_memory=17.580 GB)
+result[(6, 7, 1, 1), 0] = ModuleProfileResult(compute_cost=0.052, peak_memory=2.092 GB, invar_size=1.225 GB, outvar_size=0.070 GB, temp_buffer_size=0.797 GB, available_memory=17.580 GB)
+result[(6, 7, 1, 2), 0] = ModuleProfileResult(compute_cost=0.030, peak_memory=2.122 GB, invar_size=1.277 GB, outvar_size=0.047 GB, temp_buffer_size=0.797 GB, available_memory=17.580 GB)
+result[(2, 3, 1, 0), 1] = ModuleProfileResult(compute_cost=0.120, peak_memory=7.694 GB, invar_size=5.075 GB, outvar_size=2.619 GB, temp_buffer_size=2.408 GB, available_memory=17.580 GB)
+result[(2, 3, 1, 2), 1] = ModuleProfileResult(compute_cost=0.106, peak_memory=5.132 GB, invar_size=2.848 GB, outvar_size=1.494 GB, temp_buffer_size=2.073 GB, available_memory=17.580 GB)
+result[(7, 8, 1, 0), 0] = ModuleProfileResult(compute_cost=0.027, peak_memory=3.200 GB, invar_size=2.379 GB, outvar_size=0.047 GB, temp_buffer_size=0.774 GB, available_memory=17.580 GB)
+result[(7, 8, 1, 1), 0] = ModuleProfileResult(compute_cost=0.052, peak_memory=2.092 GB, invar_size=1.225 GB, outvar_size=0.070 GB, temp_buffer_size=0.797 GB, available_memory=17.580 GB)
+result[(7, 8, 1, 2), 0] = ModuleProfileResult(compute_cost=0.032, peak_memory=2.075 GB, invar_size=1.254 GB, outvar_size=0.047 GB, temp_buffer_size=0.774 GB, available_memory=17.580 GB)
+result[(8, 9, 1, 0), 0] = ModuleProfileResult(compute_cost=0.027, peak_memory=3.176 GB, invar_size=2.379 GB, outvar_size=0.047 GB, temp_buffer_size=0.750 GB, available_memory=17.580 GB)
+result[(5, 6, 1, 2), 1] = ModuleProfileResult(compute_cost=0.091, peak_memory=4.282 GB, invar_size=2.532 GB, outvar_size=1.254 GB, temp_buffer_size=1.727 GB, available_memory=17.580 GB)
+result[(8, 9, 1, 1), 0] = ModuleProfileResult(compute_cost=0.052, peak_memory=2.092 GB, invar_size=1.225 GB, outvar_size=0.070 GB, temp_buffer_size=0.797 GB, available_memory=17.580 GB)
+result[(6, 7, 1, 0), 1] = ModuleProfileResult(compute_cost=0.103, peak_memory=7.161 GB, invar_size=4.782 GB, outvar_size=2.379 GB, temp_buffer_size=2.356 GB, available_memory=17.580 GB)
+result[(10, 11, 1, 0), 0] = ModuleProfileResult(compute_cost=0.027, peak_memory=3.176 GB, invar_size=2.379 GB, outvar_size=0.047 GB, temp_buffer_size=0.750 GB, available_memory=17.580 GB)
+result[(8, 9, 1, 2), 0] = ModuleProfileResult(compute_cost=0.030, peak_memory=2.122 GB, invar_size=1.277 GB, outvar_size=0.047 GB, temp_buffer_size=0.797 GB, available_memory=17.580 GB)
+result[(9, 10, 1, 0), 0] = ModuleProfileResult(compute_cost=0.027, peak_memory=3.200 GB, invar_size=2.379 GB, outvar_size=0.047 GB, temp_buffer_size=0.774 GB, available_memory=17.580 GB)
+result[(7, 8, 1, 1), 1] = ModuleProfileResult(compute_cost=0.131, peak_memory=4.344 GB, invar_size=2.496 GB, outvar_size=1.225 GB, temp_buffer_size=1.801 GB, available_memory=17.580 GB)
+result[(6, 7, 1, 1), 1] = ModuleProfileResult(compute_cost=0.124, peak_memory=4.310 GB, invar_size=2.496 GB, outvar_size=1.201 GB, temp_buffer_size=1.790 GB, available_memory=17.580 GB)
+result[(9, 10, 1, 1), 0] = ModuleProfileResult(compute_cost=0.052, peak_memory=2.092 GB, invar_size=1.225 GB, outvar_size=0.070 GB, temp_buffer_size=0.797 GB, available_memory=17.580 GB)
+result[(7, 8, 1, 0), 1] = ModuleProfileResult(compute_cost=0.103, peak_memory=7.161 GB, invar_size=4.782 GB, outvar_size=2.379 GB, temp_buffer_size=2.356 GB, available_memory=17.580 GB)
+result[(6, 7, 1, 2), 1] = ModuleProfileResult(compute_cost=0.089, peak_memory=4.329 GB, invar_size=2.578 GB, outvar_size=1.254 GB, temp_buffer_size=1.727 GB, available_memory=17.580 GB)
+result[(11, 12, 1, 0), 0] = ModuleProfileResult(compute_cost=0.027, peak_memory=3.200 GB, invar_size=2.379 GB, outvar_size=0.047 GB, temp_buffer_size=0.774 GB, available_memory=17.580 GB)
+result[(9, 10, 1, 2), 0] = ModuleProfileResult(compute_cost=0.032, peak_memory=2.075 GB, invar_size=1.254 GB, outvar_size=0.047 GB, temp_buffer_size=0.774 GB, available_memory=17.580 GB)
+result[(7, 8, 1, 2), 1] = ModuleProfileResult(compute_cost=0.091, peak_memory=4.282 GB, invar_size=2.532 GB, outvar_size=1.254 GB, temp_buffer_size=1.727 GB, available_memory=17.580 GB)
+result[(10, 11, 1, 1), 0] = ModuleProfileResult(compute_cost=0.052, peak_memory=2.092 GB, invar_size=1.225 GB, outvar_size=0.070 GB, temp_buffer_size=0.797 GB, available_memory=17.580 GB)
+result[(10, 11, 1, 2), 0] = ModuleProfileResult(compute_cost=0.030, peak_memory=2.122 GB, invar_size=1.277 GB, outvar_size=0.047 GB, temp_buffer_size=0.797 GB, available_memory=17.580 GB)
+result[(11, 12, 1, 1), 0] = ModuleProfileResult(compute_cost=0.052, peak_memory=2.092 GB, invar_size=1.225 GB, outvar_size=0.070 GB, temp_buffer_size=0.797 GB, available_memory=17.580 GB)
+result[(8, 9, 1, 0), 1] = ModuleProfileResult(compute_cost=0.103, peak_memory=7.161 GB, invar_size=4.782 GB, outvar_size=2.379 GB, temp_buffer_size=2.356 GB, available_memory=17.580 GB)
+result[(9, 10, 1, 1), 1] = ModuleProfileResult(compute_cost=0.131, peak_memory=4.344 GB, invar_size=2.496 GB, outvar_size=1.225 GB, temp_buffer_size=1.801 GB, available_memory=17.580 GB)
+result[(8, 9, 1, 1), 1] = ModuleProfileResult(compute_cost=0.124, peak_memory=4.310 GB, invar_size=2.496 GB, outvar_size=1.201 GB, temp_buffer_size=1.790 GB, available_memory=17.580 GB)
+result[(9, 10, 1, 0), 1] = ModuleProfileResult(compute_cost=0.103, peak_memory=7.161 GB, invar_size=4.782 GB, outvar_size=2.379 GB, temp_buffer_size=2.356 GB, available_memory=17.580 GB)
+result[(8, 9, 1, 2), 1] = ModuleProfileResult(compute_cost=0.089, peak_memory=4.329 GB, invar_size=2.578 GB, outvar_size=1.254 GB, temp_buffer_size=1.727 GB, available_memory=17.580 GB)
+result[(10, 11, 1, 0), 1] = ModuleProfileResult(compute_cost=0.103, peak_memory=7.161 GB, invar_size=4.782 GB, outvar_size=2.379 GB, temp_buffer_size=2.356 GB, available_memory=17.580 GB)
+result[(12, 13, 1, 0), 0] = ModuleProfileResult(compute_cost=0.027, peak_memory=3.176 GB, invar_size=2.379 GB, outvar_size=0.047 GB, temp_buffer_size=0.750 GB, available_memory=17.580 GB)
+result[(9, 10, 1, 2), 1] = ModuleProfileResult(compute_cost=0.091, peak_memory=4.282 GB, invar_size=2.532 GB, outvar_size=1.254 GB, temp_buffer_size=1.727 GB, available_memory=17.580 GB)
+result[(11, 12, 1, 2), 0] = ModuleProfileResult(compute_cost=0.032, peak_memory=2.075 GB, invar_size=1.254 GB, outvar_size=0.047 GB, temp_buffer_size=0.774 GB, available_memory=17.580 GB)
+result[(12, 13, 1, 1), 0] = ModuleProfileResult(compute_cost=0.052, peak_memory=2.092 GB, invar_size=1.225 GB, outvar_size=0.070 GB, temp_buffer_size=0.797 GB, available_memory=17.580 GB)
+result[(13, 14, 1, 2), 0] = ModuleProfileResult(compute_cost=0.032, peak_memory=2.075 GB, invar_size=1.254 GB, outvar_size=0.047 GB, temp_buffer_size=0.774 GB, available_memory=17.580 GB)
+result[(13, 14, 1, 0), 0] = ModuleProfileResult(compute_cost=0.027, peak_memory=3.200 GB, invar_size=2.379 GB, outvar_size=0.047 GB, temp_buffer_size=0.774 GB, available_memory=17.580 GB)
+result[(11, 12, 1, 1), 1] = ModuleProfileResult(compute_cost=0.131, peak_memory=4.344 GB, invar_size=2.496 GB, outvar_size=1.225 GB, temp_buffer_size=1.801 GB, available_memory=17.580 GB)
+result[(12, 13, 1, 2), 0] = ModuleProfileResult(compute_cost=0.030, peak_memory=2.122 GB, invar_size=1.277 GB, outvar_size=0.047 GB, temp_buffer_size=0.797 GB, available_memory=17.580 GB)
+result[(14, 15, 1, 0), 0] = ModuleProfileResult(compute_cost=0.016, peak_memory=3.071 GB, invar_size=2.274 GB, outvar_size=0.023 GB, temp_buffer_size=0.774 GB, available_memory=17.580 GB)
+result[(10, 11, 1, 1), 1] = ModuleProfileResult(compute_cost=0.124, peak_memory=4.310 GB, invar_size=2.496 GB, outvar_size=1.201 GB, temp_buffer_size=1.790 GB, available_memory=17.580 GB)
+result[(10, 11, 1, 2), 1] = ModuleProfileResult(compute_cost=0.089, peak_memory=4.329 GB, invar_size=2.578 GB, outvar_size=1.254 GB, temp_buffer_size=1.727 GB, available_memory=17.580 GB)
+result[(13, 14, 1, 1), 0] = ModuleProfileResult(compute_cost=0.052, peak_memory=2.092 GB, invar_size=1.225 GB, outvar_size=0.070 GB, temp_buffer_size=0.797 GB, available_memory=17.580 GB)
+result[(11, 12, 1, 0), 1] = ModuleProfileResult(compute_cost=0.103, peak_memory=7.161 GB, invar_size=4.782 GB, outvar_size=2.379 GB, temp_buffer_size=2.356 GB, available_memory=17.580 GB)
+result[(14, 15, 1, 1), 0] = ModuleProfileResult(compute_cost=0.018, peak_memory=1.993 GB, invar_size=1.172 GB, outvar_size=0.023 GB, temp_buffer_size=0.797 GB, available_memory=17.580 GB)
+result[(13, 14, 1, 0), 1] = ModuleProfileResult(compute_cost=0.103, peak_memory=7.161 GB, invar_size=4.782 GB, outvar_size=2.379 GB, temp_buffer_size=2.356 GB, available_memory=17.580 GB)
+result[(14, 15, 1, 2), 0] = ModuleProfileResult(compute_cost=0.018, peak_memory=1.993 GB, invar_size=1.172 GB, outvar_size=0.023 GB, temp_buffer_size=0.797 GB, available_memory=17.580 GB)
+result[(12, 13, 1, 0), 1] = ModuleProfileResult(compute_cost=0.103, peak_memory=7.161 GB, invar_size=4.782 GB, outvar_size=2.379 GB, temp_buffer_size=2.356 GB, available_memory=17.580 GB)
+result[(11, 12, 1, 2), 1] = ModuleProfileResult(compute_cost=0.091, peak_memory=4.282 GB, invar_size=2.532 GB, outvar_size=1.254 GB, temp_buffer_size=1.727 GB, available_memory=17.580 GB)
+result[(13, 14, 1, 1), 1] = ModuleProfileResult(compute_cost=0.131, peak_memory=4.344 GB, invar_size=2.496 GB, outvar_size=1.225 GB, temp_buffer_size=1.801 GB, available_memory=17.580 GB)
+result[(12, 13, 1, 1), 1] = ModuleProfileResult(compute_cost=0.124, peak_memory=4.310 GB, invar_size=2.496 GB, outvar_size=1.201 GB, temp_buffer_size=1.790 GB, available_memory=17.580 GB)
+result[(12, 13, 1, 2), 1] = ModuleProfileResult(compute_cost=0.089, peak_memory=4.329 GB, invar_size=2.578 GB, outvar_size=1.254 GB, temp_buffer_size=1.727 GB, available_memory=17.580 GB)
+result[(13, 14, 1, 2), 1] = ModuleProfileResult(compute_cost=0.091, peak_memory=4.282 GB, invar_size=2.532 GB, outvar_size=1.254 GB, temp_buffer_size=1.727 GB, available_memory=17.580 GB)
+result[(14, 15, 1, 0), 1] = ModuleProfileResult(compute_cost=0.122, peak_memory=7.359 GB, invar_size=4.906 GB, outvar_size=2.453 GB, temp_buffer_size=2.430 GB, available_memory=17.580 GB)
+result[(14, 15, 1, 1), 1] = ModuleProfileResult(compute_cost=0.145, peak_memory=4.706 GB, invar_size=2.500 GB, outvar_size=1.238 GB, temp_buffer_size=2.182 GB, available_memory=17.580 GB)
+result[(14, 15, 1, 2), 1] = ModuleProfileResult(compute_cost=0.117, peak_memory=4.651 GB, invar_size=2.588 GB, outvar_size=1.282 GB, temp_buffer_size=2.040 GB, available_memory=17.580 GB)
+Profiling for submesh 1 (1, 2) takes 24.33 seconds
+--------------------------------------------------
+- Profiling for submesh 0 (1, 1):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(8, 8, 0, 1), 0] = ModuleProfileResult(compute_cost=0.031, peak_memory=3.891 GB, invar_size=2.297 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=17.580 GB)
+result[(6, 6, 0, 1), 0] = ModuleProfileResult(compute_cost=0.031, peak_memory=3.891 GB, invar_size=2.297 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=17.580 GB)
+result[(10, 10, 0, 0), 0] = ModuleProfileResult(compute_cost=0.031, peak_memory=3.891 GB, invar_size=2.297 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=17.580 GB)
+result[(4, 4, 0, 0), 0] = ModuleProfileResult(compute_cost=0.031, peak_memory=3.891 GB, invar_size=2.297 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=17.580 GB)
+result[(6, 6, 0, 0), 0] = ModuleProfileResult(compute_cost=0.031, peak_memory=3.891 GB, invar_size=2.297 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=17.580 GB)
+result[(8, 8, 0, 0), 0] = ModuleProfileResult(compute_cost=0.031, peak_memory=3.891 GB, invar_size=2.297 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=17.580 GB)
+result[(4, 4, 0, 1), 0] = ModuleProfileResult(compute_cost=0.031, peak_memory=3.891 GB, invar_size=2.297 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=17.580 GB)
+result[(8, 8, 0, 1), 1] = ModuleProfileResult(compute_cost=0.090, peak_memory=7.425 GB, invar_size=4.594 GB, outvar_size=2.297 GB, temp_buffer_size=2.784 GB, available_memory=17.580 GB)
+result[(4, 4, 0, 0), 1] = ModuleProfileResult(compute_cost=0.090, peak_memory=7.425 GB, invar_size=4.594 GB, outvar_size=2.297 GB, temp_buffer_size=2.784 GB, available_memory=17.580 GB)
+result[(6, 6, 0, 1), 1] = ModuleProfileResult(compute_cost=0.090, peak_memory=7.425 GB, invar_size=4.594 GB, outvar_size=2.297 GB, temp_buffer_size=2.784 GB, available_memory=17.580 GB)
+result[(10, 10, 0, 0), 1] = ModuleProfileResult(compute_cost=0.090, peak_memory=7.425 GB, invar_size=4.594 GB, outvar_size=2.297 GB, temp_buffer_size=2.784 GB, available_memory=17.580 GB)
+result[(15, 15, 0, 0), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=0.000 GB, invar_size=0.000 GB, outvar_size=0.000 GB, temp_buffer_size=0.000 GB, available_memory=17.580 GB)
+result[(8, 8, 0, 0), 1] = ModuleProfileResult(compute_cost=0.090, peak_memory=7.425 GB, invar_size=4.594 GB, outvar_size=2.297 GB, temp_buffer_size=2.784 GB, available_memory=17.580 GB)
+result[(4, 4, 0, 1), 1] = ModuleProfileResult(compute_cost=0.090, peak_memory=7.425 GB, invar_size=4.594 GB, outvar_size=2.297 GB, temp_buffer_size=2.784 GB, available_memory=17.580 GB)
+result[(15, 15, 0, 1), 0] = ModuleProfileResult(compute_cost=0.000, peak_memory=0.000 GB, invar_size=0.000 GB, outvar_size=0.000 GB, temp_buffer_size=0.000 GB, available_memory=17.580 GB)
+result[(6, 6, 0, 0), 1] = ModuleProfileResult(compute_cost=0.090, peak_memory=7.425 GB, invar_size=4.594 GB, outvar_size=2.297 GB, temp_buffer_size=2.784 GB, available_memory=17.580 GB)
+result[(10, 10, 0, 1), 0] = ModuleProfileResult(compute_cost=0.031, peak_memory=3.891 GB, invar_size=2.297 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=17.580 GB)
+result[(12, 12, 0, 0), 0] = ModuleProfileResult(compute_cost=0.031, peak_memory=3.891 GB, invar_size=2.297 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=17.580 GB)
+result[(12, 12, 0, 1), 0] = ModuleProfileResult(compute_cost=0.031, peak_memory=3.891 GB, invar_size=2.297 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=17.580 GB)
+result[(14, 14, 0, 0), 0] = ModuleProfileResult(compute_cost=0.031, peak_memory=3.891 GB, invar_size=2.297 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=17.580 GB)
+result[(15, 15, 0, 0), 1] = ModuleProfileResult(compute_cost=0.105, peak_memory=4.486 GB, invar_size=0.406 GB, outvar_size=0.226 GB, temp_buffer_size=4.033 GB, available_memory=17.580 GB)
+result[(15, 15, 0, 1), 1] = ModuleProfileResult(compute_cost=0.105, peak_memory=4.486 GB, invar_size=0.406 GB, outvar_size=0.226 GB, temp_buffer_size=4.033 GB, available_memory=17.580 GB)
+result[(14, 14, 0, 1), 0] = ModuleProfileResult(compute_cost=0.031, peak_memory=3.891 GB, invar_size=2.297 GB, outvar_size=0.047 GB, temp_buffer_size=1.547 GB, available_memory=17.580 GB)
+result[(14, 14, 0, 0), 1] = ModuleProfileResult(compute_cost=0.090, peak_memory=7.425 GB, invar_size=4.594 GB, outvar_size=2.297 GB, temp_buffer_size=2.784 GB, available_memory=17.580 GB)
+result[(10, 10, 0, 1), 1] = ModuleProfileResult(compute_cost=0.090, peak_memory=7.425 GB, invar_size=4.594 GB, outvar_size=2.297 GB, temp_buffer_size=2.784 GB, available_memory=17.580 GB)
+result[(12, 12, 0, 0), 1] = ModuleProfileResult(compute_cost=0.090, peak_memory=7.425 GB, invar_size=4.594 GB, outvar_size=2.297 GB, temp_buffer_size=2.784 GB, available_memory=17.580 GB)
+result[(14, 14, 0, 1), 1] = ModuleProfileResult(compute_cost=0.090, peak_memory=7.425 GB, invar_size=4.594 GB, outvar_size=2.297 GB, temp_buffer_size=2.784 GB, available_memory=17.580 GB)
+result[(12, 12, 0, 1), 1] = ModuleProfileResult(compute_cost=0.090, peak_memory=7.425 GB, invar_size=4.594 GB, outvar_size=2.297 GB, temp_buffer_size=2.784 GB, available_memory=17.580 GB)
+Profiling for submesh 0 (1, 1) takes 8.64 seconds
+--------------------------------------------------
+----------------------------------------------------------------------
+[TMP] Stage (0, 2, 2, 0) has been pruned...
+[TMP] Stage (0, 2, 2, 1) has been pruned...
+[TMP] Stage (0, 2, 2, 2) has been pruned...
+[TMP] Stage (0, 3, 2, 0) has been pruned...
+[TMP] Stage (0, 3, 2, 1) has been pruned...
+[TMP] Stage (0, 3, 2, 2) has been pruned...
+[TMP] Stage (0, 6, 3, 0) has been pruned...
+[TMP] Stage (0, 6, 3, 1) has been pruned...
+[TMP] Stage (0, 6, 3, 2) has been pruned...
+[TMP] Stage (0, 7, 3, 0) has been pruned...
+[TMP] Stage (0, 7, 3, 1) has been pruned...
+[TMP] Stage (0, 7, 3, 2) has been pruned...
+[TMP] Stage (0, 8, 3, 0) has been pruned...
+[TMP] Stage (0, 8, 3, 1) has been pruned...
+[TMP] Stage (0, 8, 3, 2) has been pruned...
+[TMP] Stage (1, 3, 2, 0) has been pruned...
+[TMP] Stage (1, 3, 2, 1) has been pruned...
+[TMP] Stage (1, 3, 2, 2) has been pruned...
+[TMP] Stage (1, 4, 2, 0) has been pruned...
+[TMP] Stage (1, 4, 2, 1) has been pruned...
+[TMP] Stage (1, 4, 2, 2) has been pruned...
+[TMP] Stage (1, 6, 3, 0) has been pruned...
+[TMP] Stage (1, 6, 3, 1) has been pruned...
+[TMP] Stage (1, 6, 3, 2) has been pruned...
+[TMP] Stage (1, 7, 3, 0) has been pruned...
+[TMP] Stage (1, 7, 3, 1) has been pruned...
+[TMP] Stage (1, 7, 3, 2) has been pruned...
+[TMP] Stage (1, 8, 3, 0) has been pruned...
+[TMP] Stage (1, 8, 3, 1) has been pruned...
+[TMP] Stage (1, 8, 3, 2) has been pruned...
+[TMP] Stage (1, 9, 3, 0) has been pruned...
+[TMP] Stage (1, 9, 3, 1) has been pruned...
+[TMP] Stage (1, 9, 3, 2) has been pruned...
+[TMP] Stage (2, 4, 2, 0) has been pruned...
+[TMP] Stage (2, 4, 2, 1) has been pruned...
+[TMP] Stage (2, 4, 2, 2) has been pruned...
+[TMP] Stage (2, 5, 2, 0) has been pruned...
+[TMP] Stage (2, 5, 2, 1) has been pruned...
+[TMP] Stage (2, 5, 2, 2) has been pruned...
+[TMP] Stage (2, 8, 3, 0) has been pruned...
+[TMP] Stage (2, 8, 3, 1) has been pruned...

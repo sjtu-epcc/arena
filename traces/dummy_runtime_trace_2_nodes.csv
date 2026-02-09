@@ -1,0 +1,7 @@
+job_id,submission_time,num_iteration,model_name,deadline,batch_size,num_gpu,gpu_type
+0730acda-4851-7fe1-e2ba-d6fc5204dcc2,1991355,12,moe__690M,2000917,256,2,a40
+da77e271-facc-42f9-3a5f-54f791f64432,1991460,28,moe__690M,2013332,256,1,a40
+ceb2d5cc-a373-9cc8-cc90-5738fb409e19,1991478,23,moe__1.3B,2001758,256,2,a40
+383aa0cb-8cf7-89a9-2019-fe5210417536,1991791,7,wide_resnet__500M,2008520,256,2,a40
+1307326e-3530-1ebb-f9dc-468307f1ba85,1991845,22,wide_resnet__1B,2006481,256,2,a40
+

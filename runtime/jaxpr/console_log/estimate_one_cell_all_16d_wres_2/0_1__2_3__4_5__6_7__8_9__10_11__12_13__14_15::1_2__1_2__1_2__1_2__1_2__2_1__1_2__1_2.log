@@ -1,0 +1,378 @@
+
+[I] Loading Crius kernel-level profiler...
+[TMP] Profiling results not found in `None`, creating it...
+
+[I] Loading model and generating sharded HLO module...
+[I] Initializing XLA devices takes 0.8795597553253174 s.
+[I] Loading flax model....
+[I] Model 'wide_resnet' loads sucessfully. Model Info: 
+
+WideResNet(
+    # attributes
+    stage_sizes = [3, 4, 6, 3]
+    block_cls = BottleneckResNetBlock
+    num_classes = 1024
+    num_filters = 640
+    width_factor = 2
+    dtype = float32
+    act = relu
+) 
+
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Constructing general train step func...
+[I] General train step func construction is completed.
+[I] Model has been loaded, begin Jaxpr transformation...
+
+[I] Pipeline partition mode: forced | Layer-to-stage partition: [[0, 1], [2, 3], [4, 5], [6, 7], [8, 9], [10, 11], [12, 13], [14, 15]]
+[I] Pipeline partition mode: auto | Cell-generated physical mesh shapes: [(1, 2), (1, 2), (1, 2), (1, 2), (1, 2), (1, 2), (1, 2), (1, 2)]
+[I] Loading model and transform to Jaxpr stages takes 14.227871656417847 s.
+[I] The GPU sharding of pipeline stages is: [2, 2, 2, 2, 2, 2, 2, 2]
+[I] Pipeline partition mode: auto | Parallel enum mode: auto | Parallel plans: [[StageShape(type='single', stage_shape=(1, 2), layer_shape=None), StageShape(type='single', stage_shape=(1, 2), layer_shape=None), StageShape(type='single', stage_shape=(1, 2), layer_shape=None), StageShape(type='single', stage_shape=(1, 2), layer_shape=None), StageShape(type='single', stage_shape=(1, 2), layer_shape=None), StageShape(type='single', stage_shape=(2, 1), layer_shape=None), StageShape(type='single', stage_shape=(1, 2), layer_shape=None), StageShape(type='single', stage_shape=(1, 2), layer_shape=None)]]
+
+[I] (Parallel plan idx: 0) Sharding stages...
+[I] Sharding stages takes 8.281008243560791 s.
+[I] (Parallel plan idx: 0) SPMD partitioning and compiling (kernel fusing) HLO stages...
+[I] SPMD partitioning and pre-compiling HLO modules concurrently takes 3.0807864665985107 s.
+
+[I] All parallel plans in the cell have been sharded and compiled.
+[TMP] Writing only-sharded HLO text to '/home/cyxue/Projects/crius/Crius/runtime/jaxpr/tmp/wide_resnet_4B_256_sharded_stages.pkl'...
+[TMP] Writing optimized HLO text to '/home/cyxue/Projects/crius/Crius/runtime/jaxpr/tmp/wide_resnet_4B_256_optimized_stages.pkl'...
+[TMP] Writing inter-stages communicated vars to '/home/cyxue/Projects/crius/Crius/runtime/jaxpr/tmp/wide_resnet_4B_256_inter_stages_comm_vars.pkl'
+
+[I] Parallel plan idx: 0 | Parallelism: [(1, 2), (1, 2), (1, 2), (1, 2), (1, 2), (2, 1), (1, 2), (1, 2)]
+
+[I] (Parallel plan idx: 0) Parsing HLO texts and profiling XLA operators...
+[I] Pipeline partition mode: auto | Preset physical mesh shapes: [(1, 2), (1, 2), (1, 2), (1, 2), (1, 2), (1, 2), (1, 2), (1, 2)]
+[TMP] Loading offline profiled communication data: `1_a40_1_n_2_d_ib.pkl`...
+[TMP] Loading offline profiled communication data: `2_a40_2_n_1_d_ib.pkl`...
+\Time of module 0 (stage 0):
+Intra-stage comm time: 0.04816402653232217
+Grad sync time: 0
+
+[I] Optimized module 0 for stage 0, comm time has been statically analyzed.
+\Time of module 1 (stage 1):
+Intra-stage comm time: 0.057498734910041094
+Grad sync time: 0
+
+[I] Optimized module 1 for stage 1, comm time has been statically analyzed.
+\Time of module 2 (stage 2):
+Intra-stage comm time: 0.022961602732539173
+Grad sync time: 0
+
+[I] Optimized module 2 for stage 2, comm time has been statically analyzed.
+\Time of module 3 (stage 3):
+Intra-stage comm time: 0.03253108970820904
+Grad sync time: 0
+
+[I] Optimized module 3 for stage 3, comm time has been statically analyzed.
+\Time of module 4 (stage 4):
+Intra-stage comm time: 0.013578391913324595
+Grad sync time: 0
+
+[I] Optimized module 4 for stage 4, comm time has been statically analyzed.
+\Time of module 5 (stage 5):
+Intra-stage comm time: 0.0007000371813774108
+Grad sync time: 0
+
+[I] Optimized module 5 for stage 5, comm time has been statically analyzed.
+\Time of module 6 (stage 6):
+Intra-stage comm time: 0.01945804348215461
+Grad sync time: 0
+
+[I] Optimized module 6 for stage 6, comm time has been statically analyzed.
+\Time of module 7 (stage 7):
+Intra-stage comm time: 0.007966617587953806
+Grad sync time: 0
+
+[I] Optimized module 7 for stage 7, comm time has been statically analyzed.
+\Time of module 8 (stage 7):
+Intra-stage comm time: 0.01476860653433505
+Grad sync time: 0
+
+[I] Optimized module 8 for stage 7, comm time has been statically analyzed.
+\Time of module 9 (stage 6):
+Intra-stage comm time: 0.034559381194412715
+Grad sync time: 0
+
+[I] Optimized module 9 for stage 6, comm time has been statically analyzed.
+[WARN] Communication size of 'all-reduce' excceeds the maximum profiled size. Linear scaling is applied.
+       - Communication size of the operator: 393287680 | Estimated comm time: 0.1331228062019218
+       - Max profiled communication size: 267386880 | Comm time: 0.08228549003601074
+\Time of module 10 (stage 5):
+Intra-stage comm time: 0.0013657003641128485
+Grad sync time: 0.1331228062019218
+
+[I] Optimized module 10 for stage 5, comm time has been statically analyzed.
+\Time of module 11 (stage 4):
+Intra-stage comm time: 0.03008424649015069
+Grad sync time: 0
+
+[I] Optimized module 11 for stage 4, comm time has been statically analyzed.
+\Time of module 12 (stage 3):
+Intra-stage comm time: 0.053827217780053616
+Grad sync time: 0
+
+[I] Optimized module 12 for stage 3, comm time has been statically analyzed.
+\Time of module 13 (stage 2):
+Intra-stage comm time: 0.05338655654340982
+Grad sync time: 0
+
+[I] Optimized module 13 for stage 2, comm time has been statically analyzed.
+\Time of module 14 (stage 1):
+Intra-stage comm time: 0.09035358615219592
+Grad sync time: 0
+
+[I] Optimized module 14 for stage 1, comm time has been statically analyzed.
+\Time of module 15 (stage 0):
+Intra-stage comm time: 0.11107181720435619
+Grad sync time: 0
+
+[I] Optimized module 15 for stage 0, comm time has been statically analyzed.
+\Time of module 16 (stage 0):
+Intra-stage comm time: 0.00019350349903106688
+Grad sync time: 0
+
+[I] Optimized module 16 for stage 0, comm time has been statically analyzed.
+\Time of module 17 (stage 1):
+Intra-stage comm time: 0.00013055279850959778
+Grad sync time: 0
+
+[I] Optimized module 17 for stage 1, comm time has been statically analyzed.
+\Time of module 18 (stage 2):
+Intra-stage comm time: 0.00013055279850959778
+Grad sync time: 0
+
+[I] Optimized module 18 for stage 2, comm time has been statically analyzed.
+\Time of module 19 (stage 3):
+Intra-stage comm time: 0.00013184249401092528
+Grad sync time: 0
+
+[I] Optimized module 19 for stage 3, comm time has been statically analyzed.
+\Time of module 20 (stage 4):
+Intra-stage comm time: 0.0001316666603088379
+Grad sync time: 0
+
+[I] Optimized module 20 for stage 4, comm time has been statically analyzed.
+\Time of module 21 (stage 5):
+Intra-stage comm time: 0.06619054194953707
+Grad sync time: 0
+
+[I] Optimized module 21 for stage 5, comm time has been statically analyzed.
+\Time of module 22 (stage 6):
+Intra-stage comm time: 0.00013191029429435728
+Grad sync time: 0
+
+[I] Optimized module 22 for stage 6, comm time has been statically analyzed.
+\Time of module 23 (stage 7):
+Intra-stage comm time: 0.00013201832771301267
+Grad sync time: 0
+
+[I] Optimized module 23 for stage 7, comm time has been statically analyzed.
+[TMP] Memory footprint of the stage 0 is 0.8370564021170139 GB, while the available memory of the XLA device is 35.33237304631621 GB.
+[TMP] Memory footprint of the stage 1 is 2.3524642027914524 GB, while the available memory of the XLA device is 35.33237304631621 GB.
+[TMP] Memory footprint of the stage 2 is 1.8171715773642063 GB, while the available memory of the XLA device is 35.33237304631621 GB.
+[TMP] Memory footprint of the stage 3 is 3.9651823081076145 GB, while the available memory of the XLA device is 35.33237304631621 GB.
+[TMP] Memory footprint of the stage 4 is 4.755020145326853 GB, while the available memory of the XLA device is 35.33237304631621 GB.
+[TMP] Memory footprint of the stage 5 is 8.297967914491892 GB, while the available memory of the XLA device is 35.33237304631621 GB.
+[TMP] Memory footprint of the stage 6 is 13.10704231634736 GB, while the available memory of the XLA device is 35.33237304631621 GB.
+[TMP] Memory footprint of the stage 7 is 17.90554443374276 GB, while the available memory of the XLA device is 35.33237304631621 GB.
+[I] Only-sharded module 0 for stage 0, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.077261952 s.
+    - Iteration 1/5: Kernel execution time: 0.07712540799999999 s.
+    - Iteration 2/5: Kernel execution time: 0.079494235 s.
+    - Iteration 3/5: Kernel execution time: 0.07893022100000001 s.
+    - Iteration 4/5: Kernel execution time: 0.078160039 s.
+[I] Only-sharded module 1 for stage 1, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.09444962300000002 s.
+    - Iteration 1/5: Kernel execution time: 0.096055817 s.
+    - Iteration 2/5: Kernel execution time: 0.094937403 s.
+    - Iteration 3/5: Kernel execution time: 0.09573261 s.
+    - Iteration 4/5: Kernel execution time: 0.09461192800000001 s.
+[I] Only-sharded module 2 for stage 2, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.068178482 s.
+    - Iteration 1/5: Kernel execution time: 0.06704845600000002 s.
+    - Iteration 2/5: Kernel execution time: 0.06805998700000003 s.
+    - Iteration 3/5: Kernel execution time: 0.06720170599999999 s.
+    - Iteration 4/5: Kernel execution time: 0.066361156 s.
+[I] Only-sharded module 3 for stage 3, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.087428537 s.
+    - Iteration 1/5: Kernel execution time: 0.08692850199999999 s.
+    - Iteration 2/5: Kernel execution time: 0.08891412000000003 s.
+    - Iteration 3/5: Kernel execution time: 0.08792480000000001 s.
+    - Iteration 4/5: Kernel execution time: 0.08632920000000001 s.
+[I] Only-sharded module 4 for stage 4, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.081645385 s.
+    - Iteration 1/5: Kernel execution time: 0.08242532500000002 s.
+    - Iteration 2/5: Kernel execution time: 0.08244452900000002 s.
+    - Iteration 3/5: Kernel execution time: 0.08013756600000002 s.
+    - Iteration 4/5: Kernel execution time: 0.08157613600000001 s.
+[I] Only-sharded module 5 for stage 5, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.11719286400000001 s.
+    - Iteration 1/5: Kernel execution time: 0.11742620900000002 s.
+    - Iteration 2/5: Kernel execution time: 0.117542178 s.
+    - Iteration 3/5: Kernel execution time: 0.11781846900000002 s.
+    - Iteration 4/5: Kernel execution time: 0.11718876700000003 s.
+[I] Only-sharded module 6 for stage 6, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.14071018900000007 s.
+    - Iteration 1/5: Kernel execution time: 0.140514542 s.
+    - Iteration 2/5: Kernel execution time: 0.14158024500000002 s.
+    - Iteration 3/5: Kernel execution time: 0.14128062500000005 s.
+    - Iteration 4/5: Kernel execution time: 0.140356266 s.
+[I] Only-sharded module 7 for stage 7, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.16113571599999993 s.
+    - Iteration 1/5: Kernel execution time: 0.161144611 s.
+    - Iteration 2/5: Kernel execution time: 0.16098700800000007 s.
+    - Iteration 3/5: Kernel execution time: 0.16118118700000003 s.
+    - Iteration 4/5: Kernel execution time: 0.16067266900000002 s.
+[I] Only-sharded module 8 for stage 7, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.73226063 s.
+    - Iteration 1/5: Kernel execution time: 0.7319861320000001 s.
+    - Iteration 2/5: Kernel execution time: 0.7320061670000001 s.
+    - Iteration 3/5: Kernel execution time: 0.7315057779999999 s.
+    - Iteration 4/5: Kernel execution time: 0.731708944 s.
+[I] Only-sharded module 9 for stage 6, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.581855539 s.
+    - Iteration 1/5: Kernel execution time: 0.58156104 s.
+    - Iteration 2/5: Kernel execution time: 0.5830092419999998 s.
+    - Iteration 3/5: Kernel execution time: 0.5826116710000001 s.
+    - Iteration 4/5: Kernel execution time: 0.5838454380000003 s.
+[I] Only-sharded module 10 for stage 5, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.35131075100000003 s.
+    - Iteration 1/5: Kernel execution time: 0.3512896899999999 s.
+    - Iteration 2/5: Kernel execution time: 0.353483886 s.
+    - Iteration 3/5: Kernel execution time: 0.350936181 s.
+    - Iteration 4/5: Kernel execution time: 0.35368254699999996 s.
+[I] Only-sharded module 11 for stage 4, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.28189416399999995 s.
+    - Iteration 1/5: Kernel execution time: 0.2834735690000001 s.
+    - Iteration 2/5: Kernel execution time: 0.286741765 s.
+    - Iteration 3/5: Kernel execution time: 0.283358716 s.
+    - Iteration 4/5: Kernel execution time: 0.284415919 s.
+[I] Only-sharded module 12 for stage 3, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.3417172669999999 s.
+    - Iteration 1/5: Kernel execution time: 0.3412575480000002 s.
+    - Iteration 2/5: Kernel execution time: 0.33967161099999993 s.
+    - Iteration 3/5: Kernel execution time: 0.34167569500000006 s.
+    - Iteration 4/5: Kernel execution time: 0.33844587499999995 s.
+[I] Only-sharded module 13 for stage 2, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.2246643020000001 s.
+    - Iteration 1/5: Kernel execution time: 0.22430592600000013 s.
+    - Iteration 2/5: Kernel execution time: 0.22562290100000001 s.
+    - Iteration 3/5: Kernel execution time: 0.22335443300000005 s.
+    - Iteration 4/5: Kernel execution time: 0.22592488300000005 s.
+[I] Only-sharded module 14 for stage 1, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.294940003 s.
+    - Iteration 1/5: Kernel execution time: 0.2958614610000002 s.
+    - Iteration 2/5: Kernel execution time: 0.29656773399999997 s.
+    - Iteration 3/5: Kernel execution time: 0.2950053569999999 s.
+    - Iteration 4/5: Kernel execution time: 0.297271167 s.
+[I] Only-sharded module 15 for stage 0, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.24580608499999992 s.
+    - Iteration 1/5: Kernel execution time: 0.2440313209999999 s.
+    - Iteration 2/5: Kernel execution time: 0.24673656800000007 s.
+    - Iteration 3/5: Kernel execution time: 0.24646855299999992 s.
+    - Iteration 4/5: Kernel execution time: 0.24734806699999995 s.
+[I] Only-sharded module 16 for stage 0, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.000507844 s.
+    - Iteration 1/5: Kernel execution time: 0.0005083560000000001 s.
+    - Iteration 2/5: Kernel execution time: 0.000507589 s.
+    - Iteration 3/5: Kernel execution time: 0.0005104700000000001 s.
+    - Iteration 4/5: Kernel execution time: 0.0005119410000000001 s.
+[I] Only-sharded module 17 for stage 1, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.0013889409999999999 s.
+    - Iteration 1/5: Kernel execution time: 0.001386731 s.
+    - Iteration 2/5: Kernel execution time: 0.0013837890000000003 s.
+    - Iteration 3/5: Kernel execution time: 0.001506861 s.
+    - Iteration 4/5: Kernel execution time: 0.0013855190000000002 s.
+[I] Only-sharded module 18 for stage 2, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.0018931050000000002 s.
+    - Iteration 1/5: Kernel execution time: 0.001888497 s.
+    - Iteration 2/5: Kernel execution time: 0.0018910890000000003 s.
+    - Iteration 3/5: Kernel execution time: 0.001886417 s.
+    - Iteration 4/5: Kernel execution time: 0.0018917920000000002 s.
+[I] Only-sharded module 19 for stage 3, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.005690260000000001 s.
+    - Iteration 1/5: Kernel execution time: 0.0054952180000000005 s.
+    - Iteration 2/5: Kernel execution time: 0.0054946430000000004 s.
+    - Iteration 3/5: Kernel execution time: 0.005494965000000001 s.
+    - Iteration 4/5: Kernel execution time: 0.005496787 s.
+[I] Only-sharded module 20 for stage 4, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.007648231 s.
+    - Iteration 1/5: Kernel execution time: 0.0076449360000000015 s.
+    - Iteration 2/5: Kernel execution time: 0.007650215 s.
+    - Iteration 3/5: Kernel execution time: 0.007649158 s.
+    - Iteration 4/5: Kernel execution time: 0.007646344000000001 s.
+[I] Only-sharded module 21 for stage 5, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.010823812 s.
+    - Iteration 1/5: Kernel execution time: 0.010844005 s.
+    - Iteration 2/5: Kernel execution time: 0.010826179000000002 s.
+    - Iteration 3/5: Kernel execution time: 0.01082346 s.
+    - Iteration 4/5: Kernel execution time: 0.01084599 s.
+[I] Only-sharded module 22 for stage 6, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.021994602000000002 s.
+    - Iteration 1/5: Kernel execution time: 0.022024044 s.
+    - Iteration 2/5: Kernel execution time: 0.021998828 s.
+    - Iteration 3/5: Kernel execution time: 0.022017741 s.
+    - Iteration 4/5: Kernel execution time: 0.022023819 s.
+[I] Only-sharded module 23 for stage 7, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.031184164000000004 s.
+    - Iteration 1/5: Kernel execution time: 0.03115962 s.
+    - Iteration 2/5: Kernel execution time: 0.031167588000000003 s.
+    - Iteration 3/5: Kernel execution time: 0.031161987000000002 s.
+    - Iteration 4/5: Kernel execution time: 0.031159525 s.
+[I] Constructing single-device HLO modules concurrently takes 0.01041555404663086 s.
+[I] Compile single-device HLO modules concurrently takes 1.0318231582641602 s.
+[I] Profile all compiled sequentially on one GPU takes 44.08039164543152 s.
+[I] Estimated e2e pipeline iteration time is: 24.955326180382798 s.
+    - Kernel computation time is: -1.0 s.
+    - Communication time is: -1.0 s.
+    - Cross-stages communication time is: -1.0 s.

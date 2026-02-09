@@ -1,0 +1,400 @@
+
+[I] Loading Crius kernel-level profiler...
+[TMP] Profiling results not found in `None`, creating it...
+
+[I] Loading model and generating sharded HLO module...
+[I] Initializing XLA devices takes 0.9585244655609131 s.
+[I] Loading flax model....
+[I] Model 'moe' loads sucessfully. Model Info: 
+
+FlaxMoEForLMModule(
+    # attributes
+    config = <model.moe_model.MoEConfig object at 0x7fd69e0f2700>
+    dtype = float16
+    bias_init = zeros
+) 
+
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Constructing general train step func...
+[I] General train step func construction is completed.
+[I] Model has been loaded, begin Jaxpr transformation...
+
+
+Layer 0:
+Eqn 5 in layer 0: Primitive: dot_general | FLOPs (GB): 750.0 | Memory access (GB): 1.0457763671875 | Attainable performance: 37400 | Computation load: 0.020053475935828877
+Eqn 10 in layer 0: Primitive: dot_general | FLOPs (GB): 750.0 | Memory access (GB): 1.0457763671875 | Attainable performance: 37400 | Computation load: 0.020053475935828877
+Eqn 36 in layer 0: Primitive: dot_general | FLOPs (GB): 54.0 | Memory access (GB): 0.0970459058880806 | Attainable performance: 37400 | Computation load: 0.0014438502673796792
+Eqn 56 in layer 0: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 68 in layer 0: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 71 in layer 0: Primitive: dot_general | FLOPs (GB): 750.0 | Memory access (GB): 1.0457763671875 | Attainable performance: 37400 | Computation load: 0.020053475935828877
+Eqn 99 in layer 0: Primitive: dot_general | FLOPs (GB): 0.375 | Memory access (GB): 0.023948676884174347 | Attainable performance: 10898.305625079138 | Computation load: 3.440901851174475e-05
+Eqn 166 in layer 0: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 179 in layer 0: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 183 in layer 0: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.1953125 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 186 in layer 0: Primitive: remat2 | FLOPs (GB): 4891.6279296875 | Memory access (GB): 10.662544347345829 | Attainable performance: 37400 | Computation load: 0.13079219063335562
+Layer computation load: 0.19695225075356
+
+Layer 1:
+Eqn 2 in layer 1: Primitive: dot_general | FLOPs (GB): 288.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.007700534759358289
+Eqn 3 in layer 1: Primitive: custom_jvp_call | FLOPs (GB): 0.1875 | Memory access (GB): 1.5 | Attainable performance: 87.0 | Computation load: 0.0021551724137931034
+Eqn 4 in layer 1: Primitive: dot_general | FLOPs (GB): 288.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.007700534759358289
+Eqn 6 in layer 1: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.1953125 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 32 in layer 1: Primitive: dot_general | FLOPs (GB): 54.0 | Memory access (GB): 0.0970459058880806 | Attainable performance: 37400 | Computation load: 0.0014438502673796792
+Eqn 52 in layer 1: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 64 in layer 1: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 67 in layer 1: Primitive: dot_general | FLOPs (GB): 750.0 | Memory access (GB): 1.0457763671875 | Attainable performance: 37400 | Computation load: 0.020053475935828877
+Eqn 94 in layer 1: Primitive: dot_general | FLOPs (GB): 144.0 | Memory access (GB): 0.2197265625 | Attainable performance: 37400 | Computation load: 0.0038502673796791446
+Eqn 102 in layer 1: Primitive: dot_general | FLOPs (GB): 750.0 | Memory access (GB): 1.0457763671875 | Attainable performance: 37400 | Computation load: 0.020053475935828877
+Eqn 131 in layer 1: Primitive: remat2 | FLOPs (GB): 6612.1875 | Memory access (GB): 15.092041037976742 | Attainable performance: 37400 | Computation load: 0.17679645721925133
+Layer computation load: 0.24389209347532115
+
+Layer 2:
+Eqn 1 in layer 2: Primitive: dot_general | FLOPs (GB): 54.0 | Memory access (GB): 0.0970459058880806 | Attainable performance: 37400 | Computation load: 0.0014438502673796792
+Eqn 21 in layer 2: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 33 in layer 2: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 36 in layer 2: Primitive: dot_general | FLOPs (GB): 750.0 | Memory access (GB): 1.0457763671875 | Attainable performance: 37400 | Computation load: 0.020053475935828877
+Eqn 64 in layer 2: Primitive: dot_general | FLOPs (GB): 0.375 | Memory access (GB): 0.023948676884174347 | Attainable performance: 10898.305625079138 | Computation load: 3.440901851174475e-05
+Eqn 131 in layer 2: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 144 in layer 2: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 148 in layer 2: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.1953125 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 150 in layer 2: Primitive: dot_general | FLOPs (GB): 288.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.007700534759358289
+Eqn 151 in layer 2: Primitive: custom_jvp_call | FLOPs (GB): 0.1875 | Memory access (GB): 1.5 | Attainable performance: 87.0 | Computation load: 0.0021551724137931034
+Eqn 152 in layer 2: Primitive: dot_general | FLOPs (GB): 288.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.007700534759358289
+Eqn 154 in layer 2: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.1953125 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 159 in layer 2: Primitive: remat2 | FLOPs (GB): 4633.8154296875 | Memory access (GB): 12.930000394582748 | Attainable performance: 37400 | Computation load: 0.12389880828041444
+Layer computation load: 0.17007500338125683
+
+Layer 3:
+Eqn 24 in layer 3: Primitive: dot_general | FLOPs (GB): 54.0 | Memory access (GB): 0.0970459058880806 | Attainable performance: 37400 | Computation load: 0.0014438502673796792
+Eqn 44 in layer 3: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 56 in layer 3: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 59 in layer 3: Primitive: dot_general | FLOPs (GB): 750.0 | Memory access (GB): 1.0457763671875 | Attainable performance: 37400 | Computation load: 0.020053475935828877
+Eqn 86 in layer 3: Primitive: dot_general | FLOPs (GB): 144.0 | Memory access (GB): 0.2197265625 | Attainable performance: 37400 | Computation load: 0.0038502673796791446
+Eqn 94 in layer 3: Primitive: dot_general | FLOPs (GB): 750.0 | Memory access (GB): 1.0457763671875 | Attainable performance: 37400 | Computation load: 0.020053475935828877
+Eqn 121 in layer 3: Primitive: dot_general | FLOPs (GB): 54.0 | Memory access (GB): 0.0970459058880806 | Attainable performance: 37400 | Computation load: 0.0014438502673796792
+Eqn 141 in layer 3: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 153 in layer 3: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 156 in layer 3: Primitive: dot_general | FLOPs (GB): 750.0 | Memory access (GB): 1.0457763671875 | Attainable performance: 37400 | Computation load: 0.020053475935828877
+Eqn 162 in layer 3: Primitive: remat2 | FLOPs (GB): 6366.0 | Memory access (GB): 15.245971724390984 | Attainable performance: 37400 | Computation load: 0.17021390374331552
+Layer computation load: 0.2402552592353556
+
+Layer 4:
+Eqn 25 in layer 4: Primitive: dot_general | FLOPs (GB): 0.375 | Memory access (GB): 0.023948676884174347 | Attainable performance: 10898.305625079138 | Computation load: 3.440901851174475e-05
+Eqn 92 in layer 4: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 105 in layer 4: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 109 in layer 4: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.1953125 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 111 in layer 4: Primitive: dot_general | FLOPs (GB): 288.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.007700534759358289
+Eqn 112 in layer 4: Primitive: custom_jvp_call | FLOPs (GB): 0.1875 | Memory access (GB): 1.5 | Attainable performance: 87.0 | Computation load: 0.0021551724137931034
+Eqn 113 in layer 4: Primitive: dot_general | FLOPs (GB): 288.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.007700534759358289
+Eqn 115 in layer 4: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.1953125 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 143 in layer 4: Primitive: remat2 | FLOPs (GB): 2209.8154296875 | Memory access (GB): 6.464668340981007 | Attainable performance: 37400 | Computation load: 0.05908597405581551
+Layer computation load: 0.0821933630683919
+
+Layer 5:
+Eqn 1 in layer 5: Primitive: dot_general | FLOPs (GB): 54.0 | Memory access (GB): 0.0970459058880806 | Attainable performance: 37400 | Computation load: 0.0014438502673796792
+Eqn 21 in layer 5: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 33 in layer 5: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 36 in layer 5: Primitive: dot_general | FLOPs (GB): 750.0 | Memory access (GB): 1.0457763671875 | Attainable performance: 37400 | Computation load: 0.020053475935828877
+Eqn 63 in layer 5: Primitive: dot_general | FLOPs (GB): 144.0 | Memory access (GB): 0.2197265625 | Attainable performance: 37400 | Computation load: 0.0038502673796791446
+Eqn 71 in layer 5: Primitive: dot_general | FLOPs (GB): 750.0 | Memory access (GB): 1.0457763671875 | Attainable performance: 37400 | Computation load: 0.020053475935828877
+Eqn 98 in layer 5: Primitive: dot_general | FLOPs (GB): 54.0 | Memory access (GB): 0.0970459058880806 | Attainable performance: 37400 | Computation load: 0.0014438502673796792
+Eqn 118 in layer 5: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 130 in layer 5: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 133 in layer 5: Primitive: dot_general | FLOPs (GB): 750.0 | Memory access (GB): 1.0457763671875 | Attainable performance: 37400 | Computation load: 0.020053475935828877
+Eqn 139 in layer 5: Primitive: remat2 | FLOPs (GB): 6366.0 | Memory access (GB): 15.245971724390984 | Attainable performance: 37400 | Computation load: 0.17021390374331552
+Layer computation load: 0.2402552592353556
+
+Layer 6:
+Eqn 25 in layer 6: Primitive: dot_general | FLOPs (GB): 0.375 | Memory access (GB): 0.023948676884174347 | Attainable performance: 10898.305625079138 | Computation load: 3.440901851174475e-05
+Eqn 92 in layer 6: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 105 in layer 6: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 109 in layer 6: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.1953125 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 111 in layer 6: Primitive: dot_general | FLOPs (GB): 288.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.007700534759358289
+Eqn 112 in layer 6: Primitive: custom_jvp_call | FLOPs (GB): 0.1875 | Memory access (GB): 1.5 | Attainable performance: 87.0 | Computation load: 0.0021551724137931034
+Eqn 113 in layer 6: Primitive: dot_general | FLOPs (GB): 288.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.007700534759358289
+Eqn 115 in layer 6: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.1953125 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 143 in layer 6: Primitive: remat2 | FLOPs (GB): 2209.8154296875 | Memory access (GB): 6.464668340981007 | Attainable performance: 37400 | Computation load: 0.05908597405581551
+Layer computation load: 0.0821933630683919
+
+Layer 7:
+Eqn 1 in layer 7: Primitive: dot_general | FLOPs (GB): 54.0 | Memory access (GB): 0.0970459058880806 | Attainable performance: 37400 | Computation load: 0.0014438502673796792
+Eqn 21 in layer 7: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 33 in layer 7: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 36 in layer 7: Primitive: dot_general | FLOPs (GB): 750.0 | Memory access (GB): 1.0457763671875 | Attainable performance: 37400 | Computation load: 0.020053475935828877
+Eqn 63 in layer 7: Primitive: dot_general | FLOPs (GB): 144.0 | Memory access (GB): 0.2197265625 | Attainable performance: 37400 | Computation load: 0.0038502673796791446
+Eqn 71 in layer 7: Primitive: dot_general | FLOPs (GB): 750.0 | Memory access (GB): 1.0457763671875 | Attainable performance: 37400 | Computation load: 0.020053475935828877
+Eqn 98 in layer 7: Primitive: dot_general | FLOPs (GB): 54.0 | Memory access (GB): 0.0970459058880806 | Attainable performance: 37400 | Computation load: 0.0014438502673796792
+Eqn 118 in layer 7: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 130 in layer 7: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 133 in layer 7: Primitive: dot_general | FLOPs (GB): 750.0 | Memory access (GB): 1.0457763671875 | Attainable performance: 37400 | Computation load: 0.020053475935828877
+Eqn 139 in layer 7: Primitive: remat2 | FLOPs (GB): 6366.0 | Memory access (GB): 15.245971724390984 | Attainable performance: 37400 | Computation load: 0.17021390374331552
+Layer computation load: 0.2402552592353556
+
+Layer 8:
+Eqn 25 in layer 8: Primitive: dot_general | FLOPs (GB): 0.375 | Memory access (GB): 0.023948676884174347 | Attainable performance: 10898.305625079138 | Computation load: 3.440901851174475e-05
+Eqn 92 in layer 8: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 105 in layer 8: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 109 in layer 8: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.1953125 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 111 in layer 8: Primitive: dot_general | FLOPs (GB): 288.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.007700534759358289
+Eqn 112 in layer 8: Primitive: custom_jvp_call | FLOPs (GB): 0.1875 | Memory access (GB): 1.5 | Attainable performance: 87.0 | Computation load: 0.0021551724137931034
+Eqn 113 in layer 8: Primitive: dot_general | FLOPs (GB): 288.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.007700534759358289
+Eqn 115 in layer 8: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.1953125 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 143 in layer 8: Primitive: remat2 | FLOPs (GB): 2209.8154296875 | Memory access (GB): 6.464668340981007 | Attainable performance: 37400 | Computation load: 0.05908597405581551
+Layer computation load: 0.0821933630683919
+
+Layer 9:
+Eqn 1 in layer 9: Primitive: dot_general | FLOPs (GB): 54.0 | Memory access (GB): 0.0970459058880806 | Attainable performance: 37400 | Computation load: 0.0014438502673796792
+Eqn 21 in layer 9: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 33 in layer 9: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 36 in layer 9: Primitive: dot_general | FLOPs (GB): 750.0 | Memory access (GB): 1.0457763671875 | Attainable performance: 37400 | Computation load: 0.020053475935828877
+Eqn 63 in layer 9: Primitive: dot_general | FLOPs (GB): 144.0 | Memory access (GB): 0.2197265625 | Attainable performance: 37400 | Computation load: 0.0038502673796791446
+Eqn 71 in layer 9: Primitive: dot_general | FLOPs (GB): 750.0 | Memory access (GB): 1.0457763671875 | Attainable performance: 37400 | Computation load: 0.020053475935828877
+Eqn 98 in layer 9: Primitive: dot_general | FLOPs (GB): 54.0 | Memory access (GB): 0.0970459058880806 | Attainable performance: 37400 | Computation load: 0.0014438502673796792
+Eqn 118 in layer 9: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 130 in layer 9: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 133 in layer 9: Primitive: dot_general | FLOPs (GB): 750.0 | Memory access (GB): 1.0457763671875 | Attainable performance: 37400 | Computation load: 0.020053475935828877
+Eqn 139 in layer 9: Primitive: remat2 | FLOPs (GB): 6366.0 | Memory access (GB): 15.245971724390984 | Attainable performance: 37400 | Computation load: 0.17021390374331552
+Layer computation load: 0.2402552592353556
+
+Layer 10:
+Eqn 25 in layer 10: Primitive: dot_general | FLOPs (GB): 0.375 | Memory access (GB): 0.023948676884174347 | Attainable performance: 10898.305625079138 | Computation load: 3.440901851174475e-05
+Eqn 92 in layer 10: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 105 in layer 10: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 109 in layer 10: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.1953125 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 111 in layer 10: Primitive: dot_general | FLOPs (GB): 288.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.007700534759358289
+Eqn 112 in layer 10: Primitive: custom_jvp_call | FLOPs (GB): 0.1875 | Memory access (GB): 1.5 | Attainable performance: 87.0 | Computation load: 0.0021551724137931034
+Eqn 113 in layer 10: Primitive: dot_general | FLOPs (GB): 288.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.007700534759358289
+Eqn 115 in layer 10: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.1953125 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 143 in layer 10: Primitive: remat2 | FLOPs (GB): 2209.8154296875 | Memory access (GB): 6.464668340981007 | Attainable performance: 37400 | Computation load: 0.05908597405581551
+Layer computation load: 0.0821933630683919
+
+Layer 11:
+Eqn 1 in layer 11: Primitive: dot_general | FLOPs (GB): 54.0 | Memory access (GB): 0.0970459058880806 | Attainable performance: 37400 | Computation load: 0.0014438502673796792
+Eqn 21 in layer 11: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 33 in layer 11: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 36 in layer 11: Primitive: dot_general | FLOPs (GB): 750.0 | Memory access (GB): 1.0457763671875 | Attainable performance: 37400 | Computation load: 0.020053475935828877
+Eqn 63 in layer 11: Primitive: dot_general | FLOPs (GB): 144.0 | Memory access (GB): 0.2197265625 | Attainable performance: 37400 | Computation load: 0.0038502673796791446
+Eqn 71 in layer 11: Primitive: dot_general | FLOPs (GB): 750.0 | Memory access (GB): 1.0457763671875 | Attainable performance: 37400 | Computation load: 0.020053475935828877
+Eqn 98 in layer 11: Primitive: dot_general | FLOPs (GB): 54.0 | Memory access (GB): 0.0970459058880806 | Attainable performance: 37400 | Computation load: 0.0014438502673796792
+Eqn 118 in layer 11: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 130 in layer 11: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 133 in layer 11: Primitive: dot_general | FLOPs (GB): 750.0 | Memory access (GB): 1.0457763671875 | Attainable performance: 37400 | Computation load: 0.020053475935828877
+Eqn 139 in layer 11: Primitive: remat2 | FLOPs (GB): 6366.0 | Memory access (GB): 15.245971724390984 | Attainable performance: 37400 | Computation load: 0.17021390374331552
+Layer computation load: 0.2402552592353556
+
+Layer 12:
+Eqn 25 in layer 12: Primitive: dot_general | FLOPs (GB): 0.375 | Memory access (GB): 0.023948676884174347 | Attainable performance: 10898.305625079138 | Computation load: 3.440901851174475e-05
+Eqn 92 in layer 12: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 105 in layer 12: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 109 in layer 12: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.1953125 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 111 in layer 12: Primitive: dot_general | FLOPs (GB): 288.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.007700534759358289
+Eqn 112 in layer 12: Primitive: custom_jvp_call | FLOPs (GB): 0.1875 | Memory access (GB): 1.5 | Attainable performance: 87.0 | Computation load: 0.0021551724137931034
+Eqn 113 in layer 12: Primitive: dot_general | FLOPs (GB): 288.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.007700534759358289
+Eqn 115 in layer 12: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.1953125 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 143 in layer 12: Primitive: remat2 | FLOPs (GB): 2209.8154296875 | Memory access (GB): 6.464668340981007 | Attainable performance: 37400 | Computation load: 0.05908597405581551
+Layer computation load: 0.0821933630683919
+
+Layer 13:
+Eqn 1 in layer 13: Primitive: dot_general | FLOPs (GB): 54.0 | Memory access (GB): 0.0970459058880806 | Attainable performance: 37400 | Computation load: 0.0014438502673796792
+Eqn 21 in layer 13: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 33 in layer 13: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 36 in layer 13: Primitive: dot_general | FLOPs (GB): 750.0 | Memory access (GB): 1.0457763671875 | Attainable performance: 37400 | Computation load: 0.020053475935828877
+Eqn 63 in layer 13: Primitive: dot_general | FLOPs (GB): 144.0 | Memory access (GB): 0.2197265625 | Attainable performance: 37400 | Computation load: 0.0038502673796791446
+Eqn 71 in layer 13: Primitive: dot_general | FLOPs (GB): 750.0 | Memory access (GB): 1.0457763671875 | Attainable performance: 37400 | Computation load: 0.020053475935828877
+Eqn 98 in layer 13: Primitive: dot_general | FLOPs (GB): 54.0 | Memory access (GB): 0.0970459058880806 | Attainable performance: 37400 | Computation load: 0.0014438502673796792
+Eqn 118 in layer 13: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 130 in layer 13: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 133 in layer 13: Primitive: dot_general | FLOPs (GB): 750.0 | Memory access (GB): 1.0457763671875 | Attainable performance: 37400 | Computation load: 0.020053475935828877
+Eqn 162 in layer 13: Primitive: remat2 | FLOPs (GB): 7116.0 | Memory access (GB): 16.291748091578484 | Attainable performance: 37400 | Computation load: 0.1902673796791444
+Layer computation load: 0.26030873517118447
+
+Layer 14:
+Eqn 2 in layer 14: Primitive: dot_general | FLOPs (GB): 0.375 | Memory access (GB): 0.023948676884174347 | Attainable performance: 10898.305625079138 | Computation load: 3.440901851174475e-05
+Eqn 69 in layer 14: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 82 in layer 14: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 86 in layer 14: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.1953125 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 88 in layer 14: Primitive: dot_general | FLOPs (GB): 288.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.007700534759358289
+Eqn 89 in layer 14: Primitive: custom_jvp_call | FLOPs (GB): 0.1875 | Memory access (GB): 1.5 | Attainable performance: 87.0 | Computation load: 0.0021551724137931034
+Eqn 90 in layer 14: Primitive: dot_general | FLOPs (GB): 288.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.007700534759358289
+Eqn 92 in layer 14: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.1953125 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 118 in layer 14: Primitive: dot_general | FLOPs (GB): 54.0 | Memory access (GB): 0.0970459058880806 | Attainable performance: 37400 | Computation load: 0.0014438502673796792
+Eqn 138 in layer 14: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 150 in layer 14: Primitive: dot_general | FLOPs (GB): 24.0 | Memory access (GB): 0.546875 | Attainable performance: 30544.457142857143 | Computation load: 0.0007857399425287356
+Eqn 153 in layer 14: Primitive: dot_general | FLOPs (GB): 750.0 | Memory access (GB): 1.0457763671875 | Attainable performance: 37400 | Computation load: 0.020053475935828877
+Eqn 159 in layer 14: Primitive: remat2 | FLOPs (GB): 3979.8154296875 | Memory access (GB): 12.079536527395248 | Attainable performance: 37400 | Computation load: 0.10641217726437166
+Layer computation load: 0.15258837236521405
+
+Layer 15:
+Eqn 3 in layer 15: Primitive: remat2 | FLOPs (GB): 4326.0 | Memory access (GB): 6.1077880859375 | Attainable performance: 37400 | Computation load: 0.11566844919786096
+Layer computation load: 0.11566844919786096
+Layer memory access: [15.482574604451656, 18.414428740739822, 15.478790417313576, 20.984619200229645, 6.776886090636253, 20.984619200229645, 6.776886090636253, 20.984619200229645, 6.776886090636253, 20.984619200229645, 6.776886090636253, 20.984619200229645, 6.776886090636253, 22.030395567417145, 14.628326550126076, 6.1077880859375]
+
+Layer GPU fractions:
+[0.286, 0.355, 0.247, 0.349, 0.119, 0.349, 0.119, 0.349, 0.119, 0.349, 0.119, 0.349, 0.119, 0.378, 0.222, 0.168]
+
+Layer GPU fractions:
+[0.286, 0.355, 0.247, 0.349, 0.119, 0.349, 0.119, 0.349, 0.119, 0.349, 0.119, 0.349, 0.119, 0.378, 0.222, 0.168]
+
+[[[0, 1, 2, 3, 4, 5], [6, 7, 8, 9, 10, 11, 12, 13, 14, 15]], [[0, 1, 2, 3, 4, 5, 6], [7, 8, 9, 10, 11, 12, 13, 14, 15]], [[0, 1, 2, 3, 4, 5, 6, 7], [8, 9, 10, 11, 12, 13, 14, 15]], [[0, 1, 2, 3, 4, 5, 6, 7, 8], [9, 10, 11, 12, 13, 14, 15]]]
+
+[[[0, 1, 2, 3, 4, 5, 6], [7, 8, 9, 10, 11, 12, 13, 14, 15]], [[0, 1, 2, 3, 4, 5, 6, 7], [8, 9, 10, 11, 12, 13, 14, 15]], [[0, 1, 2, 3, 4, 5], [6, 7, 8, 9, 10, 11, 12, 13, 14, 15]], [[0, 1, 2, 3, 4, 5, 6, 7, 8], [9, 10, 11, 12, 13, 14, 15]]]
+
+[[0, 1, 2, 3, 4, 5, 6], [7, 8, 9, 10, 11, 12, 13, 14, 15]]
+1781061632.0
+0.24608941464435244
+([2, 2], 0.24608941464435244)
+
+[[0, 1, 2, 3, 4, 5, 6, 7], [8, 9, 10, 11, 12, 13, 14, 15]]
+1781061632.0
+0.24750353532828584
+([2, 2], 0.24750353532828584)
+
+[[0, 1, 2, 3, 4, 5], [6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+1781061632.0
+0.4143742269977706
+([2, 2], 0.4143742269977706)
+
+[[0, 1, 2, 3, 4, 5, 6, 7, 8], [9, 10, 11, 12, 13, 14, 15]]
+1781061632.0
+0.41578840772681475
+([2, 2], 0.41578840772681475)
+
+{'0_6__7_15': {0: {'1_2': (1.824, 2, 1.2558513192881562, 4279631872.0, 0, 0), '2_1': (1.824, 2, 1.2558513192881562, 0, 833377280.0, 0)}, 1: {'1_2': (2.172, 2, 1.4959461507160254, 5030412288.0, 0, 0), '2_1': (2.172, 2, 1.4959461507160254, 0, 947684352.0, 0)}}, '0_7__8_15': {0: {'1_2': (2.173, 2, 1.496106578523512, 5055578112.0, 0, 0), '2_1': (2.173, 2, 1.496106578523512, 0, 968815616.0, 0)}, 1: {'1_2': (1.823, 2, 1.2556908914806697, 4254466048.0, 0, 0), '2_1': (1.823, 2, 1.2556908914806697, 0, 812246016.0, 0)}}, '0_5__6_15': {0: {'1_2': (1.705, 2, 1.1736492744521334, 3880812544.0, 0, 0), '2_1': (1.705, 2, 1.1736492744521334, 0, 751094528.0, 0)}, 1: {'1_2': (2.291, 2, 1.5781481955520482, 5429231616.0, 0, 0), '2_1': (2.291, 2, 1.5781481955520482, 0, 1029967104.0, 0)}}, '0_8__9_15': {0: {'1_2': (2.292, 2, 1.5783086233595347, 5454397440.0, 0, 0), '2_1': (2.292, 2, 1.5783086233595347, 0, 1051098368.0, 0)}, 1: {'1_2': (1.704, 2, 1.1734888466446471, 3855646720.0, 0, 0), '2_1': (1.704, 2, 1.1734888466446471, 0, 729963264.0, 0)}}}
+[I] Pipeline partition mode: auto | Layer-to-stage partition: [[0, 1], [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+[I] Pipeline partition mode: auto | Cell-generated physical mesh shapes: [(1, 2), (1, 2)]
+[I] Loading model and transform to Jaxpr stages takes 29.7411527633667 s.
+[I] The GPU sharding of pipeline stages is: [2, 2]
+[TMP] Plans in the non-dominated set:
+0_6__7_15::2_1__2_1
+[[0, 1, 2, 3, 4, 5, 6], [7, 8, 9, 10, 11, 12, 13, 14, 15]]
+[StageShape(type='single', stage_shape=(2, 1), layer_shape=None), StageShape(type='single', stage_shape=(2, 1), layer_shape=None)]
+0.24608941464435244
+26715924480.0
+
+0_7__8_15::2_1__2_1
+[[0, 1, 2, 3, 4, 5, 6, 7], [8, 9, 10, 11, 12, 13, 14, 15]]
+[StageShape(type='single', stage_shape=(2, 1), layer_shape=None), StageShape(type='single', stage_shape=(2, 1), layer_shape=None)]
+0.24750353532828584
+26715924480.0
+
+0_5__6_15::2_1__2_1
+[[0, 1, 2, 3, 4, 5], [6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+[StageShape(type='single', stage_shape=(2, 1), layer_shape=None), StageShape(type='single', stage_shape=(2, 1), layer_shape=None)]
+0.4143742269977706
+26715924480.0
+
+0_8__9_15::2_1__2_1
+[[0, 1, 2, 3, 4, 5, 6, 7, 8], [9, 10, 11, 12, 13, 14, 15]]
+[StageShape(type='single', stage_shape=(2, 1), layer_shape=None), StageShape(type='single', stage_shape=(2, 1), layer_shape=None)]
+0.41578840772681475
+26715924480.0
+
+[TMP] Existed tuning database in `/home/cyxue/Projects/crius/Crius/runtime/jaxpr/tuning_database/tuning_database.pkl`, updating/rewriting it...
+{'plan_set': {'wide_resnet__1B::256__16::1::a40__2__2': ['0_15::1_4', '0_15::2_2', '0_15::4_1'], 'wide_resnet__1B::256__16::2::a40__2__2': ['0_9__10_15::2_1__1_2', '0_9__10_15::2_1__2_1', '0_8__9_15::2_1__1_2', '0_8__9_15::2_1__2_1', '0_10__11_15::2_1__1_2', '0_10__11_15::2_1__2_1', '0_7__8_15::2_1__1_2', '0_7__8_15::2_1__2_1'], 'wide_resnet__1B::256__16::3::a40__2__2': ['0_5__6_9__10_15::2_1__1_1__1_1', '0_6__7_9__10_15::2_1__1_1__1_1', '0_5__6_10__11_15::2_1__1_1__1_1', '0_6__7_10__11_15::2_1__1_1__1_1', '0_3__4_11__12_15::1_1__1_2__1_1', '0_3__4_11__12_15::1_1__2_1__1_1', '0_5__6_11__12_15::2_1__1_1__1_1', '0_6__7_11__12_15::2_1__1_1__1_1', '0_7__8_11__12_15::2_1__1_1__1_1', '0_7__8_12__13_15::2_1__1_1__1_1'], 'wide_resnet__1B::256__16::4::a40__2__2': ['0_6__7_9__10_12__13_15::1_1__1_1__1_1__1_1', '0_6__7_10__11_13__14_15::1_1__1_1__1_1__1_1', '0_5__6_9__10_12__13_15::1_1__1_1__1_1__1_1', '0_7__8_11__12_13__14_15::1_1__1_1__1_1__1_1', '0_7__8_10__11_13__14_15::1_1__1_1__1_1__1_1', '0_5__6_8__9_12__13_15::1_1__1_1__1_1__1_1', '0_5__6_10__11_13__14_15::1_1__1_1__1_1__1_1', '0_6__7_11__12_13__14_15::1_1__1_1__1_1__1_1', '0_6__7_9__10_13__14_15::1_1__1_1__1_1__1_1', '0_5__6_9__10_13__14_15::1_1__1_1__1_1__1_1', '0_8__9_11__12_13__14_15::1_1__1_1__1_1__1_1', '0_5__6_8__9_11__12_15::1_1__1_1__1_1__1_1', '0_5__6_11__12_13__14_15::1_1__1_1__1_1__1_1', '0_5__6_8__9_13__14_15::1_1__1_1__1_1__1_1'], 'wide_resnet__500M::256__16::2::a40__2__2': ['0_7__8_15::2_1__2_1', '0_8__9_15::2_1__2_1'], 'wide_resnet__500M::512__16::2::a40__2__2': ['0_7__8_15::2_1__2_1', '0_8__9_15::2_1__2_1'], 'wide_resnet__2B::512__16::4::a40__4__2': ['0_5__6_9__10_12__13_15::1_2__1_2__1_2__1_2', '0_5__6_9__10_12__13_15::2_1__2_1__2_1__2_1', '0_4__5_8__9_12__13_15::2_1__2_1__2_1__2_1', '0_5__6_8__9_12__13_15::2_1__2_1__2_1__2_1', '0_4__5_9__10_12__13_15::2_1__2_1__2_1__2_1', '0_6__7_9__10_12__13_15::2_1__2_1__2_1__2_1', '0_3__4_8__9_12__13_15::2_1__2_1__2_1__2_1', '0_6__7_10__11_13__14_15::2_1__2_1__2_1__2_1', '0_5__6_10__11_13__14_15::2_1__2_1__2_1__2_1', '0_4__5_8__9_11__12_15::2_1__2_1__2_1__2_1', '0_5__6_9__10_13__14_15::2_1__2_1__2_1__2_1', '0_4__5_7__8_12__13_15::2_1__2_1__2_1__2_1', '0_5__6_8__9_11__12_15::2_1__2_1__2_1__2_1', '0_6__7_10__11_12__13_15::2_1__2_1__2_1__2_1', '0_4__5_7__8_11__12_15::2_1__2_1__2_1__2_1', '0_3__4_7__8_12__13_15::2_1__2_1__2_1__2_1', '0_5__6_10__11_12__13_15::2_1__2_1__2_1__2_1', '0_6__7_8__9_12__13_15::2_1__2_1__2_1__2_1', '0_3__4_7__8_11__12_15::2_1__2_1__2_1__2_1', '0_4__5_9__10_13__14_15::2_1__2_1__2_1__2_1', '0_3__4_9__10_12__13_15::2_1__2_1__2_1__2_1', '0_6__7_9__10_13__14_15::2_1__2_1__2_1__2_1', '0_3__4_8__9_11__12_15::2_1__2_1__2_1__2_1', '0_5__6_7__8_12__13_15::2_1__2_1__2_1__2_1', '0_5__6_9__10_11__12_15::2_1__2_1__2_1__2_1', '0_5__6_7__8_11__12_15::2_1__2_1__2_1__2_1', '0_6__7_11__12_13__14_15::2_1__2_1__2_1__2_1', '0_4__5_9__10_11__12_15::2_1__2_1__2_1__2_1', '0_6__7_8__9_11__12_15::2_1__2_1__2_1__2_1', '0_6__7_9__10_11__12_15::2_1__2_1__2_1__2_1', '0_2__3_7__8_12__13_15::2_1__2_1__2_1__2_1', '0_2__3_8__9_12__13_15::2_1__2_1__2_1__2_1'], 'wide_resnet__2B::256__16::4::a40__4__2': ['0_6__7_10__11_13__14_15::2_1__1_2__1_2__2_1', '0_6__7_10__11_13__14_15::2_1__1_2__2_1__1_2', '0_6__7_10__11_13__14_15::2_1__2_1__1_2__1_2', '0_6__7_9__10_12__13_15::2_1__1_2__1_2__2_1', '0_6__7_9__10_12__13_15::2_1__1_2__2_1__1_2', '0_6__7_9__10_12__13_15::2_1__2_1__1_2__1_2', '0_5__6_9__10_12__13_15::2_1__1_2__1_2__2_1', '0_5__6_9__10_12__13_15::2_1__1_2__2_1__1_2', '0_5__6_9__10_12__13_15::2_1__2_1__1_2__1_2', '0_7__8_11__12_13__14_15::1_2__1_2__2_1__2_1', '0_7__8_11__12_13__14_15::1_2__2_1__1_2__2_1', '0_7__8_11__12_13__14_15::1_2__2_1__2_1__1_2', '0_7__8_11__12_13__14_15::2_1__1_2__1_2__2_1', '0_7__8_11__12_13__14_15::2_1__1_2__2_1__1_2', '0_7__8_11__12_13__14_15::2_1__2_1__1_2__1_2', '0_7__8_10__11_13__14_15::1_2__1_2__2_1__2_1', '0_7__8_10__11_13__14_15::1_2__2_1__1_2__2_1', '0_7__8_10__11_13__14_15::1_2__2_1__2_1__1_2', '0_7__8_10__11_13__14_15::2_1__1_2__1_2__2_1', '0_7__8_10__11_13__14_15::2_1__1_2__2_1__1_2', '0_7__8_10__11_13__14_15::2_1__2_1__1_2__1_2', '0_5__6_8__9_12__13_15::2_1__1_2__1_2__2_1', '0_5__6_8__9_12__13_15::2_1__1_2__2_1__1_2', '0_5__6_8__9_12__13_15::2_1__2_1__1_2__1_2', '0_5__6_10__11_13__14_15::2_1__1_2__1_2__2_1', '0_5__6_10__11_13__14_15::2_1__1_2__2_1__1_2', '0_5__6_10__11_13__14_15::2_1__2_1__1_2__1_2', '0_6__7_11__12_13__14_15::2_1__1_2__2_1__1_2', '0_6__7_11__12_13__14_15::2_1__2_1__1_2__1_2', '0_6__7_9__10_13__14_15::2_1__2_1__1_2__1_2', '0_5__6_9__10_13__14_15::2_1__2_1__1_2__1_2', '0_8__9_11__12_13__14_15::2_1__2_1__1_2__1_2'], 'wide_resnet__4B::256__16::8::a40__8__2': ['0_3__4_6__7_8__9_10__11_12__13_13__14_14__15_15::2_1__2_1__2_1__2_1__1_2__1_2__1_2__1_2', '0_3__4_6__7_8__9_10__11_12__13_13__14_14__15_15::2_1__2_1__2_1__2_1__1_2__1_2__1_2__2_1', '0_3__4_6__7_8__9_10__11_12__13_13__14_14__15_15::2_1__2_1__2_1__2_1__1_2__1_2__2_1__1_2', '0_3__4_6__7_8__9_10__11_12__13_13__14_14__15_15::2_1__2_1__2_1__2_1__1_2__1_2__2_1__2_1', '0_3__4_6__7_8__9_10__11_12__13_13__14_14__15_15::2_1__2_1__2_1__2_1__1_2__2_1__1_2__1_2', '0_3__4_6__7_8__9_10__11_12__13_13__14_14__15_15::2_1__2_1__2_1__2_1__2_1__1_2__1_2__1_2', '0_3__4_6__7_8__9_10__11_12__13_13__14_14__15_15::2_1__2_1__2_1__2_1__2_1__1_2__1_2__2_1', '0_3__4_6__7_8__9_10__11_12__13_13__14_14__15_15::2_1__2_1__2_1__2_1__2_1__1_2__2_1__1_2', '0_3__4_6__7_8__9_10__11_12__13_13__14_14__15_15::2_1__2_1__2_1__2_1__2_1__2_1__1_2__1_2', '0_4__5_6__7_8__9_10__11_12__13_13__14_14__15_15::2_1__2_1__2_1__2_1__1_2__1_2__1_2__1_2'], 'wide_resnet__500M::256__16::1::a40__1__2': ['0_15::1_2', '0_15::2_1'], 'wide_resnet__500M::256__16::2::a40__1__2': ['0_10__11_15::1_1__1_1', '0_9__10_15::1_1__1_1', '0_11__12_15::1_1__1_1', '0_8__9_15::1_1__1_1'], 'wide_resnet__2B::256__16::8::a40__4__2': ['0_3__4_6__7_8__9_10__11_12__13_13__14_14__15_15::1_1__1_1__1_1__1_1__1_1__1_1__1_1__1_1', '0_4__5_6__7_8__9_10__11_12__13_13__14_14__15_15::1_1__1_1__1_1__1_1__1_1__1_1__1_1__1_1'], 'bert__760M::256__16::1::a40__1__2': ['0_15::1_2', '0_15::2_1'], 'bert__760M::256__16::2::a40__1__2': ['0_9__10_15::1_1__1_1'], 'moe__690M::256__16::1::a40__1__2': ['0_7::2_1'], 'moe__690M::256__16::2::a40__1__2': ['0_3__4_7::1_1__1_1'], 'bert__1.3B::256__16::2::a40__2__2': ['0_7__8_15::1_2__1_2', '0_7__8_15::1_2__2_1', '0_7__8_15::2_1__1_2', '0_7__8_15::2_1__2_1', '0_6__7_15::1_2__1_2', '0_6__7_15::1_2__2_1', '0_6__7_15::2_1__1_2', '0_6__7_15::2_1__2_1', '0_8__9_15::1_2__1_2', '0_8__9_15::1_2__2_1', '0_8__9_15::2_1__1_2', '0_8__9_15::2_1__2_1', '0_5__6_15::1_2__1_2', '0_5__6_15::1_2__2_1', '0_5__6_15::2_1__1_2', '0_5__6_15::2_1__2_1', '0_9__10_15::1_2__1_2', '0_9__10_15::1_2__2_1', '0_9__10_15::2_1__1_2', '0_9__10_15::2_1__2_1'], 'bert__1.3B::256__16::4::a40__4__2': ['0_3__4_7__8_11__12_15::1_2__1_2__1_2__1_2', '0_3__4_7__8_11__12_15::1_2__1_2__1_2__2_1', '0_3__4_7__8_11__12_15::1_2__1_2__2_1__1_2', '0_3__4_7__8_11__12_15::1_2__1_2__2_1__2_1', '0_3__4_7__8_11__12_15::1_2__2_1__1_2__1_2', '0_3__4_7__8_11__12_15::1_2__2_1__1_2__2_1', '0_3__4_7__8_11__12_15::1_2__2_1__2_1__1_2', '0_3__4_7__8_11__12_15::1_2__2_1__2_1__2_1', '0_3__4_7__8_11__12_15::2_1__1_2__1_2__1_2', '0_3__4_7__8_11__12_15::2_1__1_2__1_2__2_1', '0_3__4_7__8_11__12_15::2_1__2_1__1_2__1_2', '0_3__4_7__8_11__12_15::2_1__2_1__2_1__1_2', '0_3__4_7__8_11__12_15::2_1__2_1__2_1__2_1', '0_3__4_6__7_10__11_15::2_1__2_1__2_1__2_1', '0_3__4_6__7_11__12_15::2_1__2_1__2_1__2_1', '0_2__3_6__7_10__11_15::2_1__2_1__2_1__2_1', '0_3__4_7__8_10__11_15::2_1__2_1__2_1__2_1', '0_2__3_6__7_11__12_15::2_1__2_1__2_1__2_1', '0_4__5_7__8_11__12_15::2_1__2_1__2_1__2_1', '0_4__5_8__9_11__12_15::2_1__2_1__2_1__2_1', '0_3__4_8__9_11__12_15::2_1__2_1__2_1__2_1', '0_2__3_7__8_11__12_15::2_1__2_1__2_1__2_1', '0_2__3_5__6_10__11_15::2_1__2_1__2_1__2_1', '0_4__5_7__8_10__11_15::2_1__2_1__2_1__2_1', '0_2__3_8__9_11__12_15::1_1__4_1__1_1__2_1', '0_2__3_5__6_8__9_15::1_1__2_1__1_1__4_1', '0_3__4_6__7_9__10_15::2_1__2_1__2_1__2_1', '0_2__3_5__6_9__10_15::2_1__2_1__2_1__2_1', '0_2__3_7__8_10__11_15::2_1__2_1__2_1__2_1', '0_5__6_8__9_11__12_15::4_1__1_1__1_1__2_1', '0_2__3_6__7_9__10_15::2_1__2_1__2_1__2_1', '0_2__3_5__6_11__12_15::2_1__2_1__2_1__2_1'], 'moe__1.3B::256__16::2::a40__2__2': ['0_6__7_15::2_1__2_1', '0_7__8_15::2_1__2_1', '0_5__6_15::2_1__2_1', '0_8__9_15::2_1__2_1']}, 'selected_cell_num_stages': {'wide_resnet__1B::256__16::a40__2__2': 2}}
+[TMP] Storing tuning database to '/home/cyxue/Projects/crius/Crius/runtime/jaxpr/tuning_database/tuning_database.pkl'...
+[I] Pipeline partition mode: auto | Parallel enum mode: auto | Parallel plans: [[StageShape(type='single', stage_shape=(1, 2), layer_shape=None), StageShape(type='single', stage_shape=(1, 2), layer_shape=None)]]
+
+[I] (Parallel plan idx: 0) Sharding stages...
+[I] Sharding stages takes 25.5218346118927 s.
+[I] (Parallel plan idx: 0) SPMD partitioning and compiling (kernel fusing) HLO stages...
+[I] SPMD partitioning and pre-compiling HLO modules concurrently takes 33.93469452857971 s.
+
+[I] All parallel plans in the cell have been sharded and compiled.
+[TMP] Writing only-sharded HLO text to '/home/cyxue/Projects/crius/Crius/runtime/jaxpr/tmp/moe_1.3B_256_sharded_stages.pkl'...
+[TMP] Writing optimized HLO text to '/home/cyxue/Projects/crius/Crius/runtime/jaxpr/tmp/moe_1.3B_256_optimized_stages.pkl'...
+[TMP] Writing inter-stages communicated vars to '/home/cyxue/Projects/crius/Crius/runtime/jaxpr/tmp/moe_1.3B_256_inter_stages_comm_vars.pkl'
+
+[I] Parallel plan idx: 0 | Parallelism: [(1, 2), (1, 2)]
+
+[I] (Parallel plan idx: 0) Parsing HLO texts and profiling XLA operators...
+[I] Pipeline partition mode: auto | Preset physical mesh shapes: [(1, 2), (1, 2)]
+[TMP] Loading offline profiled communication data: `1_a40_1_n_2_d_ib.pkl`...
+[TMP] Loading offline profiled communication data: `2_a40_2_n_1_d_ib.pkl`...
+\Time of module 0 (stage 0):
+Intra-stage comm time: 0.012821128219366075
+Grad sync time: 0
+
+[I] Optimized module 0 for stage 0, comm time has been statically analyzed.
+\Time of module 1 (stage 1):
+Intra-stage comm time: 0.06961094364523884
+Grad sync time: 0
+
+[I] Optimized module 1 for stage 1, comm time has been statically analyzed.
+\Time of module 2 (stage 1):
+Intra-stage comm time: 0.11216854548547407
+Grad sync time: 0
+
+[I] Optimized module 2 for stage 1, comm time has been statically analyzed.
+\Time of module 3 (stage 0):
+Intra-stage comm time: 0.019855136424303057
+Grad sync time: 0
+
+[I] Optimized module 3 for stage 0, comm time has been statically analyzed.
+\Time of module 4 (stage 0):
+Intra-stage comm time: 0.0018104660433891698
+Grad sync time: 0
+
+[I] Optimized module 4 for stage 0, comm time has been statically analyzed.
+\Time of module 5 (stage 1):
+Intra-stage comm time: 0.01155298182129625
+Grad sync time: 0
+
+[I] Optimized module 5 for stage 1, comm time has been statically analyzed.
+[TMP] Memory footprint of the stage 0 is 1.4385754875838757 GB, while the available memory of the XLA device is 35.33237304631621 GB.
+[TMP] Memory footprint of the stage 1 is 8.022766593843699 GB, while the available memory of the XLA device is 35.33237304631621 GB.
+[I] Only-sharded module 0 for stage 0, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.021510808000000003 s.
+    - Iteration 1/5: Kernel execution time: 0.021321592000000004 s.
+    - Iteration 2/5: Kernel execution time: 0.02129028899999999 s.
+    - Iteration 3/5: Kernel execution time: 0.021344149000000007 s.
+    - Iteration 4/5: Kernel execution time: 0.021332404 s.
+[I] Only-sharded module 1 for stage 1, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.11611159000000008 s.
+    - Iteration 1/5: Kernel execution time: 0.11594419899999994 s.
+    - Iteration 2/5: Kernel execution time: 0.11593757600000008 s.
+    - Iteration 3/5: Kernel execution time: 0.116348101 s.
+    - Iteration 4/5: Kernel execution time: 0.11594454700000004 s.
+[I] Only-sharded module 2 for stage 1, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.32028080400000003 s.
+    - Iteration 1/5: Kernel execution time: 0.32008409400000015 s.
+    - Iteration 2/5: Kernel execution time: 0.3204742379999998 s.
+    - Iteration 3/5: Kernel execution time: 0.32097664499999934 s.
+    - Iteration 4/5: Kernel execution time: 0.32030780400000014 s.
+[I] Only-sharded module 3 for stage 0, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.05063126400000001 s.
+    - Iteration 1/5: Kernel execution time: 0.050643414000000025 s.
+    - Iteration 2/5: Kernel execution time: 0.05055993199999999 s.
+    - Iteration 3/5: Kernel execution time: 0.050584737 s.
+    - Iteration 4/5: Kernel execution time: 0.05049241499999998 s.
+[I] Only-sharded module 4 for stage 0, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.0056500890000000005 s.
+    - Iteration 1/5: Kernel execution time: 0.005646626 s.
+    - Iteration 2/5: Kernel execution time: 0.0056457 s.
+    - Iteration 3/5: Kernel execution time: 0.005642826000000002 s.
+    - Iteration 4/5: Kernel execution time: 0.005646314000000001 s.
+[I] Only-sharded module 5 for stage 1, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.034159345999999986 s.
+    - Iteration 1/5: Kernel execution time: 0.03411575199999999 s.
+    - Iteration 2/5: Kernel execution time: 0.034148755999999995 s.
+    - Iteration 3/5: Kernel execution time: 0.034144553999999994 s.
+    - Iteration 4/5: Kernel execution time: 0.034161522 s.
+[I] Constructing single-device HLO modules concurrently takes 0.3362138271331787 s.
+[I] Compile single-device HLO modules concurrently takes 4.967607498168945 s.
+[I] Profile all compiled sequentially on one GPU takes 10.458230018615723 s.
+[I] Estimated e2e pipeline iteration time is: 10.400795413630199 s.
+    - Kernel computation time is: -1.0 s.
+    - Communication time is: -1.0 s.
+    - Cross-stages communication time is: -1.0 s.

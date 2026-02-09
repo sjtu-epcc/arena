@@ -1,0 +1,6 @@
+[submodule "runtime/external/cupti_profiler"]
+	path = runtime/external/cupti_profiler
+	url = https://github.com/srvm/cupti_profiler
+[submodule "runtime/external/habitat-cu116"]
+	path = runtime/external/habitat-cu116
+	url = https://github.com/UofT-EcoSystem/habitat-cu116

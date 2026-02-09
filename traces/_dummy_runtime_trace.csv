@@ -1,0 +1,3 @@
+job_id,submission_time,num_iteration,model_name,deadline,batch_size,num_gpu,gpu_type
+ba2c98ce-0b19-f88e-9d77-a45ef206c269,3438768,10,moe__1.3B,3451721,256,4,a40
+822c4d32-6c64-5c15-aba3-01cba561e1e9,3438768,15,wide_resnet__500M,3454383,256,2,a40

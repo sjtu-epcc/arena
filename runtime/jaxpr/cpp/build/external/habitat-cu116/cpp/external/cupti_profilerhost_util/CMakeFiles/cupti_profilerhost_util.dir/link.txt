@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcupti_profilerhost_util.a CMakeFiles/cupti_profilerhost_util.dir/src/profilerhost_util/Eval.cpp.o CMakeFiles/cupti_profilerhost_util.dir/src/profilerhost_util/List.cpp.o CMakeFiles/cupti_profilerhost_util.dir/src/profilerhost_util/Metric.cpp.o
+/usr/bin/ranlib libcupti_profilerhost_util.a

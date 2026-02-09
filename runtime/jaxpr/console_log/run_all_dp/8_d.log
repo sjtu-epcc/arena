@@ -1,0 +1,1054 @@
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/wide_resnet_500M_256.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 2
+    - Nodes num: 4
+[I] Loading flax model....
+[I] Model 'wide_resnet' loads sucessfully. Model Info: 
+
+WideResNet(
+    # attributes
+    stage_sizes = [3, 4, 6, 3]
+    block_cls = BottleneckResNetBlock
+    num_classes = 1024
+    num_filters = 224
+    width_factor = 2
+    dtype = float32
+    act = relu
+) 
+
+[I] Manually construct dummy batch with the shape of (256, 224, 224, 3).
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Manually slice pipeline and sharding, the related specs are as follows:
+    - 'forward_stage_layer_id': [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+    - 'submesh_physical_shapes': [(4, 2)]
+    - 'submesh_logical_shapes': [(8, 1)]
+    - 'submesh_autosharding_option_dicts': [{'force_batch_dim_to_mesh_dim': 0}]
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+ - Compile (driver): 18.72 s
+compilation time breakdown: {'stage-construction': '0.01', 'stage-construction-dp': '0.00', 'stage-construction-compilation': '0.00', 'stage-construction-profiling': '0.00'}
+ - Compile (worker): 17.41 s
+[I] Training process warmup (1 rounds) with dummy input batch...
+    - Warmup iteration: 1/1
+[I] Ready to perform training process.
+[I] Benchmark the training process with entire dataset and profile with driver overhead...
+ - Benchmark: 36.33 s
+
+[25.06049942970276, 7.3622212409973145]
+
+
+[I] Performance metrics:
+ - Iteration count: 1.
+ - Total e2e training time : 7.414 s.
+ - Average e2e iteration time: 7.414000511169434 s.
+ - Total local training time: 7.362000465393066 s.
+ - Average local iteration time: 7.362000465393066 s.
+ - Max allocated memory among devices: 8.484 GB.
+ - Compilation times:  {'stage-construction': 0.01226043701171875, 'stage-construction-dp': 0.0, 'stage-construction-compilation': 0.0, 'stage-construction-profiling': 0.0}
+ - Metadata:  []
+ - Is need save result:  False
+
+[I] Measuring one parallelzing configuration takes 76.19741010665894 (GPU time = 609.5792808532715) s.
+
+[I] The e2e profiling overhead with estimation is 76.96661448478699 s (GPU time = 615.7329158782959 s)
+[TMP] Current profiling results of key `4_a40_4_n_2_d`: [((1, 8, 1), 7.3622212409973145)]
+[TMP] Updated profiling results stored in `./jaxpr/prof_log/ground_truth/wide_resnet_500M_256.pkl`...
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/wide_resnet_1B_256.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 2
+    - Nodes num: 4
+[I] Loading flax model....
+[I] Model 'wide_resnet' loads sucessfully. Model Info: 
+
+WideResNet(
+    # attributes
+    stage_sizes = [3, 4, 6, 3]
+    block_cls = BottleneckResNetBlock
+    num_classes = 1024
+    num_filters = 320
+    width_factor = 2
+    dtype = float32
+    act = relu
+) 
+
+[I] Manually construct dummy batch with the shape of (256, 224, 224, 3).
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Manually slice pipeline and sharding, the related specs are as follows:
+    - 'forward_stage_layer_id': [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+    - 'submesh_physical_shapes': [(4, 2)]
+    - 'submesh_logical_shapes': [(8, 1)]
+    - 'submesh_autosharding_option_dicts': [{'force_batch_dim_to_mesh_dim': 0}]
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+ - Compile (driver): 18.39 s
+compilation time breakdown: {'stage-construction': '0.01', 'stage-construction-dp': '0.00', 'stage-construction-compilation': '0.00', 'stage-construction-profiling': '0.00'}
+ - Compile (worker): 12.94 s
+[I] Training process warmup (1 rounds) with dummy input batch...
+    - Warmup iteration: 1/1
+[I] Ready to perform training process.
+[I] Benchmark the training process with entire dataset and profile with driver overhead...
+ - Benchmark: 41.67 s
+
+[20.623964309692383, 15.027156352996826]
+
+
+[I] Performance metrics:
+ - Iteration count: 1.
+ - Total e2e training time : 15.082 s.
+ - Average e2e iteration time: 15.082000732421875 s.
+ - Total local training time: 15.027000427246094 s.
+ - Average local iteration time: 15.027000427246094 s.
+ - Max allocated memory among devices: 15.907 GB.
+ - Compilation times:  {'stage-construction': 0.012145519256591797, 'stage-construction-dp': 0.0, 'stage-construction-compilation': 0.0, 'stage-construction-profiling': 0.0}
+ - Metadata:  []
+ - Is need save result:  False
+
+[I] Measuring one parallelzing configuration takes 77.05190587043762 (GPU time = 616.415246963501) s.
+
+[I] The e2e profiling overhead with estimation is 77.81623792648315 s (GPU time = 622.5299034118652 s)
+[TMP] Current profiling results of key `4_a40_4_n_2_d`: [((1, 8, 1), 15.027156829833984)]
+[TMP] Updated profiling results stored in `./jaxpr/prof_log/ground_truth/wide_resnet_1B_256.pkl`...
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/wide_resnet_2B_256.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 2
+    - Nodes num: 4
+[I] Loading flax model....
+[I] Model 'wide_resnet' loads sucessfully. Model Info: 
+
+WideResNet(
+    # attributes
+    stage_sizes = [3, 4, 6, 3]
+    block_cls = BottleneckResNetBlock
+    num_classes = 1024
+    num_filters = 448
+    width_factor = 2
+    dtype = float32
+    act = relu
+) 
+
+[I] Manually construct dummy batch with the shape of (256, 224, 224, 3).
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Manually slice pipeline and sharding, the related specs are as follows:
+    - 'forward_stage_layer_id': [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+    - 'submesh_physical_shapes': [(4, 2)]
+    - 'submesh_logical_shapes': [(8, 1)]
+    - 'submesh_autosharding_option_dicts': [{'force_batch_dim_to_mesh_dim': 0}]
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+ - Compile (driver): 19.35 s
+compilation time breakdown: {'stage-construction': '0.02', 'stage-construction-dp': '0.00', 'stage-construction-compilation': '0.00', 'stage-construction-profiling': '0.00'}
+ - Compile (worker): 12.62 s
+[I] Training process warmup (1 rounds) with dummy input batch...
+    - Warmup iteration: 1/1
+[I] Ready to perform training process.
+[I] Benchmark the training process with entire dataset and profile with driver overhead...
+ - Benchmark: 98.30 s
+
+[36.01206564903259, 30.124061107635498]
+
+
+[I] Performance metrics:
+ - Iteration count: 1.
+ - Total e2e training time : 30.227 s.
+ - Average e2e iteration time: 30.227001190185547 s.
+ - Total local training time: 30.124000549316406 s.
+ - Average local iteration time: 30.124000549316406 s.
+ - Max allocated memory among devices: 29.3 GB.
+ - Compilation times:  {'stage-construction': 0.015029668807983398, 'stage-construction-dp': 0.0, 'stage-construction-compilation': 0.0, 'stage-construction-profiling': 0.0}
+ - Metadata:  []
+ - Is need save result:  False
+
+[I] Measuring one parallelzing configuration takes 134.8114528656006 (GPU time = 1078.4916229248047) s.
+
+[I] The e2e profiling overhead with estimation is 135.5042440891266 s (GPU time = 1084.0339527130127 s)
+[TMP] Current profiling results of key `4_a40_4_n_2_d`: [((1, 8, 1), 30.124061584472656)]
+[TMP] Updated profiling results stored in `./jaxpr/prof_log/ground_truth/wide_resnet_2B_256.pkl`...
+[TMP] Profiling results not found in `./jaxpr/prof_log/ground_truth/wide_resnet_4B_256.pkl`, creating it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 2
+    - Nodes num: 4
+[I] Loading flax model....
+[I] Model 'wide_resnet' loads sucessfully. Model Info: 
+
+WideResNet(
+    # attributes
+    stage_sizes = [3, 4, 6, 3]
+    block_cls = BottleneckResNetBlock
+    num_classes = 1024
+    num_filters = 640
+    width_factor = 2
+    dtype = float32
+    act = relu
+) 
+
+[I] Manually construct dummy batch with the shape of (256, 224, 224, 3).
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Manually slice pipeline and sharding, the related specs are as follows:
+    - 'forward_stage_layer_id': [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+    - 'submesh_physical_shapes': [(4, 2)]
+    - 'submesh_logical_shapes': [(8, 1)]
+    - 'submesh_autosharding_option_dicts': [{'force_batch_dim_to_mesh_dim': 0}]
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+ - Compile (driver): 19.27 s
+compilation time breakdown: {'stage-construction': '0.01', 'stage-construction-dp': '0.00', 'stage-construction-compilation': '0.00', 'stage-construction-profiling': '0.00'}
+ - Compile (worker): 12.74 s
+[I] Training process warmup (1 rounds) with dummy input batch...
+    - Warmup iteration: 1/1
+[E] Meet unexpected error in profiling executables...
+
+[E] Unexpected error occurred in compiling or profiling executables...
+[TMP] Profiling results not found in `./jaxpr/prof_log/ground_truth/wide_resnet_6.8B_256.pkl`, creating it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 2
+    - Nodes num: 4
+[I] Loading flax model....
+[I] Model 'wide_resnet' loads sucessfully. Model Info: 
+
+WideResNet(
+    # attributes
+    stage_sizes = [3, 4, 6, 3]
+    block_cls = BottleneckResNetBlock
+    num_classes = 1024
+    num_filters = 320
+    width_factor = 16
+    dtype = float32
+    act = relu
+) 
+
+[I] Manually construct dummy batch with the shape of (256, 224, 224, 3).
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Manually slice pipeline and sharding, the related specs are as follows:
+    - 'forward_stage_layer_id': [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+    - 'submesh_physical_shapes': [(4, 2)]
+    - 'submesh_logical_shapes': [(8, 1)]
+    - 'submesh_autosharding_option_dicts': [{'force_batch_dim_to_mesh_dim': 0}]
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+ - Compile (driver): 20.12 s
+compilation time breakdown: {'stage-construction': '0.01', 'stage-construction-dp': '0.00', 'stage-construction-compilation': '0.00', 'stage-construction-profiling': '0.00'}
+ - Compile (worker): 12.85 s
+[I] Training process warmup (1 rounds) with dummy input batch...
+    - Warmup iteration: 1/1
+[I] Ready to perform training process.
+[I] Benchmark the training process with entire dataset and profile with driver overhead...
+ - Benchmark: 257.47 s
+
+[]
+
+
+[I] Performance metrics:
+ - Iteration count: 1.
+ - Total e2e training time : 0.105 s.
+ - Average e2e iteration time: 0.10500000417232513 s.
+ - Total local training time: 0.0 s.
+ - Average local iteration time: nan s.
+ - Max allocated memory among devices: 35.265 GB.
+ - Compilation times:  {'stage-construction': 0.011675596237182617, 'stage-construction-dp': 0.0, 'stage-construction-compilation': 0.0, 'stage-construction-profiling': 0.0}
+ - Metadata:  []
+ - Is need save result:  False
+
+[I] Measuring one parallelzing configuration takes 297.8807764053345 (GPU time = 2383.046211242676) s.
+
+[I] The e2e profiling overhead with estimation is 298.6469302177429 s (GPU time = 2389.1754417419434 s)
+[TMP] Current profiling results of key `4_a40_4_n_2_d`: [((1, 8, 1), nan)]
+[TMP] Updated profiling results stored in `./jaxpr/prof_log/ground_truth/wide_resnet_6.8B_256.pkl`...
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/wide_resnet_500M_512.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 2
+    - Nodes num: 4
+[I] Loading flax model....
+[I] Model 'wide_resnet' loads sucessfully. Model Info: 
+
+WideResNet(
+    # attributes
+    stage_sizes = [3, 4, 6, 3]
+    block_cls = BottleneckResNetBlock
+    num_classes = 1024
+    num_filters = 224
+    width_factor = 2
+    dtype = float32
+    act = relu
+) 
+
+[I] Manually construct dummy batch with the shape of (512, 224, 224, 3).
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Manually slice pipeline and sharding, the related specs are as follows:
+    - 'forward_stage_layer_id': [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+    - 'submesh_physical_shapes': [(4, 2)]
+    - 'submesh_logical_shapes': [(8, 1)]
+    - 'submesh_autosharding_option_dicts': [{'force_batch_dim_to_mesh_dim': 0}]
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+ - Compile (driver): 19.94 s
+compilation time breakdown: {'stage-construction': '0.01', 'stage-construction-dp': '0.00', 'stage-construction-compilation': '0.00', 'stage-construction-profiling': '0.00'}
+ - Compile (worker): 13.11 s
+[I] Training process warmup (1 rounds) with dummy input batch...
+    - Warmup iteration: 1/1
+[I] Ready to perform training process.
+[I] Benchmark the training process with entire dataset and profile with driver overhead...
+ - Benchmark: 28.39 s
+
+[15.256969690322876, 9.181455373764038]
+
+
+[I] Performance metrics:
+ - Iteration count: 1.
+ - Total e2e training time : 9.275 s.
+ - Average e2e iteration time: 9.27500057220459 s.
+ - Total local training time: 9.181000709533691 s.
+ - Average local iteration time: 9.181000709533691 s.
+ - Max allocated memory among devices: 10.701 GB.
+ - Compilation times:  {'stage-construction': 0.012134552001953125, 'stage-construction-dp': 0.0, 'stage-construction-compilation': 0.0, 'stage-construction-profiling': 0.0}
+ - Metadata:  []
+ - Is need save result:  False
+
+[I] Measuring one parallelzing configuration takes 65.14069271087646 (GPU time = 521.1255416870117) s.
+
+[I] The e2e profiling overhead with estimation is 65.90636396408081 s (GPU time = 527.2509117126465 s)
+[TMP] Current profiling results of key `4_a40_4_n_2_d`: [((1, 8, 1), 9.181455612182617)]
+[TMP] Updated profiling results stored in `./jaxpr/prof_log/ground_truth/wide_resnet_500M_512.pkl`...
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/wide_resnet_1B_512.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 2
+    - Nodes num: 4
+[I] Loading flax model....
+[I] Model 'wide_resnet' loads sucessfully. Model Info: 
+
+WideResNet(
+    # attributes
+    stage_sizes = [3, 4, 6, 3]
+    block_cls = BottleneckResNetBlock
+    num_classes = 1024
+    num_filters = 320
+    width_factor = 2
+    dtype = float32
+    act = relu
+) 
+
+[I] Manually construct dummy batch with the shape of (512, 224, 224, 3).
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Manually slice pipeline and sharding, the related specs are as follows:
+    - 'forward_stage_layer_id': [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+    - 'submesh_physical_shapes': [(4, 2)]
+    - 'submesh_logical_shapes': [(8, 1)]
+    - 'submesh_autosharding_option_dicts': [{'force_batch_dim_to_mesh_dim': 0}]
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+ - Compile (driver): 19.31 s
+compilation time breakdown: {'stage-construction': '0.01', 'stage-construction-dp': '0.00', 'stage-construction-compilation': '0.00', 'stage-construction-profiling': '0.00'}
+ - Compile (worker): 13.04 s
+[I] Training process warmup (1 rounds) with dummy input batch...
+    - Warmup iteration: 1/1
+[I] Ready to perform training process.
+[I] Benchmark the training process with entire dataset and profile with driver overhead...
+ - Benchmark: 48.55 s
+
+[23.908309936523438, 18.407357692718506]
+
+
+[I] Performance metrics:
+ - Iteration count: 1.
+ - Total e2e training time : 18.544 s.
+ - Average e2e iteration time: 18.54400062561035 s.
+ - Total local training time: 18.407001495361328 s.
+ - Average local iteration time: 18.407001495361328 s.
+ - Max allocated memory among devices: 19.078 GB.
+ - Compilation times:  {'stage-construction': 0.01236271858215332, 'stage-construction-dp': 0.0, 'stage-construction-compilation': 0.0, 'stage-construction-profiling': 0.0}
+ - Metadata:  []
+ - Is need save result:  False
+
+[I] Measuring one parallelzing configuration takes 84.8839054107666 (GPU time = 679.0712432861328) s.
+
+[I] The e2e profiling overhead with estimation is 85.57732033729553 s (GPU time = 684.6185626983643 s)
+[TMP] Current profiling results of key `4_a40_4_n_2_d`: [((1, 8, 1), 18.407358169555664)]
+[TMP] Updated profiling results stored in `./jaxpr/prof_log/ground_truth/wide_resnet_1B_512.pkl`...
+[TMP] Profiling results not found in `./jaxpr/prof_log/ground_truth/wide_resnet_2B_512.pkl`, creating it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 2
+    - Nodes num: 4
+[I] Loading flax model....
+[I] Model 'wide_resnet' loads sucessfully. Model Info: 
+
+WideResNet(
+    # attributes
+    stage_sizes = [3, 4, 6, 3]
+    block_cls = BottleneckResNetBlock
+    num_classes = 1024
+    num_filters = 448
+    width_factor = 2
+    dtype = float32
+    act = relu
+) 
+
+[I] Manually construct dummy batch with the shape of (512, 224, 224, 3).
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Manually slice pipeline and sharding, the related specs are as follows:
+    - 'forward_stage_layer_id': [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+    - 'submesh_physical_shapes': [(4, 2)]
+    - 'submesh_logical_shapes': [(8, 1)]
+    - 'submesh_autosharding_option_dicts': [{'force_batch_dim_to_mesh_dim': 0}]
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+ - Compile (driver): 18.78 s
+compilation time breakdown: {'stage-construction': '0.01', 'stage-construction-dp': '0.00', 'stage-construction-compilation': '0.00', 'stage-construction-profiling': '0.00'}
+ - Compile (worker): 13.13 s
+[I] Training process warmup (1 rounds) with dummy input batch...
+    - Warmup iteration: 1/1
+[I] Ready to perform training process.
+[I] Benchmark the training process with entire dataset and profile with driver overhead...
+ - Benchmark: 116.27 s
+
+[42.12099862098694, 36.717920780181885]
+
+
+[I] Performance metrics:
+ - Iteration count: 1.
+ - Total e2e training time : 36.866 s.
+ - Average e2e iteration time: 36.86600112915039 s.
+ - Total local training time: 36.71800231933594 s.
+ - Average local iteration time: 36.71800231933594 s.
+ - Max allocated memory among devices: 33.72 GB.
+ - Compilation times:  {'stage-construction': 0.014871597290039062, 'stage-construction-dp': 0.0, 'stage-construction-compilation': 0.0, 'stage-construction-profiling': 0.0}
+ - Metadata:  []
+ - Is need save result:  False
+
+[I] Measuring one parallelzing configuration takes 152.36251401901245 (GPU time = 1218.9001121520996) s.
+
+[I] The e2e profiling overhead with estimation is 152.97707843780518 s (GPU time = 1223.8166275024414 s)
+[TMP] Current profiling results of key `4_a40_4_n_2_d`: [((1, 8, 1), 36.71792221069336)]
+[TMP] Updated profiling results stored in `./jaxpr/prof_log/ground_truth/wide_resnet_2B_512.pkl`...
+[TMP] Profiling results not found in `./jaxpr/prof_log/ground_truth/wide_resnet_4B_512.pkl`, creating it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 2
+    - Nodes num: 4
+[I] Loading flax model....
+[I] Model 'wide_resnet' loads sucessfully. Model Info: 
+
+WideResNet(
+    # attributes
+    stage_sizes = [3, 4, 6, 3]
+    block_cls = BottleneckResNetBlock
+    num_classes = 1024
+    num_filters = 640
+    width_factor = 2
+    dtype = float32
+    act = relu
+) 
+
+[I] Manually construct dummy batch with the shape of (512, 224, 224, 3).
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Manually slice pipeline and sharding, the related specs are as follows:
+    - 'forward_stage_layer_id': [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+    - 'submesh_physical_shapes': [(4, 2)]
+    - 'submesh_logical_shapes': [(8, 1)]
+    - 'submesh_autosharding_option_dicts': [{'force_batch_dim_to_mesh_dim': 0}]
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+ - Compile (driver): 19.47 s
+compilation time breakdown: {'stage-construction': '0.01', 'stage-construction-dp': '0.00', 'stage-construction-compilation': '0.00', 'stage-construction-profiling': '0.00'}
+ - Compile (worker): 12.94 s
+[I] Training process warmup (1 rounds) with dummy input batch...
+    - Warmup iteration: 1/1
+[E] Meet unexpected error in profiling executables...
+
+[E] Unexpected error occurred in compiling or profiling executables...
+[TMP] Profiling results not found in `./jaxpr/prof_log/ground_truth/wide_resnet_6.8B_512.pkl`, creating it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 2
+    - Nodes num: 4
+[I] Loading flax model....
+[I] Model 'wide_resnet' loads sucessfully. Model Info: 
+
+WideResNet(
+    # attributes
+    stage_sizes = [3, 4, 6, 3]
+    block_cls = BottleneckResNetBlock
+    num_classes = 1024
+    num_filters = 320
+    width_factor = 16
+    dtype = float32
+    act = relu
+) 
+
+[I] Manually construct dummy batch with the shape of (512, 224, 224, 3).
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Manually slice pipeline and sharding, the related specs are as follows:
+    - 'forward_stage_layer_id': [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+    - 'submesh_physical_shapes': [(4, 2)]
+    - 'submesh_logical_shapes': [(8, 1)]
+    - 'submesh_autosharding_option_dicts': [{'force_batch_dim_to_mesh_dim': 0}]
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+ - Compile (driver): 18.95 s
+compilation time breakdown: {'stage-construction': '0.01', 'stage-construction-dp': '0.00', 'stage-construction-compilation': '0.00', 'stage-construction-profiling': '0.00'}
+ - Compile (worker): 12.93 s
+[I] Training process warmup (1 rounds) with dummy input batch...
+    - Warmup iteration: 1/1
+[I] Ready to perform training process.
+[I] Benchmark the training process with entire dataset and profile with driver overhead...
+ - Benchmark: 238.18 s
+
+[]
+
+
+[I] Performance metrics:
+ - Iteration count: 1.
+ - Total e2e training time : 0.205 s.
+ - Average e2e iteration time: 0.20500001311302185 s.
+ - Total local training time: 0.0 s.
+ - Average local iteration time: nan s.
+ - Max allocated memory among devices: 35.3 GB.
+ - Compilation times:  {'stage-construction': 0.011932134628295898, 'stage-construction-dp': 0.0, 'stage-construction-compilation': 0.0, 'stage-construction-profiling': 0.0}
+ - Metadata:  []
+ - Is need save result:  False
+
+[I] Measuring one parallelzing configuration takes 277.14813327789307 (GPU time = 2217.1850662231445) s.
+
+[I] The e2e profiling overhead with estimation is 277.9670948982239 s (GPU time = 2223.736759185791 s)
+[TMP] Current profiling results of key `4_a40_4_n_2_d`: [((1, 8, 1), nan)]
+[TMP] Updated profiling results stored in `./jaxpr/prof_log/ground_truth/wide_resnet_6.8B_512.pkl`...
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/wide_resnet_500M_1024.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 2
+    - Nodes num: 4
+[I] Loading flax model....
+[I] Model 'wide_resnet' loads sucessfully. Model Info: 
+
+WideResNet(
+    # attributes
+    stage_sizes = [3, 4, 6, 3]
+    block_cls = BottleneckResNetBlock
+    num_classes = 1024
+    num_filters = 224
+    width_factor = 2
+    dtype = float32
+    act = relu
+) 
+
+[I] Manually construct dummy batch with the shape of (1024, 224, 224, 3).
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Manually slice pipeline and sharding, the related specs are as follows:
+    - 'forward_stage_layer_id': [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+    - 'submesh_physical_shapes': [(4, 2)]
+    - 'submesh_logical_shapes': [(8, 1)]
+    - 'submesh_autosharding_option_dicts': [{'force_batch_dim_to_mesh_dim': 0}]
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+ - Compile (driver): 18.08 s
+compilation time breakdown: {'stage-construction': '0.01', 'stage-construction-dp': '0.00', 'stage-construction-compilation': '0.00', 'stage-construction-profiling': '0.00'}
+ - Compile (worker): 12.99 s
+[I] Training process warmup (1 rounds) with dummy input batch...
+    - Warmup iteration: 1/1
+[I] Ready to perform training process.
+[I] Benchmark the training process with entire dataset and profile with driver overhead...
+ - Benchmark: 35.45 s
+
+[18.3742618560791, 12.845426321029663]
+
+
+[I] Performance metrics:
+ - Iteration count: 1.
+ - Total e2e training time : 13.07 s.
+ - Average e2e iteration time: 13.070000648498535 s.
+ - Total local training time: 12.845000267028809 s.
+ - Average local iteration time: 12.845000267028809 s.
+ - Max allocated memory among devices: 15.155 GB.
+ - Compilation times:  {'stage-construction': 0.011696577072143555, 'stage-construction-dp': 0.0, 'stage-construction-compilation': 0.0, 'stage-construction-profiling': 0.0}
+ - Metadata:  []
+ - Is need save result:  False
+
+[I] Measuring one parallelzing configuration takes 70.15517544746399 (GPU time = 561.2414035797119) s.
+
+[I] The e2e profiling overhead with estimation is 70.9216034412384 s (GPU time = 567.3728275299072 s)
+[TMP] Current profiling results of key `4_a40_4_n_2_d`: [((1, 8, 1), 12.845426559448242)]
+[TMP] Updated profiling results stored in `./jaxpr/prof_log/ground_truth/wide_resnet_500M_1024.pkl`...
+[TMP] Profiling results not found in `./jaxpr/prof_log/ground_truth/wide_resnet_1B_1024.pkl`, creating it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 2
+    - Nodes num: 4
+[I] Loading flax model....
+[I] Model 'wide_resnet' loads sucessfully. Model Info: 
+
+WideResNet(
+    # attributes
+    stage_sizes = [3, 4, 6, 3]
+    block_cls = BottleneckResNetBlock
+    num_classes = 1024
+    num_filters = 320
+    width_factor = 2
+    dtype = float32
+    act = relu
+) 
+
+[I] Manually construct dummy batch with the shape of (1024, 224, 224, 3).
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Manually slice pipeline and sharding, the related specs are as follows:
+    - 'forward_stage_layer_id': [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+    - 'submesh_physical_shapes': [(4, 2)]
+    - 'submesh_logical_shapes': [(8, 1)]
+    - 'submesh_autosharding_option_dicts': [{'force_batch_dim_to_mesh_dim': 0}]
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+ - Compile (driver): 19.27 s
+compilation time breakdown: {'stage-construction': '0.01', 'stage-construction-dp': '0.00', 'stage-construction-compilation': '0.00', 'stage-construction-profiling': '0.00'}
+ - Compile (worker): 13.37 s
+[I] Training process warmup (1 rounds) with dummy input batch...
+    - Warmup iteration: 1/1
+[I] Ready to perform training process.
+[I] Benchmark the training process with entire dataset and profile with driver overhead...
+ - Benchmark: 61.58 s
+
+[30.252756595611572, 24.704411268234253]
+
+
+[I] Performance metrics:
+ - Iteration count: 1.
+ - Total e2e training time : 24.957 s.
+ - Average e2e iteration time: 24.957000732421875 s.
+ - Total local training time: 24.70400047302246 s.
+ - Average local iteration time: 24.70400047302246 s.
+ - Max allocated memory among devices: 25.467 GB.
+ - Compilation times:  {'stage-construction': 0.012172698974609375, 'stage-construction-dp': 0.0, 'stage-construction-compilation': 0.0, 'stage-construction-profiling': 0.0}
+ - Metadata:  []
+ - Is need save result:  False
+
+[I] Measuring one parallelzing configuration takes 98.30321860313416 (GPU time = 786.4257488250732) s.
+
+[I] The e2e profiling overhead with estimation is 99.00050163269043 s (GPU time = 792.0040130615234 s)
+[TMP] Current profiling results of key `4_a40_4_n_2_d`: [((1, 8, 1), 24.704410552978516)]
+[TMP] Updated profiling results stored in `./jaxpr/prof_log/ground_truth/wide_resnet_1B_1024.pkl`...
+[TMP] Profiling results not found in `./jaxpr/prof_log/ground_truth/wide_resnet_2B_1024.pkl`, creating it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 2
+    - Nodes num: 4
+[I] Loading flax model....
+[I] Model 'wide_resnet' loads sucessfully. Model Info: 
+
+WideResNet(
+    # attributes
+    stage_sizes = [3, 4, 6, 3]
+    block_cls = BottleneckResNetBlock
+    num_classes = 1024
+    num_filters = 448
+    width_factor = 2
+    dtype = float32
+    act = relu
+) 
+
+[I] Manually construct dummy batch with the shape of (1024, 224, 224, 3).
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Manually slice pipeline and sharding, the related specs are as follows:
+    - 'forward_stage_layer_id': [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+    - 'submesh_physical_shapes': [(4, 2)]
+    - 'submesh_logical_shapes': [(8, 1)]
+    - 'submesh_autosharding_option_dicts': [{'force_batch_dim_to_mesh_dim': 0}]
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+ - Compile (driver): 19.32 s
+compilation time breakdown: {'stage-construction': '0.01', 'stage-construction-dp': '0.00', 'stage-construction-compilation': '0.00', 'stage-construction-profiling': '0.00'}
+ - Compile (worker): 12.84 s
+[I] Training process warmup (1 rounds) with dummy input batch...
+    - Warmup iteration: 1/1
+[E] Meet unexpected error in profiling executables...
+
+[E] Unexpected error occurred in compiling or profiling executables...
+[TMP] Profiling results not found in `./jaxpr/prof_log/ground_truth/wide_resnet_4B_1024.pkl`, creating it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 2
+    - Nodes num: 4
+[I] Loading flax model....
+[I] Model 'wide_resnet' loads sucessfully. Model Info: 
+
+WideResNet(
+    # attributes
+    stage_sizes = [3, 4, 6, 3]
+    block_cls = BottleneckResNetBlock
+    num_classes = 1024
+    num_filters = 640
+    width_factor = 2
+    dtype = float32
+    act = relu
+) 
+
+[I] Manually construct dummy batch with the shape of (1024, 224, 224, 3).
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Manually slice pipeline and sharding, the related specs are as follows:
+    - 'forward_stage_layer_id': [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+    - 'submesh_physical_shapes': [(4, 2)]
+    - 'submesh_logical_shapes': [(8, 1)]
+    - 'submesh_autosharding_option_dicts': [{'force_batch_dim_to_mesh_dim': 0}]
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+ - Compile (driver): 19.51 s
+compilation time breakdown: {'stage-construction': '0.01', 'stage-construction-dp': '0.00', 'stage-construction-compilation': '0.00', 'stage-construction-profiling': '0.00'}
+ - Compile (worker): 13.06 s
+[I] Training process warmup (1 rounds) with dummy input batch...
+    - Warmup iteration: 1/1
+[E] Meet unexpected error in profiling executables...
+
+[E] Unexpected error occurred in compiling or profiling executables...
+[TMP] Profiling results not found in `./jaxpr/prof_log/ground_truth/wide_resnet_6.8B_1024.pkl`, creating it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 2
+    - Nodes num: 4
+[I] Loading flax model....
+[I] Model 'wide_resnet' loads sucessfully. Model Info: 
+
+WideResNet(
+    # attributes
+    stage_sizes = [3, 4, 6, 3]
+    block_cls = BottleneckResNetBlock
+    num_classes = 1024
+    num_filters = 320
+    width_factor = 16
+    dtype = float32
+    act = relu
+) 
+
+[I] Manually construct dummy batch with the shape of (1024, 224, 224, 3).
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Manually slice pipeline and sharding, the related specs are as follows:
+    - 'forward_stage_layer_id': [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+    - 'submesh_physical_shapes': [(4, 2)]
+    - 'submesh_logical_shapes': [(8, 1)]
+    - 'submesh_autosharding_option_dicts': [{'force_batch_dim_to_mesh_dim': 0}]
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+ - Compile (driver): 19.56 s
+compilation time breakdown: {'stage-construction': '0.01', 'stage-construction-dp': '0.00', 'stage-construction-compilation': '0.00', 'stage-construction-profiling': '0.00'}
+ - Compile (worker): 13.09 s
+[I] Training process warmup (1 rounds) with dummy input batch...
+    - Warmup iteration: 1/1
+[I] Ready to perform training process.
+[I] Benchmark the training process with entire dataset and profile with driver overhead...
+ - Benchmark: 230.30 s
+
+[]
+
+
+[I] Performance metrics:
+ - Iteration count: 1.
+ - Total e2e training time : 0.417 s.
+ - Average e2e iteration time: 0.41700002551078796 s.
+ - Total local training time: 0.0 s.
+ - Average local iteration time: nan s.
+ - Max allocated memory among devices: 35.372 GB.
+ - Compilation times:  {'stage-construction': 0.011907339096069336, 'stage-construction-dp': 0.0, 'stage-construction-compilation': 0.0, 'stage-construction-profiling': 0.0}
+ - Metadata:  []
+ - Is need save result:  False
+
+[I] Measuring one parallelzing configuration takes 270.31771445274353 (GPU time = 2162.5417156219482) s.
+
+[I] The e2e profiling overhead with estimation is 271.07115721702576 s (GPU time = 2168.569257736206 s)
+[TMP] Current profiling results of key `4_a40_4_n_2_d`: [((1, 8, 1), nan)]
+[TMP] Updated profiling results stored in `./jaxpr/prof_log/ground_truth/wide_resnet_6.8B_1024.pkl`...
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/bert_760M_128.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 2
+    - Nodes num: 4
+[I] Loading flax model....
+[I] Model 'bert' loads sucessfully. Model Info: 
+
+FlaxBertForMaskedLMModule(
+    # attributes
+    config = <model.bert_model.BertConfig object at 0x7f95f954cc10>
+    dtype = float16
+) 
+
+[I] Manually constructing dummy batch...
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Manually slice pipeline and sharding, the related specs are as follows:
+    - 'forward_stage_layer_id': [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+    - 'submesh_physical_shapes': [(4, 2)]
+    - 'submesh_logical_shapes': [(8, 1)]
+    - 'submesh_autosharding_option_dicts': [{'force_batch_dim_to_mesh_dim': 0}]
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+ - Compile (driver): 43.76 s
+compilation time breakdown: {'stage-construction': '0.02', 'stage-construction-dp': '0.00', 'stage-construction-compilation': '0.00', 'stage-construction-profiling': '0.00'}
+ - Compile (worker): 17.87 s
+[I] Training process warmup (1 rounds) with dummy input batch...
+    - Warmup iteration: 1/1
+[I] Ready to perform training process.
+[I] Benchmark the training process with entire dataset and profile with driver overhead...
+ - Benchmark: 17.59 s
+
+[5.373575448989868, 2.8852736949920654]
+
+
+[I] Performance metrics:
+ - Iteration count: 1.
+ - Total e2e training time : 2.942 s.
+ - Average e2e iteration time: 2.942000150680542 s.
+ - Total local training time: 2.885000228881836 s.
+ - Average local iteration time: 2.885000228881836 s.
+ - Max allocated memory among devices: 6.902 GB.
+ - Compilation times:  {'stage-construction': 0.022675514221191406, 'stage-construction-dp': 0.0, 'stage-construction-compilation': 0.0, 'stage-construction-profiling': 0.0}
+ - Metadata:  []
+ - Is need save result:  False
+
+[I] Measuring one parallelzing configuration takes 84.86627388000488 (GPU time = 678.9301910400391) s.
+
+[I] The e2e profiling overhead with estimation is 85.63730120658875 s (GPU time = 685.09840965271 s)
+[TMP] Current profiling results of key `4_a40_4_n_2_d`: [((1, 8, 1), 2.8852736949920654)]
+[TMP] Updated profiling results stored in `./jaxpr/prof_log/ground_truth/bert_760M_128.pkl`...
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/bert_1.3B_128.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 2
+    - Nodes num: 4
+[I] Loading flax model....
+[I] Model 'bert' loads sucessfully. Model Info: 
+
+FlaxBertForMaskedLMModule(
+    # attributes
+    config = <model.bert_model.BertConfig object at 0x7fe239b54ca0>
+    dtype = float16
+) 
+
+[I] Manually constructing dummy batch...
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Manually slice pipeline and sharding, the related specs are as follows:
+    - 'forward_stage_layer_id': [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+    - 'submesh_physical_shapes': [(4, 2)]
+    - 'submesh_logical_shapes': [(8, 1)]
+    - 'submesh_autosharding_option_dicts': [{'force_batch_dim_to_mesh_dim': 0}]
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+ - Compile (driver): 42.30 s
+compilation time breakdown: {'stage-construction': '0.02', 'stage-construction-dp': '0.00', 'stage-construction-compilation': '0.00', 'stage-construction-profiling': '0.00'}
+ - Compile (worker): 18.68 s
+[I] Training process warmup (1 rounds) with dummy input batch...
+    - Warmup iteration: 1/1
+[I] Ready to perform training process.
+[I] Benchmark the training process with entire dataset and profile with driver overhead...
+ - Benchmark: 22.65 s
+
+[7.2370312213897705, 4.769078016281128]
+
+
+[I] Performance metrics:
+ - Iteration count: 1.
+ - Total e2e training time : 5.23 s.
+ - Average e2e iteration time: 5.230000019073486 s.
+ - Total local training time: 4.769000053405762 s.
+ - Average local iteration time: 4.769000053405762 s.
+ - Max allocated memory among devices: 10.882 GB.
+ - Compilation times:  {'stage-construction': 0.01709914207458496, 'stage-construction-dp': 0.0, 'stage-construction-compilation': 0.0, 'stage-construction-profiling': 0.0}
+ - Metadata:  []
+ - Is need save result:  False
+
+[I] Measuring one parallelzing configuration takes 89.80346894264221 (GPU time = 718.4277515411377) s.
+
+[I] The e2e profiling overhead with estimation is 90.56989574432373 s (GPU time = 724.5591659545898 s)
+[TMP] Current profiling results of key `4_a40_4_n_2_d`: [((1, 8, 1), 4.769078254699707)]
+[TMP] Updated profiling results stored in `./jaxpr/prof_log/ground_truth/bert_1.3B_128.pkl`...
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/bert_2.6B_128.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 2
+    - Nodes num: 4
+[I] Loading flax model....
+[I] Model 'bert' loads sucessfully. Model Info: 
+
+FlaxBertForMaskedLMModule(
+    # attributes
+    config = <model.bert_model.BertConfig object at 0x7fca23046c10>
+    dtype = float16
+) 
+
+[I] Manually constructing dummy batch...
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Manually slice pipeline and sharding, the related specs are as follows:
+    - 'forward_stage_layer_id': [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+    - 'submesh_physical_shapes': [(4, 2)]
+    - 'submesh_logical_shapes': [(8, 1)]
+    - 'submesh_autosharding_option_dicts': [{'force_batch_dim_to_mesh_dim': 0}]
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+ - Compile (driver): 62.58 s
+compilation time breakdown: {'stage-construction': '0.02', 'stage-construction-dp': '0.00', 'stage-construction-compilation': '0.00', 'stage-construction-profiling': '0.00'}
+ - Compile (worker): 24.87 s
+[I] Training process warmup (1 rounds) with dummy input batch...
+    - Warmup iteration: 1/1
+[I] Ready to perform training process.
+[I] Benchmark the training process with entire dataset and profile with driver overhead...
+ - Benchmark: 34.41 s
+
+[10.459131002426147, 8.078113079071045]
+
+
+[I] Performance metrics:
+ - Iteration count: 1.
+ - Total e2e training time : 8.151 s.
+ - Average e2e iteration time: 8.151000022888184 s.
+ - Total local training time: 8.07800006866455 s.
+ - Average local iteration time: 8.07800006866455 s.
+ - Max allocated memory among devices: 20.645 GB.
+ - Compilation times:  {'stage-construction': 0.024350404739379883, 'stage-construction-dp': 0.0, 'stage-construction-compilation': 0.0, 'stage-construction-profiling': 0.0}
+ - Metadata:  []
+ - Is need save result:  False
+
+[I] Measuring one parallelzing configuration takes 130.3785102367401 (GPU time = 1043.028081893921) s.
+
+[I] The e2e profiling overhead with estimation is 131.14183688163757 s (GPU time = 1049.1346950531006 s)
+[TMP] Current profiling results of key `4_a40_4_n_2_d`: [((1, 8, 1), 8.078113555908203)]
+[TMP] Updated profiling results stored in `./jaxpr/prof_log/ground_truth/bert_2.6B_128.pkl`...
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/bert_6.7B_128.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 2
+    - Nodes num: 4
+[I] Loading flax model....
+[I] Model 'bert' loads sucessfully. Model Info: 
+
+FlaxBertForMaskedLMModule(
+    # attributes
+    config = <model.bert_model.BertConfig object at 0x7f86d3f57c40>
+    dtype = float16
+) 
+
+[I] Manually constructing dummy batch...
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Manually slice pipeline and sharding, the related specs are as follows:
+    - 'forward_stage_layer_id': [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+    - 'submesh_physical_shapes': [(4, 2)]
+    - 'submesh_logical_shapes': [(8, 1)]
+    - 'submesh_autosharding_option_dicts': [{'force_batch_dim_to_mesh_dim': 0}]
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+ - Compile (driver): 62.34 s
+compilation time breakdown: {'stage-construction': '0.02', 'stage-construction-dp': '0.00', 'stage-construction-compilation': '0.00', 'stage-construction-profiling': '0.00'}
+ - Compile (worker): 25.39 s
+[I] Training process warmup (1 rounds) with dummy input batch...
+    - Warmup iteration: 1/1
+[E] Meet unexpected error in profiling executables...
+
+[E] Unexpected error occurred in compiling or profiling executables...
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/bert_1.3B_256.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] No local Ray cluster is found, constructing a new one.
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/bert_2.6B_256.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] No local Ray cluster is found, constructing a new one.
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/bert_6.7B_256.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] No local Ray cluster is found, constructing a new one.
+[TMP] Profiling results not found in `./jaxpr/prof_log/ground_truth/bert_15B_256.pkl`, creating it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] No local Ray cluster is found, constructing a new one.
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/bert_760M_512.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] No local Ray cluster is found, constructing a new one.
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/bert_1.3B_512.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] No local Ray cluster is found, constructing a new one.
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/bert_2.6B_512.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] No local Ray cluster is found, constructing a new one.
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/bert_6.7B_512.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] No local Ray cluster is found, constructing a new one.
+[TMP] Profiling results not found in `./jaxpr/prof_log/ground_truth/bert_15B_512.pkl`, creating it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] No local Ray cluster is found, constructing a new one.
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/moe_690M_256.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] No local Ray cluster is found, constructing a new one.
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/moe_1.3B_256.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] No local Ray cluster is found, constructing a new one.
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/moe_2.4B_256.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] No local Ray cluster is found, constructing a new one.
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/moe_10B_256.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] No local Ray cluster is found, constructing a new one.
+[TMP] Profiling results not found in `./jaxpr/prof_log/ground_truth/moe_27B_256.pkl`, creating it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] No local Ray cluster is found, constructing a new one.
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/moe_690M_512.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] No local Ray cluster is found, constructing a new one.
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/moe_1.3B_512.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] No local Ray cluster is found, constructing a new one.
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/moe_2.4B_512.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] No local Ray cluster is found, constructing a new one.
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/moe_10B_512.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] No local Ray cluster is found, constructing a new one.
+[TMP] Profiling results not found in `./jaxpr/prof_log/ground_truth/moe_27B_512.pkl`, creating it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] No local Ray cluster is found, constructing a new one.
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/moe_690M_1024.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] No local Ray cluster is found, constructing a new one.
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/moe_1.3B_1024.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] No local Ray cluster is found, constructing a new one.
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/moe_2.4B_1024.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] No local Ray cluster is found, constructing a new one.
+[TMP] Existed profiling results in `./jaxpr/prof_log/ground_truth/moe_10B_1024.pkl`, updating/rewriting it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] No local Ray cluster is found, constructing a new one.
+[TMP] Profiling results not found in `./jaxpr/prof_log/ground_truth/moe_27B_1024.pkl`, creating it...
+[I] Setting sync timer in Alpa workers to perform accurate execution time.
+[I] No local Ray cluster is found, constructing a new one.

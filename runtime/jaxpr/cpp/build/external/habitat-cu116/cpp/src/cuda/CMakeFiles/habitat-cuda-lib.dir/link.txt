@@ -1,0 +1,2 @@
+/usr/bin/ar qc libhabitat-cuda-lib.a "CMakeFiles/habitat-cuda-lib.dir/diagnostics.cu.o" "CMakeFiles/habitat-cuda-lib.dir/cupti_exceptions.cpp.o" "CMakeFiles/habitat-cuda-lib.dir/cupti_manager.cpp.o" "CMakeFiles/habitat-cuda-lib.dir/cupti_profiler.cpp.o" "CMakeFiles/habitat-cuda-lib.dir/cupti_tracer.cpp.o" "CMakeFiles/habitat-cuda-lib.dir/kernel.cpp.o" "CMakeFiles/habitat-cuda-lib.dir/new_cupti_profiler.cpp.o"
+/usr/bin/ranlib libhabitat-cuda-lib.a

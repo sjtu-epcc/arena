@@ -1,0 +1,252 @@
+
+[I] Loading Crius kernel-level profiler...
+[TMP] Profiling results not found in `None`, creating it...
+
+[I] Loading model and generating sharded HLO module...
+[I] Initializing XLA devices takes 0.7150013446807861 s.
+[I] Loading flax model....
+[I] Model 'wide_resnet' loads sucessfully. Model Info: 
+
+WideResNet(
+    # attributes
+    stage_sizes = [3, 4, 6, 3]
+    block_cls = BottleneckResNetBlock
+    num_classes = 1024
+    num_filters = 320
+    width_factor = 2
+    dtype = float32
+    act = relu
+) 
+
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Constructing general train step func...
+[I] General train step func construction is completed.
+[I] Model has been loaded, begin Jaxpr transformation...
+
+[TMP] Optimization status of GPU fraction: optimal
+
+Layer GPU fractions:
+[0.161, 0.335, 0.238, 0.335, 0.235, 0.235, 0.235, 0.331, 0.228, 0.228, 0.228, 0.228, 0.228, 0.325, 0.215, 0.216]
+
+[[0, 1, 2, 3, 4, 5, 6, 7], [8, 9, 10, 11, 12, 13, 14, 15]]
+15090928160.0
+0.14778700890132399
+([2, 2], 0.14778700890132399)
+
+[[0, 1, 2, 3, 4, 5, 6], [7, 8, 9, 10, 11, 12, 13, 14, 15]]
+15123002400.0
+0.3203201523476166
+([2, 2], 0.3203201523476166)
+
+[[0, 1, 2, 3, 4, 5, 6, 7, 8], [9, 10, 11, 12, 13, 14, 15]]
+15090907680.0
+0.47022654114798756
+([2, 2], 0.47022654114798756)
+
+[[0, 1, 2, 3, 4, 5], [6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+15123002400.0
+0.6526599420831651
+([2, 2], 0.6526599420831651)
+
+[[0, 1, 2, 3, 4, 5, 6, 7, 8, 9], [10, 11, 12, 13, 14, 15]]
+15090907680.0
+0.7926670171011282
+([2, 2], 0.7926670171011282)
+
+[[0, 1, 2, 3, 4], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+15123002400.0
+0.9850000000000002
+([2, 2], 0.9850000000000002)
+
+[[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [11, 12, 13, 14, 15]]
+15090907680.0
+1.1151076181248163
+([2, 2], 1.1151076181248163)
+
+[[0, 1, 2, 3], [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+15123012640.0
+1.3173401231269017
+([2, 2], 1.3173401231269017)
+
+[[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], [12, 13, 14, 15]]
+15090907680.0
+1.4375482600594671
+([2, 2], 1.4375482600594671)
+
+[[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], [13, 14, 15]]
+15090907680.0
+1.759988920419672
+([2, 2], 1.759988920419672)
+
+[[0, 1, 2], [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+15187218720.0
+1.7911016163244347
+([2, 2], 1.7911016163244347)
+
+[[0, 1], [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+174623519008.0
+2.127684422088953
+([2, 2], 2.127684422088953)
+
+[[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], [14, 15]]
+154585872640.0
+2.219608298777062
+([2, 2], 2.219608298777062)
+
+[[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], [15]]
+165803700480.0
+2.5236642011170987
+([2, 2], 2.5236642011170987)
+
+[[0], [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+202850873888.00003
+2.6014459440857123
+([2, 2], 2.6014459440857123)
+
+[I] Pipeline partition mode: auto | Layer-to-stage partition: [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], [14, 15]]
+[I] Pipeline partition mode: auto | Cell-generated physical mesh shapes: [(1, 2), (1, 2)]
+[I] Loading model and transform to Jaxpr stages takes 24.604341745376587 s.
+[I] The GPU sharding of pipeline stages is: [2, 2]
+[I] Pipeline partition mode: auto | Parallel enum mode: auto | Parallel plans: [[StageShape(type='single', stage_shape=(1, 2), layer_shape=None), StageShape(type='single', stage_shape=(2, 1), layer_shape=None)]]
+[TMP] Plans in the non-dominated set:
+0_7__8_15::1_2__1_2
+[[0, 1, 2, 3, 4, 5, 6, 7], [8, 9, 10, 11, 12, 13, 14, 15]]
+[StageShape(type='single', stage_shape=(1, 2), layer_shape=None), StageShape(type='single', stage_shape=(1, 2), layer_shape=None)]
+0.14778700890132399
+99858525440.0
+
+0_7__8_15::1_2__2_1
+[[0, 1, 2, 3, 4, 5, 6, 7], [8, 9, 10, 11, 12, 13, 14, 15]]
+[StageShape(type='single', stage_shape=(1, 2), layer_shape=None), StageShape(type='single', stage_shape=(2, 1), layer_shape=None)]
+0.14778700890132399
+111627265280.0
+
+0_7__8_15::2_1__1_2
+[[0, 1, 2, 3, 4, 5, 6, 7], [8, 9, 10, 11, 12, 13, 14, 15]]
+[StageShape(type='single', stage_shape=(2, 1), layer_shape=None), StageShape(type='single', stage_shape=(1, 2), layer_shape=None)]
+0.14778700890132399
+89862584864.0
+
+0_7__8_15::2_1__2_1
+[[0, 1, 2, 3, 4, 5, 6, 7], [8, 9, 10, 11, 12, 13, 14, 15]]
+[StageShape(type='single', stage_shape=(2, 1), layer_shape=None), StageShape(type='single', stage_shape=(2, 1), layer_shape=None)]
+0.14778700890132399
+15090928160.0
+
+0_8__9_15::2_1__2_1
+[[0, 1, 2, 3, 4, 5, 6, 7, 8], [9, 10, 11, 12, 13, 14, 15]]
+[StageShape(type='single', stage_shape=(2, 1), layer_shape=None), StageShape(type='single', stage_shape=(2, 1), layer_shape=None)]
+0.47022654114798756
+15090907680.0
+
+0_9__10_15::2_1__2_1
+[[0, 1, 2, 3, 4, 5, 6, 7, 8, 9], [10, 11, 12, 13, 14, 15]]
+[StageShape(type='single', stage_shape=(2, 1), layer_shape=None), StageShape(type='single', stage_shape=(2, 1), layer_shape=None)]
+0.7926670171011282
+15090907680.0
+
+0_10__11_15::2_1__2_1
+[[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [11, 12, 13, 14, 15]]
+[StageShape(type='single', stage_shape=(2, 1), layer_shape=None), StageShape(type='single', stage_shape=(2, 1), layer_shape=None)]
+1.1151076181248163
+15090907680.0
+
+0_11__12_15::2_1__2_1
+[[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], [12, 13, 14, 15]]
+[StageShape(type='single', stage_shape=(2, 1), layer_shape=None), StageShape(type='single', stage_shape=(2, 1), layer_shape=None)]
+1.4375482600594671
+15090907680.0
+
+0_12__13_15::2_1__2_1
+[[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], [13, 14, 15]]
+[StageShape(type='single', stage_shape=(2, 1), layer_shape=None), StageShape(type='single', stage_shape=(2, 1), layer_shape=None)]
+1.759988920419672
+15090907680.0
+
+[TMP] Existed tuning database in `/home/cyxue/Projects/crius/Crius/runtime/jaxpr/tuning_database/tuning_database.pkl`, updating/rewriting it...
+{'plan_set': {'wide_resnet__1B::256__16::1::a40__2__2': ['0_15::4_1'], 'wide_resnet__1B::256__16::2::a40__2__2': ['0_7__8_15::1_2__1_2', '0_7__8_15::1_2__2_1', '0_7__8_15::2_1__1_2', '0_7__8_15::2_1__2_1', '0_8__9_15::2_1__2_1', '0_9__10_15::2_1__2_1', '0_10__11_15::2_1__2_1', '0_11__12_15::2_1__2_1', '0_12__13_15::2_1__2_1'], 'wide_resnet__1B::256__16::3::a40__2__2': ['0_5__6_9__10_15::2_1__1_1__1_1', '0_6__7_9__10_15::2_1__1_1__1_1', '0_5__6_10__11_15::2_1__1_1__1_1', '0_6__7_10__11_15::2_1__1_1__1_1', '0_3__4_11__12_15::1_1__1_2__1_1', '0_3__4_11__12_15::1_1__2_1__1_1', '0_5__6_11__12_15::2_1__1_1__1_1', '0_6__7_11__12_15::2_1__1_1__1_1', '0_7__8_11__12_15::2_1__1_1__1_1', '0_7__8_12__13_15::2_1__1_1__1_1'], 'wide_resnet__1B::256__16::4::a40__2__2': ['0_4__5_8__9_10__11_15::1_1__1_1__1_1__1_1', '0_3__4_7__8_11__12_15::1_1__1_1__1_1__1_1', '0_4__5_7__8_11__12_15::1_1__1_1__1_1__1_1', '0_4__5_8__9_11__12_15::1_1__1_1__1_1__1_1', '0_5__6_8__9_11__12_15::1_1__1_1__1_1__1_1', '0_3__4_7__8_12__13_15::1_1__1_1__1_1__1_1', '0_3__4_8__9_12__13_15::1_1__1_1__1_1__1_1', '0_4__5_8__9_12__13_15::1_1__1_1__1_1__1_1', '0_5__6_8__9_12__13_15::1_1__1_1__1_1__1_1', '0_4__5_9__10_12__13_15::1_1__1_1__1_1__1_1', '0_5__6_9__10_12__13_15::1_1__1_1__1_1__1_1', '0_3__4_8__9_13__14_15::1_1__1_1__1_1__1_1', '0_4__5_8__9_13__14_15::1_1__1_1__1_1__1_1', '0_5__6_8__9_13__14_15::1_1__1_1__1_1__1_1', '0_4__5_9__10_13__14_15::1_1__1_1__1_1__1_1', '0_5__6_9__10_13__14_15::1_1__1_1__1_1__1_1', '0_4__5_10__11_13__14_15::1_1__1_1__1_1__1_1', '0_5__6_10__11_13__14_15::1_1__1_1__1_1__1_1', '0_7__8_10__11_13__14_15::1_1__1_1__1_1__1_1', '0_4__5_8__9_14__15_15::1_1__1_1__1_1__1_1', '0_5__6_8__9_14__15_15::1_1__1_1__1_1__1_1', '0_4__5_9__10_14__15_15::1_1__1_1__1_1__1_1', '0_5__6_9__10_14__15_15::1_1__1_1__1_1__1_1', '0_4__5_10__11_14__15_15::1_1__1_1__1_1__1_1', '0_5__6_10__11_14__15_15::1_1__1_1__1_1__1_1', '0_6__7_10__11_14__15_15::1_1__1_1__1_1__1_1', '0_4__5_11__12_14__15_15::1_1__1_1__1_1__1_1', '0_5__6_11__12_14__15_15::1_1__1_1__1_1__1_1', '0_8__9_11__12_14__15_15::1_1__1_1__1_1__1_1', '0_7__8_12__13_14__15_15::1_1__1_1__1_1__1_1', '0_10__11_13__14_14__15_15::1_1__1_1__1_1__1_1', '0_12__13_13__14_14__15_15::1_1__1_1__1_1__1_1'], 'wide_resnet__500M::256__16::2::a40__2__2': ['0_7__8_15::2_1__2_1', '0_8__9_15::2_1__2_1'], 'wide_resnet__500M::512__16::2::a40__2__2': ['0_7__8_15::2_1__2_1', '0_8__9_15::2_1__2_1']}, 'selected_cell_num_stages': {'wide_resnet__1B::256__16::a40__2__2': 2}}
+[TMP] Storing tuning database to '/home/cyxue/Projects/crius/Crius/runtime/jaxpr/tuning_database/tuning_database.pkl'...
+
+[I] (Parallel plan idx: 0) Sharding stages...
+[I] Sharding stages takes 8.522297382354736 s.
+[I] (Parallel plan idx: 0) SPMD partitioning and compiling (kernel fusing) HLO stages...
+[I] SPMD partitioning and pre-compiling HLO modules concurrently takes 16.282291412353516 s.
+
+[I] All parallel plans in the cell have been sharded and compiled.
+[TMP] Writing only-sharded HLO text to '/home/cyxue/Projects/crius/Crius/runtime/jaxpr/tmp/wide_resnet_1B_256_sharded_stages.pkl'...
+[TMP] Writing optimized HLO text to '/home/cyxue/Projects/crius/Crius/runtime/jaxpr/tmp/wide_resnet_1B_256_optimized_stages.pkl'...
+[TMP] Writing inter-stages communicated vars to '/home/cyxue/Projects/crius/Crius/runtime/jaxpr/tmp/wide_resnet_1B_256_inter_stages_comm_vars.pkl'
+
+[I] Parallel plan idx: 0 | Parallelism: [(1, 2), (2, 1)]
+
+[I] (Parallel plan idx: 0) Parsing HLO texts and profiling XLA operators...
+[I] Pipeline partition mode: auto | Preset physical mesh shapes: [(1, 2), (1, 2)]
+[TMP] Loading offline profiled communication data: `1_a40_1_n_2_d_ib.pkl`...
+[TMP] Loading offline profiled communication data: `2_a40_2_n_1_d_ib.pkl`...
+[I] Optimized module 0 for stage 0, comm time has been statically analyzed.
+[I] Optimized module 1 for stage 1, comm time has been statically analyzed.
+[WARN] Communication size of 'all-reduce' excceeds the maximum profiled size. Linear scaling is applied.
+       - Communication size of the operator: 403774464 | Estimated comm time: 0.13670614367510592
+       - Max profiled communication size: 267386880 | Comm time: 0.08228549003601074
+[I] Optimized module 2 for stage 1, comm time has been statically analyzed.
+[I] Optimized module 3 for stage 0, comm time has been statically analyzed.
+[I] Optimized module 4 for stage 0, comm time has been statically analyzed.
+[I] Optimized module 5 for stage 1, comm time has been statically analyzed.
+[TMP] Memory footprint of the stage 0 is 7.764193180948496 GB, while the available memory of the XLA device is 35.33237304631621 GB.
+[TMP] Memory footprint of the stage 1 is 8.31843576207757 GB, while the available memory of the XLA device is 35.33237304631621 GB.
+[I] Only-sharded module 0 for stage 0, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.16801186800000004 s.
+    - Iteration 1/5: Kernel execution time: 0.16947082500000002 s.
+    - Iteration 2/5: Kernel execution time: 0.16834275 s.
+    - Iteration 3/5: Kernel execution time: 0.168470304 s.
+    - Iteration 4/5: Kernel execution time: 0.16856842099999997 s.
+[I] Only-sharded module 1 for stage 1, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.078510106 s.
+    - Iteration 1/5: Kernel execution time: 0.07861711300000003 s.
+    - Iteration 2/5: Kernel execution time: 0.07852504800000001 s.
+    - Iteration 3/5: Kernel execution time: 0.07860373400000002 s.
+    - Iteration 4/5: Kernel execution time: 0.078533595 s.
+[I] Only-sharded module 2 for stage 1, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.23217261199999997 s.
+    - Iteration 1/5: Kernel execution time: 0.232129955 s.
+    - Iteration 2/5: Kernel execution time: 0.23241770100000003 s.
+    - Iteration 3/5: Kernel execution time: 0.232251361 s.
+    - Iteration 4/5: Kernel execution time: 0.23226451600000012 s.
+[I] Only-sharded module 3 for stage 0, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.5944170490000006 s.
+    - Iteration 1/5: Kernel execution time: 0.594832796999999 s.
+    - Iteration 2/5: Kernel execution time: 0.5958776660000006 s.
+    - Iteration 3/5: Kernel execution time: 0.5956338680000007 s.
+    - Iteration 4/5: Kernel execution time: 0.5956034589999994 s.
+[I] Only-sharded module 4 for stage 0, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.011707312000000001 s.
+    - Iteration 1/5: Kernel execution time: 0.011682994000000002 s.
+    - Iteration 2/5: Kernel execution time: 0.011695407000000001 s.
+    - Iteration 3/5: Kernel execution time: 0.011706736999999998 s.
+    - Iteration 4/5: Kernel execution time: 0.011701042000000002 s.
+[I] Only-sharded module 5 for stage 1, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.011144011 s.
+    - Iteration 1/5: Kernel execution time: 0.011136366000000002 s.
+    - Iteration 2/5: Kernel execution time: 0.011140653 s.
+    - Iteration 3/5: Kernel execution time: 0.011117841 s.
+    - Iteration 4/5: Kernel execution time: 0.011158062 s.
+[I] Constructing single-device HLO modules concurrently takes 0.06556510925292969 s.
+[I] Compile single-device HLO modules concurrently takes 2.7246029376983643 s.
+[I] Profile all compiled sequentially on one GPU takes 15.070847034454346 s.
+[I] Estimated e2e pipeline iteration time is: 18.621246548489466 s.
+    - Kernel computation time is: -1.0 s.
+    - Communication time is: -1.0 s.
+    - Cross-stages communication time is: -1.0 s.

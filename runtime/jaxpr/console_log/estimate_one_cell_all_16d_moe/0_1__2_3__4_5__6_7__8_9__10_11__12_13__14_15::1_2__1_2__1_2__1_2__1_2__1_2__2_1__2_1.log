@@ -1,0 +1,593 @@
+
+[I] Loading Crius kernel-level profiler...
+[TMP] Profiling results not found in `None`, creating it...
+
+[I] Loading model and generating sharded HLO module...
+[I] Initializing XLA devices takes 0.3853580951690674 s.
+[I] Loading flax model....
+[I] Model 'moe' loads sucessfully. Model Info: 
+
+FlaxMoEForLMModule(
+    # attributes
+    config = <model.moe_model.MoEConfig object at 0x7f49147fca60>
+    dtype = float16
+    bias_init = zeros
+) 
+
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Constructing general train step func...
+[I] General train step func construction is completed.
+[I] Model has been loaded, begin Jaxpr transformation...
+
+
+Layer 0:
+Eqn 5 in layer 0: Primitive: dot_general | FLOPs (GB): 1000.0 | Memory access (GB): 1.06884765625 | Attainable performance: 37400 | Computation load: 0.026737967914438502
+Eqn 10 in layer 0: Primitive: dot_general | FLOPs (GB): 1000.0 | Memory access (GB): 1.06884765625 | Attainable performance: 37400 | Computation load: 0.026737967914438502
+Eqn 36 in layer 0: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.130859375 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 56 in layer 0: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 68 in layer 0: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 71 in layer 0: Primitive: dot_general | FLOPs (GB): 1000.0 | Memory access (GB): 1.06884765625 | Attainable performance: 37400 | Computation load: 0.026737967914438502
+Eqn 100 in layer 0: Primitive: remat2 | FLOPs (GB): 6448.0 | Memory access (GB): 10.178710952401161 | Attainable performance: 37400 | Computation load: 0.17240641711229945
+Layer computation load: 0.25689839572192513
+
+Layer 1:
+Eqn 2 in layer 1: Primitive: dot_general | FLOPs (GB): 0.5 | Memory access (GB): 0.0317688062787056 | Attainable performance: 10954.141523197928 | Computation load: 4.5644836607335626e-05
+Eqn 69 in layer 1: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 82 in layer 1: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 86 in layer 1: Primitive: dot_general | FLOPs (GB): 128.0 | Memory access (GB): 0.21875 | Attainable performance: 37400 | Computation load: 0.003422459893048128
+Eqn 88 in layer 1: Primitive: dot_general | FLOPs (GB): 512.0 | Memory access (GB): 0.8125 | Attainable performance: 37400 | Computation load: 0.013689839572192513
+Eqn 89 in layer 1: Primitive: custom_jvp_call | FLOPs (GB): 0.25 | Memory access (GB): 2.0 | Attainable performance: 87.0 | Computation load: 0.0028735632183908046
+Eqn 90 in layer 1: Primitive: dot_general | FLOPs (GB): 512.0 | Memory access (GB): 0.8125 | Attainable performance: 37400 | Computation load: 0.013689839572192513
+Eqn 92 in layer 1: Primitive: dot_general | FLOPs (GB): 128.0 | Memory access (GB): 0.21875 | Attainable performance: 37400 | Computation load: 0.003422459893048128
+Eqn 118 in layer 1: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.130859375 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 138 in layer 1: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 150 in layer 1: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 153 in layer 1: Primitive: dot_general | FLOPs (GB): 1000.0 | Memory access (GB): 1.06884765625 | Attainable performance: 37400 | Computation load: 0.026737967914438502
+Eqn 180 in layer 1: Primitive: dot_general | FLOPs (GB): 256.0 | Memory access (GB): 0.296875 | Attainable performance: 37400 | Computation load: 0.006844919786096256
+Eqn 189 in layer 1: Primitive: remat2 | FLOPs (GB): 8642.2529296875 | Memory access (GB): 17.17562873661518 | Attainable performance: 37400 | Computation load: 0.23107628154244653
+Layer computation load: 0.3064640993167536
+
+Layer 2:
+Eqn 2 in layer 2: Primitive: dot_general | FLOPs (GB): 1000.0 | Memory access (GB): 1.06884765625 | Attainable performance: 37400 | Computation load: 0.026737967914438502
+Eqn 29 in layer 2: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.130859375 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 49 in layer 2: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 61 in layer 2: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 64 in layer 2: Primitive: dot_general | FLOPs (GB): 1000.0 | Memory access (GB): 1.06884765625 | Attainable performance: 37400 | Computation load: 0.026737967914438502
+Eqn 92 in layer 2: Primitive: dot_general | FLOPs (GB): 0.5 | Memory access (GB): 0.0317688062787056 | Attainable performance: 10954.141523197928 | Computation load: 4.5644836607335626e-05
+Eqn 159 in layer 2: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 172 in layer 2: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 176 in layer 2: Primitive: dot_general | FLOPs (GB): 128.0 | Memory access (GB): 0.21875 | Attainable performance: 37400 | Computation load: 0.003422459893048128
+Eqn 178 in layer 2: Primitive: dot_general | FLOPs (GB): 512.0 | Memory access (GB): 0.8125 | Attainable performance: 37400 | Computation load: 0.013689839572192513
+Eqn 179 in layer 2: Primitive: custom_jvp_call | FLOPs (GB): 0.25 | Memory access (GB): 2.0 | Attainable performance: 87.0 | Computation load: 0.0028735632183908046
+Eqn 180 in layer 2: Primitive: dot_general | FLOPs (GB): 512.0 | Memory access (GB): 0.8125 | Attainable performance: 37400 | Computation load: 0.013689839572192513
+Eqn 182 in layer 2: Primitive: dot_general | FLOPs (GB): 128.0 | Memory access (GB): 0.21875 | Attainable performance: 37400 | Computation load: 0.003422459893048128
+Eqn 187 in layer 2: Primitive: remat2 | FLOPs (GB): 8514.2529296875 | Memory access (GB): 16.95687873661518 | Attainable performance: 37400 | Computation load: 0.2276538216493984
+Layer computation load: 0.32293468755204774
+
+Layer 3:
+Eqn 24 in layer 3: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.130859375 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 44 in layer 3: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 56 in layer 3: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 59 in layer 3: Primitive: dot_general | FLOPs (GB): 1000.0 | Memory access (GB): 1.06884765625 | Attainable performance: 37400 | Computation load: 0.026737967914438502
+Eqn 86 in layer 3: Primitive: dot_general | FLOPs (GB): 256.0 | Memory access (GB): 0.296875 | Attainable performance: 37400 | Computation load: 0.006844919786096256
+Eqn 94 in layer 3: Primitive: dot_general | FLOPs (GB): 1000.0 | Memory access (GB): 1.06884765625 | Attainable performance: 37400 | Computation load: 0.026737967914438502
+Eqn 121 in layer 3: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.130859375 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 141 in layer 3: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 153 in layer 3: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 156 in layer 3: Primitive: dot_general | FLOPs (GB): 1000.0 | Memory access (GB): 1.06884765625 | Attainable performance: 37400 | Computation load: 0.026737967914438502
+Eqn 162 in layer 3: Primitive: remat2 | FLOPs (GB): 8856.0 | Memory access (GB): 16.07177735865116 | Attainable performance: 37400 | Computation load: 0.23679144385026737
+Layer computation load: 0.33240641711229946
+
+Layer 4:
+Eqn 25 in layer 4: Primitive: dot_general | FLOPs (GB): 0.5 | Memory access (GB): 0.0317688062787056 | Attainable performance: 10954.141523197928 | Computation load: 4.5644836607335626e-05
+Eqn 92 in layer 4: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 105 in layer 4: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 109 in layer 4: Primitive: dot_general | FLOPs (GB): 128.0 | Memory access (GB): 0.21875 | Attainable performance: 37400 | Computation load: 0.003422459893048128
+Eqn 111 in layer 4: Primitive: dot_general | FLOPs (GB): 512.0 | Memory access (GB): 0.8125 | Attainable performance: 37400 | Computation load: 0.013689839572192513
+Eqn 112 in layer 4: Primitive: custom_jvp_call | FLOPs (GB): 0.25 | Memory access (GB): 2.0 | Attainable performance: 87.0 | Computation load: 0.0028735632183908046
+Eqn 113 in layer 4: Primitive: dot_general | FLOPs (GB): 512.0 | Memory access (GB): 0.8125 | Attainable performance: 37400 | Computation load: 0.013689839572192513
+Eqn 115 in layer 4: Primitive: dot_general | FLOPs (GB): 128.0 | Memory access (GB): 0.21875 | Attainable performance: 37400 | Computation load: 0.003422459893048128
+Eqn 143 in layer 4: Primitive: remat2 | FLOPs (GB): 3714.2529296875 | Memory access (GB): 8.6053162291646 | Attainable performance: 37400 | Computation load: 0.09931157566009358
+Layer computation load: 0.13683843086755576
+
+Layer 5:
+Eqn 1 in layer 5: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.130859375 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 21 in layer 5: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 33 in layer 5: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 36 in layer 5: Primitive: dot_general | FLOPs (GB): 1000.0 | Memory access (GB): 1.06884765625 | Attainable performance: 37400 | Computation load: 0.026737967914438502
+Eqn 63 in layer 5: Primitive: dot_general | FLOPs (GB): 256.0 | Memory access (GB): 0.296875 | Attainable performance: 37400 | Computation load: 0.006844919786096256
+Eqn 71 in layer 5: Primitive: dot_general | FLOPs (GB): 1000.0 | Memory access (GB): 1.06884765625 | Attainable performance: 37400 | Computation load: 0.026737967914438502
+Eqn 98 in layer 5: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.130859375 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 118 in layer 5: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 130 in layer 5: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 133 in layer 5: Primitive: dot_general | FLOPs (GB): 1000.0 | Memory access (GB): 1.06884765625 | Attainable performance: 37400 | Computation load: 0.026737967914438502
+Eqn 139 in layer 5: Primitive: remat2 | FLOPs (GB): 8856.0 | Memory access (GB): 16.07177735865116 | Attainable performance: 37400 | Computation load: 0.23679144385026737
+Layer computation load: 0.33240641711229946
+
+Layer 6:
+Eqn 25 in layer 6: Primitive: dot_general | FLOPs (GB): 0.5 | Memory access (GB): 0.0317688062787056 | Attainable performance: 10954.141523197928 | Computation load: 4.5644836607335626e-05
+Eqn 92 in layer 6: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 105 in layer 6: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 109 in layer 6: Primitive: dot_general | FLOPs (GB): 128.0 | Memory access (GB): 0.21875 | Attainable performance: 37400 | Computation load: 0.003422459893048128
+Eqn 111 in layer 6: Primitive: dot_general | FLOPs (GB): 512.0 | Memory access (GB): 0.8125 | Attainable performance: 37400 | Computation load: 0.013689839572192513
+Eqn 112 in layer 6: Primitive: custom_jvp_call | FLOPs (GB): 0.25 | Memory access (GB): 2.0 | Attainable performance: 87.0 | Computation load: 0.0028735632183908046
+Eqn 113 in layer 6: Primitive: dot_general | FLOPs (GB): 512.0 | Memory access (GB): 0.8125 | Attainable performance: 37400 | Computation load: 0.013689839572192513
+Eqn 115 in layer 6: Primitive: dot_general | FLOPs (GB): 128.0 | Memory access (GB): 0.21875 | Attainable performance: 37400 | Computation load: 0.003422459893048128
+Eqn 143 in layer 6: Primitive: remat2 | FLOPs (GB): 3714.2529296875 | Memory access (GB): 8.6053162291646 | Attainable performance: 37400 | Computation load: 0.09931157566009358
+Layer computation load: 0.13683843086755576
+
+Layer 7:
+Eqn 1 in layer 7: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.130859375 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 21 in layer 7: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 33 in layer 7: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 36 in layer 7: Primitive: dot_general | FLOPs (GB): 1000.0 | Memory access (GB): 1.06884765625 | Attainable performance: 37400 | Computation load: 0.026737967914438502
+Eqn 63 in layer 7: Primitive: dot_general | FLOPs (GB): 256.0 | Memory access (GB): 0.296875 | Attainable performance: 37400 | Computation load: 0.006844919786096256
+Eqn 71 in layer 7: Primitive: dot_general | FLOPs (GB): 1000.0 | Memory access (GB): 1.06884765625 | Attainable performance: 37400 | Computation load: 0.026737967914438502
+Eqn 98 in layer 7: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.130859375 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 118 in layer 7: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 130 in layer 7: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 133 in layer 7: Primitive: dot_general | FLOPs (GB): 1000.0 | Memory access (GB): 1.06884765625 | Attainable performance: 37400 | Computation load: 0.026737967914438502
+Eqn 139 in layer 7: Primitive: remat2 | FLOPs (GB): 8856.0 | Memory access (GB): 16.07177735865116 | Attainable performance: 37400 | Computation load: 0.23679144385026737
+Layer computation load: 0.33240641711229946
+
+Layer 8:
+Eqn 25 in layer 8: Primitive: dot_general | FLOPs (GB): 0.5 | Memory access (GB): 0.0317688062787056 | Attainable performance: 10954.141523197928 | Computation load: 4.5644836607335626e-05
+Eqn 92 in layer 8: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 105 in layer 8: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 109 in layer 8: Primitive: dot_general | FLOPs (GB): 128.0 | Memory access (GB): 0.21875 | Attainable performance: 37400 | Computation load: 0.003422459893048128
+Eqn 111 in layer 8: Primitive: dot_general | FLOPs (GB): 512.0 | Memory access (GB): 0.8125 | Attainable performance: 37400 | Computation load: 0.013689839572192513
+Eqn 112 in layer 8: Primitive: custom_jvp_call | FLOPs (GB): 0.25 | Memory access (GB): 2.0 | Attainable performance: 87.0 | Computation load: 0.0028735632183908046
+Eqn 113 in layer 8: Primitive: dot_general | FLOPs (GB): 512.0 | Memory access (GB): 0.8125 | Attainable performance: 37400 | Computation load: 0.013689839572192513
+Eqn 115 in layer 8: Primitive: dot_general | FLOPs (GB): 128.0 | Memory access (GB): 0.21875 | Attainable performance: 37400 | Computation load: 0.003422459893048128
+Eqn 143 in layer 8: Primitive: remat2 | FLOPs (GB): 3714.2529296875 | Memory access (GB): 8.6053162291646 | Attainable performance: 37400 | Computation load: 0.09931157566009358
+Layer computation load: 0.13683843086755576
+
+Layer 9:
+Eqn 1 in layer 9: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.130859375 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 21 in layer 9: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 33 in layer 9: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 36 in layer 9: Primitive: dot_general | FLOPs (GB): 1000.0 | Memory access (GB): 1.06884765625 | Attainable performance: 37400 | Computation load: 0.026737967914438502
+Eqn 63 in layer 9: Primitive: dot_general | FLOPs (GB): 256.0 | Memory access (GB): 0.296875 | Attainable performance: 37400 | Computation load: 0.006844919786096256
+Eqn 71 in layer 9: Primitive: dot_general | FLOPs (GB): 1000.0 | Memory access (GB): 1.06884765625 | Attainable performance: 37400 | Computation load: 0.026737967914438502
+Eqn 98 in layer 9: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.130859375 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 118 in layer 9: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 130 in layer 9: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 133 in layer 9: Primitive: dot_general | FLOPs (GB): 1000.0 | Memory access (GB): 1.06884765625 | Attainable performance: 37400 | Computation load: 0.026737967914438502
+Eqn 139 in layer 9: Primitive: remat2 | FLOPs (GB): 8856.0 | Memory access (GB): 16.07177735865116 | Attainable performance: 37400 | Computation load: 0.23679144385026737
+Layer computation load: 0.33240641711229946
+
+Layer 10:
+Eqn 25 in layer 10: Primitive: dot_general | FLOPs (GB): 0.5 | Memory access (GB): 0.0317688062787056 | Attainable performance: 10954.141523197928 | Computation load: 4.5644836607335626e-05
+Eqn 92 in layer 10: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 105 in layer 10: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 109 in layer 10: Primitive: dot_general | FLOPs (GB): 128.0 | Memory access (GB): 0.21875 | Attainable performance: 37400 | Computation load: 0.003422459893048128
+Eqn 111 in layer 10: Primitive: dot_general | FLOPs (GB): 512.0 | Memory access (GB): 0.8125 | Attainable performance: 37400 | Computation load: 0.013689839572192513
+Eqn 112 in layer 10: Primitive: custom_jvp_call | FLOPs (GB): 0.25 | Memory access (GB): 2.0 | Attainable performance: 87.0 | Computation load: 0.0028735632183908046
+Eqn 113 in layer 10: Primitive: dot_general | FLOPs (GB): 512.0 | Memory access (GB): 0.8125 | Attainable performance: 37400 | Computation load: 0.013689839572192513
+Eqn 115 in layer 10: Primitive: dot_general | FLOPs (GB): 128.0 | Memory access (GB): 0.21875 | Attainable performance: 37400 | Computation load: 0.003422459893048128
+Eqn 143 in layer 10: Primitive: remat2 | FLOPs (GB): 3714.2529296875 | Memory access (GB): 8.6053162291646 | Attainable performance: 37400 | Computation load: 0.09931157566009358
+Layer computation load: 0.13683843086755576
+
+Layer 11:
+Eqn 1 in layer 11: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.130859375 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 21 in layer 11: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 33 in layer 11: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 36 in layer 11: Primitive: dot_general | FLOPs (GB): 1000.0 | Memory access (GB): 1.06884765625 | Attainable performance: 37400 | Computation load: 0.026737967914438502
+Eqn 63 in layer 11: Primitive: dot_general | FLOPs (GB): 256.0 | Memory access (GB): 0.296875 | Attainable performance: 37400 | Computation load: 0.006844919786096256
+Eqn 71 in layer 11: Primitive: dot_general | FLOPs (GB): 1000.0 | Memory access (GB): 1.06884765625 | Attainable performance: 37400 | Computation load: 0.026737967914438502
+Eqn 98 in layer 11: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.130859375 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 118 in layer 11: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 130 in layer 11: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 133 in layer 11: Primitive: dot_general | FLOPs (GB): 1000.0 | Memory access (GB): 1.06884765625 | Attainable performance: 37400 | Computation load: 0.026737967914438502
+Eqn 139 in layer 11: Primitive: remat2 | FLOPs (GB): 8856.0 | Memory access (GB): 16.07177735865116 | Attainable performance: 37400 | Computation load: 0.23679144385026737
+Layer computation load: 0.33240641711229946
+
+Layer 12:
+Eqn 25 in layer 12: Primitive: dot_general | FLOPs (GB): 0.5 | Memory access (GB): 0.0317688062787056 | Attainable performance: 10954.141523197928 | Computation load: 4.5644836607335626e-05
+Eqn 92 in layer 12: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 105 in layer 12: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 109 in layer 12: Primitive: dot_general | FLOPs (GB): 128.0 | Memory access (GB): 0.21875 | Attainable performance: 37400 | Computation load: 0.003422459893048128
+Eqn 111 in layer 12: Primitive: dot_general | FLOPs (GB): 512.0 | Memory access (GB): 0.8125 | Attainable performance: 37400 | Computation load: 0.013689839572192513
+Eqn 112 in layer 12: Primitive: custom_jvp_call | FLOPs (GB): 0.25 | Memory access (GB): 2.0 | Attainable performance: 87.0 | Computation load: 0.0028735632183908046
+Eqn 113 in layer 12: Primitive: dot_general | FLOPs (GB): 512.0 | Memory access (GB): 0.8125 | Attainable performance: 37400 | Computation load: 0.013689839572192513
+Eqn 115 in layer 12: Primitive: dot_general | FLOPs (GB): 128.0 | Memory access (GB): 0.21875 | Attainable performance: 37400 | Computation load: 0.003422459893048128
+Eqn 143 in layer 12: Primitive: remat2 | FLOPs (GB): 3714.2529296875 | Memory access (GB): 8.6053162291646 | Attainable performance: 37400 | Computation load: 0.09931157566009358
+Layer computation load: 0.13683843086755576
+
+Layer 13:
+Eqn 1 in layer 13: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.130859375 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 21 in layer 13: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 33 in layer 13: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 36 in layer 13: Primitive: dot_general | FLOPs (GB): 1000.0 | Memory access (GB): 1.06884765625 | Attainable performance: 37400 | Computation load: 0.026737967914438502
+Eqn 63 in layer 13: Primitive: dot_general | FLOPs (GB): 256.0 | Memory access (GB): 0.296875 | Attainable performance: 37400 | Computation load: 0.006844919786096256
+Eqn 71 in layer 13: Primitive: dot_general | FLOPs (GB): 1000.0 | Memory access (GB): 1.06884765625 | Attainable performance: 37400 | Computation load: 0.026737967914438502
+Eqn 98 in layer 13: Primitive: dot_general | FLOPs (GB): 96.0 | Memory access (GB): 0.130859375 | Attainable performance: 37400 | Computation load: 0.0025668449197860962
+Eqn 118 in layer 13: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 130 in layer 13: Primitive: dot_general | FLOPs (GB): 32.0 | Memory access (GB): 0.5625 | Attainable performance: 37400 | Computation load: 0.000855614973262032
+Eqn 133 in layer 13: Primitive: dot_general | FLOPs (GB): 1000.0 | Memory access (GB): 1.06884765625 | Attainable performance: 37400 | Computation load: 0.026737967914438502
+Eqn 139 in layer 13: Primitive: remat2 | FLOPs (GB): 8856.0 | Memory access (GB): 16.07177735865116 | Attainable performance: 37400 | Computation load: 0.23679144385026737
+Layer computation load: 0.33240641711229946
+
+Layer 14:
+Eqn 25 in layer 14: Primitive: dot_general | FLOPs (GB): 0.5 | Memory access (GB): 0.0317688062787056 | Attainable performance: 10954.141523197928 | Computation load: 4.5644836607335626e-05
+Eqn 92 in layer 14: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 105 in layer 14: Primitive: dot_general | FLOPs (GB): 0.125 | Memory access (GB): 0.13330078125 | Attainable performance: 652.6593406593406 | Computation load: 0.00019152411099137933
+Eqn 109 in layer 14: Primitive: dot_general | FLOPs (GB): 128.0 | Memory access (GB): 0.21875 | Attainable performance: 37400 | Computation load: 0.003422459893048128
+Eqn 111 in layer 14: Primitive: dot_general | FLOPs (GB): 512.0 | Memory access (GB): 0.8125 | Attainable performance: 37400 | Computation load: 0.013689839572192513
+Eqn 112 in layer 14: Primitive: custom_jvp_call | FLOPs (GB): 0.25 | Memory access (GB): 2.0 | Attainable performance: 87.0 | Computation load: 0.0028735632183908046
+Eqn 113 in layer 14: Primitive: dot_general | FLOPs (GB): 512.0 | Memory access (GB): 0.8125 | Attainable performance: 37400 | Computation load: 0.013689839572192513
+Eqn 115 in layer 14: Primitive: dot_general | FLOPs (GB): 128.0 | Memory access (GB): 0.21875 | Attainable performance: 37400 | Computation load: 0.003422459893048128
+Eqn 143 in layer 14: Primitive: remat2 | FLOPs (GB): 3714.2529296875 | Memory access (GB): 8.6053162291646 | Attainable performance: 37400 | Computation load: 0.09931157566009358
+Layer computation load: 0.13683843086755576
+
+Layer 15:
+Eqn 3 in layer 15: Primitive: remat2 | FLOPs (GB): 9440.0 | Memory access (GB): 13.43945313245058 | Attainable performance: 37400 | Computation load: 0.25240641711229944
+Layer computation load: 0.25240641711229944
+Layer memory access: [14.641113296151161, 20.16412364691496, 20.71734630316496, 22.08691407740116, 8.972229108214378, 22.08691407740116, 8.972229108214378, 22.08691407740116, 8.972229108214378, 22.08691407740116, 8.972229108214378, 22.08691407740116, 8.972229108214378, 22.08691407740116, 8.972229108214378, 13.43945313245058]
+
+Layer GPU fractions:
+[1.039, 1.24, 1.307, 1.345, 0.554, 1.345, 0.554, 1.345, 0.554, 1.345, 0.554, 1.345, 0.554, 1.345, 0.554, 1.021]
+
+Layer GPU fractions:
+[1.039, 1.24, 1.307, 1.345, 0.554, 1.345, 0.554, 1.345, 0.554, 1.345, 0.554, 1.345, 0.554, 1.345, 0.554, 1.021]
+
+[[[0, 1], [2, 3], [4, 5], [6, 7], [8, 9], [10, 11], [12, 13], [14, 15]]]
+
+[[[0, 1], [2, 3], [4, 5], [6, 7], [8, 9], [10, 11], [12, 13], [14, 15]]]
+
+[[0, 1], [2, 3], [4, 5], [6, 7], [8, 9], [10, 11], [12, 13], [14, 15]]
+2102714368.0
+0.8570735090994238
+([2, 2, 2, 2, 2, 2, 2, 2], 0.8570735090994238)
+
+{'0_1__2_3__4_5__6_7__8_9__10_11__12_13__14_15': {0: {'1_2': (2.279, 2, 0.5633711768063097, 1359314944.0, 0, 0), '2_1': (2.279, 2, 0.5633711768063097, 0, 290573312.0, 0)}, 1: {'1_2': (2.652, 2, 0.655349786431978, 1711636480.0, 0, 0), '2_1': (2.652, 2, 0.655349786431978, 0, 336694272.0, 0)}, 2: {'1_2': (1.899, 2, 0.4692535297474861, 1342537728.0, 0, 0), '2_1': (1.899, 2, 0.4692535297474861, 0, 259525632.0, 0)}, 3: {'1_2': (1.899, 2, 0.4692535297474861, 1342537728.0, 0, 0), '2_1': (1.899, 2, 0.4692535297474861, 0, 259525632.0, 0)}, 4: {'1_2': (1.899, 2, 0.4692535297474861, 1342537728.0, 0, 0), '2_1': (1.899, 2, 0.4692535297474861, 0, 259525632.0, 0)}, 5: {'1_2': (1.899, 2, 0.4692535297474861, 1342537728.0, 0, 0), '2_1': (1.899, 2, 0.4692535297474861, 0, 259525632.0, 0)}, 6: {'1_2': (1.899, 2, 0.4692535297474861, 1342537728.0, 0, 0), '2_1': (1.899, 2, 0.4692535297474861, 0, 259525632.0, 0)}, 7: {'1_2': (1.575, 2, 0.38925352974748606, 486899712.0, 0, 0), '2_1': (1.575, 2, 0.38925352974748606, 0, 177818624.0, 0)}}}
+[I] Pipeline partition mode: auto | Layer-to-stage partition: [[0, 1], [2, 3], [4, 5], [6, 7], [8, 9], [10, 11], [12, 13], [14, 15]]
+[I] Pipeline partition mode: auto | Cell-generated physical mesh shapes: [(1, 2), (1, 2), (1, 2), (1, 2), (1, 2), (1, 2), (1, 2), (1, 2)]
+[I] Loading model and transform to Jaxpr stages takes 71.71310329437256 s.
+[I] The GPU sharding of pipeline stages is: [2, 2, 2, 2, 2, 2, 2, 2]
+[I] Pipeline partition mode: auto | Parallel enum mode: auto | Parallel plans: [[StageShape(type='single', stage_shape=(1, 2), layer_shape=None), StageShape(type='single', stage_shape=(1, 2), layer_shape=None), StageShape(type='single', stage_shape=(1, 2), layer_shape=None), StageShape(type='single', stage_shape=(1, 2), layer_shape=None), StageShape(type='single', stage_shape=(1, 2), layer_shape=None), StageShape(type='single', stage_shape=(1, 2), layer_shape=None), StageShape(type='single', stage_shape=(2, 1), layer_shape=None), StageShape(type='single', stage_shape=(2, 1), layer_shape=None)]]
+
+[I] (Parallel plan idx: 0) Sharding stages...
+[I] Sharding stages takes 23.397653102874756 s.
+[I] (Parallel plan idx: 0) SPMD partitioning and compiling (kernel fusing) HLO stages...
+[I] SPMD partitioning and pre-compiling HLO modules concurrently takes 6.537779331207275 s.
+
+[I] All parallel plans in the cell have been sharded and compiled.
+[TMP] Writing only-sharded HLO text to '/home/cyxue/Projects/crius/Crius/runtime/jaxpr/tmp/moe_2.4B_256_sharded_stages.pkl'...
+[TMP] Writing optimized HLO text to '/home/cyxue/Projects/crius/Crius/runtime/jaxpr/tmp/moe_2.4B_256_optimized_stages.pkl'...
+[TMP] Writing inter-stages communicated vars to '/home/cyxue/Projects/crius/Crius/runtime/jaxpr/tmp/moe_2.4B_256_inter_stages_comm_vars.pkl'
+
+[I] Parallel plan idx: 0 | Parallelism: [(1, 2), (1, 2), (1, 2), (1, 2), (1, 2), (1, 2), (2, 1), (2, 1)]
+
+[I] (Parallel plan idx: 0) Parsing HLO texts and profiling XLA operators...
+[I] Pipeline partition mode: auto | Preset physical mesh shapes: [(1, 2), (1, 2), (1, 2), (1, 2), (1, 2), (1, 2), (1, 2), (1, 2)]
+[TMP] Loading offline profiled communication data: `1_a40_1_n_2_d_ib.pkl`...
+[TMP] Loading offline profiled communication data: `2_a40_2_n_1_d_ib.pkl`...
+\Time of module 0 (stage 0):
+Intra-stage comm time: 0.012675759196281434
+Grad sync time: 0
+
+[I] Optimized module 0 for stage 0, comm time has been statically analyzed.
+\Time of module 1 (stage 1):
+Intra-stage comm time: 0.017435041069984437
+Grad sync time: 0
+
+[I] Optimized module 1 for stage 1, comm time has been statically analyzed.
+\Time of module 2 (stage 2):
+Intra-stage comm time: 0.01210445463657379
+Grad sync time: 0
+
+[I] Optimized module 2 for stage 2, comm time has been statically analyzed.
+\Time of module 3 (stage 3):
+Intra-stage comm time: 0.01210445463657379
+Grad sync time: 0
+
+[I] Optimized module 3 for stage 3, comm time has been statically analyzed.
+\Time of module 4 (stage 4):
+Intra-stage comm time: 0.01210445463657379
+Grad sync time: 0
+
+[I] Optimized module 4 for stage 4, comm time has been statically analyzed.
+\Time of module 5 (stage 5):
+Intra-stage comm time: 0.01210445463657379
+Grad sync time: 0
+
+[I] Optimized module 5 for stage 5, comm time has been statically analyzed.
+\Time of module 6 (stage 6):
+Intra-stage comm time: 0
+Grad sync time: 0
+
+[I] Optimized module 6 for stage 6, comm time has been statically analyzed.
+\Time of module 7 (stage 7):
+Intra-stage comm time: 0
+Grad sync time: 0
+
+[I] Optimized module 7 for stage 7, comm time has been statically analyzed.
+\Time of module 8 (stage 7):
+Intra-stage comm time: 0.00010043978691100935
+Grad sync time: 0.049673261383820014
+
+[I] Optimized module 8 for stage 7, comm time has been statically analyzed.
+\Time of module 9 (stage 6):
+Intra-stage comm time: 0.0
+Grad sync time: 0.04512701083440333
+
+[I] Optimized module 9 for stage 6, comm time has been statically analyzed.
+\Time of module 10 (stage 5):
+Intra-stage comm time: 0.01848646402359009
+Grad sync time: 0
+
+[I] Optimized module 10 for stage 5, comm time has been statically analyzed.
+\Time of module 11 (stage 4):
+Intra-stage comm time: 0.01848646402359009
+Grad sync time: 0
+
+[I] Optimized module 11 for stage 4, comm time has been statically analyzed.
+\Time of module 12 (stage 3):
+Intra-stage comm time: 0.01848646402359009
+Grad sync time: 0
+
+[I] Optimized module 12 for stage 3, comm time has been statically analyzed.
+\Time of module 13 (stage 2):
+Intra-stage comm time: 0.01848646402359009
+Grad sync time: 0
+
+[I] Optimized module 13 for stage 2, comm time has been statically analyzed.
+\Time of module 14 (stage 1):
+Intra-stage comm time: 0.02567972172982991
+Grad sync time: 0
+
+[I] Optimized module 14 for stage 1, comm time has been statically analyzed.
+\Time of module 15 (stage 0):
+Intra-stage comm time: 0.023138070106506346
+Grad sync time: 0
+
+[I] Optimized module 15 for stage 0, comm time has been statically analyzed.
+\Time of module 16 (stage 0):
+Intra-stage comm time: 0.001901335373258917
+Grad sync time: 0
+
+[I] Optimized module 16 for stage 0, comm time has been statically analyzed.
+\Time of module 17 (stage 1):
+Intra-stage comm time: 0.0023357119556749245
+Grad sync time: 0
+
+[I] Optimized module 17 for stage 1, comm time has been statically analyzed.
+\Time of module 18 (stage 2):
+Intra-stage comm time: 0.0017270750548050275
+Grad sync time: 0
+
+[I] Optimized module 18 for stage 2, comm time has been statically analyzed.
+\Time of module 19 (stage 3):
+Intra-stage comm time: 0.0017270750548050275
+Grad sync time: 0
+
+[I] Optimized module 19 for stage 3, comm time has been statically analyzed.
+\Time of module 20 (stage 4):
+Intra-stage comm time: 0.001726993739430327
+Grad sync time: 0
+
+[I] Optimized module 20 for stage 4, comm time has been statically analyzed.
+\Time of module 21 (stage 5):
+Intra-stage comm time: 0.0017270750548050275
+Grad sync time: 0
+
+[I] Optimized module 21 for stage 5, comm time has been statically analyzed.
+\Time of module 22 (stage 6):
+Intra-stage comm time: 0.028947355423906623
+Grad sync time: 0
+
+[I] Optimized module 22 for stage 6, comm time has been statically analyzed.
+\Time of module 23 (stage 7):
+Intra-stage comm time: 0.030825563124699324
+Grad sync time: 0
+
+[I] Optimized module 23 for stage 7, comm time has been statically analyzed.
+[TMP] Memory footprint of the stage 0 is 2.2687985710799694 GB, while the available memory of the XLA device is 35.33237304631621 GB.
+[TMP] Memory footprint of the stage 1 is 2.3724069632589817 GB, while the available memory of the XLA device is 35.33237304631621 GB.
+[TMP] Memory footprint of the stage 2 is 2.040245059877634 GB, while the available memory of the XLA device is 35.33237304631621 GB.
+[TMP] Memory footprint of the stage 3 is 2.040245059877634 GB, while the available memory of the XLA device is 35.33237304631621 GB.
+[TMP] Memory footprint of the stage 4 is 2.040245059877634 GB, while the available memory of the XLA device is 35.33237304631621 GB.
+[TMP] Memory footprint of the stage 5 is 2.040245059877634 GB, while the available memory of the XLA device is 35.33237304631621 GB.
+[TMP] Memory footprint of the stage 6 is 3.3455677069723606 GB, while the available memory of the XLA device is 35.33237304631621 GB.
+[TMP] Memory footprint of the stage 7 is 3.549554828554392 GB, while the available memory of the XLA device is 35.33237304631621 GB.
+[I] Only-sharded module 0 for stage 0, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.025705643000000007 s.
+    - Iteration 1/5: Kernel execution time: 0.025595173000000002 s.
+    - Iteration 2/5: Kernel execution time: 0.025721835999999994 s.
+    - Iteration 3/5: Kernel execution time: 0.025577798999999995 s.
+    - Iteration 4/5: Kernel execution time: 0.025789036999999994 s.
+[I] Only-sharded module 1 for stage 1, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.02894542200000001 s.
+    - Iteration 1/5: Kernel execution time: 0.028854666000000005 s.
+    - Iteration 2/5: Kernel execution time: 0.028858475999999994 s.
+    - Iteration 3/5: Kernel execution time: 0.028860205 s.
+    - Iteration 4/5: Kernel execution time: 0.02902884799999999 s.
+[I] Only-sharded module 2 for stage 2, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.022334600000000007 s.
+    - Iteration 1/5: Kernel execution time: 0.022459339000000002 s.
+    - Iteration 2/5: Kernel execution time: 0.022267747999999997 s.
+    - Iteration 3/5: Kernel execution time: 0.022339972 s.
+    - Iteration 4/5: Kernel execution time: 0.02229369900000001 s.
+[I] Only-sharded module 3 for stage 3, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.022246181000000004 s.
+    - Iteration 1/5: Kernel execution time: 0.022266057000000002 s.
+    - Iteration 2/5: Kernel execution time: 0.02230419500000001 s.
+    - Iteration 3/5: Kernel execution time: 0.022225032000000013 s.
+    - Iteration 4/5: Kernel execution time: 0.022277544999999996 s.
+[I] Only-sharded module 4 for stage 4, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.022311560999999997 s.
+    - Iteration 1/5: Kernel execution time: 0.022498690000000002 s.
+    - Iteration 2/5: Kernel execution time: 0.022370404000000007 s.
+    - Iteration 3/5: Kernel execution time: 0.022230791999999996 s.
+    - Iteration 4/5: Kernel execution time: 0.022261478999999997 s.
+[I] Only-sharded module 5 for stage 5, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.022329449000000005 s.
+    - Iteration 1/5: Kernel execution time: 0.022323180000000005 s.
+    - Iteration 2/5: Kernel execution time: 0.022358567000000006 s.
+    - Iteration 3/5: Kernel execution time: 0.022249316000000005 s.
+    - Iteration 4/5: Kernel execution time: 0.022291880000000003 s.
+[I] Only-sharded module 6 for stage 6, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.02109838 s.
+    - Iteration 1/5: Kernel execution time: 0.02124794700000001 s.
+    - Iteration 2/5: Kernel execution time: 0.021058794999999998 s.
+    - Iteration 3/5: Kernel execution time: 0.021065404000000003 s.
+    - Iteration 4/5: Kernel execution time: 0.021149099 s.
+[I] Only-sharded module 7 for stage 7, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.008272452999999999 s.
+    - Iteration 1/5: Kernel execution time: 0.008332677 s.
+    - Iteration 2/5: Kernel execution time: 0.008404772 s.
+    - Iteration 3/5: Kernel execution time: 0.008348418 s.
+    - Iteration 4/5: Kernel execution time: 0.008376162999999999 s.
+[I] Only-sharded module 8 for stage 7, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.07053330600000002 s.
+    - Iteration 1/5: Kernel execution time: 0.07053621700000003 s.
+    - Iteration 2/5: Kernel execution time: 0.07085669899999998 s.
+    - Iteration 3/5: Kernel execution time: 0.070797014 s.
+    - Iteration 4/5: Kernel execution time: 0.07049810500000002 s.
+[I] Only-sharded module 9 for stage 6, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.05771998400000004 s.
+    - Iteration 1/5: Kernel execution time: 0.057897520999999987 s.
+    - Iteration 2/5: Kernel execution time: 0.05780088700000002 s.
+    - Iteration 3/5: Kernel execution time: 0.057808540000000005 s.
+    - Iteration 4/5: Kernel execution time: 0.05794716200000001 s.
+[I] Only-sharded module 10 for stage 5, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.05896824900000001 s.
+    - Iteration 1/5: Kernel execution time: 0.058410713999999996 s.
+    - Iteration 2/5: Kernel execution time: 0.05842001899999999 s.
+    - Iteration 3/5: Kernel execution time: 0.058382841000000005 s.
+    - Iteration 4/5: Kernel execution time: 0.05875548099999998 s.
+[I] Only-sharded module 11 for stage 4, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.058178228 s.
+    - Iteration 1/5: Kernel execution time: 0.05826235700000002 s.
+    - Iteration 2/5: Kernel execution time: 0.05845068200000003 s.
+    - Iteration 3/5: Kernel execution time: 0.058554809 s.
+    - Iteration 4/5: Kernel execution time: 0.058342709000000034 s.
+[I] Only-sharded module 12 for stage 3, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.058424055000000016 s.
+    - Iteration 1/5: Kernel execution time: 0.058640819999999996 s.
+    - Iteration 2/5: Kernel execution time: 0.058786748 s.
+    - Iteration 3/5: Kernel execution time: 0.05850539799999997 s.
+    - Iteration 4/5: Kernel execution time: 0.058494459 s.
+[I] Only-sharded module 13 for stage 2, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.05880329100000001 s.
+    - Iteration 1/5: Kernel execution time: 0.058885050999999994 s.
+    - Iteration 2/5: Kernel execution time: 0.05824677999999997 s.
+    - Iteration 3/5: Kernel execution time: 0.05832037600000001 s.
+    - Iteration 4/5: Kernel execution time: 0.05874850899999998 s.
+[I] Only-sharded module 14 for stage 1, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.07091872099999999 s.
+    - Iteration 1/5: Kernel execution time: 0.07157230999999997 s.
+    - Iteration 2/5: Kernel execution time: 0.07088946899999998 s.
+    - Iteration 3/5: Kernel execution time: 0.071080379 s.
+    - Iteration 4/5: Kernel execution time: 0.07119209900000004 s.
+[I] Only-sharded module 15 for stage 0, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.06609977700000001 s.
+    - Iteration 1/5: Kernel execution time: 0.06610838500000002 s.
+    - Iteration 2/5: Kernel execution time: 0.066245474 s.
+    - Iteration 3/5: Kernel execution time: 0.06576835500000006 s.
+    - Iteration 4/5: Kernel execution time: 0.06569040399999998 s.
+[I] Only-sharded module 16 for stage 0, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.008857443000000001 s.
+    - Iteration 1/5: Kernel execution time: 0.008871653000000002 s.
+    - Iteration 2/5: Kernel execution time: 0.008865924 s.
+    - Iteration 3/5: Kernel execution time: 0.008869485000000003 s.
+    - Iteration 4/5: Kernel execution time: 0.008866927 s.
+[I] Only-sharded module 17 for stage 1, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.008719616999999999 s.
+    - Iteration 1/5: Kernel execution time: 0.008623684 s.
+    - Iteration 2/5: Kernel execution time: 0.008619235 s.
+    - Iteration 3/5: Kernel execution time: 0.008618688000000001 s.
+    - Iteration 4/5: Kernel execution time: 0.008630915 s.
+[I] Only-sharded module 18 for stage 2, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.008125541000000002 s.
+    - Iteration 1/5: Kernel execution time: 0.008141666 s.
+    - Iteration 2/5: Kernel execution time: 0.008146853 s.
+    - Iteration 3/5: Kernel execution time: 0.008144509000000001 s.
+    - Iteration 4/5: Kernel execution time: 0.008141765 s.
+[I] Only-sharded module 19 for stage 3, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.00813472 s.
+    - Iteration 1/5: Kernel execution time: 0.008151363 s.
+    - Iteration 2/5: Kernel execution time: 0.008154787 s.
+    - Iteration 3/5: Kernel execution time: 0.008150788 s.
+    - Iteration 4/5: Kernel execution time: 0.008144933 s.
+[I] Only-sharded module 20 for stage 4, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.00813386 s.
+    - Iteration 1/5: Kernel execution time: 0.008154854 s.
+    - Iteration 2/5: Kernel execution time: 0.008153635 s.
+    - Iteration 3/5: Kernel execution time: 0.008154563 s.
+    - Iteration 4/5: Kernel execution time: 0.008149863 s.
+[I] Only-sharded module 21 for stage 5, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.008129001 s.
+    - Iteration 1/5: Kernel execution time: 0.008158757 s.
+    - Iteration 2/5: Kernel execution time: 0.008158046 s.
+    - Iteration 3/5: Kernel execution time: 0.008150115000000001 s.
+    - Iteration 4/5: Kernel execution time: 0.008152905 s.
+[I] Only-sharded module 22 for stage 6, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.009252424000000002 s.
+    - Iteration 1/5: Kernel execution time: 0.009216677 s.
+    - Iteration 2/5: Kernel execution time: 0.009223532999999999 s.
+    - Iteration 3/5: Kernel execution time: 0.009216132000000002 s.
+    - Iteration 4/5: Kernel execution time: 0.009229168000000003 s.
+[I] Only-sharded module 23 for stage 7, constructing entry XLA computation...
+[I] Compiling HLO module...
+[I] Profiling HLO modules...
+    - Iteration 0/5: Kernel execution time: 0.010042979 s.
+    - Iteration 1/5: Kernel execution time: 0.010067271999999999 s.
+    - Iteration 2/5: Kernel execution time: 0.010068104 s.
+    - Iteration 3/5: Kernel execution time: 0.010081221 s.
+    - Iteration 4/5: Kernel execution time: 0.010066180000000001 s.
+[I] Constructing single-device HLO modules concurrently takes 0.051496028900146484 s.
+[I] Compile single-device HLO modules concurrently takes 6.46396803855896 s.
+[I] Profile all compiled sequentially on one GPU takes 9.204227209091187 s.
+[I] Estimated e2e pipeline iteration time is: 6.864161002329485 s.
+    - Kernel computation time is: -1.0 s.
+    - Communication time is: -1.0 s.
+    - Cross-stages communication time is: -1.0 s.

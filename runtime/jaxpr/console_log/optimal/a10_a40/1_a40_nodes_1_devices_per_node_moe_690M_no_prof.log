@@ -1,0 +1,175 @@
+
+------------------------------------------------------------------
+- (1/3) Profiling moe_690M with batch size: 256...
+------------------------------------------------------------------
+[TMP] Existed profiling results in `./jaxpr/prof_log/optimal_no_prof/moe_690M_256.pkl`, updating/rewriting it...
+[I] Alpa's built-in profiling database is disabled.
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 1
+    - Nodes num: 1
+[I] Loading flax model....
+[I] Model 'moe' loads sucessfully. Model Info: 
+
+FlaxMoEForLMModule(
+    # attributes
+    config = <model.moe_model.MoEConfig object at 0x7f20e5142c10>
+    dtype = float16
+    bias_init = zeros
+) 
+
+[I] Compiling and executing model with timeout = 1200 s...
+[I] Manually constructing dummy batch...
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+-------------------- Automatic stage clustering --------------------
+submesh_choices: ((1, 1),)
+- Profiling for submesh 0 (1, 1):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(0, 15, 0, 0), 0] = ModuleProfileResult(compute_cost=0.144, peak_memory=3.184 GB, invar_size=1.261 GB, outvar_size=0.947 GB, temp_buffer_size=0.977 GB, available_memory=35.242 GB)
+result[(0, 15, 0, 0), 1] = ModuleProfileResult(compute_cost=0.404, peak_memory=7.103 GB, invar_size=3.595 GB, outvar_size=1.324 GB, temp_buffer_size=3.508 GB, available_memory=35.242 GB)
+result[(0, 15, 0, 1), 0] = ModuleProfileResult(compute_cost=0.134, peak_memory=3.184 GB, invar_size=1.261 GB, outvar_size=0.947 GB, temp_buffer_size=0.977 GB, available_memory=35.242 GB)
+result[(0, 15, 0, 1), 1] = ModuleProfileResult(compute_cost=0.400, peak_memory=7.103 GB, invar_size=3.595 GB, outvar_size=1.324 GB, temp_buffer_size=3.508 GB, available_memory=35.242 GB)
+Profiling for submesh 0 (1, 1) takes 39.83 seconds
+--------------------------------------------------
+----------------------------------------------------------------------
+Result forward_stage_layer_ids: [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+Result mesh_shapes: [(1, 1)]
+Result logical_mesh_shapes: [(1, 1)]
+Result autosharding_option_dicts: [{}]
+ - Compile (driver): 58.40 s
+compilation time breakdown: {'stage-construction': '41.91', 'stage-construction-dp': '1.07', 'stage-construction-compilation': '2.59', 'stage-construction-profiling': '33.65'}
+ - Compile (worker): 16.68 s
+[I] Training process warmup (2 rounds) with dummy input batch...
+    - Warmup iteration: 1/2
+    - Warmup iteration: 2/2
+[I] Ready to perform training process.
+[I] Benchmark the training process with entire dataset and profile with driver overhead...
+    - Iteration 1 / 5 is performed...
+    - Iteration 2 / 5 is performed...
+    - Iteration 3 / 5 is performed...
+    - Iteration 4 / 5 is performed...
+ - Benchmark: 61.72 s
+
+[9.5307035446167, 8.063397407531738, 8.117541551589966, 8.062111854553223, 8.046922445297241, 8.04854154586792, 8.036043167114258]
+
+
+[I] Performance metrics:
+ - Iteration count: 5.
+ - Total e2e training time : 41.589 s.
+ - Average e2e iteration time: 8.318000793457031 s.
+ - Total local training time: 40.31100082397461 s.
+ - Average local iteration time: 8.062000274658203 s.
+ - Max allocated memory among devices: 23.964 GB.
+ - Compilation times:  {'stage-construction': 41.90728306770325, 'stage-construction-dp': 1.066004753112793, 'stage-construction-compilation': 2.592672109603882, 'stage-construction-profiling': 33.64513421058655}
+ - Metadata:  []
+ - Is need save result:  True
+
+[TMP] Current profiling results of key `1_a40_1_n_1_d`: 8.06223201751709
+[TMP] Updated profiling results stored in `./jaxpr/prof_log/optimal_no_prof/moe_690M_256.pkl`...
+
+------------------------------------------------------------------
+- (2/3) Profiling moe_690M with batch size: 512...
+------------------------------------------------------------------
+[TMP] Profiling results not found in `./jaxpr/prof_log/optimal_no_prof/moe_690M_512.pkl`, creating it...
+[I] Alpa's built-in profiling database is disabled.
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 1
+    - Nodes num: 1
+[I] Loading flax model....
+[I] Model 'moe' loads sucessfully. Model Info: 
+
+FlaxMoEForLMModule(
+    # attributes
+    config = <model.moe_model.MoEConfig object at 0x7ff6cc2ab3d0>
+    dtype = float16
+    bias_init = zeros
+) 
+
+[I] Compiling and executing model with timeout = 1200 s...
+[I] Manually constructing dummy batch...
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+-------------------- Automatic stage clustering --------------------
+submesh_choices: ((1, 1),)
+- Profiling for submesh 0 (1, 1):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(0, 15, 0, 0), 0] = ModuleProfileResult(compute_cost=0.261, peak_memory=5.108 GB, invar_size=1.261 GB, outvar_size=1.894 GB, temp_buffer_size=1.953 GB, available_memory=35.242 GB)
+result[(0, 15, 0, 0), 1] = ModuleProfileResult(compute_cost=0.779, peak_memory=11.556 GB, invar_size=4.542 GB, outvar_size=1.324 GB, temp_buffer_size=7.014 GB, available_memory=35.242 GB)
+result[(0, 15, 0, 1), 0] = ModuleProfileResult(compute_cost=0.259, peak_memory=5.108 GB, invar_size=1.261 GB, outvar_size=1.894 GB, temp_buffer_size=1.953 GB, available_memory=35.242 GB)
+result[(0, 15, 0, 1), 1] = ModuleProfileResult(compute_cost=0.788, peak_memory=11.556 GB, invar_size=4.542 GB, outvar_size=1.324 GB, temp_buffer_size=7.014 GB, available_memory=35.242 GB)
+Profiling for submesh 0 (1, 1) takes 51.77 seconds
+--------------------------------------------------
+----------------------------------------------------------------------
+Result forward_stage_layer_ids: [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+Result mesh_shapes: [(1, 1)]
+Result logical_mesh_shapes: [(1, 1)]
+Result autosharding_option_dicts: [{'force_batch_dim_to_mesh_dim': 0}]
+ - Compile (driver): 71.32 s
+compilation time breakdown: {'stage-construction': '54.19', 'stage-construction-dp': '1.35', 'stage-construction-compilation': '2.64', 'stage-construction-profiling': '45.79'}
+ - Compile (worker): 16.10 s
+[I] Training process warmup (2 rounds) with dummy input batch...
+    - Warmup iteration: 1/2
+[E] Meet unexpected error in profiling executables...
+
+[E] Unexpected error occurred in compiling or profiling executables...
+
+------------------------------------------------------------------
+- (3/3) Profiling moe_690M with batch size: 1024...
+------------------------------------------------------------------
+[TMP] Profiling results not found in `./jaxpr/prof_log/optimal_no_prof/moe_690M_1024.pkl`, creating it...
+[I] Alpa's built-in profiling database is disabled.
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 1
+    - Nodes num: 1
+[I] Loading flax model....
+[I] Model 'moe' loads sucessfully. Model Info: 
+
+FlaxMoEForLMModule(
+    # attributes
+    config = <model.moe_model.MoEConfig object at 0x7fe519d8bd90>
+    dtype = float16
+    bias_init = zeros
+) 
+
+[I] Compiling and executing model with timeout = 1200 s...
+[I] Manually constructing dummy batch...
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+-------------------- Automatic stage clustering --------------------
+submesh_choices: ((1, 1),)
+- Profiling for submesh 0 (1, 1):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(0, 15, 0, 0), 0] = ModuleProfileResult(compute_cost=0.506, peak_memory=8.956 GB, invar_size=1.261 GB, outvar_size=3.788 GB, temp_buffer_size=3.906 GB, available_memory=35.242 GB)
+result[(0, 15, 0, 0), 1] = ModuleProfileResult(compute_cost=1.548, peak_memory=20.461 GB, invar_size=6.437 GB, outvar_size=1.324 GB, temp_buffer_size=14.024 GB, available_memory=35.242 GB)
+result[(0, 15, 0, 1), 0] = ModuleProfileResult(compute_cost=0.521, peak_memory=8.956 GB, invar_size=1.261 GB, outvar_size=3.788 GB, temp_buffer_size=3.906 GB, available_memory=35.242 GB)
+result[(0, 15, 0, 1), 1] = ModuleProfileResult(compute_cost=1.533, peak_memory=20.461 GB, invar_size=6.437 GB, outvar_size=1.324 GB, temp_buffer_size=14.024 GB, available_memory=35.242 GB)
+Profiling for submesh 0 (1, 1) takes 72.38 seconds
+--------------------------------------------------
+----------------------------------------------------------------------
+Result forward_stage_layer_ids: [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+Result mesh_shapes: [(1, 1)]
+Result logical_mesh_shapes: [(1, 1)]
+Result autosharding_option_dicts: [{'force_batch_dim_to_mesh_dim': 0}]
+ - Compile (driver): 91.95 s
+compilation time breakdown: {'stage-construction': '74.79', 'stage-construction-dp': '1.33', 'stage-construction-compilation': '2.90', 'stage-construction-profiling': '66.01'}
+ - Compile (worker): 16.88 s
+[I] Training process warmup (2 rounds) with dummy input batch...
+    - Warmup iteration: 1/2
+[E] Meet unexpected error in profiling executables...
+
+[E] Unexpected error occurred in compiling or profiling executables...

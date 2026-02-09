@@ -1,0 +1,297 @@
+
+------------------------------------------------------------------
+- (1/3) Profiling bert_760M with batch size: 128...
+------------------------------------------------------------------
+[TMP] Existed profiling results in `./jaxpr/prof_log/optimal/bert_760M_128.pkl`, updating/rewriting it...
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 2
+    - Nodes num: 1
+[I] Loading flax model....
+[I] Model 'bert' loads sucessfully. Model Info: 
+
+FlaxBertForMaskedLMModule(
+    # attributes
+    config = <model.bert_model.BertConfig object at 0x7f05cf5fad30>
+    dtype = float16
+) 
+
+[I] Manually constructing dummy batch...
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+-------------------- Automatic stage clustering --------------------
+submesh_choices: ((1, 1), (1, 2))
+- Profiling for submesh 1 (1, 2):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(0, 5, 1, 0), 0] = ModuleProfileResult(compute_cost=0.049, peak_memory=1.670 GB, invar_size=1.221 GB, outvar_size=0.059 GB, temp_buffer_size=0.391 GB, available_memory=35.242 GB)
+result[(0, 5, 1, 1), 0] = ModuleProfileResult(compute_cost=0.199, peak_memory=1.119 GB, invar_size=0.611 GB, outvar_size=0.117 GB, temp_buffer_size=0.391 GB, available_memory=35.242 GB)
+result[(0, 5, 1, 2), 0] = ModuleProfileResult(compute_cost=0.053, peak_memory=1.620 GB, invar_size=1.147 GB, outvar_size=0.059 GB, temp_buffer_size=0.414 GB, available_memory=35.242 GB)
+result[(0, 5, 1, 0), 1] = ModuleProfileResult(compute_cost=0.194, peak_memory=5.425 GB, invar_size=3.190 GB, outvar_size=1.565 GB, temp_buffer_size=2.236 GB, available_memory=35.242 GB)
+result[(0, 5, 1, 1), 1] = ModuleProfileResult(compute_cost=0.527, peak_memory=4.559 GB, invar_size=1.683 GB, outvar_size=0.783 GB, temp_buffer_size=2.875 GB, available_memory=35.242 GB)
+result[(0, 5, 1, 2), 1] = ModuleProfileResult(compute_cost=0.200, peak_memory=5.143 GB, invar_size=2.895 GB, outvar_size=1.418 GB, temp_buffer_size=2.248 GB, available_memory=35.242 GB)
+Profiling for submesh 1 (1, 2) takes 50.60 seconds
+--------------------------------------------------
+- Profiling for submesh 0 (1, 1):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(1, 3, 0, 0), 0] = ModuleProfileResult(compute_cost=0.049, peak_memory=1.065 GB, invar_size=0.674 GB, outvar_size=0.070 GB, temp_buffer_size=0.320 GB, available_memory=35.242 GB)
+result[(1, 3, 0, 1), 0] = ModuleProfileResult(compute_cost=0.049, peak_memory=1.065 GB, invar_size=0.674 GB, outvar_size=0.070 GB, temp_buffer_size=0.320 GB, available_memory=35.242 GB)
+result[(0, 2, 0, 0), 0] = ModuleProfileResult(compute_cost=0.058, peak_memory=1.650 GB, invar_size=0.799 GB, outvar_size=0.070 GB, temp_buffer_size=0.781 GB, available_memory=35.242 GB)
+result[(0, 2, 0, 1), 0] = ModuleProfileResult(compute_cost=0.058, peak_memory=1.650 GB, invar_size=0.799 GB, outvar_size=0.070 GB, temp_buffer_size=0.781 GB, available_memory=35.242 GB)
+result[(1, 4, 0, 0), 0] = ModuleProfileResult(compute_cost=0.064, peak_memory=1.299 GB, invar_size=0.885 GB, outvar_size=0.094 GB, temp_buffer_size=0.320 GB, available_memory=35.242 GB)
+result[(1, 4, 0, 1), 0] = ModuleProfileResult(compute_cost=0.064, peak_memory=1.299 GB, invar_size=0.885 GB, outvar_size=0.094 GB, temp_buffer_size=0.320 GB, available_memory=35.242 GB)
+result[(0, 2, 0, 0), 1] = ModuleProfileResult(compute_cost=0.163, peak_memory=7.023 GB, invar_size=1.668 GB, outvar_size=0.799 GB, temp_buffer_size=5.355 GB, available_memory=35.242 GB)
+result[(1, 3, 0, 0), 1] = ModuleProfileResult(compute_cost=0.145, peak_memory=6.757 GB, invar_size=1.395 GB, outvar_size=0.674 GB, temp_buffer_size=5.338 GB, available_memory=35.242 GB)
+result[(0, 2, 0, 1), 1] = ModuleProfileResult(compute_cost=0.163, peak_memory=7.023 GB, invar_size=1.668 GB, outvar_size=0.799 GB, temp_buffer_size=5.355 GB, available_memory=35.242 GB)
+result[(2, 4, 0, 0), 0] = ModuleProfileResult(compute_cost=0.049, peak_memory=1.065 GB, invar_size=0.674 GB, outvar_size=0.070 GB, temp_buffer_size=0.320 GB, available_memory=35.242 GB)
+result[(1, 3, 0, 1), 1] = ModuleProfileResult(compute_cost=0.145, peak_memory=6.757 GB, invar_size=1.395 GB, outvar_size=0.674 GB, temp_buffer_size=5.338 GB, available_memory=35.242 GB)
+result[(3, 5, 0, 0), 0] = ModuleProfileResult(compute_cost=0.031, peak_memory=0.813 GB, invar_size=0.446 GB, outvar_size=0.047 GB, temp_buffer_size=0.320 GB, available_memory=35.242 GB)
+result[(2, 4, 0, 1), 0] = ModuleProfileResult(compute_cost=0.049, peak_memory=1.065 GB, invar_size=0.674 GB, outvar_size=0.070 GB, temp_buffer_size=0.320 GB, available_memory=35.242 GB)
+result[(3, 5, 0, 1), 0] = ModuleProfileResult(compute_cost=0.031, peak_memory=0.813 GB, invar_size=0.446 GB, outvar_size=0.047 GB, temp_buffer_size=0.320 GB, available_memory=35.242 GB)
+result[(1, 4, 0, 0), 1] = ModuleProfileResult(compute_cost=0.192, peak_memory=7.820 GB, invar_size=1.841 GB, outvar_size=0.885 GB, temp_buffer_size=5.955 GB, available_memory=35.242 GB)
+result[(2, 4, 0, 0), 1] = ModuleProfileResult(compute_cost=0.145, peak_memory=7.024 GB, invar_size=1.395 GB, outvar_size=0.674 GB, temp_buffer_size=5.605 GB, available_memory=35.242 GB)
+result[(2, 4, 0, 1), 1] = ModuleProfileResult(compute_cost=0.145, peak_memory=7.024 GB, invar_size=1.395 GB, outvar_size=0.674 GB, temp_buffer_size=5.605 GB, available_memory=35.242 GB)
+result[(1, 4, 0, 1), 1] = ModuleProfileResult(compute_cost=0.192, peak_memory=7.820 GB, invar_size=1.841 GB, outvar_size=0.885 GB, temp_buffer_size=5.955 GB, available_memory=35.242 GB)
+result[(3, 5, 0, 0), 1] = ModuleProfileResult(compute_cost=0.164, peak_memory=6.075 GB, invar_size=1.604 GB, outvar_size=0.790 GB, temp_buffer_size=4.448 GB, available_memory=35.242 GB)
+result[(3, 5, 0, 1), 1] = ModuleProfileResult(compute_cost=0.164, peak_memory=6.075 GB, invar_size=1.604 GB, outvar_size=0.790 GB, temp_buffer_size=4.448 GB, available_memory=35.242 GB)
+Profiling for submesh 0 (1, 1) takes 40.03 seconds
+--------------------------------------------------
+Profile result saved to: profile-results-2023-11-17-14-59-43.npy
+----------------------------------------------------------------------
+Result forward_stage_layer_ids: [[0, 1, 2], [3, 4, 5]]
+Result mesh_shapes: [(1, 1), (1, 1)]
+Result logical_mesh_shapes: [(1, 1), (1, 1)]
+Result autosharding_option_dicts: [{}, {'force_batch_dim_to_mesh_dim': 0}]
+ - Compile (driver): 126.23 s
+compilation time breakdown: {'stage-construction': '94.21', 'stage-construction-dp': '1.36', 'stage-construction-compilation': '31.09', 'stage-construction-profiling': '31.25'}
+ - Compile (worker): 9.72 s
+[I] Training process warmup (2 rounds) with dummy input batch...
+    - Warmup iteration: 1/2
+    - Warmup iteration: 2/2
+[I] Ready to perform training process.
+[I] Benchmark the training process with entire dataset and profile with driver overhead...
+    - Iteration 1 / 5 is performed...
+    - Iteration 2 / 5 is performed...
+    - Iteration 3 / 5 is performed...
+    - Iteration 4 / 5 is performed...
+ - Benchmark: 58.86 s
+
+[9.767371654510498, 7.521109104156494, 7.506294250488281, 7.505073308944702, 7.496761322021484, 7.513079643249512, 7.509145736694336]
+
+
+[I] Performance metrics:
+ - Iteration count: 5.
+ - Total e2e training time : 39.437 s.
+ - Average e2e iteration time: 7.887000560760498 s.
+ - Total local training time: 37.53000259399414 s.
+ - Average local iteration time: 7.506000518798828 s.
+ - Max allocated memory among devices: 12.543 GB.
+ - Compilation times:  {'stage-construction': 94.21123933792114, 'stage-construction-dp': 1.3612148761749268, 'stage-construction-compilation': 31.090043544769287, 'stage-construction-profiling': 31.252573013305664}
+ - Metadata:  []
+ - Is need save result:  True
+
+[TMP] Current profiling results of key `1_a40_1_n_2_d`: 7.506070613861084
+[TMP] Updated profiling results stored in `./jaxpr/prof_log/optimal/bert_760M_128.pkl`...
+
+------------------------------------------------------------------
+- (2/3) Profiling bert_760M with batch size: 256...
+------------------------------------------------------------------
+[TMP] Existed profiling results in `./jaxpr/prof_log/optimal/bert_760M_256.pkl`, updating/rewriting it...
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 2
+    - Nodes num: 1
+[I] Loading flax model....
+[I] Model 'bert' loads sucessfully. Model Info: 
+
+FlaxBertForMaskedLMModule(
+    # attributes
+    config = <model.bert_model.BertConfig object at 0x7efb1b7abc70>
+    dtype = float16
+) 
+
+[I] Manually constructing dummy batch...
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+-------------------- Automatic stage clustering --------------------
+submesh_choices: ((1, 1), (1, 2))
+- Profiling for submesh 1 (1, 2):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(0, 5, 1, 0), 0] = ModuleProfileResult(compute_cost=0.089, peak_memory=2.120 GB, invar_size=1.221 GB, outvar_size=0.117 GB, temp_buffer_size=0.781 GB, available_memory=35.242 GB)
+result[(0, 5, 1, 1), 0] = ModuleProfileResult(compute_cost=0.388, peak_memory=1.626 GB, invar_size=0.611 GB, outvar_size=0.234 GB, temp_buffer_size=0.781 GB, available_memory=35.242 GB)
+result[(0, 5, 1, 2), 0] = ModuleProfileResult(compute_cost=0.096, peak_memory=2.092 GB, invar_size=1.147 GB, outvar_size=0.117 GB, temp_buffer_size=0.828 GB, available_memory=35.242 GB)
+result[(0, 5, 1, 0), 1] = ModuleProfileResult(compute_cost=0.342, peak_memory=7.720 GB, invar_size=3.248 GB, outvar_size=1.565 GB, temp_buffer_size=4.472 GB, available_memory=35.242 GB)
+result[(0, 5, 1, 1), 1] = ModuleProfileResult(compute_cost=1.019, peak_memory=7.541 GB, invar_size=1.800 GB, outvar_size=0.783 GB, temp_buffer_size=5.740 GB, available_memory=35.242 GB)
+result[(0, 5, 1, 2), 1] = ModuleProfileResult(compute_cost=0.357, peak_memory=7.449 GB, invar_size=2.954 GB, outvar_size=1.418 GB, temp_buffer_size=4.495 GB, available_memory=35.242 GB)
+Profiling for submesh 1 (1, 2) takes 51.48 seconds
+--------------------------------------------------
+- Profiling for submesh 0 (1, 1):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(1, 3, 0, 1), 0] = ModuleProfileResult(compute_cost=0.096, peak_memory=1.479 GB, invar_size=0.698 GB, outvar_size=0.141 GB, temp_buffer_size=0.641 GB, available_memory=35.242 GB)
+result[(0, 2, 0, 1), 0] = ModuleProfileResult(compute_cost=0.114, peak_memory=2.502 GB, invar_size=0.799 GB, outvar_size=0.141 GB, temp_buffer_size=1.563 GB, available_memory=35.242 GB)
+result[(1, 3, 0, 0), 0] = ModuleProfileResult(compute_cost=0.096, peak_memory=1.479 GB, invar_size=0.698 GB, outvar_size=0.141 GB, temp_buffer_size=0.641 GB, available_memory=35.242 GB)
+result[(0, 2, 0, 0), 0] = ModuleProfileResult(compute_cost=0.114, peak_memory=2.502 GB, invar_size=0.799 GB, outvar_size=0.141 GB, temp_buffer_size=1.563 GB, available_memory=35.242 GB)
+result[(1, 4, 0, 0), 0] = ModuleProfileResult(compute_cost=0.127, peak_memory=1.737 GB, invar_size=0.909 GB, outvar_size=0.188 GB, temp_buffer_size=0.641 GB, available_memory=35.242 GB)
+result[(1, 4, 0, 1), 0] = ModuleProfileResult(compute_cost=0.127, peak_memory=1.737 GB, invar_size=0.909 GB, outvar_size=0.188 GB, temp_buffer_size=0.641 GB, available_memory=35.242 GB)
+result[(0, 2, 0, 0), 1] = ModuleProfileResult(compute_cost=0.321, peak_memory=12.443 GB, invar_size=1.738 GB, outvar_size=0.799 GB, temp_buffer_size=10.705 GB, available_memory=35.242 GB)
+result[(0, 2, 0, 1), 1] = ModuleProfileResult(compute_cost=0.321, peak_memory=12.443 GB, invar_size=1.738 GB, outvar_size=0.799 GB, temp_buffer_size=10.705 GB, available_memory=35.242 GB)
+result[(1, 3, 0, 0), 1] = ModuleProfileResult(compute_cost=0.287, peak_memory=12.209 GB, invar_size=1.489 GB, outvar_size=0.698 GB, temp_buffer_size=10.673 GB, available_memory=35.242 GB)
+result[(2, 4, 0, 0), 0] = ModuleProfileResult(compute_cost=0.096, peak_memory=1.479 GB, invar_size=0.698 GB, outvar_size=0.141 GB, temp_buffer_size=0.641 GB, available_memory=35.242 GB)
+result[(3, 5, 0, 0), 0] = ModuleProfileResult(compute_cost=0.062, peak_memory=1.204 GB, invar_size=0.469 GB, outvar_size=0.094 GB, temp_buffer_size=0.641 GB, available_memory=35.242 GB)
+result[(2, 4, 0, 1), 0] = ModuleProfileResult(compute_cost=0.096, peak_memory=1.479 GB, invar_size=0.698 GB, outvar_size=0.141 GB, temp_buffer_size=0.641 GB, available_memory=35.242 GB)
+result[(1, 3, 0, 1), 1] = ModuleProfileResult(compute_cost=0.287, peak_memory=12.209 GB, invar_size=1.489 GB, outvar_size=0.698 GB, temp_buffer_size=10.673 GB, available_memory=35.242 GB)
+result[(3, 5, 0, 1), 0] = ModuleProfileResult(compute_cost=0.062, peak_memory=1.204 GB, invar_size=0.469 GB, outvar_size=0.094 GB, temp_buffer_size=0.641 GB, available_memory=35.242 GB)
+result[(1, 4, 0, 0), 1] = ModuleProfileResult(compute_cost=0.380, peak_memory=13.908 GB, invar_size=1.958 GB, outvar_size=0.909 GB, temp_buffer_size=11.902 GB, available_memory=35.242 GB)
+result[(2, 4, 0, 1), 1] = ModuleProfileResult(compute_cost=0.287, peak_memory=12.741 GB, invar_size=1.489 GB, outvar_size=0.698 GB, temp_buffer_size=11.205 GB, available_memory=35.242 GB)
+result[(2, 4, 0, 0), 1] = ModuleProfileResult(compute_cost=0.287, peak_memory=12.741 GB, invar_size=1.489 GB, outvar_size=0.698 GB, temp_buffer_size=11.205 GB, available_memory=35.242 GB)
+result[(1, 4, 0, 1), 1] = ModuleProfileResult(compute_cost=0.380, peak_memory=13.908 GB, invar_size=1.958 GB, outvar_size=0.909 GB, temp_buffer_size=11.902 GB, available_memory=35.242 GB)
+result[(3, 5, 0, 0), 1] = ModuleProfileResult(compute_cost=0.325, peak_memory=10.617 GB, invar_size=1.674 GB, outvar_size=0.814 GB, temp_buffer_size=8.896 GB, available_memory=35.242 GB)
+result[(3, 5, 0, 1), 1] = ModuleProfileResult(compute_cost=0.325, peak_memory=10.617 GB, invar_size=1.674 GB, outvar_size=0.814 GB, temp_buffer_size=8.896 GB, available_memory=35.242 GB)
+Profiling for submesh 0 (1, 1) takes 39.32 seconds
+--------------------------------------------------
+Profile result saved to: profile-results-2023-11-17-15-03-08.npy
+----------------------------------------------------------------------
+Result forward_stage_layer_ids: [[0, 1, 2, 3, 4, 5]]
+Result mesh_shapes: [(1, 2)]
+Result logical_mesh_shapes: [(2, 1)]
+Result autosharding_option_dicts: [{'force_batch_dim_to_mesh_dim': 0}]
+ - Compile (driver): 134.58 s
+compilation time breakdown: {'stage-construction': '94.34', 'stage-construction-dp': '1.34', 'stage-construction-compilation': '31.62', 'stage-construction-profiling': '31.53'}
+ - Compile (worker): 19.34 s
+[I] Training process warmup (2 rounds) with dummy input batch...
+    - Warmup iteration: 1/2
+    - Warmup iteration: 2/2
+[I] Ready to perform training process.
+[I] Benchmark the training process with entire dataset and profile with driver overhead...
+    - Iteration 1 / 5 is performed...
+    - Iteration 2 / 5 is performed...
+    - Iteration 3 / 5 is performed...
+    - Iteration 4 / 5 is performed...
+ - Benchmark: 105.96 s
+
+[16.101452589035034, 13.900132417678833, 13.88971996307373, 13.901081800460815, 13.962690830230713, 13.90639877319336, 13.903038024902344]
+
+
+[I] Performance metrics:
+ - Iteration count: 5.
+ - Total e2e training time : 71.992 s.
+ - Average e2e iteration time: 14.398000717163086 s.
+ - Total local training time: 69.56300354003906 s.
+ - Average local iteration time: 13.91300106048584 s.
+ - Max allocated memory among devices: 14.176 GB.
+ - Compilation times:  {'stage-construction': 94.34430360794067, 'stage-construction-dp': 1.335555076599121, 'stage-construction-compilation': 31.62470817565918, 'stage-construction-profiling': 31.53103542327881}
+ - Metadata:  []
+ - Is need save result:  True
+
+[TMP] Current profiling results of key `1_a40_1_n_2_d`: 13.912585258483887
+[TMP] Updated profiling results stored in `./jaxpr/prof_log/optimal/bert_760M_256.pkl`...
+
+------------------------------------------------------------------
+- (3/3) Profiling bert_760M with batch size: 512...
+------------------------------------------------------------------
+[TMP] Existed profiling results in `./jaxpr/prof_log/optimal/bert_760M_512.pkl`, updating/rewriting it...
+[I] Ray Cluster & Alpa backend initialization is completed.
+[I] Device Info:
+    - Devices num per node: 2
+    - Nodes num: 1
+[I] Loading flax model....
+[I] Model 'bert' loads sucessfully. Model Info: 
+
+FlaxBertForMaskedLMModule(
+    # attributes
+    config = <model.bert_model.BertConfig object at 0x7f173ae0cbb0>
+    dtype = float16
+) 
+
+[I] Manually constructing dummy batch...
+[I] Initialize training state...
+[I] Training state initialization is completed.
+[I] Constructing Alpa parallelized train step func...
+[I] Alpa parallelized train step func construction is completed.
+-------------------- Automatic stage clustering --------------------
+submesh_choices: ((1, 1), (1, 2))
+- Profiling for submesh 1 (1, 2):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(0, 5, 1, 0), 0] = ModuleProfileResult(compute_cost=0.176, peak_memory=3.018 GB, invar_size=1.221 GB, outvar_size=0.234 GB, temp_buffer_size=1.563 GB, available_memory=35.242 GB)
+result[(0, 5, 1, 1), 0] = ModuleProfileResult(compute_cost=0.771, peak_memory=2.642 GB, invar_size=0.611 GB, outvar_size=0.469 GB, temp_buffer_size=1.563 GB, available_memory=35.242 GB)
+result[(0, 5, 1, 2), 0] = ModuleProfileResult(compute_cost=0.176, peak_memory=3.018 GB, invar_size=1.221 GB, outvar_size=0.234 GB, temp_buffer_size=1.563 GB, available_memory=35.242 GB)
+result[(0, 5, 1, 0), 1] = ModuleProfileResult(compute_cost=0.661, peak_memory=12.309 GB, invar_size=3.366 GB, outvar_size=1.565 GB, temp_buffer_size=8.943 GB, available_memory=35.242 GB)
+result[(0, 5, 1, 1), 1] = ModuleProfileResult(compute_cost=2.025, peak_memory=13.501 GB, invar_size=2.035 GB, outvar_size=0.783 GB, temp_buffer_size=11.465 GB, available_memory=35.242 GB)
+result[(0, 5, 1, 2), 1] = ModuleProfileResult(compute_cost=0.661, peak_memory=12.309 GB, invar_size=3.366 GB, outvar_size=1.565 GB, temp_buffer_size=8.943 GB, available_memory=35.242 GB)
+Profiling for submesh 1 (1, 2) takes 49.45 seconds
+--------------------------------------------------
+- Profiling for submesh 0 (1, 1):
+- Generate all stage infos (Jaxpr -> HLO)
+- Compile all stages
+- Profile all stages
+result[(0, 2, 0, 1), 0] = ModuleProfileResult(compute_cost=0.220, peak_memory=4.205 GB, invar_size=0.799 GB, outvar_size=0.281 GB, temp_buffer_size=3.125 GB, available_memory=35.242 GB)
+result[(1, 3, 0, 1), 0] = ModuleProfileResult(compute_cost=0.183, peak_memory=2.307 GB, invar_size=0.745 GB, outvar_size=0.281 GB, temp_buffer_size=1.281 GB, available_memory=35.242 GB)
+result[(0, 2, 0, 0), 0] = ModuleProfileResult(compute_cost=0.220, peak_memory=4.205 GB, invar_size=0.799 GB, outvar_size=0.281 GB, temp_buffer_size=3.125 GB, available_memory=35.242 GB)
+result[(1, 3, 0, 0), 0] = ModuleProfileResult(compute_cost=0.183, peak_memory=2.307 GB, invar_size=0.745 GB, outvar_size=0.281 GB, temp_buffer_size=1.281 GB, available_memory=35.242 GB)
+result[(1, 4, 0, 0), 0] = ModuleProfileResult(compute_cost=0.242, peak_memory=2.612 GB, invar_size=0.956 GB, outvar_size=0.375 GB, temp_buffer_size=1.281 GB, available_memory=35.242 GB)
+result[(1, 4, 0, 1), 0] = ModuleProfileResult(compute_cost=0.242, peak_memory=2.612 GB, invar_size=0.956 GB, outvar_size=0.375 GB, temp_buffer_size=1.281 GB, available_memory=35.242 GB)
+result[(0, 2, 0, 0), 1] = ModuleProfileResult(compute_cost=0.618, peak_memory=23.283 GB, invar_size=1.879 GB, outvar_size=0.799 GB, temp_buffer_size=21.404 GB, available_memory=35.242 GB)
+result[(1, 3, 0, 0), 1] = ModuleProfileResult(compute_cost=0.548, peak_memory=23.111 GB, invar_size=1.677 GB, outvar_size=0.745 GB, temp_buffer_size=21.340 GB, available_memory=35.242 GB)
+result[(0, 2, 0, 1), 1] = ModuleProfileResult(compute_cost=0.618, peak_memory=23.283 GB, invar_size=1.879 GB, outvar_size=0.799 GB, temp_buffer_size=21.404 GB, available_memory=35.242 GB)
+result[(2, 4, 0, 0), 0] = ModuleProfileResult(compute_cost=0.183, peak_memory=2.307 GB, invar_size=0.745 GB, outvar_size=0.281 GB, temp_buffer_size=1.281 GB, available_memory=35.242 GB)
+result[(3, 5, 0, 0), 0] = ModuleProfileResult(compute_cost=0.118, peak_memory=1.985 GB, invar_size=0.516 GB, outvar_size=0.188 GB, temp_buffer_size=1.281 GB, available_memory=35.242 GB)
+result[(2, 4, 0, 1), 0] = ModuleProfileResult(compute_cost=0.183, peak_memory=2.307 GB, invar_size=0.745 GB, outvar_size=0.281 GB, temp_buffer_size=1.281 GB, available_memory=35.242 GB)
+result[(1, 3, 0, 1), 1] = ModuleProfileResult(compute_cost=0.548, peak_memory=23.111 GB, invar_size=1.677 GB, outvar_size=0.745 GB, temp_buffer_size=21.340 GB, available_memory=35.242 GB)
+result[(3, 5, 0, 1), 0] = ModuleProfileResult(compute_cost=0.118, peak_memory=1.985 GB, invar_size=0.516 GB, outvar_size=0.188 GB, temp_buffer_size=1.281 GB, available_memory=35.242 GB)
+result[(1, 4, 0, 0), 1] = ModuleProfileResult(compute_cost=0.725, peak_memory=26.086 GB, invar_size=2.193 GB, outvar_size=0.956 GB, temp_buffer_size=23.800 GB, available_memory=35.242 GB)
+result[(2, 4, 0, 0), 1] = ModuleProfileResult(compute_cost=0.548, peak_memory=24.174 GB, invar_size=1.677 GB, outvar_size=0.745 GB, temp_buffer_size=22.404 GB, available_memory=35.242 GB)
+result[(2, 4, 0, 1), 1] = ModuleProfileResult(compute_cost=0.548, peak_memory=24.174 GB, invar_size=1.677 GB, outvar_size=0.745 GB, temp_buffer_size=22.404 GB, available_memory=35.242 GB)
+result[(1, 4, 0, 1), 1] = ModuleProfileResult(compute_cost=0.725, peak_memory=26.086 GB, invar_size=2.193 GB, outvar_size=0.956 GB, temp_buffer_size=23.800 GB, available_memory=35.242 GB)
+result[(3, 5, 0, 0), 1] = ModuleProfileResult(compute_cost=0.626, peak_memory=19.701 GB, invar_size=1.815 GB, outvar_size=0.860 GB, temp_buffer_size=17.792 GB, available_memory=35.242 GB)
+result[(3, 5, 0, 1), 1] = ModuleProfileResult(compute_cost=0.626, peak_memory=19.701 GB, invar_size=1.815 GB, outvar_size=0.860 GB, temp_buffer_size=17.792 GB, available_memory=35.242 GB)
+Profiling for submesh 0 (1, 1) takes 40.88 seconds
+--------------------------------------------------
+Profile result saved to: profile-results-2023-11-17-15-07-38.npy
+----------------------------------------------------------------------
+Result forward_stage_layer_ids: [[0, 1, 2, 3, 4, 5]]
+Result mesh_shapes: [(1, 2)]
+Result logical_mesh_shapes: [(2, 1)]
+Result autosharding_option_dicts: [{'force_batch_dim_to_mesh_dim': 0}]
+ - Compile (driver): 133.94 s
+compilation time breakdown: {'stage-construction': '93.90', 'stage-construction-dp': '1.35', 'stage-construction-compilation': '30.72', 'stage-construction-profiling': '31.98'}
+ - Compile (worker): 19.24 s
+[I] Training process warmup (2 rounds) with dummy input batch...
+    - Warmup iteration: 1/2
+    - Warmup iteration: 2/2
+[I] Ready to perform training process.
+[I] Benchmark the training process with entire dataset and profile with driver overhead...
+    - Iteration 1 / 5 is performed...
+    - Iteration 2 / 5 is performed...
+    - Iteration 3 / 5 is performed...
+    - Iteration 4 / 5 is performed...
+ - Benchmark: 203.08 s
+
+[30.279428720474243, 27.434178829193115, 27.441795587539673, 27.440248727798462, 27.514625549316406, 27.44459843635559, 27.435540676116943]
+
+
+[I] Performance metrics:
+ - Iteration count: 5.
+ - Total e2e training time : 140.954 s.
+ - Average e2e iteration time: 28.191001892089844 s.
+ - Total local training time: 137.27700805664062 s.
+ - Average local iteration time: 27.455001831054688 s.
+ - Max allocated memory among devices: 20.524 GB.
+ - Compilation times:  {'stage-construction': 93.90217709541321, 'stage-construction-dp': 1.3538973331451416, 'stage-construction-compilation': 30.71710705757141, 'stage-construction-profiling': 31.984662532806396}
+ - Metadata:  []
+ - Is need save result:  True
+
+[TMP] Current profiling results of key `1_a40_1_n_2_d`: 27.45536231994629
+[TMP] Updated profiling results stored in `./jaxpr/prof_log/optimal/bert_760M_512.pkl`...
