@@ -1148,13 +1148,13 @@ def profile_comm_intra_host_collective():
         _comm_cfgs = CollectiveCommConfigs(op_type="", replica_groups=_replica_groups, data_shape=(1024,),
                                 data_type=data_type)
         init_nccl_communicator(_comm_cfgs, backend, local_devices, num_devices)
-
+        
         # Profile communication operators
         for _op_type in ("all-reduce", "reduce-scatter", "all-gather", "all-to-all"):
             print("")
             print(f"=========== Profiling Operator: {_op_type} | Replica Groups: {_replica_groups} ===========")
             _key = str((_op_type, _replica_groups))
-            if _key not in global_comm_time_table.keys():
+            if _key not in global_comm_time_table.keys() or args.overwrite_data:
                 global_comm_time_table[_key] = list()
             else:
                 continue
@@ -1292,7 +1292,7 @@ def profile_comm_inter_hosts_collective(only_best_locality: bool = False):
             print("")
             print(f"=========== Profiling Operator: {_op_type} | Replica Groups: {_replica_groups} ===========")
             _key = str((_op_type, _replica_groups))
-            if _key not in global_comm_time_table.keys():
+            if _key not in global_comm_time_table.keys() or args.overwrite_data:
                 global_comm_time_table[_key] = list()
             else:
                 continue

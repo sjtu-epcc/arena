@@ -57,7 +57,7 @@ BARRIER_INTERVAL_INTER_HOSTS = 1
 # Total communication amount
 TOTAL_COMM_SIZE = 1 << 32
 # Minimum communication size
-MIN_COMM_SIZE = 1
+MIN_COMM_SIZE = 1 << 20
 # Maximum Communication size
 MAX_COMM_SIZE = 1 << 28
 MAX_COMM_SIZE_P2P = 1 << 25
@@ -67,7 +67,7 @@ THRE_COMM_SIZE = 1 << 20
 THRE_COMM_SIZE_P2P = 1 << 17
 THRE_COMM_SIZE_LOW_BW = 1 << 22
 # Maximum comm size interval
-MAX_COMM_SIZE_INTERVAL = 1 << 20
+MAX_COMM_SIZE_INTERVAL = 1 << 22
 MAX_COMM_SIZE_INTERVAL_P2P = 1 << 17
 MAX_COMM_SIZE_INTERVAL_LOW_BW = 1 << 22
 # Low bandwidth gpu types

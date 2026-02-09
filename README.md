@@ -20,7 +20,7 @@ Since the full-fleet evaluation involves tens to hundreds of GPUs, for reproduci
 
 ### 1.1. Hardware dependencies.
 
-The artifact requires a Linux system equipped with at least 192 GB of system memory, 256 GB of available disk storage, and 4 NVIDIA A40 GPUs. 
+The artifact requires a Linux system equipped with at least 192 GB of system memory, 256 GB of available disk storage, and 4 NVIDIA A40 GPUs (PCIe or NVLink). 
 
 ### 1.2. Software dependencies.
 
@@ -48,15 +48,34 @@ conda activate alpa         # Alpa env
 bash jaxpr/cpp/install.sh   # Build kernel-level profiler
 ```
 
-## 2. Benchmarking Workflow
+## 2. Evaluation Workflow
 
 ### 2.1. Efficiency of disaggregated profiling.
 
 We provide the instructions to run the single-device profiler and the multi-device direct execution to evaluate the accracy and profiling cost reduction.
 
-To run single-device profiling with (1) specified model configurations (layers are uniformly clustered into stages), (2) specified device assignment, (3) specified parallelism (`--parallel_degrees={pp}_{dp}_{tp}`, GPUs are correspondingly sharded).
+Before running single-device profiling, users should offline profile the communication latency data (may take dozens of minutes or a few hours):
 
-For example, to profile vanilla pipeline parallelism (1F1B) on 4 GPUs:
+```bash
+# Get default network interface (e.g., eno1)
+export NET_IF=$(route | grep default | grep -o "eno.")
+# Specify the network interface
+export NCCL_SOCKET_IFNAME=${NET_IF}
+# Specify the fraction of pre-allocated memory for jax
+export XLA_PYTHON_CLIENT_MEM_FRACTION=0.8
+# Start ray process on head node
+ulimit -c unlimited -n 65536 && RAY_DISABLE_MEMORY_MONITOR=1 ray start --head --port=6379 --num-gpus 4 --num-cpus 60 --object-store-memory 10737418240 --disable-usage-stats
+# Start ray process on worker node(s)
+ulimit -c unlimited -n 65536 && RAY_DISABLE_MEMORY_MONITOR=1 ray start --address=[HEAD_NODE_IP]:6379 --num-gpus 4 --num-cpus 60 --object-store-memory 10737418240 --disable-usage-stats
+
+# Offline profile P2P communication (only between 2 GPUs)
+ulimit -c unlimited -n 65536 && python jaxpr/communication.py --profile_p2p --devices_name 1_a40 --num_hosts 1 --num_devices_per_host 2 --overwrite_data
+# Offline profile collective communication
+ulimit -c unlimited -n 65536 && python jaxpr/communication.py --profile_collective --devices_name 1_a40 --num_hosts 1 --num_devices_per_host 4 --overwrite_data --only_best_locality
+```
+
+To run single-device profiling with (1) specified model configurations (layers are uniformly clustered into stages), (2) specified device assignment, (3) specified parallelism (`--parallel_degrees={pp}_{dp}_{tp}`, GPUs are correspondingly sharded).
+Taking vanilla pipeline parallelism (1F1B) on 4 GPUs as an example:
 
 ```bash
 # (Optional) Envs
@@ -72,11 +91,7 @@ python jaxpr/runtime_profiler.py --estimate_e2e --num_hosts 1 --num_devices_per_
 # NOTE: Other argument descriptions are given and described in `./runtime/jaxpr/runtime_profiler.py`.
 ```
 
-To measure the end-to-end iteration time (rather than estimating it) with the specified parallel plan, use `--measure_with_alpa` instead of `--estimate_e2e`. It should be noted that the auto parallelizing techniques of alpa are not actually used here, instead we only use the most basic executing function to manually profile the model with specified parallel plan.
-
-Since Crius profiler is disabled, we must execute training on `N` GPUs, where `N` equals to the user-required resource quota.
-
-Before profiling, we first need to establish a Ray cluster for potential multi-hosts training scenarios:
+To measure the end-to-end iteration time (rather than estimating it) with the specified parallel plan, use `--measure_with_alpa` instead of `--estimate_e2e`. Notably, the auto parallelizing techniques of Alpa are not actually used here, instead this step only uses the most basic training functions with specified parallelism. Users should first establish a Ray cluster, then execute the following commands on the head node to perform vanilla pipeline parallelism training with 4 GPUs on 1 node:
 
 ```bash
 # Specify one GPU
@@ -96,11 +111,7 @@ ulimit -c unlimited -n 65536 && RAY_DISABLE_MEMORY_MONITOR=1 ray start --address
 
 # Stop ray processes (optional)
 ray stop --force
-```
 
-Then, we execute the following commands on the head node to perform vanilla pipeline parallelism training with 4 GPUs on 1 node:
-
-```bash
 # Disable crius profiler
 export ENABLE_CRIUS_PROFILER=false
 # Profile
