@@ -1,8 +1,0 @@
-ReshardingTask(shape: (16, 14, 14, 3584), mesh_id: 0->1,
-ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)) ->
-ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)))
-
-ReshardingTask(shape: (16, 14, 14, 3584), mesh_id: 1->0,
-ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)) ->
-ShardingSpec((NoSharding(), NoSharding(), NoSharding(), NoSharding()), (Replicated(replicas=1),)))
-

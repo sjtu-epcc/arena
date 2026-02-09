@@ -20,7 +20,7 @@ Since the full-fleet evaluation involves tens to hundreds of GPUs, for reproduci
 
 ### 1.1. Hardware dependencies.
 
-The artifact requires a Linux system equipped with at least 192 GB of system memory, 256 GB of available disk storage, and 4 NVIDIA A40 GPUs (PCIe or NVLink). 
+The artifact requires a Linux system equipped with at least 192 GB of system memory, 256 GB of available disk storage, and 4 NVIDIA A40 GPUs (48GB, connected via PCIe or NVLink). 
 
 ### 1.2. Software dependencies.
 
@@ -94,7 +94,7 @@ python jaxpr/runtime_profiler.py --estimate_e2e --num_hosts 1 --num_devices_per_
 To measure the end-to-end iteration time (rather than estimating it) with the specified parallel plan, use `--measure_with_alpa` instead of `--estimate_e2e`. Notably, the auto parallelizing techniques of Alpa are not actually used here, instead this step only uses the most basic training functions with specified parallelism. Users should first establish a Ray cluster, then execute the following commands on the head node to perform vanilla pipeline parallelism training with 4 GPUs on 1 node:
 
 ```bash
-# Specify one GPU
+# Specify all GPUs
 export CUDA_VISIBLE_DEVICES=0,1,2,3
 # Get default network interface (e.g., eno1)
 export NET_IF=$(route | grep default | grep -o "eno.")
