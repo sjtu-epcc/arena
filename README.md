@@ -6,14 +6,10 @@ The major claims of Arena system include:
 
 - Arena's disaggregated profiler achieves average error
 rates of 4.4%, 5.1%, 3.1%, 4.6%, and 8.3% for 1, 2, 4, 8, and 16 GPU cases; Arena reduces the GPU time (i.e., elapsed time × occupied GPU count) by 18.1× on average (2.55× at least), as compared to direct measurement.
+- In Arena's parallelism planner, the best proxy plan (used for scheduling) among grids achieves average 93.4% performance of the AP searched optimal plan.
 - XXX
 
-Since the full-fleet evaluation involves tens to hundreds of GPUs, for reproducibility, the artifact provides the following benchmarking tests:
-
-- Disaggregated profiling experiment (Figure 16);
-- Pareto frontier deduction (Figure 14);
-- Large-scale simulated scheduling experiment with 1,280 GPUs and Philly trace (Figure 11, Figure 12);
-- Large-scale simulated scheduling experiment with 1,280 GPUs and Helios/PAI traces (Figure 13).
+Since the full-fleet evaluation involves tens to hundreds of GPUs, for reproducibility, the artifact mainly uses 4 A40 GPUs (see hardware dependencies below) unless specified.
 
 
 ## 1. Dependencies & Installation
@@ -124,7 +120,10 @@ As listed in Table 2 and `./runtime/crius_worker/jax/configs.py`, users can flex
 
 ### 2.2. Effectiveness of parallelism planning.
 
-TBD
+We then provide the instructions to run Arena's parallelism planner to evaluate the performance of the best proxy plan (used for cluster scheduling) among all grids, compared to the AP searched optimal plan. 
+
+
+
 
 ### 2.3. Large-scale simulated scheduling experiments.
 
