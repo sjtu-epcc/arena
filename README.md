@@ -6,7 +6,7 @@ The major claims of Arena system include:
 
 - Arena's disaggregated profiler achieves average error
 rates of 4.4%, 5.1%, 3.1%, 4.6%, and 8.3% for 1, 2, 4, 8, and 16 GPU cases; Arena reduces the GPU time (i.e., elapsed time × occupied GPU count) by 18.1× on average (2.55× at least), as compared to direct measurement.
-- In Arena's parallelism planner, the best proxy plan (used for scheduling) among grids achieves average 93.4% performance of the AP searched optimal plan.
+- In Arena's parallelism planner, the best proxy plan (used for scheduling) among grids achieves average 93.4% performance of the AP searched optimal plan, thus is accurate enough to achieve AP-aware cluster scheduling.
 - XXX
 
 Since the full-fleet evaluation involves tens to hundreds of GPUs, for reproducibility, the artifact mainly uses 4 A40 GPUs (see hardware dependencies below) unless specified.
