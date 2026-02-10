@@ -2010,7 +2010,7 @@ def estimate_one_cell(
         print(f"    - Communication time is: {comm_e2e_iter_time} s.")
         print(f"    - Cross-stages communication time is: {cross_e2e_iter_time} s.")
 
-    exit(0)
+    # exit(0)
     
     return cell
 

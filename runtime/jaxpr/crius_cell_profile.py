@@ -11,6 +11,7 @@ from typing import (
     List, Any, Tuple, Dict)
 import argparse
 import time
+import math
 import threading
 import traceback
 import numpy as np
@@ -40,7 +41,8 @@ def gen_cand_cell_prof_configs() -> List[ProfileConfigs]:
     num_devices = args.num_hosts * args.num_devices_per_host
     assert is_power_of(2, num_devices), \
         f"Total allocated GPU num must be a power of 2, got {num_devices}."
-    cand_num_stages = [_i + 1 for _i in range(num_devices)]
+    # cand_num_stages = [_i + 1 for _i in range(num_devices)]
+    cand_num_stages = [2 ** i for i in range(int(math.log2(num_devices)) + 1)]
 
     # Generate profiling configurations
     cand_prof_configs = [
@@ -64,6 +66,7 @@ def gen_cand_cell_prof_configs() -> List[ProfileConfigs]:
             enable_cell_profile=True,
             cell_prof_strategy=args.cell_prof_strategy,
             num_pipeline_stages=_num_stages,
+            force_plan_shape_hashkey="none",
         ) for _num_stages in cand_num_stages
     ]
 
@@ -124,9 +127,6 @@ def main():
             selected_cell_num_stages = prof_configs.num_pipeline_stages
             min_e2e_iter_time = e2e_iter_time
 
-    print("")
-    print(f"[TMP] The stage num of the selected cell is: {selected_cell_num_stages}")
-
     # Load the global tuning database and update
     tuning_database = load_tuning_database()
     model_cfgs_hashkey = gen_hashkey_with_model_configs(
@@ -141,10 +141,16 @@ def main():
     )
     tuning_database["selected_cell_num_stages"][model_cfgs_hashkey] = selected_cell_num_stages
 
-    print(tuning_database)
+    # print(tuning_database)
     
     # Store the global tuning database
     store_tuning_database(tuning_database)
+
+    print("\n\n")
+    print("-" * 50)
+    print(f"[I] Model configs: {model_cfgs_hashkey} | The stage num of the selected cell is: {selected_cell_num_stages}, " + 
+          f"estimated e2e iteration time is {min_e2e_iter_time} s. For more details of the selected " + 
+          f"optimal parallelism plan, please check the profiling output log.")
 
 
 if __name__ == "__main__":
