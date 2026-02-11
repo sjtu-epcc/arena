@@ -1,13 +1,14 @@
 # Arena Artifact Evaluation for EuroSys'26
 
-We provide the source code and the benchmarking scripts to reproduce the major experimental results of Arena. Notably, these codes are only for artifact evaluation and have not been organized as the official open-source version of Arena. 
+Arena is a large model training system to dynamically schedule and efficiently execute large models with adaptive parallelism in GPU clusters.
+We provide the source codes and the benchmarking scripts to reproduce the major experimental results of Arena. 
 
 The major claims of Arena system include:
 
-- Arena's disaggregated profiler achieves average error
-rates of 4.4%, 5.1%, 3.1%, 4.6%, and 8.3% for 1, 2, 4, 8, and 16 GPU cases; Arena reduces the GPU time (i.e., elapsed time × occupied GPU count) by 18.1× on average (2.55× at least), as compared to direct measurement.
-- In Arena's parallelism planner, the best proxy plan (used for scheduling) among grids achieves average 93.4% performance of the AP searched optimal plan, thus is accurate enough to achieve AP-aware cluster scheduling.
-- XXX
+1. Arena's disaggregated profiler achieves average error
+rates of 4.4%, 5.1%, 3.1%, 4.6%, and 8.3% for 1, 2, 4, 8, and 16 GPU cases; Arena reduces the GPU time (i.e., elapsed time × occupied GPU count) by $18.1\times$ on average ($2.55\times$ at least), as compared to direct measurement.
+2. In Arena's parallelism planner, the best proxy plan (used for scheduling) among grids achieves average 93.4% performance of the AP searched optimal plan, thus is accurate enough to achieve AP-aware cluster scheduling.
+3. With AP-aware scheduling, Arena scheduler reduces average job completion time (JCT) by 81.3% (FCFS), 80.5% (ElasticFlow-LS), 76.6% (Gavel) and 75.2% (Sia), completing up to $1.45\times$ more jobs. From the cluster perspective, Arena outperforms baselines with up to $1.55\times$ higher average throughput and $1.58\times$ higher peak throughput.
 
 Since the full-fleet evaluation involves tens to hundreds of GPUs, for reproducibility, the artifact mainly uses 4 A40 GPUs (see hardware dependencies below) unless specified.
 
@@ -39,7 +40,7 @@ We provide a Dockerfile to prepare the software dependencies.
 ```bash
 cd runtime
 docker build -t arena/arena:ae-eurosys -f ./profile_cu118.Dockerfile .
-docker run --runtime=nvidia -it --rm --gpus all --shm-size 64g --network=host --privileged --volume [USER_DIR]/.cache:/root/.cache --env NVIDIA_DISABLE_REQUIRE=1 --name arena dicardo/arena:ae-eurosys
+docker run --runtime=nvidia -it --rm --gpus all --shm-size 64g --network=host --privileged --volume [USER_DIR]/.cache:/root/.cache --env NVIDIA_DISABLE_REQUIRE=1 --name arena arena/arena:ae-eurosys
 conda activate alpa         # Alpa env
 bash jaxpr/cpp/install.sh   # Build kernel-level profiler
 ```
@@ -48,7 +49,7 @@ bash jaxpr/cpp/install.sh   # Build kernel-level profiler
 
 ### 2.1. Efficiency of disaggregated profiling.
 
-We provide the instructions to run the single-device profiler and the multi-device direct execution to evaluate the accracy and profiling cost reduction.
+We provide the instructions to run the single-device profiler and the multi-device direct execution to evaluate the accuracy and profiling cost reduction.
 
 Before running single-device profiling, users should offline profile the communication latency data (may take dozens of minutes or a few hours):
 
@@ -59,6 +60,10 @@ export NET_IF=$(route | grep default | grep -o "eno.")
 export NCCL_SOCKET_IFNAME=${NET_IF}
 # Specify the fraction of pre-allocated memory for jax
 export XLA_PYTHON_CLIENT_MEM_FRACTION=0.8
+
+# Stop ray processes (optional)
+ray stop --force
+
 # Start ray process on head node
 ulimit -c unlimited -n 65536 && RAY_DISABLE_MEMORY_MONITOR=1 ray start --head --port=6379 --num-gpus 4 --num-cpus 60 --object-store-memory 10737418240 --disable-usage-stats
 # Start ray process on worker node(s)
@@ -82,7 +87,7 @@ export ENABLE_CRIUS_PROFILER=true
 # Specify one GPU
 export CUDA_VISIBLE_DEVICES=0
 # Profile
-python jaxpr/runtime_profiler.py --estimate_e2e --num_hosts 1 --num_devices_per_host 4 --devices_name 2_a40 --model_name wide_resnet --param_num 1B --batch_size 256 --num_micro_batches 16 --niter 5 --warmup_num 2 --parallel_degrees=4,1,1
+python jaxpr/runtime_profiler.py --estimate_e2e --num_hosts 1 --num_devices_per_host 4 --devices_name 1_a40 --model_name wide_resnet --param_num 1B --batch_size 256 --num_micro_batches 16 --niter 5 --warmup_num 2 --parallel_degrees=4,1,1
 
 # NOTE: Other argument descriptions are given and described in `./runtime/jaxpr/runtime_profiler.py`.
 ```
@@ -185,12 +190,17 @@ In our 1x4 A40 node, the arena-estimated/alpa-optimized e2e iteration time is 10
 The simulation requires offline profiling all training jobs by enumerating possible combinations of models (e.g., GPT-1.3B), hyperparameters (e.g., global batch size 256), and allocated hardware (e.g., 1x4 A40 GPUs) as listed in Table 1 and 2. 
 Here, to avoid extensive offline profiling for artifact evaluation, we have provided our profiling data in `./database/prof_database.pkl` (raw data in `./runtime/jaxpr/prof_log/`) that includes Arena's estimated data, data profiled via data parallelism, and Alpa's searched data. 
 
-To run large-scale simulated scheduling with Philly trace (Figure 11, Figure 12), use the following instructions:
+To run large-scale simulated scheduling with 1,280 GPUs and Philly trace (Figure 11, Figure 12), use the following instructions:
 
 ```bash
 cd ./
+# Visualization dependencies
+pip install orjson
+pip install statsmodels
 # For Arena
 python simulator.py --policy=crius --trace_type=philly --sched_with_opt --max_sched_round=2000 --enable_alpa --result_dir=./plot
+# For other baselines: fcfs, elasticflow-l, gavel, sia
+python simulator.py --policy=[POLICY] --trace_type=philly --max_sched_round=2000 --enable_alpa --result_dir=./plot
 ```
 
 
