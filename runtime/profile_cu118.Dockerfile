@@ -97,6 +97,12 @@ RUN . /opt/conda/etc/profile.d/conda.sh && \
     pip3 install deprecated && \
     pip3 install cvxpy
 
+# Install other dependencies
+RUN . /opt/conda/etc/profile.d/conda.sh && \
+    conda activate alpa && \
+    pip3 install orjson && \
+    pip3 install statsmodels
+
 #########################################
 #         Alpa Installation End         # 
 #########################################

@@ -194,9 +194,6 @@ To run large-scale simulated scheduling with 1,280 GPUs and Philly trace (Figure
 
 ```bash
 cd ./
-# Visualization dependencies
-pip install orjson
-pip install statsmodels
 # For Arena
 python simulator.py --policy=crius --trace_type=philly --sched_with_opt --max_sched_round=2000 --enable_alpa --result_dir=./plot
 # For other baselines: fcfs, elasticflow-l, gavel, sia
