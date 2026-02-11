@@ -182,5 +182,15 @@ In our 1x4 A40 node, the arena-estimated/alpa-optimized e2e iteration time is 10
 
 ### 2.3. Large-scale simulated scheduling experiments.
 
-TBD
+The simulation requires offline profiling all training jobs by enumerating possible combinations of models (e.g., GPT-1.3B), hyperparameters (e.g., global batch size 256), and allocated hardware (e.g., 1x4 A40 GPUs) as listed in Table 1 and 2. 
+Here, to avoid extensive offline profiling for artifact evaluation, we have provided our profiling data in `./database/prof_database.pkl` (raw data in `./runtime/jaxpr/prof_log/`) that includes Arena's estimated data, data profiled via data parallelism, and Alpa's searched data. 
+
+To run large-scale simulated scheduling with Philly trace (Figure 11, Figure 12), use the following instructions:
+
+```bash
+cd ./
+# For Arena
+python simulator.py --policy=crius --trace_type=philly --sched_with_opt --max_sched_round=2000 --enable_alpa --result_dir=./plot
+```
+
 
