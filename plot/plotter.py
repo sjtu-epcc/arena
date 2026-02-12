@@ -171,6 +171,9 @@ def plot_cluster_thr(
         "crius-dp": "-",
         "crius": "-",
     }
+
+    labels = [""] * len(thr_data)
+    labels = [policy_labels[_policy] for _policy in policies]
     
     # Plot
     linewidth = 3.5 if trace_type == "philly" else 3.0
@@ -179,28 +182,29 @@ def plot_cluster_thr(
                  color=color_table[data[0]], 
                  label=policy_labels[data[0]], 
                  linestyle=ls_table[data[0]], 
-                 linewidth=linewidth)
+                 linewidth=linewidth,
+                 )
 
     # Grid
     ax1.grid(axis="y", color="lightgray", linestyle="--", zorder=0)
 
-    # # Legends
-    # ax1.legend(ncol=1,
-    #            loc='upper right',
-    #            fontsize=16,
-    #            markerscale=3,
-    #            labelspacing=0.1,
-    #            edgecolor='black',
-    #            shadow=False,
-    #            fancybox=False,
-    #            handlelength=0.8,
-    #            handletextpad=0.6,
-    #            columnspacing=0.6,
-    #            borderaxespad=0.5,
-    #         )
-    # leg = plt.gca().get_legend()
-    # ltext = leg.get_texts()
-    # plt.setp(ltext, fontsize=18)
+    # Legends
+    ax1.legend(ncol=1,
+               loc='upper right',
+               fontsize=16,
+               markerscale=3,
+               labelspacing=0.1,
+               edgecolor='black',
+               shadow=False,
+               fancybox=False,
+               handlelength=0.8,
+               handletextpad=0.6,
+               columnspacing=0.6,
+               borderaxespad=0.5,
+            )
+    leg = plt.gca().get_legend()
+    ltext = leg.get_texts()
+    plt.setp(ltext, fontsize=18)
     
     if trace_type == "philly":    
         # Y axis
@@ -278,10 +282,8 @@ def _read_thr_data(work_dir: str, all_policies: bool = False):
             list(np.load(os.path.join(work_dir, file_name))),
         ])
     
-    for rec in thr_data:
-        print(f"[I] Policy: {rec[0]} | Average thr: {np.mean(rec[1])} | Max thr: {np.max(rec[1])}")
-
-    exit(0)
+    # for rec in thr_data:
+        # print(f"[I] Policy: {rec[0]} | Average thr: {np.mean(rec[1])} | Max thr: {np.max(rec[1])}")
     
     return sorted(thr_data, key=lambda x: used_policies.index(x[0]))
 
@@ -351,9 +353,9 @@ def plot_queuing_time(work_dir: str, trace_type: str = "philly", only_cal: bool 
     plt.ylim(0.0, 1.2)
     plt.ylabel("Normalized Queuing Time", fontsize=22, weight="bold")
 
-    # Path
-    file_path = "./figures/queuing_time.pdf"
-    plt.savefig(file_path, bbox_inches="tight")
+    # # Path
+    # file_path = "./figures/queuing_time.pdf"
+    # plt.savefig(file_path, bbox_inches="tight")
     # plt.show()
 
 
@@ -421,7 +423,7 @@ def read_jct_data_and_plot(
             continue
         _file_path = work_dir + "/" + file_name
 
-        print(_file_path)
+        # print(_file_path)
 
         _jct_data = list(np.load(_file_path))
         
@@ -432,8 +434,9 @@ def read_jct_data_and_plot(
         max_jct = max(np.max(_jct_data), max_jct)
         jct_data.append([_policy, _jct_data])
 
-        print(_policy, len(_jct_data))
+        print(f"[I] Policy: {_policy} | Number of finished jobs: {len(_jct_data)}")
     
+    print("-" * 50)
     for _rec in jct_data:
         print(f"[I] Policy: {_rec[0]} | Avergae JCT of finished jobs: {np.mean(_rec[1])}")
     
@@ -441,9 +444,10 @@ def read_jct_data_and_plot(
         return
 
     # Calculate improvement of average jct
+    print("-" * 50)
     for _rec in jct_data:
         if (_rec[0] == "crius" or (only_ddl and _rec[0] == "crius-ddl")):
-            print(f"[I] Policy: {_rec[0]} | Average JCT: {crius_avg_jct}")
+            print(f"[I] Policy: {_rec[0]} | Average JCT of all jobs: {crius_avg_jct}")
             continue
         # Padding to fairly compare jct
         if len(_rec[1]) > max_finished_job_num:
@@ -454,11 +458,9 @@ def read_jct_data_and_plot(
         #     f"Our method should hold the maximum finished " + \
         #     f"job num ({max_finished_job_num}), but less than {_rec[0]} ({len(_rec[1])})"
         _jct_data = _rec[1] + [max_jct] * (max_finished_job_num - len(_rec[1]))
-
-        print(f"[I] Policy: {_rec[0]} | Average JCT: {np.mean(_jct_data)}")
-
         _ratio = round((np.mean(_jct_data) - crius_avg_jct) / np.mean(_jct_data), 3)
-        print("[I] Reduction of Crius on {}: {}".format(_rec[0], _ratio))
+
+        print(f"[I] Policy: {_rec[0]} | Average JCT of all jobs: {np.mean(_jct_data)} | Reduction ratio: {_ratio}")
 
 
 ##################################

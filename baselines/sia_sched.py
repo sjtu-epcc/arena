@@ -26,13 +26,13 @@ from macro.macro_def import (SUPPORTED_GPU_NUM_LIST, INFEASIBLE_THR, MAX_SUPPORT
                              JOB_RUNNING_STATUS, JOB_PENDING_STATUS, MAX_RESCHED_OVERHEAD_WITHOUT_PRUNE)
 
 # Hyperparameters adopted from: https://github.com/siasosp23/artifacts/tree/main 
-p_fairness = 0.5                # Fairness of allocations in Sia as selected in the paper
+p_fairness = 0.5                # Fairness of allocations in Sia
 sia_goodput_clip_val = 3000.0   # Clip normalized goodput values to this if any larger
-not_alloc_penalty = -1          # Penalty factor for not allocating a device configuration. As our scheduler always best-effort
+not_alloc_penalty = -1e3        # Penalty factor for not allocating a device configuration. As our scheduler always best-effort
                                 # admit jobs, we set this penalty large (as described in Sia paper) for fairness.
 sia_solver = "glpk"             # Used MILP solver
-MAX_MGRT_JOB_NUM = 5            # Job num to be migrated one job-allocating round
-MAX_JOB_NUM_PARTITION = 200     # Maximum job num in each optimizing partition to control problem size
+MAX_MGRT_JOB_NUM = 3            # Job num to be migrated one job-allocating round
+MAX_JOB_NUM_PARTITION = 10000   # Maximum job num in each optimizing partition to control problem size
 
 
 class SiaSched(Scheduler):
@@ -119,15 +119,15 @@ class SiaSched(Scheduler):
             # NOTE: Cannot directly use `sched_with_opt`, because it also uses linear estimation for AP
             # NOTE: We try enable random pending job restart...
             # min_gpu_num_precise_ap = 1
-            min_gpu_num_precise_ap = 16
-            if num_gpus <= min_gpu_num_precise_ap:
-                # Directly query AP performance
-                (_, thr, _) = self.db_querier.query_db(
-                    QueryConfigs(num_hosts, num_devices_per_host, gpu_type, model_name, param_num, 
-                                 batch_size, only_opt=True),
-                    force_opt=True,
-                )
-                return thr
+            # min_gpu_num_precise_ap = 16
+            # if num_gpus <= min_gpu_num_precise_ap:
+            #     # Directly query AP performance
+            #     (_, thr, _) = self.db_querier.query_db(
+            #         QueryConfigs(num_hosts, num_devices_per_host, gpu_type, model_name, param_num, 
+            #                      batch_size, only_opt=True),
+            #         force_opt=True,
+            #     )
+            #     return thr
             
             # Check OOM. If so, return infeasible throughput
             # We don't use the profiled throughput directly, only for OOM check. Instead, we 

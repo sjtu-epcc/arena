@@ -6,9 +6,9 @@ We provide the source codes and the benchmarking scripts to reproduce the major 
 The major claims of Arena system include:
 
 1. Arena's disaggregated profiler achieves average error
-rates of 4.4%, 5.1%, 3.1%, 4.6%, and 8.3% for 1, 2, 4, 8, and 16 GPU cases; Arena reduces the GPU time (i.e., elapsed time × occupied GPU count) by $18.1\times$ on average ($2.55\times$ at least), as compared to direct measurement.
+rates of 4.4%, 5.1%, 3.1%, 4.6%, and 8.3% for 1, 2, 4, 8, and 16 GPU cases; Arena reduces the GPU time (i.e., elapsed time × occupied GPU count) by 18.1x on average (2.55x at least), as compared to direct measurement.
 2. In Arena's parallelism planner, the best proxy plan (used for scheduling) among grids achieves average 93.4% performance of the AP searched optimal plan, thus is accurate enough to achieve AP-aware cluster scheduling.
-3. With AP-aware scheduling, Arena scheduler reduces average job completion time (JCT) by 81.3% (FCFS), 80.5% (ElasticFlow-LS), 76.6% (Gavel) and 75.2% (Sia), completing up to $1.45\times$ more jobs. From the cluster perspective, Arena outperforms baselines with up to $1.55\times$ higher average throughput and $1.58\times$ higher peak throughput.
+3. With AP-aware scheduling, Arena scheduler reduces average job completion time (JCT) by 81.3% (FCFS), 80.5% (ElasticFlow-LS), 76.6% (Gavel) and 75.2% (Sia), completing up to 1.45x more jobs. From the cluster perspective, Arena outperforms baselines with up to 1.55x higher average throughput and 1.58x higher peak throughput.
 
 Since the full-fleet evaluation involves tens to hundreds of GPUs, for reproducibility, the artifact mainly uses 4 A40 GPUs (see hardware dependencies below) unless specified.
 
@@ -127,7 +127,7 @@ As listed in Table 2 and `./runtime/crius_worker/jax/configs.py`, users can flex
 
 We then provide the instructions to run Arena's parallelism planner to evaluate the performance of the best proxy plan (used for cluster scheduling) among all grids, compared to the AP searched optimal plan. 
 
-Within a grid, the parallelism planning process includes the following steps: (1) Cluster layers with best-effort balance on layer FLOPs and minimal inter-stages communication; (2) Shard GPUs with GPU fraction allocated to each layer; (3) Enumerate the Pareto-optimal parallelism plans within the grid:
+Within a grid (with fixed resources and number of pipeline stages), the parallelism planning process includes the following steps: (1) Cluster layers with best-effort balance on layer FLOPs and minimal inter-stages communication; (2) Shard GPUs with GPU fraction allocated to each layer; (3) Enumerate the Pareto-optimal parallelism plans within the grid:
 
 ```bash
 # Enable arena profiler
@@ -190,14 +190,23 @@ In our 1x4 A40 node, the arena-estimated/alpa-optimized e2e iteration time is 10
 The simulation requires offline profiling all training jobs by enumerating possible combinations of models (e.g., GPT-1.3B), hyperparameters (e.g., global batch size 256), and allocated hardware (e.g., 1x4 A40 GPUs) as listed in Table 1 and 2. 
 Here, to avoid extensive offline profiling for artifact evaluation, we have provided our profiling data in `./database/prof_database.pkl` (raw data in `./runtime/jaxpr/prof_log/`) that includes Arena's estimated data, data profiled via data parallelism, and Alpa's searched data. 
 
-To run large-scale simulated scheduling with 1,280 GPUs and Philly trace (Figure 11, Figure 12), use the following instructions:
+To run large-scale simulated scheduling with 1,280 GPUs and Philly trace (Figure 11, Figure 12), use the following instructions (`[POLICY]` includes `fcfs`, `elasticflow-l`, `gavel`, and `sia`):
 
 ```bash
 cd ./
 # For Arena
 python simulator.py --policy=crius --trace_type=philly --sched_with_opt --max_sched_round=2000 --enable_alpa --result_dir=./plot
-# For other baselines: fcfs, elasticflow-l, gavel, sia
+# For other baselines
 python simulator.py --policy=[POLICY] --trace_type=philly --max_sched_round=2000 --enable_alpa --result_dir=./plot
 ```
+
+We also provide scripts to visualize the results (`[METRIC]` includes `thr`, `jct`, and `queuing_time`):
+
+```bash
+python simulator.py --visual --visualized_metric=[METRIC] --result_dir=./plot --out_dir=./figures --trace_type=philly
+```
+
+For throughput metric, users can both inspect average/maximum values in console logs and visualized curves (Figure 11) in `./figures/cluster_thr.pdf`.
+For JCT, number of finished jobs, and queuing time metrics, users can inspect results in console logs.
 
 

@@ -101,7 +101,9 @@ RUN . /opt/conda/etc/profile.d/conda.sh && \
 RUN . /opt/conda/etc/profile.d/conda.sh && \
     conda activate alpa && \
     pip3 install orjson && \
-    pip3 install statsmodels
+    pip3 install statsmodels && \
+    pip3 install cplex && \
+    pip3 install cvxopt
 
 #########################################
 #         Alpa Installation End         # 
