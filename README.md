@@ -1,5 +1,7 @@
 # Arena Artifact Evaluation for EuroSys'26
 
+> This artifact has also been uploaded to Zenodo at: https://zenodo.org/records/18870526
+
 Arena is a large model training system to dynamically schedule and efficiently execute large models with adaptive parallelism in GPU clusters.
 We provide the source codes and the benchmarking scripts to reproduce the major experimental results of Arena. 
 
